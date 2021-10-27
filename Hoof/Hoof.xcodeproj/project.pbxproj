@@ -15,6 +15,17 @@
 		5002EAE3272726C000740144 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5002EAE1272726C000740144 /* LaunchScreen.storyboard */; };
 		5002EAEE272726C000740144 /* HoofTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002EAED272726C000740144 /* HoofTests.swift */; };
 		5002EAF9272726C000740144 /* HoofUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002EAF8272726C000740144 /* HoofUITests.swift */; };
+		5002EB0C2727298700740144 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5002EB0A2727298700740144 /* Interface.storyboard */; };
+		5002EB0E2727298800740144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5002EB0D2727298800740144 /* Assets.xcassets */; };
+		5002EB152727298800740144 /* WatchHoof Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 5002EB142727298800740144 /* WatchHoof Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		5002EB1A2727298800740144 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002EB192727298800740144 /* InterfaceController.swift */; };
+		5002EB1C2727298800740144 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002EB1B2727298800740144 /* ExtensionDelegate.swift */; };
+		5002EB1E2727298800740144 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002EB1D2727298800740144 /* NotificationController.swift */; };
+		5002EB202727298800740144 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002EB1F2727298800740144 /* ComplicationController.swift */; };
+		5002EB222727298900740144 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5002EB212727298900740144 /* Assets.xcassets */; };
+		5002EB2E2727298900740144 /* WatchHoofTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002EB2D2727298900740144 /* WatchHoofTests.swift */; };
+		5002EB392727298900740144 /* WatchHoofUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5002EB382727298900740144 /* WatchHoofUITests.swift */; };
+		5002EB3D2727298900740144 /* WatchHoof.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 5002EB082727298700740144 /* WatchHoof.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +43,60 @@
 			remoteGlobalIDString = 5002EAD2272726BD00740144;
 			remoteInfo = Hoof;
 		};
+		5002EB162727298800740144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5002EACB272726BD00740144 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5002EB132727298800740144;
+			remoteInfo = "WatchHoof Extension";
+		};
+		5002EB2A2727298900740144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5002EACB272726BD00740144 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5002EB132727298800740144;
+			remoteInfo = "WatchHoof Extension";
+		};
+		5002EB352727298900740144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5002EACB272726BD00740144 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5002EB072727298700740144;
+			remoteInfo = WatchHoof;
+		};
+		5002EB3B2727298900740144 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5002EACB272726BD00740144 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5002EB072727298700740144;
+			remoteInfo = WatchHoof;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5002EB412727298900740144 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				5002EB152727298800740144 /* WatchHoof Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5002EB452727298900740144 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				5002EB3D2727298900740144 /* WatchHoof.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5002EAD3272726BD00740144 /* Hoof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hoof.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +113,24 @@
 		5002EAF4272726C000740144 /* HoofUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HoofUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5002EAF8272726C000740144 /* HoofUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoofUITests.swift; sourceTree = "<group>"; };
 		5002EAFA272726C000740144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5002EB082727298700740144 /* WatchHoof.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WatchHoof.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5002EB0B2727298700740144 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		5002EB0D2727298800740144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5002EB0F2727298800740144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5002EB142727298800740144 /* WatchHoof Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "WatchHoof Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5002EB192727298800740144 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		5002EB1B2727298800740144 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		5002EB1D2727298800740144 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		5002EB1F2727298800740144 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		5002EB212727298900740144 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5002EB232727298900740144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5002EB242727298900740144 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		5002EB292727298900740144 /* WatchHoofTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchHoofTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5002EB2D2727298900740144 /* WatchHoofTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHoofTests.swift; sourceTree = "<group>"; };
+		5002EB2F2727298900740144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5002EB342727298900740144 /* WatchHoofUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WatchHoofUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5002EB382727298900740144 /* WatchHoofUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchHoofUITests.swift; sourceTree = "<group>"; };
+		5002EB3A2727298900740144 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +155,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5002EB112727298800740144 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5002EB262727298900740144 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5002EB312727298900740144 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -82,6 +185,10 @@
 				5002EAD5272726BD00740144 /* Hoof */,
 				5002EAEC272726C000740144 /* HoofTests */,
 				5002EAF7272726C000740144 /* HoofUITests */,
+				5002EB092727298700740144 /* WatchHoof */,
+				5002EB182727298800740144 /* WatchHoof Extension */,
+				5002EB2C2727298900740144 /* WatchHoofTests */,
+				5002EB372727298900740144 /* WatchHoofUITests */,
 				5002EAD4272726BD00740144 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +199,10 @@
 				5002EAD3272726BD00740144 /* Hoof.app */,
 				5002EAE9272726C000740144 /* HoofTests.xctest */,
 				5002EAF4272726C000740144 /* HoofUITests.xctest */,
+				5002EB082727298700740144 /* WatchHoof.app */,
+				5002EB142727298800740144 /* WatchHoof Extension.appex */,
+				5002EB292727298900740144 /* WatchHoofTests.xctest */,
+				5002EB342727298900740144 /* WatchHoofUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +239,48 @@
 			path = HoofUITests;
 			sourceTree = "<group>";
 		};
+		5002EB092727298700740144 /* WatchHoof */ = {
+			isa = PBXGroup;
+			children = (
+				5002EB0A2727298700740144 /* Interface.storyboard */,
+				5002EB0D2727298800740144 /* Assets.xcassets */,
+				5002EB0F2727298800740144 /* Info.plist */,
+			);
+			path = WatchHoof;
+			sourceTree = "<group>";
+		};
+		5002EB182727298800740144 /* WatchHoof Extension */ = {
+			isa = PBXGroup;
+			children = (
+				5002EB192727298800740144 /* InterfaceController.swift */,
+				5002EB1B2727298800740144 /* ExtensionDelegate.swift */,
+				5002EB1D2727298800740144 /* NotificationController.swift */,
+				5002EB1F2727298800740144 /* ComplicationController.swift */,
+				5002EB212727298900740144 /* Assets.xcassets */,
+				5002EB232727298900740144 /* Info.plist */,
+				5002EB242727298900740144 /* PushNotificationPayload.apns */,
+			);
+			path = "WatchHoof Extension";
+			sourceTree = "<group>";
+		};
+		5002EB2C2727298900740144 /* WatchHoofTests */ = {
+			isa = PBXGroup;
+			children = (
+				5002EB2D2727298900740144 /* WatchHoofTests.swift */,
+				5002EB2F2727298900740144 /* Info.plist */,
+			);
+			path = WatchHoofTests;
+			sourceTree = "<group>";
+		};
+		5002EB372727298900740144 /* WatchHoofUITests */ = {
+			isa = PBXGroup;
+			children = (
+				5002EB382727298900740144 /* WatchHoofUITests.swift */,
+				5002EB3A2727298900740144 /* Info.plist */,
+			);
+			path = WatchHoofUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,10 +291,12 @@
 				5002EACF272726BD00740144 /* Sources */,
 				5002EAD0272726BD00740144 /* Frameworks */,
 				5002EAD1272726BD00740144 /* Resources */,
+				5002EB452727298900740144 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5002EB3C2727298900740144 /* PBXTargetDependency */,
 			);
 			name = Hoof;
 			productName = Hoof;
@@ -184,6 +339,76 @@
 			productReference = 5002EAF4272726C000740144 /* HoofUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		5002EB072727298700740144 /* WatchHoof */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5002EB422727298900740144 /* Build configuration list for PBXNativeTarget "WatchHoof" */;
+			buildPhases = (
+				5002EB062727298700740144 /* Resources */,
+				5002EB412727298900740144 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5002EB172727298800740144 /* PBXTargetDependency */,
+			);
+			name = WatchHoof;
+			productName = WatchHoof;
+			productReference = 5002EB082727298700740144 /* WatchHoof.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		5002EB132727298800740144 /* WatchHoof Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5002EB3E2727298900740144 /* Build configuration list for PBXNativeTarget "WatchHoof Extension" */;
+			buildPhases = (
+				5002EB102727298800740144 /* Sources */,
+				5002EB112727298800740144 /* Frameworks */,
+				5002EB122727298800740144 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "WatchHoof Extension";
+			productName = "WatchHoof Extension";
+			productReference = 5002EB142727298800740144 /* WatchHoof Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
+		5002EB282727298900740144 /* WatchHoofTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5002EB462727298900740144 /* Build configuration list for PBXNativeTarget "WatchHoofTests" */;
+			buildPhases = (
+				5002EB252727298900740144 /* Sources */,
+				5002EB262727298900740144 /* Frameworks */,
+				5002EB272727298900740144 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5002EB2B2727298900740144 /* PBXTargetDependency */,
+			);
+			name = WatchHoofTests;
+			productName = WatchHoofTests;
+			productReference = 5002EB292727298900740144 /* WatchHoofTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		5002EB332727298900740144 /* WatchHoofUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5002EB492727298900740144 /* Build configuration list for PBXNativeTarget "WatchHoofUITests" */;
+			buildPhases = (
+				5002EB302727298900740144 /* Sources */,
+				5002EB312727298900740144 /* Frameworks */,
+				5002EB322727298900740144 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5002EB362727298900740144 /* PBXTargetDependency */,
+			);
+			name = WatchHoofUITests;
+			productName = WatchHoofUITests;
+			productReference = 5002EB342727298900740144 /* WatchHoofUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -204,6 +429,20 @@
 						CreatedOnToolsVersion = 12.5.1;
 						TestTargetID = 5002EAD2272726BD00740144;
 					};
+					5002EB072727298700740144 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					5002EB132727298800740144 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					5002EB282727298900740144 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 5002EB132727298800740144;
+					};
+					5002EB332727298900740144 = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 5002EB072727298700740144;
+					};
 				};
 			};
 			buildConfigurationList = 5002EACE272726BD00740144 /* Build configuration list for PBXProject "Hoof" */;
@@ -222,6 +461,10 @@
 				5002EAD2272726BD00740144 /* Hoof */,
 				5002EAE8272726C000740144 /* HoofTests */,
 				5002EAF3272726C000740144 /* HoofUITests */,
+				5002EB072727298700740144 /* WatchHoof */,
+				5002EB132727298800740144 /* WatchHoof Extension */,
+				5002EB282727298900740144 /* WatchHoofTests */,
+				5002EB332727298900740144 /* WatchHoofUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -245,6 +488,37 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5002EAF2272726C000740144 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5002EB062727298700740144 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5002EB0E2727298800740144 /* Assets.xcassets in Resources */,
+				5002EB0C2727298700740144 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5002EB122727298800740144 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5002EB222727298900740144 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5002EB272727298900740144 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5002EB322727298900740144 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -280,6 +554,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5002EB102727298800740144 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5002EB1E2727298800740144 /* NotificationController.swift in Sources */,
+				5002EB202727298800740144 /* ComplicationController.swift in Sources */,
+				5002EB1C2727298800740144 /* ExtensionDelegate.swift in Sources */,
+				5002EB1A2727298800740144 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5002EB252727298900740144 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5002EB2E2727298900740144 /* WatchHoofTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5002EB302727298900740144 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5002EB392727298900740144 /* WatchHoofUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -292,6 +593,26 @@
 			isa = PBXTargetDependency;
 			target = 5002EAD2272726BD00740144 /* Hoof */;
 			targetProxy = 5002EAF5272726C000740144 /* PBXContainerItemProxy */;
+		};
+		5002EB172727298800740144 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5002EB132727298800740144 /* WatchHoof Extension */;
+			targetProxy = 5002EB162727298800740144 /* PBXContainerItemProxy */;
+		};
+		5002EB2B2727298900740144 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5002EB132727298800740144 /* WatchHoof Extension */;
+			targetProxy = 5002EB2A2727298900740144 /* PBXContainerItemProxy */;
+		};
+		5002EB362727298900740144 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5002EB072727298700740144 /* WatchHoof */;
+			targetProxy = 5002EB352727298900740144 /* PBXContainerItemProxy */;
+		};
+		5002EB3C2727298900740144 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5002EB072727298700740144 /* WatchHoof */;
+			targetProxy = 5002EB3B2727298900740144 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -310,6 +631,14 @@
 				5002EAE2272726C000740144 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5002EB0A2727298700740144 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5002EB0B2727298700740144 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -553,6 +882,178 @@
 			};
 			name = Release;
 		};
+		5002EB3F2727298900740144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
+				INFOPLIST_FILE = "WatchHoof Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Hoof.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		5002EB402727298900740144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
+				INFOPLIST_FILE = "WatchHoof Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Hoof.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		5002EB432727298900740144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
+				IBSC_MODULE = WatchHoof_Extension;
+				INFOPLIST_FILE = WatchHoof/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Hoof.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		5002EB442727298900740144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
+				IBSC_MODULE = WatchHoof_Extension;
+				INFOPLIST_FILE = WatchHoof/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Hoof.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		5002EB472727298900740144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
+				INFOPLIST_FILE = WatchHoofTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Hoof.WatchHoofTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchHoof Extension.appex/WatchHoof Extension";
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		5002EB482727298900740144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
+				INFOPLIST_FILE = WatchHoofTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Hoof.WatchHoofTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WatchHoof Extension.appex/WatchHoof Extension";
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
+		5002EB4A2727298900740144 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
+				INFOPLIST_FILE = WatchHoofUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Hoof.WatchHoofUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = WatchHoof;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Debug;
+		};
+		5002EB4B2727298900740144 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
+				INFOPLIST_FILE = WatchHoofUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Hoof.WatchHoofUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = WatchHoof;
+				WATCHOS_DEPLOYMENT_TARGET = 7.4;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -588,6 +1089,42 @@
 			buildConfigurations = (
 				5002EB04272726C000740144 /* Debug */,
 				5002EB05272726C000740144 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5002EB3E2727298900740144 /* Build configuration list for PBXNativeTarget "WatchHoof Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5002EB3F2727298900740144 /* Debug */,
+				5002EB402727298900740144 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5002EB422727298900740144 /* Build configuration list for PBXNativeTarget "WatchHoof" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5002EB432727298900740144 /* Debug */,
+				5002EB442727298900740144 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5002EB462727298900740144 /* Build configuration list for PBXNativeTarget "WatchHoofTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5002EB472727298900740144 /* Debug */,
+				5002EB482727298900740144 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5002EB492727298900740144 /* Build configuration list for PBXNativeTarget "WatchHoofUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5002EB4A2727298900740144 /* Debug */,
+				5002EB4B2727298900740144 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
