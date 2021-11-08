@@ -1,0 +1,59 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+ use_frameworks!
+
+ def shared_pods
+    pod 'CoreGPX'
+end
+
+# Common modules
+
+# Feature modules
+target 'Home' do
+  project 'Features/Home/Home'
+  shared_core_pods
+  
+  target 'HomeTests' do
+    inherit! :search_paths
+    shared_pods
+  end
+end
+
+# Apps
+target 'Hoof' do
+  # Pods for Hoof
+  shared_pods
+  pod 'MapCache', '~> 0.9.0'
+
+  target 'HoofTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'HoofUITests' do
+    # Pods for testing
+  end
+
+end
+
+target 'WatchHoof' do
+  # Pods for WatchHoof
+
+  target 'WatchHoofTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'WatchHoofUITests' do
+    # Pods for testing
+  end
+
+end
+
+target 'WatchHoof Extension' do
+
+  # Pods for WatchHoof Extension
+  shared_pods
+
+end

@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-Hoof/Pods-Hoof-frameworks.sh
+${BUILT_PRODUCTS_DIR}/CoreGPX-iOS/CoreGPX.framework
+${BUILT_PRODUCTS_DIR}/MapCache/MapCache.framework

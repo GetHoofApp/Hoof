@@ -1,0 +1,6 @@
+framework module Pods_WatchHoof_Extension {
+  umbrella header "Pods-WatchHoof Extension-umbrella.h"
+
+  export *
+  module * { export * }
+}

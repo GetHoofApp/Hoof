@@ -1,0 +1,60 @@
+
+/* Class = "WKInterfaceLabel"; text = "speedValue"; ObjectID = "0iK-qI-v0E"; */
+"0iK-qI-v0E.text" = "speedValue";
+
+/* Class = "WKInterfaceLabel"; text = "Goals"; ObjectID = "1Em-kW-kuF"; */
+"1Em-kW-kuF.text" = "Goals";
+
+/* Class = "WKInterfaceLabel"; text = "ALTITUDE"; ObjectID = "3IP-zY-F6L"; */
+"3IP-zY-F6L.text" = "ALTITUDE";
+
+/* Class = "WKInterfaceLabel"; text = "altValue"; ObjectID = "7fH-Oq-QTY"; */
+"7fH-Oq-QTY.text" = "altValue";
+
+/* Class = "WKInterfaceLabel"; text = "signal"; ObjectID = "8sl-jA-h6g"; */
+"8sl-jA-h6g.text" = "signal";
+
+/* Class = "WKInterfaceLabel"; text = "coordinatesLabel"; ObjectID = "BH4-nv-fJm"; */
+"BH4-nv-fJm.text" = "coordinatesLabel";
+
+/* Class = "WKInterfaceLabel"; text = "Alert Label"; ObjectID = "IdU-wH-bcW"; */
+"IdU-wH-bcW.text" = "Alert Label";
+
+/* Class = "WKInterfaceButton"; title = "📍"; ObjectID = "MAt-Wt-XuH"; */
+"MAt-Wt-XuH.title" = "📍";
+
+/* Class = "WKInterfaceButton"; title = "Start Tracking"; ObjectID = "SJ6-dc-LeR"; */
+"SJ6-dc-LeR.title" = "Start Tracking";
+
+/* Class = "WKInterfaceLabel"; text = "2"; ObjectID = "X0D-wu-jYW"; */
+"X0D-wu-jYW.text" = "2";
+
+/* Class = "WKInterfaceLabel"; text = "SPEED"; ObjectID = "aFz-R1-H1K"; */
+"aFz-R1-H1K.text" = "SPEED";
+
+/* Class = "WKInterfaceLabel"; text = "0m"; ObjectID = "aZk-xb-ku8"; */
+"aZk-xb-ku8.text" = "0m";
+
+/* Class = "WKInterfaceLabel"; text = "2"; ObjectID = "b07-Za-JvS"; */
+"b07-Za-JvS.text" = "2";
+
+/* Class = "WKInterfaceButton"; title = "Start"; ObjectID = "cZQ-Cs-Row"; */
+"cZQ-Cs-Row.title" = "Start";
+
+/* Class = "WKInterfaceButton"; title = "Reset"; ObjectID = "d4y-r9-pFp"; */
+"d4y-r9-pFp.title" = "Reset";
+
+/* Class = "WKInterfaceButton"; title = "View files"; ObjectID = "haS-K1-sLh"; */
+"haS-K1-sLh.title" = "View files";
+
+/* Class = "WKInterfaceButton"; title = "Save"; ObjectID = "p8a-zX-A4M"; */
+"p8a-zX-A4M.title" = "Save";
+
+/* Class = "WKInterfaceLabel"; text = "Assists"; ObjectID = "yiy-xE-q9f"; */
+"yiy-xE-q9f.text" = "Assists";
+
+/* Class = "WKInterfaceLabel"; text = "COORDINATES"; ObjectID = "zYD-8I-6NJ"; */
+"zYD-8I-6NJ.text" = "COORDINATES";
+
+/* Class = "WKInterfaceLabel"; text = "00:00"; ObjectID = "zmt-X3-QDE"; */
+"zmt-X3-QDE.text" = "00:00";

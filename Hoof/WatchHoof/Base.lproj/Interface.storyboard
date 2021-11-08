@@ -129,7 +129,7 @@
         <!--Interface Controller-->
         <scene sceneID="PYm-R5-KPU">
             <objects>
-                <controller id="kqr-Vn-L9P" customClass="InterfaceController" customModule="OpenGpxTracker_Watch" customModuleProvider="target">
+                <controller id="kqr-Vn-L9P" customClass="InterfaceController" customModule="WatchHoof" customModuleProvider="target">
                     <items>
                         <group width="1" height="151" alignment="left" layout="vertical" id="f1v-dj-Z90" userLabel="Main Page">
                             <items>
@@ -165,9 +165,6 @@
                                     <items>
                                         <button width="0.5" widthAdjustment="-3" height="0.80000000000000004" alignment="left" title="Save" id="p8a-zX-A4M">
                                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <connections>
-                                                <action selector="saveButtonTapped" destination="kqr-Vn-L9P" id="8XR-wk-EpR"/>
-                                            </connections>
                                         </button>
                                         <button width="0.5" widthAdjustment="-3" height="0.80000000000000004" alignment="right" title="Reset" id="d4y-r9-pFp">
                                             <color key="backgroundColor" red="0.8909026015" green="0.1078473939" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -254,8 +251,8 @@
                         <outlet property="signalImageView" destination="nBI-nj-QkE" id="9h8-tp-566"/>
                         <outlet property="speedLabel" destination="0iK-qI-v0E" id="WxF-gT-eCh"/>
                         <outlet property="timeLabel" destination="zmt-X3-QDE" id="g3h-EJ-10d"/>
-                        <outlet property="totalTrackedDistanceLabel" destination="aZk-xb-ku8" id="IxC-lH-4yv"/>
-                        <outlet property="trackerButton" destination="SJ6-dc-LeR" id="D4k-NH-80c"/>
+                        <outlet property="totalTrackedDistanceLabel" destination="aZk-xb-ku8" id="NTM-fC-VZi"/>
+                        <outlet property="trackerButton" destination="SJ6-dc-LeR" id="4yu-Qp-KuE"/>
                         <segue destination="URo-5y-0oR" kind="relationship" relationship="nextPage" id="svq-E9-cW9"/>
                     </connections>
                 </controller>

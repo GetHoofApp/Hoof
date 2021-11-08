@@ -187,19 +187,19 @@ class InterfaceController: WKInterfaceController {
         print("InterfaceController:: awake")
         super.awake(withContext: context)
 
-        totalTrackedDistanceLabel.setText( 0.00.toDistance(useImperial: preferences.useImperial))
+//        totalTrackedDistanceLabel.setText( 0.00.toDistance(useImperial: preferences.useImperial))
         
         if gpxTrackingStatus == .notStarted {
-            trackerButton.setBackgroundColor(kGreenButtonBackgroundColor)
-            newPinButton.setBackgroundColor(kWhiteBackgroundColor)
-            saveButton.setBackgroundColor(kDisabledRedButtonBackgroundColor)
-            resetButton.setBackgroundColor(kDisabledBlueButtonBackgroundColor)
-            
-            coordinatesLabel.setText(kNotGettingLocationText)
-            signalAccuracyLabel.setText(kUnknownAccuracyText)
-            altitudeLabel.setText(kUnknownAltitudeText)
-            speedLabel.setText(kUnknownSpeedText)
-            signalImageView.setImage(signalImage0)
+//            trackerButton.setBackgroundColor(kGreenButtonBackgroundColor)
+//            newPinButton.setBackgroundColor(kWhiteBackgroundColor)
+//            saveButton.setBackgroundColor(kDisabledRedButtonBackgroundColor)
+//            resetButton.setBackgroundColor(kDisabledBlueButtonBackgroundColor)
+//            
+//            coordinatesLabel.setText(kNotGettingLocationText)
+//            signalAccuracyLabel.setText(kUnknownAccuracyText)
+//            altitudeLabel.setText(kUnknownAltitudeText)
+//            speedLabel.setText(kUnknownSpeedText)
+//            signalImageView.setImage(signalImage0)
         }
     }
 
