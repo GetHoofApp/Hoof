@@ -7,9 +7,15 @@ workspace 'Hoof.xcworkspace'
 
  def shared_pods
     pod 'CoreGPX'
+    pod 'RxSwift', '~> 5'
+    pod 'RxCocoa', '~> 5'
 end
 
 # Common modules
+target 'Core' do
+  project 'Common/Core/Core'
+  shared_pods
+end
 
 # Feature modules
 target 'Home' do

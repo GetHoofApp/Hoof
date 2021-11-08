@@ -1,20 +1,34 @@
 PODS:
   - CoreGPX (0.9.0)
   - MapCache (0.9.0)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.1)
 
 DEPENDENCIES:
   - CoreGPX
   - MapCache (~> 0.9.0)
+  - RxCocoa (~> 5)
+  - RxSwift (~> 5)
 
 SPEC REPOS:
   trunk:
     - CoreGPX
     - MapCache
+    - RxCocoa
+    - RxRelay
+    - RxSwift
 
 SPEC CHECKSUMS:
   CoreGPX: 1381c8c47428c3a6bcac2f93d25ca1c5e3525811
   MapCache: b0a9f5f9a0ed7cbac45443fea0e7e03a97bf0c66
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
 
-PODFILE CHECKSUM: c4545e1893963d2cfb4ce1149b937918b843ab4c
+PODFILE CHECKSUM: e5a1b3a810f0484b7d06ef95fe32764bfa8495ce
 
 COCOAPODS: 1.8.4
