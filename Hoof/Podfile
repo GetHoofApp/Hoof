@@ -3,6 +3,8 @@
 
  use_frameworks!
 
+workspace 'Hoof.xcworkspace'
+
  def shared_pods
     pod 'CoreGPX'
 end
@@ -12,8 +14,8 @@ end
 # Feature modules
 target 'Home' do
   project 'Features/Home/Home'
-  shared_core_pods
-  
+  shared_pods
+
   target 'HomeTests' do
     inherit! :search_paths
     shared_pods

@@ -4,6 +4,9 @@
    <Group
       location = "group:Common"
       name = "Common">
+      <FileRef
+         location = "group:Core/Core.xcodeproj">
+      </FileRef>
    </Group>
    <Group
       location = "group:Features"
