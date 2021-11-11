@@ -12,6 +12,9 @@
       location = "group:Features"
       name = "Features">
       <FileRef
+         location = "group:Map/Map.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Home/Home.xcodeproj">
       </FileRef>
    </Group>

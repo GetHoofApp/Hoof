@@ -28,6 +28,16 @@ target 'Home' do
   end
 end
 
+target 'Map' do
+  project 'Features/Map/Map'
+  shared_pods
+
+  target 'MapTests' do
+    inherit! :search_paths
+    shared_pods
+  end
+end
+
 # Apps
 target 'Hoof' do
   # Pods for Hoof
