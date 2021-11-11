@@ -7,18 +7,15 @@
 //
 
 import UIKit
+import Core
 
-protocol HomeModuleBuildable: ModuleBuildable {}
+public protocol HomeModuleBuildable: ModuleBuildable {
+    func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>?
+}
 
-class HomeModuleBuilder: HomeModuleBuildable {
-    
-    private let container: DependencyManager
-    
-    public init(container: DependencyManager) {
-        self.container = container
-    }
-    
-    func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
+public class HomeModuleBuilder: Builder<EmptyDependency>, HomeModuleBuildable {
+
+    public func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
         registerService()
         registerUsecase()
         registerViewModel()
@@ -44,17 +41,8 @@ private extension HomeModuleBuilder {
     }
     
     func registerService() {
-        container.register(ServiceErrorListener.self) { TemperServiceErrorListener() }
-        container.register(CoreConfiguration.self) { CoreConfiguration.sharedInstance }
-        container.register(GraphQLClientProtocol.self) { [weak self] in
-            guard let coreConfiguration = self?.container.resolve(CoreConfiguration.self) else { return nil }
-            return GraphQLClient(withConfiguration: coreConfiguration)
-        }
-        
-        container.register(HomeServicePerforming.self) { [weak self] in
-            guard let client = self?.container.resolve(GraphQLClientProtocol.self),
-                let listener = self?.container.resolve(ServiceErrorListener.self) else { return nil }
-            return HomeService(client: client, serviceErrorListener: listener)
+        container.register(HomeServicePerforming.self) {
+            return HomeService()
         }
     }
     

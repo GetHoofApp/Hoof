@@ -6,7 +6,10 @@
 //  Copyright © 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-protocol HomeViewModellable: class {
+import Core
+import RxSwift
+
+protocol HomeViewModellable: ViewModellable {
     var inputs: HomeViewModelInputs { get }
     var outputs: HomeViewModelOutputs { get }
 }
@@ -16,6 +19,7 @@ struct HomeViewModelInputs {}
 struct HomeViewModelOutputs {}
 
 class HomeViewModel: HomeViewModellable {
+    let disposeBag = DisposeBag()
 
     let inputs = HomeViewModelInputs()
     let outputs = HomeViewModelOutputs()

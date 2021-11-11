@@ -6,6 +6,9 @@
 //  Copyright © 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
+import RxSwift
+import Core
+
 class HomeCoordinator: BaseCoordinator<Void> {
     
     private weak var rootViewController: NavigationControllable?
@@ -16,9 +19,9 @@ class HomeCoordinator: BaseCoordinator<Void> {
         self.viewController = viewController
     }
     
-    override public func start() -> Observable<Void> {
-        rootViewController?.pushViewController(viewController, animated: true)
-        
+    override public func start() -> Observable<Void> {        
+        rootViewController?.setViewControllers([viewController], animated: true)
+
         return .never()
     }
 }
