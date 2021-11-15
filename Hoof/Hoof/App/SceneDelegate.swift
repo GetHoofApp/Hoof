@@ -27,6 +27,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 preconditionFailure("[SceneDelegate] Cannot get appRootCoordinator from module builder")
             }
             
+            UIUtil.setBasicAppearance()
+            
             appRootCoordinator.start()
                 .subscribe()
                 .disposed(by: disposeBag)
@@ -34,3 +36,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
+open class UIUtil {
+    
+    public static func setBasicAppearance() {
+        UITabBar.appearance().isTranslucent = false
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 187/255, green: 187/255, blue: 187/255, alpha: 1.0)], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)], for: .selected)
+        
+        UITabBar.appearance().tintColor = UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)
+    }
+
+}

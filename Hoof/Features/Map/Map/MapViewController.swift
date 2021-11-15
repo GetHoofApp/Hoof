@@ -7,29 +7,40 @@
 //
 
 import UIKit
-import Utils
+import Core
 
-class MapViewController: UIViewController, ViewModelDependable {
-
-    typealias ViewModel = MapViewModellable
-	var viewModel: ViewModel!
-
+class MapViewController: ViewController<MapViewModel> {
+    
 	override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-}
-
-// MARK: - setupUI
-
-extension MapViewController {
-
-    func setupUI() {}
-
-    func setupConstraints() {}
-
-    func setupObservers() {}
+    
+    // MARK: - setupUI
+    
+    override func setupUI() {
+        setupSubviews()
+        setupConstraints()
+        setupNavogationBar()
+        setupObservers()
+        
+        view.backgroundColor = .white
+    }
+    
+    override func setupConstraints() {}
+    
+    func setupSubviews() {}
+    
+    private func setupNavogationBar() {
+        title = "Discover"
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func setupObservers() {}
 }

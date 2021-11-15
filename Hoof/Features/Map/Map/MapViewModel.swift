@@ -7,10 +7,9 @@
 //
 
 import RxSwift
-import Utils
+import Core
 
-protocol MapViewModellable: class {
-    var disposeBag: DisposeBag { get }
+protocol MapViewModellable: ViewModellable {
     var inputs: MapViewModelInputs { get }
     var outputs: MapViewModelOutputs { get }
 }

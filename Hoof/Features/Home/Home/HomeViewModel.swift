@@ -19,8 +19,8 @@ struct HomeViewModelInputs {}
 struct HomeViewModelOutputs {}
 
 class HomeViewModel: HomeViewModellable {
+    
     let disposeBag = DisposeBag()
-
     let inputs = HomeViewModelInputs()
     let outputs = HomeViewModelOutputs()
     var useCase: HomeInteractable

@@ -8,12 +8,17 @@
 import Core
 import Home
 import UIKit
+import Map
 
 /// Provides all dependencies to build the AppRootCoordinator
 private final class RootDependencyProvider: DependencyProvider<EmptyDependency> {
         
     fileprivate var homeModuleBuilder: HomeModuleBuildable {
         HomeModuleBuilder()
+    }
+    
+    fileprivate var mapModuleBuilder: MapModuleBuildable {
+        MapModuleBuilder()
     }
 }
 
@@ -25,7 +30,7 @@ final class RootBuilder: Builder<EmptyDependency>, RootBuildable {
     
     func buildModule<T>(with window: UIWindow) -> Module<T>? {
         let dependencyProvider = RootDependencyProvider()
-        let appRootCoordinator = AppRootCoordinator(window: window, homeModuleBuilder: dependencyProvider.homeModuleBuilder)
+        let appRootCoordinator = AppRootCoordinator(window: window, homeModuleBuilder: dependencyProvider.homeModuleBuilder, mapModuleBuilder: dependencyProvider.mapModuleBuilder)
         
         return Module(coordinator: appRootCoordinator) as? Module<T>
     }

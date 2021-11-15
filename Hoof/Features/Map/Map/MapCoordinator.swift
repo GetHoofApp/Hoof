@@ -8,8 +8,6 @@
 
 import RxSwift
 import Core
-import Components
-import Utils
 
 class MapCoordinator: BaseCoordinator<Void> {
     
@@ -22,7 +20,7 @@ class MapCoordinator: BaseCoordinator<Void> {
     }
     
     override public func start() -> Observable<Void> {
-        rootViewController?.pushViewController(viewController, animated: true)
+        rootViewController?.setViewControllers([viewController], animated: true)
         
         return .never()
     }

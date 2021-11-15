@@ -8,9 +8,7 @@
 
 import RxSwift
 
-public protocol MapInteractable {
-    func doSomething() -> Single<Bool>
-}
+public protocol MapInteractable {}
 
 class MapUseCase: MapInteractable {
 
@@ -18,9 +16,5 @@ class MapUseCase: MapInteractable {
     
     init(service: MapServicePerforming) {
         self.service = service
-    }
-    
-    func doSomething() -> Single<Bool> {
-        service.doSomething()
     }
 }
