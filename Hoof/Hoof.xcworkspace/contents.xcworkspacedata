@@ -12,6 +12,9 @@
       location = "group:Features"
       name = "Features">
       <FileRef
+         location = "group:Profile/Profile.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Groups/Groups.xcodeproj">
       </FileRef>
       <FileRef

@@ -48,6 +48,16 @@ target 'Groups' do
   end
 end
 
+target 'Profile' do
+  project 'Features/Profile/Profile'
+  shared_pods
+
+  target 'ProfileTests' do
+    inherit! :search_paths
+    shared_pods
+  end
+end
+
 # Apps
 target 'Hoof' do
   # Pods for Hoof
