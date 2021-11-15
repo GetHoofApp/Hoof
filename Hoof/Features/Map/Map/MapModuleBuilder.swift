@@ -13,7 +13,7 @@ public protocol MapModuleBuildable: ModuleBuildable {
     func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>?
 }
 
-public class MapModuleBuilder:  Builder<EmptyDependency>, MapModuleBuildable {
+public class MapModuleBuilder: Builder<EmptyDependency>, MapModuleBuildable {
     
     public func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
         registerService()

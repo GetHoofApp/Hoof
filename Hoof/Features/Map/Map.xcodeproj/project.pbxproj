@@ -18,6 +18,7 @@
 		50E8E467273D83AB00FB73FA /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8E461273D83AB00FB73FA /* MapViewController.swift */; };
 		50E8E468273D83AB00FB73FA /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8E462273D83AB00FB73FA /* MapViewModel.swift */; };
 		50E8E469273D83AB00FB73FA /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8E463273D83AB00FB73FA /* MapService.swift */; };
+		50E8E4A52742B59700FB73FA /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E4A42742B59700FB73FA /* Core.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		50E8E461273D83AB00FB73FA /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		50E8E462273D83AB00FB73FA /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		50E8E463273D83AB00FB73FA /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
+		50E8E4A42742B59700FB73FA /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C658B69ECE553FA3138CD6D /* Pods-Map.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Map.release.xcconfig"; path = "Target Support Files/Pods-Map/Pods-Map.release.xcconfig"; sourceTree = "<group>"; };
 		B90EAB1B0D8951BD55CAF885 /* Pods-Map.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Map.debug.xcconfig"; path = "Target Support Files/Pods-Map/Pods-Map.debug.xcconfig"; sourceTree = "<group>"; };
 		E234BEB55AD8C7BDBE6DC7A7 /* Pods_Map.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Map.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35E38D64D06185BED5445922 /* Pods_Map.framework in Frameworks */,
+				50E8E4A52742B59700FB73FA /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +78,7 @@
 		1A10783F255F2EAC6CB30D33 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50E8E4A42742B59700FB73FA /* Core.framework */,
 				E234BEB55AD8C7BDBE6DC7A7 /* Pods_Map.framework */,
 				40E3C5AC3AED4A93735C4B54 /* Pods_MapTests.framework */,
 			);

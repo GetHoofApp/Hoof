@@ -9,17 +9,13 @@
 import UIKit
 import Core
 
-protocol GroupsModuleBuildable: ModuleBuildable {}
+public protocol GroupsModuleBuildable: ModuleBuildable {
+    func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>?
+}
 
-class GroupsModuleBuilder: GroupsModuleBuildable {
-    
-    private let container: DependencyManager
-    
-    public init(container: DependencyManager) {
-        self.container = container
-    }
-    
-    func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
+public class GroupsModuleBuilder: Builder<EmptyDependency>, GroupsModuleBuildable {
+
+    public func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
         registerService()
         registerUsecase()
         registerViewModel()

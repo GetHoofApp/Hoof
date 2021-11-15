@@ -10,6 +10,7 @@ import Core
 import RxSwift
 import Home
 import Map
+import Groups
 
 class AppRootCoordinator: BaseCoordinator<Void> {
     
@@ -17,13 +18,16 @@ class AppRootCoordinator: BaseCoordinator<Void> {
     private let tabBarController: UITabBarController
     private var homeCoordinator: BaseCoordinator<Void>!
     private var mapCoordinator: BaseCoordinator<Void>!
+    private var groupsCoordinator: BaseCoordinator<Void>!
     private let homeModuleBuilder: HomeModuleBuildable
     private let mapModuleBuilder: MapModuleBuildable
-
-    init(window: UIWindow, homeModuleBuilder: HomeModuleBuildable, mapModuleBuilder: MapModuleBuildable) {
+    private let groupsModuleBuilder: GroupsModuleBuildable
+    
+    init(window: UIWindow, homeModuleBuilder: HomeModuleBuildable, mapModuleBuilder: MapModuleBuildable, groupsModuleBuilder: GroupsModuleBuildable) {
         self.window = window
         self.homeModuleBuilder = homeModuleBuilder
         self.mapModuleBuilder = mapModuleBuilder
+        self.groupsModuleBuilder = groupsModuleBuilder
         tabBarController = UITabBarController()
     }
     
@@ -52,21 +56,24 @@ class AppRootCoordinator: BaseCoordinator<Void> {
         self.mapCoordinator = mapCoordinator
         _ = mapCoordinator.start()
         
-        let navController2 = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
-        navController2.setViewControllers([UIViewController()], animated: true)
-        
-        let navController3 = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
-        navController3.setViewControllers([UIViewController()], animated: true)
-        
-        let navController4 = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
-        navController4.setViewControllers([UIViewController()], animated: true)
 
+        let groupsNavController = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
+        guard let groupsCoordinator: BaseCoordinator<Void> = groupsModuleBuilder.buildModule(with: groupsNavController)?.coordinator else {
+            preconditionFailure("[AppCoordinator] Cannot get groupsModuleBuilder from module builder")
+        }
+        
+        let groupsTabBarItem = UITabBarItem(title: "Groups", image: #imageLiteral(resourceName: "Groups"), selectedImage: #imageLiteral(resourceName: "Groups"))
+        groupsNavController.tabBarItem = groupsTabBarItem
+        
+        self.groupsCoordinator = groupsCoordinator
+        _ = groupsCoordinator.start()
+        
         // TabBar Appearance
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 187/255, green: 187/255, blue: 187/255, alpha: 1.0)], for: .normal)
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)], for: .selected)
         
-        tabBarController.setViewControllers([navController, mapNavController], animated: false)
+        tabBarController.setViewControllers([navController, mapNavController, groupsNavController], animated: false)
         window.rootViewController = tabBarController
         
         return .never()

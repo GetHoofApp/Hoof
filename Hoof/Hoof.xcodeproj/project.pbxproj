@@ -89,6 +89,8 @@
 		50E8E439273D7ABB00FB73FA /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E437273D7ABB00FB73FA /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50E8E46B2742987C00FB73FA /* Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E46A2742987C00FB73FA /* Map.framework */; };
 		50E8E46C2742987C00FB73FA /* Map.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E46A2742987C00FB73FA /* Map.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		50E8E4A22742B58300FB73FA /* Groups.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E4A12742B58300FB73FA /* Groups.framework */; };
+		50E8E4A32742B58300FB73FA /* Groups.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E4A12742B58300FB73FA /* Groups.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8C767EE7EC890A9A680F314C /* Pods_WatchHoofTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43966CD2A94B1E38375F7AEF /* Pods_WatchHoofTests.framework */; };
 		B2C19FE3DEC6327A478F64E8 /* Pods_WatchHoof.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8A45B4737945E81BC4BB966 /* Pods_WatchHoof.framework */; };
 		B6EDE0654384C62779FDA065 /* Pods_WatchHoof_WatchHoofUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09128515417BF3909B81F0A2 /* Pods_WatchHoof_WatchHoofUITests.framework */; };
@@ -170,6 +172,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				50E8E4A32742B58300FB73FA /* Groups.framework in Embed Frameworks */,
 				50E8E46C2742987C00FB73FA /* Map.framework in Embed Frameworks */,
 				509805DF273AA89B0063219B /* Core.framework in Embed Frameworks */,
 				50E8E439273D7ABB00FB73FA /* Home.framework in Embed Frameworks */,
@@ -260,6 +263,8 @@
 		509805EB273C2D170063219B /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
 		50E8E437273D7ABB00FB73FA /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E8E46A2742987C00FB73FA /* Map.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Map.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50E8E49E2742AD8000FB73FA /* Groups.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Groups.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50E8E4A12742B58300FB73FA /* Groups.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Groups.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57E59AA16354EE22C4A9EFEB /* Pods_Hoof.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hoof.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B514A9AF070B42D0D49DB51 /* Pods-Hoof.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hoof.debug.xcconfig"; path = "Target Support Files/Pods-Hoof/Pods-Hoof.debug.xcconfig"; sourceTree = "<group>"; };
 		7B10E43598648BDE4E3B73E0 /* Pods-Hoof.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hoof.release.xcconfig"; path = "Target Support Files/Pods-Hoof/Pods-Hoof.release.xcconfig"; sourceTree = "<group>"; };
@@ -294,6 +299,7 @@
 				509805DE273AA89B0063219B /* Core.framework in Frameworks */,
 				50E8E438273D7ABB00FB73FA /* Home.framework in Frameworks */,
 				50E8E46B2742987C00FB73FA /* Map.framework in Frameworks */,
+				50E8E4A22742B58300FB73FA /* Groups.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +531,8 @@
 		856C5B1E3FD5FEF46995A408 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50E8E4A12742B58300FB73FA /* Groups.framework */,
+				50E8E49E2742AD8000FB73FA /* Groups.framework */,
 				50E8E46A2742987C00FB73FA /* Map.framework */,
 				50E8E437273D7ABB00FB73FA /* Home.framework */,
 				509805DD273AA89B0063219B /* Core.framework */,

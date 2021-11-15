@@ -37,7 +37,7 @@ class GroupsViewController: ViewController<GroupsViewModel> {
     func setupSubviews() {}
     
     private func setupNavogationBar() {
-        title = "Discover"
+        title = "Groups"
         
         navigationController?.navigationBar.prefersLargeTitles = true
     }
