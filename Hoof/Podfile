@@ -11,6 +11,10 @@ workspace 'Hoof.xcworkspace'
     pod 'RxCocoa', '~> 5'
 end
 
+def shared_UIPods
+  pod "DrawerView"
+end
+
 # Common modules
 target 'Core' do
   project 'Common/Core/Core'
@@ -31,6 +35,7 @@ end
 target 'Map' do
   project 'Features/Map/Map'
   shared_pods
+  shared_UIPods
 
   target 'MapTests' do
     inherit! :search_paths
@@ -62,6 +67,7 @@ end
 target 'Hoof' do
   # Pods for Hoof
   shared_pods
+  shared_UIPods
   pod 'MapCache', '~> 0.9.0'
 
   target 'HoofTests' do

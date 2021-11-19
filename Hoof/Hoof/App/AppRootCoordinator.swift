@@ -55,7 +55,7 @@ class AppRootCoordinator: BaseCoordinator<Void> {
             preconditionFailure("[AppCoordinator] Cannot get mapModuleBuilder from module builder")
         }
         
-        let mapTabBarItem = UITabBarItem(title: "Map", image: #imageLiteral(resourceName: "Map"), selectedImage: #imageLiteral(resourceName: "Map"))
+        let mapTabBarItem = UITabBarItem(title: "Discover", image: #imageLiteral(resourceName: "Map"), selectedImage: #imageLiteral(resourceName: "Map"))
         mapNavController.tabBarItem = mapTabBarItem
         
         self.mapCoordinator = mapCoordinator

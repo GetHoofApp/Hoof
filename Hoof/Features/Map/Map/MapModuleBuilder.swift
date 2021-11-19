@@ -8,6 +8,13 @@
 
 import UIKit
 import Core
+import CoreLocation
+
+/// Provides all dependencies to build the MapModuleBuilder
+private final class MapDependencyProvider: DependencyProvider<EmptyDependency> {
+    
+    fileprivate var locationManager: CLLocationManager { CLLocationManager() }
+}
 
 public protocol MapModuleBuildable: ModuleBuildable {
     func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>?
@@ -16,7 +23,9 @@ public protocol MapModuleBuildable: ModuleBuildable {
 public class MapModuleBuilder: Builder<EmptyDependency>, MapModuleBuildable {
     
     public func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
-        registerService()
+        let mapDependencyProvider = MapDependencyProvider()
+
+        registerService(locationManager: mapDependencyProvider.locationManager)
         registerUsecase()
         registerViewModel()
         registerView()
@@ -35,14 +44,19 @@ private extension MapModuleBuilder {
     func registerUsecase() {
         container.register(MapInteractable.self) { [weak self] in
             guard let self = self,
-                let service = self.container.resolve(MapServicePerforming.self) else { return nil }
-            return MapUseCase(service: service)
+                  let service = self.container.resolve(MapServicePerforming.self),
+                  let locationService = self.container.resolve(LocationServiceChecking.self) else { return nil }
+            return MapUseCase(service: service, locationService: locationService)
         }
     }
     
-    func registerService() {
+    func registerService(locationManager: CLLocationManager) {
         container.register(MapServicePerforming.self) {
             return MapService()
+        }
+        
+        container.register(LocationServiceChecking.self) {
+            return LocationService(locationManager: locationManager)
         }
     }
     

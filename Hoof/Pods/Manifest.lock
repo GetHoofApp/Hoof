@@ -1,5 +1,6 @@
 PODS:
   - CoreGPX (0.9.0)
+  - DrawerView (1.3.3)
   - MapCache (0.9.0)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
@@ -10,6 +11,7 @@ PODS:
 
 DEPENDENCIES:
   - CoreGPX
+  - DrawerView
   - MapCache (~> 0.9.0)
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
@@ -17,6 +19,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - CoreGPX
+    - DrawerView
     - MapCache
     - RxCocoa
     - RxRelay
@@ -24,11 +27,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   CoreGPX: 1381c8c47428c3a6bcac2f93d25ca1c5e3525811
+  DrawerView: 41c5e5d6593d86335ee2cf9b18d738835593dbc1
   MapCache: b0a9f5f9a0ed7cbac45443fea0e7e03a97bf0c66
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
 
-PODFILE CHECKSUM: 9abcb2fefa85c712e81c3615f7629c7adbb0e428
+PODFILE CHECKSUM: 36f2841cd9da184d93d8916feac5f84d6d10a138
 
 COCOAPODS: 1.8.4

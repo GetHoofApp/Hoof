@@ -19,6 +19,8 @@
 		50E8E468273D83AB00FB73FA /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8E462273D83AB00FB73FA /* MapViewModel.swift */; };
 		50E8E469273D83AB00FB73FA /* MapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8E463273D83AB00FB73FA /* MapService.swift */; };
 		50E8E4A52742B59700FB73FA /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E4A42742B59700FB73FA /* Core.framework */; };
+		50E8E4E12742D5F100FB73FA /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8E4E02742D5F100FB73FA /* LocationService.swift */; };
+		50E8E4EB2743F2D800FB73FA /* NearbyAthleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8E4EA2743F2D800FB73FA /* NearbyAthleteCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		50E8E462273D83AB00FB73FA /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		50E8E463273D83AB00FB73FA /* MapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapService.swift; sourceTree = "<group>"; };
 		50E8E4A42742B59700FB73FA /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50E8E4E02742D5F100FB73FA /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		50E8E4EA2743F2D800FB73FA /* NearbyAthleteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyAthleteCell.swift; sourceTree = "<group>"; };
 		5C658B69ECE553FA3138CD6D /* Pods-Map.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Map.release.xcconfig"; path = "Target Support Files/Pods-Map/Pods-Map.release.xcconfig"; sourceTree = "<group>"; };
 		B90EAB1B0D8951BD55CAF885 /* Pods-Map.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Map.debug.xcconfig"; path = "Target Support Files/Pods-Map/Pods-Map.debug.xcconfig"; sourceTree = "<group>"; };
 		E234BEB55AD8C7BDBE6DC7A7 /* Pods_Map.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Map.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,6 +112,7 @@
 		50E8E446273D834600FB73FA /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				50E8E4E92743F2B800FB73FA /* Cells */,
 				50E8E447273D834600FB73FA /* Map.h */,
 				50E8E448273D834600FB73FA /* Info.plist */,
 				50E8E45E273D83AB00FB73FA /* MapCoordinator.swift */,
@@ -116,6 +121,7 @@
 				50E8E461273D83AB00FB73FA /* MapViewController.swift */,
 				50E8E462273D83AB00FB73FA /* MapViewModel.swift */,
 				50E8E463273D83AB00FB73FA /* MapService.swift */,
+				50E8E4E02742D5F100FB73FA /* LocationService.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -127,6 +133,14 @@
 				50E8E454273D834700FB73FA /* Info.plist */,
 			);
 			path = MapTests;
+			sourceTree = "<group>";
+		};
+		50E8E4E92743F2B800FB73FA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				50E8E4EA2743F2D800FB73FA /* NearbyAthleteCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		7CBB40A1D181321C20A39165 /* Pods */ = {
@@ -317,7 +331,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50E8E4E12742D5F100FB73FA /* LocationService.swift in Sources */,
 				50E8E466273D83AB00FB73FA /* MapUseCase.swift in Sources */,
+				50E8E4EB2743F2D800FB73FA /* NearbyAthleteCell.swift in Sources */,
 				50E8E468273D83AB00FB73FA /* MapViewModel.swift in Sources */,
 				50E8E469273D83AB00FB73FA /* MapService.swift in Sources */,
 				50E8E465273D83AB00FB73FA /* MapModuleBuilder.swift in Sources */,

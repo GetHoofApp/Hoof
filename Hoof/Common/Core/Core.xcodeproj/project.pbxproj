@@ -27,6 +27,8 @@
 		509805D527397ACB0063219B /* ViewControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509805CE27397ACB0063219B /* ViewControllable.swift */; };
 		509805D927397ADF0063219B /* UIWindow+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509805D727397ADF0063219B /* UIWindow+Utils.swift */; };
 		509805DA27397ADF0063219B /* UIApplication+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509805D827397ADF0063219B /* UIApplication+Utils.swift */; };
+		50E8E4E62742D66000FB73FA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8E4E52742D66000FB73FA /* Location.swift */; };
+		50E8E4E82743CB1600FB73FA /* SportCourtAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8E4E72743CB1600FB73FA /* SportCourtAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		509805CE27397ACB0063219B /* ViewControllable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllable.swift; sourceTree = "<group>"; };
 		509805D727397ADF0063219B /* UIWindow+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Utils.swift"; sourceTree = "<group>"; };
 		509805D827397ADF0063219B /* UIApplication+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Utils.swift"; sourceTree = "<group>"; };
+		50E8E4E52742D66000FB73FA /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		50E8E4E72743CB1600FB73FA /* SportCourtAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportCourtAnnotation.swift; sourceTree = "<group>"; };
 		83D4DBDB9AB02965F02F13A8 /* Pods-Core.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.release.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.release.xcconfig"; sourceTree = "<group>"; };
 		902E15108FD5D5D5256B40C3 /* Pods_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC859DBC484B54222BB5D789 /* Pods-Core.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.debug.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 		509805B827397ABC0063219B /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				50E8E4E42742D64C00FB73FA /* Models */,
 				509805B927397ABC0063219B /* Alertable.swift */,
 				509805BA27397ABC0063219B /* DependencyManager.swift */,
 				509805BB27397ABC0063219B /* DependencyProvider.swift */,
@@ -163,6 +168,15 @@
 				509805D827397ADF0063219B /* UIApplication+Utils.swift */,
 			);
 			path = Extenstions;
+			sourceTree = "<group>";
+		};
+		50E8E4E42742D64C00FB73FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				50E8E4E52742D66000FB73FA /* Location.swift */,
+				50E8E4E72743CB1600FB73FA /* SportCourtAnnotation.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		69B5870256F48B3EFF3095B2 /* Frameworks */ = {
@@ -322,11 +336,13 @@
 				509805DA27397ADF0063219B /* UIApplication+Utils.swift in Sources */,
 				509805C427397ABC0063219B /* Dependency.swift in Sources */,
 				509805C127397ABC0063219B /* DependencyManager.swift in Sources */,
+				50E8E4E62742D66000FB73FA /* Location.swift in Sources */,
 				509805D127397ACB0063219B /* Presentable.swift in Sources */,
 				509805D427397ACB0063219B /* Dequeueable.swift in Sources */,
 				509805C027397ABC0063219B /* Alertable.swift in Sources */,
 				509805D527397ACB0063219B /* ViewControllable.swift in Sources */,
 				509805C627397ABC0063219B /* BaseCoordinator.swift in Sources */,
+				50E8E4E82743CB1600FB73FA /* SportCourtAnnotation.swift in Sources */,
 				509805D227397ACB0063219B /* ViewModellable.swift in Sources */,
 				509805D027397ACB0063219B /* ViewState.swift in Sources */,
 				509805D927397ADF0063219B /* UIWindow+Utils.swift in Sources */,

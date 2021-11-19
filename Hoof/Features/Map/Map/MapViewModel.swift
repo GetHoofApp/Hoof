@@ -14,9 +14,13 @@ protocol MapViewModellable: ViewModellable {
     var outputs: MapViewModelOutputs { get }
 }
 
-struct MapViewModelInputs {}
+struct MapViewModelInputs {
+    var viewState = PublishSubject<ViewState>()
+}
 
-struct MapViewModelOutputs {}
+struct MapViewModelOutputs {
+    var showUserLocation = PublishSubject<(lat: Double, lng: Double)>()
+}
 
 class MapViewModel: MapViewModellable {
 
@@ -27,6 +31,8 @@ class MapViewModel: MapViewModellable {
 
     init(useCase: MapInteractable) {
         self.useCase = useCase
+        
+        setupObservables()
     }
 }
 
@@ -34,5 +40,19 @@ class MapViewModel: MapViewModellable {
 
 private extension MapViewModel {
 
-    func setupObservables() {}
+    func setupObservables() {
+        inputs.viewState.subscribe(onNext: { [weak self] state in
+            guard let self = self else { return }
+            
+            switch state {
+            case .loaded:
+                self.useCase.determineUserLocation().subscribe { event in
+                    guard let location = event.element else { return }
+                    self.outputs.showUserLocation.onNext((location.lat, location.lng))
+                }.disposed(by: self.disposeBag)
+            default:
+                break
+            }
+        }).disposed(by: disposeBag)
+    }
 }

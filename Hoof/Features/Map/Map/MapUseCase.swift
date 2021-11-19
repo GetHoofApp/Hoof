@@ -7,14 +7,30 @@
 //
 
 import RxSwift
+import Core
 
-public protocol MapInteractable {}
+public protocol MapInteractable {
+    func determineUserLocation() -> Observable<Location>
+}
 
 class MapUseCase: MapInteractable {
 
     private let service: MapServicePerforming
-    
-    init(service: MapServicePerforming) {
+    private let locationService: LocationServiceChecking
+
+    init(service: MapServicePerforming, locationService: LocationServiceChecking) {
         self.service = service
+        self.locationService = locationService
+    }
+    
+    func determineUserLocation() -> Observable<Location> {
+        locationService.requestAuthorization()
+        return Observable.create { [unowned self] observer in
+            locationService.requestUserLocation { location in
+                observer.onNext(location)
+            }
+            
+            return Disposables.create()
+        }
     }
 }
