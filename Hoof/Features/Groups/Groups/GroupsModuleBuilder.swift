@@ -55,18 +55,19 @@ private extension GroupsModuleBuilder {
     }
     
     func registerView() {
-        container.register(GroupsViewController.self) { [weak self] in
+        container.register(GroupsPageViewController.self) { [weak self] in
             guard let viewModel = self?.container.resolve(GroupsViewModel.self) else {
                 return nil
             }
-            
-            return GroupsViewController.instantiate(with: viewModel)
+
+//            return GroupsViewController.instantiate(with: viewModel)
+            return GroupsPageViewController(groupsViewController: GroupsViewController.instantiate(with: viewModel), challengesViewController: ChallengesViewController(), activeViewController: ActiveViewController())
         }
     }
     
     func registerCoordinator(rootViewController: NavigationControllable? = nil) {
         container.register(GroupsCoordinator.self) { [weak self] in
-            guard let viewController = self?.container.resolve(GroupsViewController.self) else {
+            guard let viewController = self?.container.resolve(GroupsPageViewController.self) else {
                 return nil
             }
             

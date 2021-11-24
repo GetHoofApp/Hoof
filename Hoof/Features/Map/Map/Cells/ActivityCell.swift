@@ -41,6 +41,7 @@ class ActivityCell: UITableViewCell, Dequeueable {
     private lazy var userNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Jessica"
+        label.font = .boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -146,6 +147,15 @@ class ActivityCell: UITableViewCell, Dequeueable {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
+    }
+    
+    func configure(name: String, userImage: UIImage, date: String, activityName: String, distance: String, pace: String) {
+        userNameLabel.text = name
+        dateLabel.text = date
+        image.image = userImage
+        activityTitleLabel.text = activityName
+        distanceValueLabel.text = distance
+        paceValueLabel.text = pace
     }
 }
 
