@@ -63,6 +63,16 @@ target 'Profile' do
   end
 end
 
+target 'CreateChallenge' do
+  project 'Features/CreateChallenge/CreateChallenge'
+  shared_pods
+
+  target 'CreateChallengeTests' do
+    inherit! :search_paths
+    shared_pods
+  end
+end
+
 # Apps
 target 'Hoof' do
   # Pods for Hoof
