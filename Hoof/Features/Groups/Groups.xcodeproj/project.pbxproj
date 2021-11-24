@@ -14,6 +14,8 @@
 		5085AD8B274BEB1C00315D67 /* ChallengeItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085AD8A274BEB1C00315D67 /* ChallengeItem.swift */; };
 		5085AD8D274BEE1000315D67 /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085AD8C274BEE1000315D67 /* ChallengeCell.swift */; };
 		5085AD8F274C185D00315D67 /* ChallengesSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085AD8E274C185D00315D67 /* ChallengesSectionHeaderView.swift */; };
+		5085ADC4274E520500315D67 /* CreateChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5085ADC3274E520500315D67 /* CreateChallenge.framework */; };
+		5085ADC8274E6C9E00315D67 /* ChallengesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085ADC7274E6C9E00315D67 /* ChallengesViewModel.swift */; };
 		50D29758274AD55C00D7537B /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D29757274AD55C00D7537B /* CustomSegmentedControl.swift */; };
 		50D2975A274AD63F00D7537B /* GroupsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D29759274AD63F00D7537B /* GroupsPageViewController.swift */; };
 		50D2975C274BA5C200D7537B /* ChallengesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50D2975B274BA5C200D7537B /* ChallengesViewController.swift */; };
@@ -52,6 +54,8 @@
 		5085AD8A274BEB1C00315D67 /* ChallengeItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeItem.swift; sourceTree = "<group>"; };
 		5085AD8C274BEE1000315D67 /* ChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
 		5085AD8E274C185D00315D67 /* ChallengesSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesSectionHeaderView.swift; sourceTree = "<group>"; };
+		5085ADC3274E520500315D67 /* CreateChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CreateChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5085ADC7274E6C9E00315D67 /* ChallengesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesViewModel.swift; sourceTree = "<group>"; };
 		50D29757274AD55C00D7537B /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		50D29759274AD63F00D7537B /* GroupsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsPageViewController.swift; sourceTree = "<group>"; };
 		50D2975B274BA5C200D7537B /* ChallengesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +85,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE2228E8E63B644ECC7ADA89 /* Pods_Groups.framework in Frameworks */,
+				5085ADC4274E520500315D67 /* CreateChallenge.framework in Frameworks */,
 				50E8E4A92742B5A700FB73FA /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,6 +164,7 @@
 				50E8E4942742A9FE00FB73FA /* GroupsUseCase.swift */,
 				50E8E4952742A9FE00FB73FA /* GroupsViewController.swift */,
 				50E8E4962742A9FE00FB73FA /* GroupsViewModel.swift */,
+				5085ADC7274E6C9E00315D67 /* ChallengesViewModel.swift */,
 				50E8E4972742A9FE00FB73FA /* GroupsService.swift */,
 				50D29759274AD63F00D7537B /* GroupsPageViewController.swift */,
 				50D2975B274BA5C200D7537B /* ChallengesViewController.swift */,
@@ -191,6 +197,7 @@
 		D37258E52A6B8A656E155161 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5085ADC3274E520500315D67 /* CreateChallenge.framework */,
 				50E8E4A82742B5A700FB73FA /* Core.framework */,
 				0A11628FBD270917EC19F5AD /* Pods_Groups.framework */,
 				EF2B205B3DE49BE549EBEFA0 /* Pods_GroupsTests.framework */,
@@ -386,6 +393,7 @@
 				50E8E49C2742A9FE00FB73FA /* GroupsViewModel.swift in Sources */,
 				5085AD8F274C185D00315D67 /* ChallengesSectionHeaderView.swift in Sources */,
 				50D2975A274AD63F00D7537B /* GroupsPageViewController.swift in Sources */,
+				5085ADC8274E6C9E00315D67 /* ChallengesViewModel.swift in Sources */,
 				50E8E49A2742A9FE00FB73FA /* GroupsUseCase.swift in Sources */,
 				50D29758274AD55C00D7537B /* CustomSegmentedControl.swift in Sources */,
 				50E8E4982742A9FE00FB73FA /* GroupsCoordinator.swift in Sources */,

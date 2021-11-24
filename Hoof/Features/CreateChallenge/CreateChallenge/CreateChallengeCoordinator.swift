@@ -11,16 +11,16 @@ import Core
 
 class CreateChallengeCoordinator: BaseCoordinator<Void> {
     
-    private weak var rootViewController: NavigationControllable?
+    private weak var rootViewController: Presentable?
     private let viewController: UIViewController
     
-    init(rootViewController: NavigationControllable?, viewController: UIViewController) {
+    init(rootViewController: Presentable?, viewController: UIViewController) {
         self.rootViewController = rootViewController
         self.viewController = viewController
     }
     
     override public func start() -> Observable<Void> {
-        rootViewController?.pushViewController(viewController, animated: true)
+        rootViewController?.present(viewController, animated: true, completion: nil)
         
         return .never()
     }

@@ -15,9 +15,13 @@ protocol GroupsViewModellable: ViewModellable {
     var outputs: GroupsViewModelOutputs { get }
 }
 
-struct GroupsViewModelInputs {}
+struct GroupsViewModelInputs {
+    var createGroupChallengeButtonTapped = PublishSubject<Void>()
+}
 
-struct GroupsViewModelOutputs {}
+struct GroupsViewModelOutputs {
+    var showCreateChallengeModule = PublishSubject<Void>()
+}
 
 class GroupsViewModel: GroupsViewModellable {
 
@@ -28,6 +32,8 @@ class GroupsViewModel: GroupsViewModellable {
 
     init(useCase: GroupsInteractable) {
         self.useCase = useCase
+        
+        setupObservables()
     }
 }
 
@@ -35,5 +41,11 @@ class GroupsViewModel: GroupsViewModellable {
 
 private extension GroupsViewModel {
 
-    func setupObservables() {}
+    func setupObservables() {
+        inputs.createGroupChallengeButtonTapped.subscribe { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.outputs.showCreateChallengeModule.onNext(())
+        }.disposed(by: disposeBag)
+    }
 }

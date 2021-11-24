@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Core
 
-class ChallengesViewController: UIViewController {
+class ChallengesViewController: ViewController<ChallengesViewModel> {
     
     // MARK: - Properties
     
@@ -112,7 +113,9 @@ class ChallengesViewController: UIViewController {
                     for: indexPath) as? ChallengesSectionHeaderView else {
                 fatalError("Cannot create header view")
             }
-            
+            supplementaryView.createChallengeViewTapped.subscribe { [weak self] _ in
+                self?.viewModel.inputs.createGroupChallengeButtonTapped.onNext(())
+            }.disposed(by: self.viewModel.disposeBag)
             //          supplementaryView.label.text = Section.allCases[indexPath.section].rawValue
             return supplementaryView
         }
@@ -128,14 +131,10 @@ class ChallengesViewController: UIViewController {
         snapshot.appendItems(items)
         return snapshot
     }
-}
-
-
-// MARK: - Setup UI
-
-private extension ChallengesViewController {
     
-    func setupUI() {
+    // MARK: - Setup UI
+
+    override func setupUI() {
         view.backgroundColor = .white
         setupSubviews()
         setupConstraints()
@@ -146,7 +145,7 @@ private extension ChallengesViewController {
         view.addSubview(collectionView)
     }
     
-    func setupConstraints() {
+    override func setupConstraints() {
         NSLayoutConstraint.activate([
             //            createChallengeView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             //            createChallengeView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),

@@ -16,6 +16,9 @@
 		5085ADC0274E4ECB00315D67 /* CreateChallengeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085ADBA274E4ECB00315D67 /* CreateChallengeViewController.swift */; };
 		5085ADC1274E4ECB00315D67 /* CreateChallengeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085ADBB274E4ECB00315D67 /* CreateChallengeViewModel.swift */; };
 		5085ADC2274E4ECB00315D67 /* CreateChallengeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085ADBC274E4ECB00315D67 /* CreateChallengeService.swift */; };
+		5085ADCB274E74BF00315D67 /* ChallengeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085ADCA274E74BF00315D67 /* ChallengeCell.swift */; };
+		5085ADCE274E7B3E00315D67 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085ADCD274E7B3D00315D67 /* Challenge.swift */; };
+		5085ADD1274E814200315D67 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085ADD0274E814200315D67 /* TableViewHeader.swift */; };
 		5F0BC9D8C990A9106F9D8DE1 /* Pods_CreateChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1F87CE4DF2CC213E18F4C19 /* Pods_CreateChallengeTests.framework */; };
 		99C139BF0B029731ACBB410E /* Pods_CreateChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 119C1DAD1BE3DA934056D2B8 /* Pods_CreateChallenge.framework */; };
 /* End PBXBuildFile section */
@@ -45,6 +48,9 @@
 		5085ADBA274E4ECB00315D67 /* CreateChallengeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeViewController.swift; sourceTree = "<group>"; };
 		5085ADBB274E4ECB00315D67 /* CreateChallengeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeViewModel.swift; sourceTree = "<group>"; };
 		5085ADBC274E4ECB00315D67 /* CreateChallengeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeService.swift; sourceTree = "<group>"; };
+		5085ADCA274E74BF00315D67 /* ChallengeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeCell.swift; sourceTree = "<group>"; };
+		5085ADCD274E7B3D00315D67 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		5085ADD0274E814200315D67 /* TableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
 		99A8EE8137CC3078D314C7EB /* Pods-CreateChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreateChallenge.release.xcconfig"; path = "Target Support Files/Pods-CreateChallenge/Pods-CreateChallenge.release.xcconfig"; sourceTree = "<group>"; };
 		B143BB227916CD1418CF7A5D /* Pods-CreateChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreateChallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-CreateChallengeTests/Pods-CreateChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D96BAA2EF7DD635C1AC63306 /* Pods-CreateChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreateChallenge.debug.xcconfig"; path = "Target Support Files/Pods-CreateChallenge/Pods-CreateChallenge.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +101,9 @@
 		5085AD9F274E4E7A00315D67 /* CreateChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				5085ADCF274E810F00315D67 /* Views */,
+				5085ADCC274E7B3300315D67 /* Models */,
+				5085ADC9274E749E00315D67 /* Cells */,
 				5085ADA0274E4E7A00315D67 /* CreateChallenge.h */,
 				5085ADA1274E4E7A00315D67 /* Info.plist */,
 				5085ADB7274E4ECB00315D67 /* CreateChallengeCoordinator.swift */,
@@ -114,6 +123,30 @@
 				5085ADAD274E4E7A00315D67 /* Info.plist */,
 			);
 			path = CreateChallengeTests;
+			sourceTree = "<group>";
+		};
+		5085ADC9274E749E00315D67 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5085ADCA274E74BF00315D67 /* ChallengeCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5085ADCC274E7B3300315D67 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5085ADCD274E7B3D00315D67 /* Challenge.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5085ADCF274E810F00315D67 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5085ADD0274E814200315D67 /* TableViewHeader.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		56B9F0BCEBDDE6DC6884EABA /* Frameworks */ = {
@@ -313,11 +346,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5085ADD1274E814200315D67 /* TableViewHeader.swift in Sources */,
 				5085ADC0274E4ECB00315D67 /* CreateChallengeViewController.swift in Sources */,
 				5085ADBF274E4ECB00315D67 /* CreateChallengeUseCase.swift in Sources */,
 				5085ADBD274E4ECB00315D67 /* CreateChallengeCoordinator.swift in Sources */,
 				5085ADC2274E4ECB00315D67 /* CreateChallengeService.swift in Sources */,
 				5085ADBE274E4ECB00315D67 /* CreateChallengeModuleBuilder.swift in Sources */,
+				5085ADCE274E7B3E00315D67 /* Challenge.swift in Sources */,
+				5085ADCB274E74BF00315D67 /* ChallengeCell.swift in Sources */,
 				5085ADC1274E4ECB00315D67 /* CreateChallengeViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

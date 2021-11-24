@@ -10,8 +10,30 @@ import UIKit
 import Core
 
 class CreateChallengeViewController: ViewController<CreateChallengeViewModel> {
-
-	override func viewDidLoad() {
+    
+    // MARK: - Properties
+    
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView(frame: .zero)
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.registerCell(withType: ChallengeCell.self)
+        tableView.register(TableViewHeader.self, forHeaderFooterViewReuseIdentifier: String(describing: TableViewHeader.self))
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = .white
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        return tableView
+    }()
+    
+    let challenges: [Challenge] = [Challenge(name: "Fastest Sprint", description: "Record the fastest sprint over a set distance during a football match."),
+                                   Challenge(name: "Longest Distance", description: "Record the most distance during one football match. "),
+                                   Challenge(name: "Top Scorer", description: "Score X number of goals during a set of time."),
+                                   Challenge(name: "Best Position", description: "Best looking heatmap for a specific position(stricker, defense, play maker, etc...)")
+    ]
+        
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
@@ -34,10 +56,15 @@ class CreateChallengeViewController: ViewController<CreateChallengeViewModel> {
     
     override func setupConstraints() {
         NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
         ])
     }
     
     func setupSubviews() {
+        view.addSubview(tableView)
     }
     
     private func setupNavogationBar() {
@@ -45,4 +72,37 @@ class CreateChallengeViewController: ViewController<CreateChallengeViewModel> {
     }
     
     override func setupObservers() {}
+}
+
+// MARK: - UITableViewDataSource
+
+extension CreateChallengeViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        4
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.getCell(forType: ChallengeCell.self)
+        let challenge = challenges[indexPath.row]
+        cell.configure(title: challenge.name, subtitle: challenge.description)
+        
+        return cell
+    }
+    
+    public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
+            String(describing: TableViewHeader.self)) as? TableViewHeader else { return nil }
+        
+        return view
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension CreateChallengeViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }

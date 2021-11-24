@@ -7,49 +7,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B89354F0-873E-49A4-8E13-3C743309470C"
+            uuid = "6008F19B-A86A-481E-8BE4-12F589A70F5A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Groups/Groups/GroupsPageViewController.swift"
+            filePath = "Features/Groups/Groups/GroupsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
-            landmarkName = "createPageViewController()"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "36E27F3F-B533-4DFA-A576-0EF18CF6E5FE"
+            uuid = "B7977493-8F5D-4DCF-B93F-3595ED6EB1FE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Groups/Groups/GroupsPageViewController.swift"
+            filePath = "Features/Groups/Groups/GroupsCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "setupSubviews()"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "start()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C31078A1-15D6-4E84-9B8B-266FF6E46DAD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Groups/Groups/GroupsPageViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "setupSubviews()"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B7977493-8F5D-4DCF-B93F-3595ED6EB1FE - de6304b5a9f5e603"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RxSwift.Event&lt;()&gt;) -&gt; () in Groups.GroupsCoordinator.start() -&gt; RxSwift.Observable&lt;()&gt;"
+                  moduleName = "Groups"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Groups/Groups/GroupsCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "658">
+               </Location>
+               <Location
+                  uuid = "B7977493-8F5D-4DCF-B93F-3595ED6EB1FE - 96ae04bc87e3f1fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (RxSwift.Event&lt;()&gt;) -&gt; () in Groups.GroupsCoordinator.start() -&gt; RxSwift.Observable&lt;()&gt;"
+                  moduleName = "Groups"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Groups/Groups/GroupsCoordinator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38"
+                  offsetFromSymbolStart = "4">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

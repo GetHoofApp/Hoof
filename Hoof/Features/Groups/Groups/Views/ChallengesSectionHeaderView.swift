@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import RxSwift
 
 class ChallengesSectionHeaderView: UICollectionReusableView {
+    
+    var createChallengeViewTapped = PublishSubject<Void>()
     
     static let reuseIdentifier = "header-reuse-identifier"
     
@@ -59,6 +62,9 @@ private extension ChallengesSectionHeaderView {
         backgroundColor = .clear
         setupSubviews()
         setupConstraints()
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.handleTap(_:)))
+        createChallengeView.addGestureRecognizer(tap)
     }
     
     func setupSubviews() {
@@ -90,6 +96,10 @@ private extension ChallengesSectionHeaderView {
             subtitleLabel.heightAnchor.constraint(equalToConstant: 15),
             subtitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20)
         ])
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
+        createChallengeViewTapped.onNext(())
     }
 }
 

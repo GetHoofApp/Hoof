@@ -9,17 +9,11 @@
 import UIKit
 import Core
 
-protocol CreateChallengeModuleBuildable: ModuleBuildable {}
+public protocol CreateChallengeModuleBuildable: ModuleBuildable {}
 
-class CreateChallengeModuleBuilder: CreateChallengeModuleBuildable {
+public class CreateChallengeModuleBuilder: Builder<EmptyDependency>, CreateChallengeModuleBuildable {
     
-    private let container: DependencyManager
-    
-    public init(container: DependencyManager) {
-        self.container = container
-    }
-    
-    func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
+    public func buildModule<T>(with rootViewController: Presentable) -> Module<T>? {
         registerService()
         registerUsecase()
         registerViewModel()
@@ -68,13 +62,13 @@ private extension CreateChallengeModuleBuilder {
         }
     }
     
-    func registerCoordinator(rootViewController: NavigationControllable? = nil) {
+    func registerCoordinator(rootViewController: Presentable? = nil) {
         container.register(CreateChallengeCoordinator.self) { [weak self] in
             guard let viewController = self?.container.resolve(CreateChallengeViewController.self) else {
                 return nil
             }
             
-            let coordinator = CreateChallengeCoordinator(rootViewController: rootViewController, viewController: viewController)
+            let coordinator = CreateChallengeCoordinator(rootViewController: rootViewController, viewController: UINavigationController(rootViewController: viewController))
             return coordinator
         }
     }

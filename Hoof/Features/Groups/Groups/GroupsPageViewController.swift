@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import Core
 
-class GroupsPageViewController: UIViewController {
+class GroupsPageViewController: ViewController<ChallengesViewModel> {
     
     // MARK: Properties
     
@@ -47,7 +48,7 @@ class GroupsPageViewController: UIViewController {
     
     // MARK: - setupUI
     
-    func setupUI() {
+    override func setupUI() {
         setupSubviews()
         setupConstraints()
         setupNavogationBar()
@@ -59,7 +60,7 @@ class GroupsPageViewController: UIViewController {
         title = "Groups"
     }
     
-    func setupConstraints() {
+    override func setupConstraints() {
         NSLayoutConstraint.activate([
 //            segmentedControl.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
 //            segmentedControl.widthAnchor.constraint(equalToConstant: 100),

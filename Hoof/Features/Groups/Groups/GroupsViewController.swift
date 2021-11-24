@@ -93,6 +93,10 @@ extension GroupsViewController: UITableViewDataSource {
 extension GroupsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            viewModel.inputs.createGroupChallengeButtonTapped.onNext(())
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

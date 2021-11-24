@@ -8,6 +8,13 @@
 
 import UIKit
 import Core
+import CreateChallenge
+
+/// Provides all dependencies to build the MapModuleBuilder
+private final class GroupDependencyProvider: DependencyProvider<EmptyDependency>, EmptyDependency {
+
+    fileprivate var createChallengeModuleBuildable: CreateChallengeModuleBuildable { CreateChallengeModuleBuilder(dependency: self) }
+}
 
 public protocol GroupsModuleBuildable: ModuleBuildable {
     func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>?
@@ -16,11 +23,12 @@ public protocol GroupsModuleBuildable: ModuleBuildable {
 public class GroupsModuleBuilder: Builder<EmptyDependency>, GroupsModuleBuildable {
 
     public func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
+        let groupsDependencyProvider = GroupDependencyProvider()
         registerService()
         registerUsecase()
         registerViewModel()
         registerView()
-        registerCoordinator(rootViewController: rootViewController)
+        registerCoordinator(rootViewController: rootViewController, createChallengeModuleBuildable: groupsDependencyProvider.createChallengeModuleBuildable)
         
         guard let coordinator = container.resolve(GroupsCoordinator.self) else {
             return nil
@@ -52,6 +60,10 @@ private extension GroupsModuleBuilder {
             
             return GroupsViewModel(useCase: useCase)
         }
+        
+        container.register(ChallengesViewModel.self) {
+            return ChallengesViewModel()
+        }
     }
     
     func registerView() {
@@ -59,19 +71,26 @@ private extension GroupsModuleBuilder {
             guard let viewModel = self?.container.resolve(GroupsViewModel.self) else {
                 return nil
             }
+            
+            guard let challengesViewModel = self?.container.resolve(ChallengesViewModel.self) else {
+                return nil
+            }
 
 //            return GroupsViewController.instantiate(with: viewModel)
-            return GroupsPageViewController(groupsViewController: GroupsViewController.instantiate(with: viewModel), challengesViewController: ChallengesViewController(), activeViewController: ActiveViewController())
+            let groupsPageViewController = GroupsPageViewController(groupsViewController: GroupsViewController.instantiate(with: viewModel), challengesViewController: ChallengesViewController.instantiate(with: challengesViewModel), activeViewController: ActiveViewController())
+            groupsPageViewController.viewModel = challengesViewModel
+            return groupsPageViewController
         }
     }
     
-    func registerCoordinator(rootViewController: NavigationControllable? = nil) {
+    func registerCoordinator(rootViewController: NavigationControllable? = nil, createChallengeModuleBuildable: CreateChallengeModuleBuildable) {
         container.register(GroupsCoordinator.self) { [weak self] in
             guard let viewController = self?.container.resolve(GroupsPageViewController.self) else {
                 return nil
             }
             
-            let coordinator = GroupsCoordinator(rootViewController: rootViewController, viewController: viewController)
+            let coordinator = GroupsCoordinator(rootViewController: rootViewController, viewController: viewController, createChallengeModuleBuilder: createChallengeModuleBuildable)
+            coordinator.showCreateChallengeModule = viewController.viewModel.inputs.createGroupChallengeButtonTapped
             return coordinator
         }
     }
