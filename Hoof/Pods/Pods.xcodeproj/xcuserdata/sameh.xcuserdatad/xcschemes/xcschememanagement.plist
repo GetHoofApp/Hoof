@@ -158,47 +158,61 @@
 			<key>orderHint</key>
 			<integer>26</integer>
 		</dict>
-		<key>RxCocoa-iOS.xcscheme</key>
+		<key>Pods-Welcome.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>27</integer>
 		</dict>
-		<key>RxCocoa-watchOS.xcscheme</key>
+		<key>Pods-WelcomeTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>28</integer>
 		</dict>
-		<key>RxRelay-iOS.xcscheme</key>
+		<key>RxCocoa-iOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>29</integer>
 		</dict>
-		<key>RxRelay-watchOS.xcscheme</key>
+		<key>RxCocoa-watchOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>30</integer>
 		</dict>
-		<key>RxSwift-iOS.xcscheme</key>
+		<key>RxRelay-iOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>31</integer>
 		</dict>
-		<key>RxSwift-watchOS.xcscheme</key>
+		<key>RxRelay-watchOS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 			<key>orderHint</key>
 			<integer>32</integer>
+		</dict>
+		<key>RxSwift-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>33</integer>
+		</dict>
+		<key>RxSwift-watchOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>34</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

@@ -10,7 +10,6 @@ def shared_pods
   pod 'CoreGPX'
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
-  pod 'MapboxMaps', '10.2.0'
 end
 
 def shared_UIPods
@@ -70,6 +69,16 @@ target 'CreateChallenge' do
   shared_pods
   
   target 'CreateChallengeTests' do
+    inherit! :search_paths
+    shared_pods
+  end
+end
+
+target 'Welcome' do
+  project 'Features/Welcome/Welcome'
+  shared_pods
+  
+  target 'WelcomeTests' do
     inherit! :search_paths
     shared_pods
   end
