@@ -8,6 +8,8 @@
 
 import UIKit
 import Core
+import GoogleMaps
+import GoogleMapsUtils
 
 class HomeViewController: ViewController<HomeViewModel> {
     
@@ -39,6 +41,8 @@ class HomeViewController: ViewController<HomeViewModel> {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        GMSServices.provideAPIKey("AIzaSyAQEtHPhRoMo1EoXu8FS_459wrEtyEBfSo")
+
         setupUI()
     }
     

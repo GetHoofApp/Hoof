@@ -44,8 +44,8 @@ extension Reactive where Base: UISegmentedControl {
     
     /// Reactive wrapper for `setImage(_:forSegmentAt:)`
     public func imageForSegment(at index: Int) -> Binder<UIImage?> {
-        return Binder(self.base) { segmentedControl, imageViw -> Void in
-            segmentedControl.setImage(imageViw, forSegmentAt: index)
+        return Binder(self.base) { segmentedControl, image -> Void in
+            segmentedControl.setImage(image, forSegmentAt: index)
         }
     }
 

@@ -7,8 +7,12 @@
 
 import UIKit
 import Core
+import GoogleMaps
+import GoogleMapsUtils
+import CoreGPX
+import MapboxMaps
 
-class ActivityCell: UITableViewCell, Dequeueable {
+class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
     
     private lazy var image: UIImageView = {
         let image = UIImageView()
@@ -73,7 +77,7 @@ class ActivityCell: UITableViewCell, Dequeueable {
     }()
     
     public var spacing: CGFloat = 8.0
-
+    
     private lazy var distanceValueLabel: UILabel = {
         let label = UILabel()
         label.text = "30 KM"
@@ -118,11 +122,11 @@ class ActivityCell: UITableViewCell, Dequeueable {
         let stackView = UIStackView(frame: .zero)
         stackView.axis = .vertical
         stackView.spacing = spacing
-
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
-        
+    
     private lazy var heatmapImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -130,6 +134,11 @@ class ActivityCell: UITableViewCell, Dequeueable {
         
         return image
     }()
+    
+    private var mapView: GMSMapView!
+    private var heatmapLayer: GMUHeatmapTileLayer!
+    private var gradientColors = [UIColor.green, UIColor.red, UIColor.blue]
+    private var gradientStartPoints = [0.5, 0.8, 1.0] as [NSNumber]
     
     private lazy var kudosLabel: UILabel = {
         let label = UILabel()
@@ -165,6 +174,35 @@ private extension ActivityCell {
     
     func setupUI() {
         backgroundColor = .white
+        
+        
+        // Google maps
+        let camera = GMSCameraPosition.camera(withLatitude: 51.9875090, longitude: 6.6087430, zoom: 16.5)
+        mapView = GMSMapView(frame: .zero, camera: camera)
+//        let vancouver = CLLocationCoordinate2D(latitude: 52.277225, longitude: 5.142552)
+//        let calgary = CLLocationCoordinate2D(latitude: 52.277225,longitude: 5.142552)
+//        let bounds = GMSCoordinateBounds(coordinate: vancouver, coordinate: calgary)
+//        let camera = mapView.camera(for: bounds, insets: UIEdgeInsets())!
+//        mapView.camera = camera
+        
+        mapView.mapType = .satellite
+        mapView.translatesAutoresizingMaskIntoConstraints = false
+        mapView.delegate = self
+//        mapView.settings.scrollGestures = true
+//        mapView.settings.zoomGestures = true
+//        mapView.isUserInteractionEnabled = true
+        // Set heatmap options.
+        heatmapLayer = GMUHeatmapTileLayer()
+        heatmapLayer.radius = 120
+        heatmapLayer.opacity = 1.0
+        heatmapLayer.gradient = GMUGradient(colors: gradientColors,
+                                            startPoints: gradientStartPoints,
+                                            colorMapSize: 256)
+        addHeatmap()
+        
+        // Set the heatmap to the mapview.
+        heatmapLayer.map = mapView    
+        
         setupSubviews()
         setupConstraints()
         
@@ -172,6 +210,90 @@ private extension ActivityCell {
         image.clipsToBounds = true
     }
     
+    // Parse JSON data and add it to the heatmap layer.
+    func addHeatmap() {
+        var list = [GMUWeightedLatLng]()
+        
+        if let inputURL = Bundle.main.url(forResource: "KSV_4_to_the_stars_beyond_", withExtension: "gpx") {
+            guard let gpx = GPXParser(withURL: inputURL)?.parsedData() else { return }
+                    
+            // waypoints, tracks, tracksegements, trackpoints are all stored as Array depends on the amount stored in the GPX file.
+            for waypoint in gpx.tracks[0].segments[0].points {  // for loop example, every waypoint is written
+                print(waypoint.latitude ?? 0.0)     // prints every waypoint's latitude, etc: 1.3521, as a Double object
+                print(waypoint.longitude ?? 0.0)    // prints every waypoint's longitude, etc: 103.8198, as a Double object
+                let coords = GMUWeightedLatLng(coordinate: CLLocationCoordinate2DMake(waypoint.latitude ?? 0.0, waypoint.longitude ?? 0.0), intensity: 1.0)
+                list.append(coords)
+            }
+        }
+        // Add the latlngs to the heatmap layer.
+        heatmapLayer.weightedData = list
+    }
+    
+    /*
+     func addMapboxMap() {
+         let myResourceOptions = ResourceOptions(accessToken: "pk.eyJ1Ijoic2FtZWhtYWJyb3VrIiwiYSI6ImNreGc2dWE2NzAxeGIydmx0dG43OGRwZHUifQ.xR8lovpq4v7oJe0HjdyJNA")
+         let cameraOptions = CameraOptions(center: CLLocationCoordinate2D(latitude: 51.9875090, longitude: 6.6087430),
+                                                   zoom: 16,
+                                                   bearing: -21,
+                                                   pitch: 90)
+         // Pass camera options to map init options
+         let myMapInitOptions = MapInitOptions(resourceOptions: myResourceOptions, cameraOptions: cameraOptions, styleURI: .satellite)
+         mapView = MapView(frame: .zero, mapInitOptions: myMapInitOptions)
+         mapView.translatesAutoresizingMaskIntoConstraints = false
+         
+     }
+     
+    func addMapboxHeatmap() {
+        let sourceId = "earthquake-source"
+        var imageSource = ImageSource()
+         // Create the heatmap layer using the specified layer and source IDs.
+         var layer = HeatmapLayer(id: "earthquake-heatmap-layer")
+        
+//         layer.source = sourceId
+         // Set the heatmap layer's color property.
+         layer.heatmapColor = .expression(
+             Exp(.interpolate) {
+                 Exp(.linear)
+                 Exp(.heatmapDensity)
+                 0
+                 UIColor.clear
+                 0.2
+                 UIColor.blue
+                 0.4
+                 UIColor.green
+                 0.6
+                 UIColor.yellow
+                 0.8
+                 UIColor.orange
+                 1.0
+                 UIColor.red
+         })
+
+        
+        
+        var list = [GMUWeightedLatLng]()
+        var coordList = [[Double]]()
+        if let inputURL = Bundle.main.url(forResource: "KSV_4_to_the_stars_beyond_", withExtension: "gpx") {
+            guard let gpx = GPXParser(withURL: inputURL)?.parsedData() else { return }
+                    
+            // waypoints, tracks, tracksegements, trackpoints are all stored as Array depends on the amount stored in the GPX file.
+            for waypoint in gpx.tracks[0].segments[0].points {  // for loop example, every waypoint is written
+                print(waypoint.latitude ?? 0.0)     // prints every waypoint's latitude, etc: 1.3521, as a Double object
+                print(waypoint.longitude ?? 0.0)    // prints every waypoint's longitude, etc: 103.8198, as a Double object
+                let coords = GMUWeightedLatLng(coordinate: CLLocationCoordinate2DMake(waypoint.latitude ?? 0.0, waypoint.longitude ?? 0.0), intensity: 1.0)
+                list.append(coords)
+                coordList.append([waypoint.latitude ?? 0.0, waypoint.longitude ?? 0.0])
+            }
+        }
+        
+        imageSource.coordinates = coordList
+        try! mapView.mapboxMap.style.addSource(imageSource, id: sourceId)
+
+        // Add the heatmap layer to the map.
+       try! mapView.mapboxMap.style.addLayer(layer)
+    }
+    
+    */
     func setupSubviews() {
         addSubview(image)
         addSubview(userNameLabel)
@@ -188,7 +310,8 @@ private extension ActivityCell {
         addSubview(divider)
         addSubview(paceStackView)
         
-        addSubview(heatmapImage)
+        //        addSubview(heatmapImage)
+        addSubview(mapView)
         
         addSubview(image1)
         addSubview(image2)
@@ -219,45 +342,45 @@ private extension ActivityCell {
             activityTitleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 28),
             activityTitleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
             activityTitleLabel.heightAnchor.constraint(equalToConstant: 42),
-
+            
             distanceStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 28),
             distanceStackView.topAnchor.constraint(equalTo: activityTitleLabel.bottomAnchor, constant: 16),
-//            distanceStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
+            //            distanceStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
             
             divider.leftAnchor.constraint(equalTo: distanceStackView.rightAnchor, constant: 11),
             divider.topAnchor.constraint(equalTo: activityTitleLabel.bottomAnchor, constant: 16),
             divider.widthAnchor.constraint(equalToConstant: 1),
             divider.heightAnchor.constraint(equalToConstant: 38),
-
+            
             paceStackView.leftAnchor.constraint(equalTo: divider.leftAnchor, constant: 28),
             paceStackView.topAnchor.constraint(equalTo: activityTitleLabel.bottomAnchor, constant: 16),
-//            paceStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
+            //            paceStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
             
-            heatmapImage.topAnchor.constraint(equalTo: paceStackView.bottomAnchor, constant: 10),
-            heatmapImage.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
-            heatmapImage.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
-            heatmapImage.heightAnchor.constraint(equalToConstant: 155),
-//            heatmapImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            mapView.topAnchor.constraint(equalTo: paceStackView.bottomAnchor, constant: 10),
+            mapView.leftAnchor.constraint(equalTo: leftAnchor, constant: 0),
+            mapView.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
+            mapView.heightAnchor.constraint(equalToConstant: 250),
+            //            heatmapImage.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
-            image1.topAnchor.constraint(equalTo: heatmapImage.bottomAnchor, constant: 12),
+            image1.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 12),
             image1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 22),
             image1.widthAnchor.constraint(equalToConstant: 38),
             image1.heightAnchor.constraint(equalToConstant: 42),
             image1.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
-            image2.topAnchor.constraint(equalTo: heatmapImage.bottomAnchor, constant: 12),
+            image2.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 12),
             image2.leadingAnchor.constraint(equalTo: image1.leadingAnchor, constant: 30),
             image2.widthAnchor.constraint(equalToConstant: 38),
             image2.heightAnchor.constraint(equalToConstant: 42),
             image2.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
-            image3.topAnchor.constraint(equalTo: heatmapImage.bottomAnchor, constant: 12),
+            image3.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 12),
             image3.leadingAnchor.constraint(equalTo: image2.leadingAnchor, constant: 30),
             image3.widthAnchor.constraint(equalToConstant: 38),
             image3.heightAnchor.constraint(equalToConstant: 42),
             image3.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
-            kudosLabel.topAnchor.constraint(equalTo: heatmapImage.bottomAnchor, constant: 12),
+            kudosLabel.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 12),
             kudosLabel.leftAnchor.constraint(equalTo: image3.rightAnchor, constant: 16),
             kudosLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: 0),
             kudosLabel.heightAnchor.constraint(equalToConstant: 32)

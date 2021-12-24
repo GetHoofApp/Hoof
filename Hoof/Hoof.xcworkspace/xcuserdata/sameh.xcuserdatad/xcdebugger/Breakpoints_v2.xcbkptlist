@@ -1,71 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "DCFE758E-E8B1-4094-ACE2-ABC909585302"
+   uuid = "D22B5CBF-E7D5-4444-84CE-B5862BA92A51"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6008F19B-A86A-481E-8BE4-12F589A70F5A"
+            uuid = "B64B6C22-F432-4C33-A784-F05C473ED250"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Groups/Groups/GroupsViewController.swift"
+            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
-            landmarkName = "tableView(_:didSelectRowAt:)"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "addHeatmap()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B7977493-8F5D-4DCF-B93F-3595ED6EB1FE"
+            uuid = "75BA2A34-8C58-4CEC-B8B1-26D144B48021"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Groups/Groups/GroupsCoordinator.swift"
+            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "start()"
+            startingLineNumber = "218"
+            endingLineNumber = "218"
+            landmarkName = "addHeatmap()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B7977493-8F5D-4DCF-B93F-3595ED6EB1FE - de6304b5a9f5e603"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (RxSwift.Event&lt;()&gt;) -&gt; () in Groups.GroupsCoordinator.start() -&gt; RxSwift.Observable&lt;()&gt;"
-                  moduleName = "Groups"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Groups/Groups/GroupsCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37"
-                  offsetFromSymbolStart = "658">
-               </Location>
-               <Location
-                  uuid = "B7977493-8F5D-4DCF-B93F-3595ED6EB1FE - 96ae04bc87e3f1fd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (RxSwift.Event&lt;()&gt;) -&gt; () in Groups.GroupsCoordinator.start() -&gt; RxSwift.Observable&lt;()&gt;"
-                  moduleName = "Groups"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Groups/Groups/GroupsCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "4">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

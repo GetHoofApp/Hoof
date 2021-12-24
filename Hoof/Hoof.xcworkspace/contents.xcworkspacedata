@@ -1,32 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <Group
-      location = "group:Common"
-      name = "Common">
-      <FileRef
-         location = "group:Core/Core.xcodeproj">
-      </FileRef>
-   </Group>
-   <Group
-      location = "group:Features"
-      name = "Features">
-      <FileRef
-         location = "group:CreateChallenge/CreateChallenge.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Profile/Profile.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Groups/Groups.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Map/Map.xcodeproj">
-      </FileRef>
-      <FileRef
-         location = "group:Home/Home.xcodeproj">
-      </FileRef>
-   </Group>
+   <FileRef
+      location = "group:Common/Core/Core.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Features/CreateChallenge/CreateChallenge.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Features/Groups/Groups.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Features/Home/Home.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Features/Map/Map.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Features/Profile/Profile.xcodeproj">
+   </FileRef>
    <FileRef
       location = "group:Hoof.xcodeproj">
    </FileRef>

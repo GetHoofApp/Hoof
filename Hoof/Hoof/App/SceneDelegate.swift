@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import Core
+import GoogleMaps
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     

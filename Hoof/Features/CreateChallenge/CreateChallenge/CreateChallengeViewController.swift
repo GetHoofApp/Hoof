@@ -24,13 +24,14 @@ class CreateChallengeViewController: ViewController<CreateChallengeViewModel> {
         tableView.backgroundColor = .white
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
+
         return tableView
     }()
     
-    let challenges: [Challenge] = [Challenge(name: "Fastest Sprint", description: "Record the fastest sprint over a set distance during a football match."),
-                                   Challenge(name: "Longest Distance", description: "Record the most distance during one football match. "),
-                                   Challenge(name: "Top Scorer", description: "Score X number of goals during a set of time."),
-                                   Challenge(name: "Best Position", description: "Best looking heatmap for a specific position(stricker, defense, play maker, etc...)")
+    let challenges: [Challenge] = [Challenge(name: "Fastest Sprint", description: "Record the fastest sprint over a set distance during a football match.", icon: #imageLiteral(resourceName: "fast-player")),
+                                   Challenge(name: "Longest Distance", description: "Record the most distance during one football match. ", icon: #imageLiteral(resourceName: "fast-player")),
+                                   Challenge(name: "Top Scorer", description: "Score X number of goals during a set of time.", icon: #imageLiteral(resourceName: "fast-player")),
+                                   Challenge(name: "Best Position", description: "Best looking heatmap for a specific position(stricker, defense, play maker, etc...)", icon: #imageLiteral(resourceName: "fast-player"))
     ]
         
     override func viewDidLoad() {
@@ -85,7 +86,7 @@ extension CreateChallengeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.getCell(forType: ChallengeCell.self)
         let challenge = challenges[indexPath.row]
-        cell.configure(title: challenge.name, subtitle: challenge.description)
+        cell.configure(title: challenge.name, subtitle: challenge.description, icon: challenge.icon)
         
         return cell
     }

@@ -8,6 +8,8 @@
 import UIKit
 import CoreData
 import WatchConnectivity
+import CoreGPX
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
