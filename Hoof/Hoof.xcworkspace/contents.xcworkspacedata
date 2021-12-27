@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Pods/../Features/SignUp/SignUp.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Features/Welcome/Welcome.xcodeproj">
    </FileRef>
    <FileRef

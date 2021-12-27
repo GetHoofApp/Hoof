@@ -10,7 +10,6 @@ def shared_pods
   pod 'CoreGPX'
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
-  pod "Apollo"
 end
 
 def shared_UIPods
@@ -80,6 +79,16 @@ target 'Welcome' do
   shared_pods
   
   target 'WelcomeTests' do
+    inherit! :search_paths
+    shared_pods
+  end
+end
+
+target 'SignUp' do
+  project 'Features/SignUp/SignUp'
+  shared_pods
+  
+  target 'SignUpTests' do
     inherit! :search_paths
     shared_pods
   end
