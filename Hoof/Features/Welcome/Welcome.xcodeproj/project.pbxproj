@@ -11,6 +11,13 @@
 		508D7B4F2775EFC90065A54B /* Welcome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508D7B442775EFC90065A54B /* Welcome.framework */; };
 		508D7B542775EFC90065A54B /* WelcomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508D7B532775EFC90065A54B /* WelcomeTests.swift */; };
 		508D7B552775EFC90065A54B /* Welcome.h in Headers */ = {isa = PBXBuildFile; fileRef = 508D7B472775EFC90065A54B /* Welcome.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		508D7B64277895020065A54B /* WelcomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508D7B5E277895020065A54B /* WelcomeCoordinator.swift */; };
+		508D7B65277895030065A54B /* WelcomeModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508D7B5F277895020065A54B /* WelcomeModuleBuilder.swift */; };
+		508D7B66277895030065A54B /* WelcomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508D7B60277895020065A54B /* WelcomeUseCase.swift */; };
+		508D7B67277895030065A54B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508D7B61277895020065A54B /* WelcomeViewController.swift */; };
+		508D7B68277895030065A54B /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508D7B62277895020065A54B /* WelcomeViewModel.swift */; };
+		508D7B69277895030065A54B /* WelcomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508D7B63277895020065A54B /* WelcomeService.swift */; };
+		508D7B6B2778957C0065A54B /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508D7B6A2778957C0065A54B /* Core.framework */; };
 		9A98CF1BC6ACE25ED3945761 /* Pods_WelcomeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52ED28650C84C78B767DE9E6 /* Pods_WelcomeTests.framework */; };
 		F85529FE32BB4164E28EC5BC /* Pods_Welcome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27CE5F7DB5A6C88E00E61F5 /* Pods_Welcome.framework */; };
 /* End PBXBuildFile section */
@@ -32,6 +39,13 @@
 		508D7B482775EFC90065A54B /* Welcome.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Welcome.docc; sourceTree = "<group>"; };
 		508D7B4E2775EFC90065A54B /* WelcomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WelcomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		508D7B532775EFC90065A54B /* WelcomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeTests.swift; sourceTree = "<group>"; };
+		508D7B5E277895020065A54B /* WelcomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeCoordinator.swift; sourceTree = "<group>"; };
+		508D7B5F277895020065A54B /* WelcomeModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeModuleBuilder.swift; sourceTree = "<group>"; };
+		508D7B60277895020065A54B /* WelcomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeUseCase.swift; sourceTree = "<group>"; };
+		508D7B61277895020065A54B /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		508D7B62277895020065A54B /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		508D7B63277895020065A54B /* WelcomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeService.swift; sourceTree = "<group>"; };
+		508D7B6A2778957C0065A54B /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ED28650C84C78B767DE9E6 /* Pods_WelcomeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WelcomeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBC10A21001E68239E629EE /* Pods-Welcome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Welcome.debug.xcconfig"; path = "Target Support Files/Pods-Welcome/Pods-Welcome.debug.xcconfig"; sourceTree = "<group>"; };
 		B7B38D4D81EEDFF6857FC9A4 /* Pods-WelcomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WelcomeTests.debug.xcconfig"; path = "Target Support Files/Pods-WelcomeTests/Pods-WelcomeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -45,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F85529FE32BB4164E28EC5BC /* Pods_Welcome.framework in Frameworks */,
+				508D7B6B2778957C0065A54B /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +98,12 @@
 		508D7B462775EFC90065A54B /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
+				508D7B5E277895020065A54B /* WelcomeCoordinator.swift */,
+				508D7B5F277895020065A54B /* WelcomeModuleBuilder.swift */,
+				508D7B60277895020065A54B /* WelcomeUseCase.swift */,
+				508D7B61277895020065A54B /* WelcomeViewController.swift */,
+				508D7B62277895020065A54B /* WelcomeViewModel.swift */,
+				508D7B63277895020065A54B /* WelcomeService.swift */,
 				508D7B472775EFC90065A54B /* Welcome.h */,
 				508D7B482775EFC90065A54B /* Welcome.docc */,
 			);
@@ -100,6 +121,7 @@
 		A2899147B85E71CACCAB9FBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				508D7B6A2778957C0065A54B /* Core.framework */,
 				C27CE5F7DB5A6C88E00E61F5 /* Pods_Welcome.framework */,
 				52ED28650C84C78B767DE9E6 /* Pods_WelcomeTests.framework */,
 			);
@@ -294,7 +316,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				508D7B66277895030065A54B /* WelcomeUseCase.swift in Sources */,
+				508D7B69277895030065A54B /* WelcomeService.swift in Sources */,
+				508D7B68277895030065A54B /* WelcomeViewModel.swift in Sources */,
+				508D7B67277895030065A54B /* WelcomeViewController.swift in Sources */,
 				508D7B492775EFC90065A54B /* Welcome.docc in Sources */,
+				508D7B64277895020065A54B /* WelcomeCoordinator.swift in Sources */,
+				508D7B65277895030065A54B /* WelcomeModuleBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,7 +397,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -427,7 +455,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -501,6 +529,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B7B38D4D81EEDFF6857FC9A4 /* Pods-WelcomeTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9X9VYGUMW9;
@@ -518,6 +547,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 33D8FA501F470C3E10BFAE77 /* Pods-WelcomeTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9X9VYGUMW9;

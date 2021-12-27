@@ -12,6 +12,7 @@ import Home
 import Map
 import Groups
 import Profile
+import Welcome
 
 class AppRootCoordinator: BaseCoordinator<Void> {
     
@@ -23,21 +24,36 @@ class AppRootCoordinator: BaseCoordinator<Void> {
     private var groupsCoordinator: BaseCoordinator<Void>!
     private var profileCoordinator: BaseCoordinator<Void>!
     
+    private var welcomeCoordinator: BaseCoordinator<Void>!
+
     private let homeModuleBuilder: HomeModuleBuildable
     private let mapModuleBuilder: MapModuleBuildable
     private let groupsModuleBuilder: GroupsModuleBuildable
     private let profileModuleBuilder: ProfileModuleBuildable
     
-    init(window: UIWindow, homeModuleBuilder: HomeModuleBuildable, mapModuleBuilder: MapModuleBuildable, groupsModuleBuilder: GroupsModuleBuildable, profileModuleBuilder: ProfileModuleBuildable) {
+    private let welcomeModuleBuilder: WelcomeModuleBuildable
+    
+    init(window: UIWindow, homeModuleBuilder: HomeModuleBuildable, mapModuleBuilder: MapModuleBuildable, groupsModuleBuilder: GroupsModuleBuildable, profileModuleBuilder: ProfileModuleBuildable, welcomeModuleBuilder: WelcomeModuleBuildable) {
         self.window = window
         self.homeModuleBuilder = homeModuleBuilder
         self.mapModuleBuilder = mapModuleBuilder
         self.groupsModuleBuilder = groupsModuleBuilder
         self.profileModuleBuilder = profileModuleBuilder
+        self.welcomeModuleBuilder = welcomeModuleBuilder
         tabBarController = UITabBarController()
     }
     
     override func start() -> Observable<Void> {
+        let navController = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
+        guard let welcomeCoordinator: BaseCoordinator<Void> = welcomeModuleBuilder.buildModule(with: navController)?.coordinator else {
+            preconditionFailure("[AppCoordinator] Cannot get welcomeModuleBuilder from module builder")
+        }
+        self.welcomeCoordinator = welcomeCoordinator
+        _ = welcomeCoordinator.start()
+
+        window.rootViewController = navController
+
+        /*
         let navController = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
         guard let homeCoordinator: BaseCoordinator<Void> = homeModuleBuilder.buildModule(with: navController)?.coordinator else {
             preconditionFailure("[AppCoordinator] Cannot get homeModuleBuilder from module builder")
@@ -91,7 +107,7 @@ class AppRootCoordinator: BaseCoordinator<Void> {
         
         tabBarController.setViewControllers([navController, mapNavController, groupsNavController, profileNavController], animated: false)
         window.rootViewController = tabBarController
-        
+        */
         return .never()
     }
 }
