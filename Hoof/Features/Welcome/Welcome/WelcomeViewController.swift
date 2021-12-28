@@ -84,11 +84,14 @@ class WelcomeViewController: ViewController<WelcomeViewModel> {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
         button.setTitleColor(.black, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         return button
     }()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewDidLoad() {
@@ -162,4 +165,8 @@ class WelcomeViewController: ViewController<WelcomeViewModel> {
     }
     
     override func setupObservers() {}
+    
+    @objc func signUpButtonTapped() {
+        viewModel.inputs.signupButtonTapped.onNext(())
+    }
 }

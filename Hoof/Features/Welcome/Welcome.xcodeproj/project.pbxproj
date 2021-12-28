@@ -18,6 +18,7 @@
 		508D7B68277895030065A54B /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508D7B62277895020065A54B /* WelcomeViewModel.swift */; };
 		508D7B69277895030065A54B /* WelcomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508D7B63277895020065A54B /* WelcomeService.swift */; };
 		508D7B6B2778957C0065A54B /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508D7B6A2778957C0065A54B /* Core.framework */; };
+		50B78D532779DB0C0010BEAC /* SignUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B78D522779DB0C0010BEAC /* SignUp.framework */; };
 		9A98CF1BC6ACE25ED3945761 /* Pods_WelcomeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52ED28650C84C78B767DE9E6 /* Pods_WelcomeTests.framework */; };
 		F85529FE32BB4164E28EC5BC /* Pods_Welcome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C27CE5F7DB5A6C88E00E61F5 /* Pods_Welcome.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		508D7B62277895020065A54B /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		508D7B63277895020065A54B /* WelcomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeService.swift; sourceTree = "<group>"; };
 		508D7B6A2778957C0065A54B /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50B78D522779DB0C0010BEAC /* SignUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ED28650C84C78B767DE9E6 /* Pods_WelcomeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WelcomeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CBC10A21001E68239E629EE /* Pods-Welcome.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Welcome.debug.xcconfig"; path = "Target Support Files/Pods-Welcome/Pods-Welcome.debug.xcconfig"; sourceTree = "<group>"; };
 		B7B38D4D81EEDFF6857FC9A4 /* Pods-WelcomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WelcomeTests.debug.xcconfig"; path = "Target Support Files/Pods-WelcomeTests/Pods-WelcomeTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			files = (
 				F85529FE32BB4164E28EC5BC /* Pods_Welcome.framework in Frameworks */,
 				508D7B6B2778957C0065A54B /* Core.framework in Frameworks */,
+				50B78D532779DB0C0010BEAC /* SignUp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +124,7 @@
 		A2899147B85E71CACCAB9FBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50B78D522779DB0C0010BEAC /* SignUp.framework */,
 				508D7B6A2778957C0065A54B /* Core.framework */,
 				C27CE5F7DB5A6C88E00E61F5 /* Pods_Welcome.framework */,
 				52ED28650C84C78B767DE9E6 /* Pods_WelcomeTests.framework */,

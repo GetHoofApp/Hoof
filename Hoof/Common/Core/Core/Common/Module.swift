@@ -21,6 +21,7 @@ public protocol ModuleBuildable: AnyObject {
     func buildModule<T>(with window: UIWindow) -> Module<T>?
     func buildModule<T>(with window: UIWindow, context: Any) -> Module<T>?
     func buildModule<T>(with rootViewController: Presentable) -> Module<T>?
+    func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>?
 }
 
 extension ModuleBuildable {
@@ -33,6 +34,10 @@ extension ModuleBuildable {
     }
     
     public func buildModule<T>(with rootViewController: Presentable) -> Module<T>? {
+        return nil
+    }
+    
+    public func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
         return nil
     }
 }

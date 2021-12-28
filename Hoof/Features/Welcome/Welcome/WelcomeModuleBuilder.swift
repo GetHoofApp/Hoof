@@ -8,6 +8,14 @@
 
 import UIKit
 import Core
+import SignUp
+
+private final class WelcomeDependencyProvider: DependencyProvider<EmptyDependency> {
+        
+    var signUpModuleBuilder: SignUpModuleBuildable {
+        SignUpModuleBuilder()
+    }
+}
 
 public protocol WelcomeModuleBuildable: ModuleBuildable {
     func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>?
@@ -16,11 +24,13 @@ public protocol WelcomeModuleBuildable: ModuleBuildable {
 public class WelcomeModuleBuilder: Builder<EmptyDependency>, WelcomeModuleBuildable {
 
     public func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
+        let dependencyProvider = WelcomeDependencyProvider()
+        
         registerService()
         registerUsecase()
         registerViewModel()
         registerView()
-        registerCoordinator(rootViewController: rootViewController)
+        registerCoordinator(rootViewController: rootViewController, signUpModuleBuilder: dependencyProvider.signUpModuleBuilder)
         
         guard let coordinator = container.resolve(WelcomeCoordinator.self) else {
             return nil
@@ -64,13 +74,14 @@ private extension WelcomeModuleBuilder {
         }
     }
     
-    func registerCoordinator(rootViewController: NavigationControllable? = nil) {
+    func registerCoordinator(rootViewController: NavigationControllable? = nil, signUpModuleBuilder: SignUpModuleBuildable) {
         container.register(WelcomeCoordinator.self) { [weak self] in
             guard let viewController = self?.container.resolve(WelcomeViewController.self) else {
                 return nil
             }
             
-            let coordinator = WelcomeCoordinator(rootViewController: rootViewController, viewController: viewController)
+            let coordinator = WelcomeCoordinator(rootViewController: rootViewController, viewController: viewController, signUpModuleBuilder: signUpModuleBuilder)
+            coordinator.showSignUp = viewController.viewModel.outputs.showSignUp
             return coordinator
         }
     }

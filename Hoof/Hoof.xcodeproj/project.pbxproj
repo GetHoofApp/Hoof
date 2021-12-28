@@ -123,6 +123,8 @@
 		50A3137E27713BA200A1B29F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A3137D27713BA200A1B29F /* QuartzCore.framework */; };
 		50A3138027713BAA00A1B29F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A3137F27713BAA00A1B29F /* SystemConfiguration.framework */; };
 		50A3138227713BB300A1B29F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A3138127713BB300A1B29F /* UIKit.framework */; };
+		50B78D572779E5810010BEAC /* SignUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B78D562779E5810010BEAC /* SignUp.framework */; };
+		50B78D582779E5810010BEAC /* SignUp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50B78D562779E5810010BEAC /* SignUp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50E8E438273D7ABB00FB73FA /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E437273D7ABB00FB73FA /* Home.framework */; };
 		50E8E439273D7ABB00FB73FA /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E437273D7ABB00FB73FA /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50E8E46B2742987C00FB73FA /* Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E46A2742987C00FB73FA /* Map.framework */; };
@@ -220,6 +222,7 @@
 				509805DF273AA89B0063219B /* Core.framework in Embed Frameworks */,
 				50E8E4DE2742BCBE00FB73FA /* Profile.framework in Embed Frameworks */,
 				5099B3FA27721E8A00252359 /* MapboxMaps.xcframework in Embed Frameworks */,
+				50B78D582779E5810010BEAC /* SignUp.framework in Embed Frameworks */,
 				5099B3F627721E8A00252359 /* MapboxCommon.xcframework in Embed Frameworks */,
 				5085ADD4274F7CD800315D67 /* CreateChallenge.framework in Embed Frameworks */,
 				50E8E439273D7ABB00FB73FA /* Home.framework in Embed Frameworks */,
@@ -338,6 +341,7 @@
 		50A3137D27713BA200A1B29F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		50A3137F27713BAA00A1B29F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		50A3138127713BB300A1B29F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		50B78D562779E5810010BEAC /* SignUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E8E437273D7ABB00FB73FA /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E8E46A2742987C00FB73FA /* Map.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Map.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E8E49E2742AD8000FB73FA /* Groups.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Groups.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -381,6 +385,7 @@
 				50A3137C27713B9B00A1B29F /* OpenGLES.framework in Frameworks */,
 				508D7B6F27789CB40065A54B /* Welcome.framework in Frameworks */,
 				50A3137A27713B9200A1B29F /* Metal.framework in Frameworks */,
+				50B78D572779E5810010BEAC /* SignUp.framework in Frameworks */,
 				5099B3F927721E8A00252359 /* MapboxMaps.xcframework in Frameworks */,
 				50A3137827713B8900A1B29F /* libz.tbd in Frameworks */,
 				50A3137627713B7C00A1B29F /* libc++.tbd in Frameworks */,
@@ -668,6 +673,7 @@
 		856C5B1E3FD5FEF46995A408 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50B78D562779E5810010BEAC /* SignUp.framework */,
 				508D7B6E27789CB40065A54B /* Welcome.framework */,
 				50A3138127713BB300A1B29F /* UIKit.framework */,
 				50A3137F27713BAA00A1B29F /* SystemConfiguration.framework */,

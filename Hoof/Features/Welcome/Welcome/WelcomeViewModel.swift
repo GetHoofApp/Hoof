@@ -14,9 +14,13 @@ protocol WelcomeViewModellable: ViewModellable {
     var outputs: WelcomeViewModelOutputs { get }
 }
 
-struct WelcomeViewModelInputs {}
+struct WelcomeViewModelInputs {
+    var signupButtonTapped = PublishSubject<Void>()
+}
 
-struct WelcomeViewModelOutputs {}
+struct WelcomeViewModelOutputs {
+    var showSignUp = PublishSubject<Void>()
+}
 
 class WelcomeViewModel: WelcomeViewModellable {
 
@@ -27,6 +31,8 @@ class WelcomeViewModel: WelcomeViewModellable {
 
     init(useCase: WelcomeInteractable) {
         self.useCase = useCase
+        
+        setupObservables()
     }
 }
 
@@ -34,5 +40,9 @@ class WelcomeViewModel: WelcomeViewModellable {
 
 private extension WelcomeViewModel {
 
-    func setupObservables() {}
+    func setupObservables() {
+        inputs.signupButtonTapped.subscribe(onNext: { [weak self] in
+            self?.outputs.showSignUp.onNext(())
+        }).disposed(by: disposeBag)
+    }
 }

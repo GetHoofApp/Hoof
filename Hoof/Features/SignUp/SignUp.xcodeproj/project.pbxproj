@@ -11,6 +11,12 @@
 		50B78D2E2779D8DB0010BEAC /* SignUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B78D232779D8DA0010BEAC /* SignUp.framework */; };
 		50B78D332779D8DB0010BEAC /* SignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B78D322779D8DB0010BEAC /* SignUpTests.swift */; };
 		50B78D342779D8DB0010BEAC /* SignUp.h in Headers */ = {isa = PBXBuildFile; fileRef = 50B78D262779D8DA0010BEAC /* SignUp.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50B78D4C2779D9B80010BEAC /* SignUpCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B78D462779D9B80010BEAC /* SignUpCoordinator.swift */; };
+		50B78D4D2779D9B80010BEAC /* SignUpModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B78D472779D9B80010BEAC /* SignUpModuleBuilder.swift */; };
+		50B78D4E2779D9B80010BEAC /* SignUpUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B78D482779D9B80010BEAC /* SignUpUseCase.swift */; };
+		50B78D4F2779D9B80010BEAC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B78D492779D9B80010BEAC /* SignUpViewController.swift */; };
+		50B78D502779D9B80010BEAC /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B78D4A2779D9B80010BEAC /* SignUpViewModel.swift */; };
+		50B78D512779D9B80010BEAC /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B78D4B2779D9B80010BEAC /* SignUpService.swift */; };
 		92D4DFCFD6B06B0863CA890D /* Pods_SignUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22DEAFB5B850AE470BFC78E2 /* Pods_SignUp.framework */; };
 		98FC40C7ED1946416238E153 /* Pods_SignUpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38990208414BE57E3F8F1979 /* Pods_SignUpTests.framework */; };
 /* End PBXBuildFile section */
@@ -35,6 +41,12 @@
 		50B78D272779D8DA0010BEAC /* SignUp.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SignUp.docc; sourceTree = "<group>"; };
 		50B78D2D2779D8DB0010BEAC /* SignUpTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SignUpTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B78D322779D8DB0010BEAC /* SignUpTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTests.swift; sourceTree = "<group>"; };
+		50B78D462779D9B80010BEAC /* SignUpCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinator.swift; sourceTree = "<group>"; };
+		50B78D472779D9B80010BEAC /* SignUpModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModuleBuilder.swift; sourceTree = "<group>"; };
+		50B78D482779D9B80010BEAC /* SignUpUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpUseCase.swift; sourceTree = "<group>"; };
+		50B78D492779D9B80010BEAC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		50B78D4A2779D9B80010BEAC /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		50B78D4B2779D9B80010BEAC /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
 		7189B40473CEE4A5492C0FE5 /* Pods-SignUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignUp.debug.xcconfig"; path = "Target Support Files/Pods-SignUp/Pods-SignUp.debug.xcconfig"; sourceTree = "<group>"; };
 		E114C462D0AA5CAA19E2933F /* Pods-SignUpTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignUpTests.debug.xcconfig"; path = "Target Support Files/Pods-SignUpTests/Pods-SignUpTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -83,6 +95,12 @@
 		50B78D252779D8DA0010BEAC /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				50B78D462779D9B80010BEAC /* SignUpCoordinator.swift */,
+				50B78D472779D9B80010BEAC /* SignUpModuleBuilder.swift */,
+				50B78D482779D9B80010BEAC /* SignUpUseCase.swift */,
+				50B78D492779D9B80010BEAC /* SignUpViewController.swift */,
+				50B78D4A2779D9B80010BEAC /* SignUpViewModel.swift */,
+				50B78D4B2779D9B80010BEAC /* SignUpService.swift */,
 				50B78D262779D8DA0010BEAC /* SignUp.h */,
 				50B78D272779D8DA0010BEAC /* SignUp.docc */,
 			);
@@ -294,7 +312,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50B78D4D2779D9B80010BEAC /* SignUpModuleBuilder.swift in Sources */,
+				50B78D4E2779D9B80010BEAC /* SignUpUseCase.swift in Sources */,
+				50B78D512779D9B80010BEAC /* SignUpService.swift in Sources */,
+				50B78D4C2779D9B80010BEAC /* SignUpCoordinator.swift in Sources */,
 				50B78D282779D8DA0010BEAC /* SignUp.docc in Sources */,
+				50B78D502779D9B80010BEAC /* SignUpViewModel.swift in Sources */,
+				50B78D4F2779D9B80010BEAC /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -427,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -501,6 +525,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E114C462D0AA5CAA19E2933F /* Pods-SignUpTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9X9VYGUMW9;
@@ -518,6 +543,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2AE594E1EFDFA3C92C498458 /* Pods-SignUpTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9X9VYGUMW9;
