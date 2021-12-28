@@ -1,0 +1,12 @@
+mutation CreateUser($username: String!, $password: String!, $email: String!, $gender: String!, $bio: String, $favoritePosition: String, $foot: String, $preferedNumber: Int) {
+  createUser(username: $username, email: $email, password: $password, gender: $gender, bio: $bio, favoritePosition: $favoritePosition, foot: $foot, preferedNumber: $preferedNumber) {
+    id
+    username
+    email
+    gender
+    bio
+    favoritePosition
+    foot
+    preferedNumber
+  }
+}

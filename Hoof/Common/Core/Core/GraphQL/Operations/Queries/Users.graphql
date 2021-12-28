@@ -1,0 +1,12 @@
+query Users {
+  users {
+    id
+    username
+    email
+    gender
+    bio
+    favoritePosition
+    foot
+    preferedNumber
+  }
+}

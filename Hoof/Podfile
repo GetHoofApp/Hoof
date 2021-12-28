@@ -16,10 +16,15 @@ def shared_UIPods
   pod "DrawerView"
 end
 
+def graphql
+  pod "Apollo"
+end
+
 # Common modules
 target 'Core' do
   project 'Common/Core/Core'
   shared_pods
+  graphql
 end
 
 # Feature modules
@@ -87,6 +92,7 @@ end
 target 'SignUp' do
   project 'Features/SignUp/SignUp'
   shared_pods
+  graphql
   
   target 'SignUpTests' do
     inherit! :search_paths
@@ -99,6 +105,7 @@ target 'Hoof' do
   # Pods for Hoof
   shared_pods
   shared_UIPods
+  graphql
   pod 'MapCache', '~> 0.9.0'
   
   target 'HoofTests' do

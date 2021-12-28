@@ -1,4 +1,7 @@
 PODS:
+  - Apollo (0.50.0):
+    - Apollo/Core (= 0.50.0)
+  - Apollo/Core (0.50.0)
   - CoreGPX (0.9.0)
   - DrawerView (1.3.3)
   - MapCache (0.9.0)
@@ -10,6 +13,7 @@ PODS:
   - RxSwift (5.1.3)
 
 DEPENDENCIES:
+  - Apollo
   - CoreGPX
   - DrawerView
   - MapCache (~> 0.9.0)
@@ -24,8 +28,11 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+  trunk:
+    - Apollo
 
 SPEC CHECKSUMS:
+  Apollo: 5e4476a3236bd576686085b7cd99655c788e4d74
   CoreGPX: 1381c8c47428c3a6bcac2f93d25ca1c5e3525811
   DrawerView: 41c5e5d6593d86335ee2cf9b18d738835593dbc1
   MapCache: b0a9f5f9a0ed7cbac45443fea0e7e03a97bf0c66
@@ -33,6 +40,6 @@ SPEC CHECKSUMS:
   RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
 
-PODFILE CHECKSUM: 3d27c8b590e503771592e9080ea951375295fb91
+PODFILE CHECKSUM: 3f319079d445e9f262db5ccd95aa2b033a9aedd3
 
 COCOAPODS: 1.11.2

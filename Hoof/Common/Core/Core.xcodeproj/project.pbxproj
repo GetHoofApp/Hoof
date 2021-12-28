@@ -27,6 +27,17 @@
 		509805D527397ACB0063219B /* ViewControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509805CE27397ACB0063219B /* ViewControllable.swift */; };
 		509805D927397ADF0063219B /* UIWindow+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509805D727397ADF0063219B /* UIWindow+Utils.swift */; };
 		509805DA27397ADF0063219B /* UIApplication+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509805D827397ADF0063219B /* UIApplication+Utils.swift */; };
+		50BB8B33277B2D6C00FF6834 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 50BB8B32277B2D6C00FF6834 /* schema.json */; };
+		50BB8B37277B2E9000FF6834 /* Users.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 50BB8B36277B2E9000FF6834 /* Users.graphql */; };
+		50BB8B39277B2EC100FF6834 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B38277B2EC100FF6834 /* API.swift */; };
+		50BB8B3C277B2F8A00FF6834 /* CreateUser.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 50BB8B3B277B2F8A00FF6834 /* CreateUser.graphql */; };
+		50BB8B3F277B34FC00FF6834 /* GraphQLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B3E277B34FC00FF6834 /* GraphQLClient.swift */; };
+		50BB8B41277B350D00FF6834 /* ApolloClient+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B40277B350D00FF6834 /* ApolloClient+Rx.swift */; };
+		50BB8B44277B35AE00FF6834 /* GraphQLClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B43277B35AE00FF6834 /* GraphQLClientProtocol.swift */; };
+		50BB8B47277B366000FF6834 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B46277B366000FF6834 /* AppConfig.swift */; };
+		50BB8B49277B366C00FF6834 /* ConfigType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B48277B366C00FF6834 /* ConfigType.swift */; };
+		50BB8B4B277B367A00FF6834 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B4A277B367A00FF6834 /* Environment.swift */; };
+		50BB8B4E277B36E400FF6834 /* URL+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B4D277B36E400FF6834 /* URL+Util.swift */; };
 		50E8E4E62742D66000FB73FA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8E4E52742D66000FB73FA /* Location.swift */; };
 		50E8E4E82743CB1600FB73FA /* SportCourtAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8E4E72743CB1600FB73FA /* SportCourtAnnotation.swift */; };
 /* End PBXBuildFile section */
@@ -64,6 +75,17 @@
 		509805CE27397ACB0063219B /* ViewControllable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllable.swift; sourceTree = "<group>"; };
 		509805D727397ADF0063219B /* UIWindow+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Utils.swift"; sourceTree = "<group>"; };
 		509805D827397ADF0063219B /* UIApplication+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Utils.swift"; sourceTree = "<group>"; };
+		50BB8B32277B2D6C00FF6834 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		50BB8B36277B2E9000FF6834 /* Users.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Users.graphql; sourceTree = "<group>"; };
+		50BB8B38277B2EC100FF6834 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		50BB8B3B277B2F8A00FF6834 /* CreateUser.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateUser.graphql; sourceTree = "<group>"; };
+		50BB8B3E277B34FC00FF6834 /* GraphQLClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLClient.swift; sourceTree = "<group>"; };
+		50BB8B40277B350D00FF6834 /* ApolloClient+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApolloClient+Rx.swift"; sourceTree = "<group>"; };
+		50BB8B43277B35AE00FF6834 /* GraphQLClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLClientProtocol.swift; sourceTree = "<group>"; };
+		50BB8B46277B366000FF6834 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppConfig.swift; path = Core/GraphQL/Protocols/AppConfig.swift; sourceTree = SOURCE_ROOT; };
+		50BB8B48277B366C00FF6834 /* ConfigType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigType.swift; sourceTree = "<group>"; };
+		50BB8B4A277B367A00FF6834 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		50BB8B4D277B36E400FF6834 /* URL+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL+Util.swift"; path = "Core/Configs/URL+Util.swift"; sourceTree = SOURCE_ROOT; };
 		50E8E4E52742D66000FB73FA /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		50E8E4E72743CB1600FB73FA /* SportCourtAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportCourtAnnotation.swift; sourceTree = "<group>"; };
 		83D4DBDB9AB02965F02F13A8 /* Pods-Core.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Core.release.xcconfig"; path = "Target Support Files/Pods-Core/Pods-Core.release.xcconfig"; sourceTree = "<group>"; };
@@ -114,6 +136,9 @@
 		509805A0273979790063219B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				50BB8B4C277B36DA00FF6834 /* Utils */,
+				50BB8B45277B365800FF6834 /* Configs */,
+				50B78D5A277B1DF40010BEAC /* GraphQL */,
 				509805D627397ADF0063219B /* Extenstions */,
 				509805B827397ABC0063219B /* Common */,
 				509805C727397ACB0063219B /* UI */,
@@ -170,6 +195,78 @@
 			path = Extenstions;
 			sourceTree = "<group>";
 		};
+		50B78D5A277B1DF40010BEAC /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				50BB8B42277B35A200FF6834 /* Protocols */,
+				50BB8B3D277B34F300FF6834 /* Client */,
+				50BB8B34277B2E6B00FF6834 /* Operations */,
+				50BB8B32277B2D6C00FF6834 /* schema.json */,
+				50BB8B38277B2EC100FF6834 /* API.swift */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		50BB8B34277B2E6B00FF6834 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				50BB8B35277B2E7200FF6834 /* Queries */,
+				50BB8B3A277B2F6A00FF6834 /* Mutations */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		50BB8B35277B2E7200FF6834 /* Queries */ = {
+			isa = PBXGroup;
+			children = (
+				50BB8B36277B2E9000FF6834 /* Users.graphql */,
+			);
+			path = Queries;
+			sourceTree = "<group>";
+		};
+		50BB8B3A277B2F6A00FF6834 /* Mutations */ = {
+			isa = PBXGroup;
+			children = (
+				50BB8B3B277B2F8A00FF6834 /* CreateUser.graphql */,
+			);
+			path = Mutations;
+			sourceTree = "<group>";
+		};
+		50BB8B3D277B34F300FF6834 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				50BB8B3E277B34FC00FF6834 /* GraphQLClient.swift */,
+				50BB8B40277B350D00FF6834 /* ApolloClient+Rx.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
+		50BB8B42277B35A200FF6834 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				50BB8B43277B35AE00FF6834 /* GraphQLClientProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		50BB8B45277B365800FF6834 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				50BB8B46277B366000FF6834 /* AppConfig.swift */,
+				50BB8B48277B366C00FF6834 /* ConfigType.swift */,
+				50BB8B4A277B367A00FF6834 /* Environment.swift */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		50BB8B4C277B36DA00FF6834 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				50BB8B4D277B36E400FF6834 /* URL+Util.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		50E8E4E42742D64C00FB73FA /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +317,7 @@
 				5098059A273979790063219B /* Sources */,
 				5098059B273979790063219B /* Frameworks */,
 				5098059C273979790063219B /* Resources */,
+				50B78D5B277B1E430010BEAC /* Apollo CLI */,
 			);
 			buildRules = (
 			);
@@ -289,6 +387,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50BB8B3C277B2F8A00FF6834 /* CreateUser.graphql in Resources */,
+				50BB8B37277B2E9000FF6834 /* Users.graphql in Resources */,
+				50BB8B33277B2D6C00FF6834 /* schema.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +403,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		50B78D5B277B1E430010BEAC /* Apollo CLI */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Apollo CLI";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/Core/GraphQL\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"http://localhost:8000/graphql/\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=schema.json API.swift\n";
+		};
 		856B263CA3154895CBCB591F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -332,10 +451,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				509805D327397ACB0063219B /* NavigationControllable.swift in Sources */,
+				50BB8B39277B2EC100FF6834 /* API.swift in Sources */,
+				50BB8B44277B35AE00FF6834 /* GraphQLClientProtocol.swift in Sources */,
 				509805C227397ABC0063219B /* DependencyProvider.swift in Sources */,
+				50BB8B41277B350D00FF6834 /* ApolloClient+Rx.swift in Sources */,
 				509805DA27397ADF0063219B /* UIApplication+Utils.swift in Sources */,
+				50BB8B3F277B34FC00FF6834 /* GraphQLClient.swift in Sources */,
 				509805C427397ABC0063219B /* Dependency.swift in Sources */,
 				509805C127397ABC0063219B /* DependencyManager.swift in Sources */,
+				50BB8B47277B366000FF6834 /* AppConfig.swift in Sources */,
 				50E8E4E62742D66000FB73FA /* Location.swift in Sources */,
 				509805D127397ACB0063219B /* Presentable.swift in Sources */,
 				509805D427397ACB0063219B /* Dequeueable.swift in Sources */,
@@ -345,6 +469,9 @@
 				50E8E4E82743CB1600FB73FA /* SportCourtAnnotation.swift in Sources */,
 				509805D227397ACB0063219B /* ViewModellable.swift in Sources */,
 				509805D027397ACB0063219B /* ViewState.swift in Sources */,
+				50BB8B4B277B367A00FF6834 /* Environment.swift in Sources */,
+				50BB8B49277B366C00FF6834 /* ConfigType.swift in Sources */,
+				50BB8B4E277B36E400FF6834 /* URL+Util.swift in Sources */,
 				509805D927397ADF0063219B /* UIWindow+Utils.swift in Sources */,
 				509805C327397ABC0063219B /* Builder.swift in Sources */,
 				509805CF27397ACB0063219B /* ViewController.swift in Sources */,
