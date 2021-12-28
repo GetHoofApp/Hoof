@@ -1,0 +1,13 @@
+//
+//  Production.xcconfig
+//  Hoof
+//
+//  Created by Sameh Mabrouk on 28/12/2021.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+#include "Common.xcconfig"
+
+BASE_URL=localhost:8000

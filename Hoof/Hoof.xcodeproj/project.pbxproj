@@ -125,6 +125,7 @@
 		50A3138227713BB300A1B29F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A3138127713BB300A1B29F /* UIKit.framework */; };
 		50B78D572779E5810010BEAC /* SignUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B78D562779E5810010BEAC /* SignUp.framework */; };
 		50B78D582779E5810010BEAC /* SignUp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50B78D562779E5810010BEAC /* SignUp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		50BB8B51277B3A3E00FF6834 /* AppConfig+Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B50277B3A3E00FF6834 /* AppConfig+Client.swift */; };
 		50E8E438273D7ABB00FB73FA /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E437273D7ABB00FB73FA /* Home.framework */; };
 		50E8E439273D7ABB00FB73FA /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E437273D7ABB00FB73FA /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50E8E46B2742987C00FB73FA /* Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E46A2742987C00FB73FA /* Map.framework */; };
@@ -342,6 +343,10 @@
 		50A3137F27713BAA00A1B29F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		50A3138127713BB300A1B29F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		50B78D562779E5810010BEAC /* SignUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50BB8B50277B3A3E00FF6834 /* AppConfig+Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppConfig+Client.swift"; sourceTree = "<group>"; };
+		50BB8B54277B3B0900FF6834 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+		50BB8B57277B3B2300FF6834 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		50BB8B58277B3B2B00FF6834 /* Staging.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Staging.xcconfig; sourceTree = "<group>"; };
 		50E8E437273D7ABB00FB73FA /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E8E46A2742987C00FB73FA /* Map.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Map.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50E8E49E2742AD8000FB73FA /* Groups.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Groups.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -494,6 +499,7 @@
 		5002EAD5272726BD00740144 /* Hoof */ = {
 			isa = PBXGroup;
 			children = (
+				50BB8B52277B3AC800FF6834 /* Resources */,
 				50A1C69527714C4E008E0DB7 /* KSV_4_to_the_stars_beyond_.gpx */,
 				50A1C6972771F1DC008E0DB7 /* Avondactiviteit.gpx */,
 				50A1C69327714904008E0DB7 /* police_stations.json */,
@@ -639,6 +645,7 @@
 		509805DC27397F9E0063219B /* App */ = {
 			isa = PBXGroup;
 			children = (
+				50BB8B4F277B3A3700FF6834 /* AppConfig */,
 				5002EAD6272726BD00740144 /* AppDelegate.swift */,
 				5002EAD8272726BD00740144 /* SceneDelegate.swift */,
 				509805E9273C2D080063219B /* AppRootCoordinator.swift */,
@@ -668,6 +675,32 @@
 				50A3135F27713ACF00A1B29F /* GoogleMapsM4B.framework */,
 			);
 			path = "Google Maps";
+			sourceTree = "<group>";
+		};
+		50BB8B4F277B3A3700FF6834 /* AppConfig */ = {
+			isa = PBXGroup;
+			children = (
+				50BB8B50277B3A3E00FF6834 /* AppConfig+Client.swift */,
+			);
+			path = AppConfig;
+			sourceTree = "<group>";
+		};
+		50BB8B52277B3AC800FF6834 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				50BB8B53277B3AD100FF6834 /* Config */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		50BB8B53277B3AD100FF6834 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				50BB8B54277B3B0900FF6834 /* Common.xcconfig */,
+				50BB8B57277B3B2300FF6834 /* Production.xcconfig */,
+				50BB8B58277B3B2B00FF6834 /* Staging.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		856C5B1E3FD5FEF46995A408 /* Frameworks */ = {
@@ -1232,6 +1265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50BB8B51277B3A3E00FF6834 /* AppConfig+Client.swift in Sources */,
 				5098054D2731983F0063219B /* ViewController.swift in Sources */,
 				5098055A273199240063219B /* CLActivityType+Info.swift in Sources */,
 				50980540273198310063219B /* CoreDataAlertView.swift in Sources */,
@@ -1401,6 +1435,7 @@
 /* Begin XCBuildConfiguration section */
 		5002EAFB272726C000740144 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50BB8B58277B3B2B00FF6834 /* Staging.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1463,6 +1498,7 @@
 		};
 		5002EAFC272726C000740144 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50BB8B57277B3B2300FF6834 /* Production.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

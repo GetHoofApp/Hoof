@@ -28,6 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 preconditionFailure("[SceneDelegate] Cannot get appRootCoordinator from module builder")
             }
             
+            Core.setup(with: AppConfig.self)
+            
             UIUtil.setBasicAppearance()
             
             appRootCoordinator.start()
