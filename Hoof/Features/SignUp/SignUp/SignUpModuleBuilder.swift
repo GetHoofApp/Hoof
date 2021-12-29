@@ -39,8 +39,12 @@ private extension SignUpModuleBuilder {
     }
     
     func registerService() {
-        container.register(SignUpServicePerforming.self) {
-            return SignUpService()
+        container.register(GraphQLClientProtocol.self) {
+            return GraphQLClient()
+        }
+        container.register(SignUpServicePerforming.self) { [weak self] in
+            guard let client = self?.container.resolve(GraphQLClientProtocol.self) else { return nil }
+            return SignUpService(client: client)
         }
     }
     

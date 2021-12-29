@@ -40,7 +40,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "F51F8318-E07D-402F-832A-A4BA2DCC551B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Features/Welcome/Welcome/WelcomeViewController.swift"
@@ -55,86 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0F2D4796-6455-4C49-B538-377FF7F39683"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Welcome/Welcome/WelcomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "setupObservables()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CBC568E9-9B1E-466F-80B6-DB2A611D1856"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Welcome/Welcome/WelcomeModuleBuilder.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "buildModule(with:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8A1AB1D0-31DE-4889-B11A-731E5D012A02"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/SignUp/SignUp/SignUpModuleBuilder.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "buildModule(with:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8A1AB1D0-31DE-4889-B11A-731E5D012A02 - bb76c1edb1bc02ee"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SignUp.SignUpModuleBuilder.buildModule&lt;&#x3c4;_0_0&gt;(with: Core.NavigationControllable) -&gt; Swift.Optional&lt;Core.Module&lt;&#x3c4;_0_0&gt;&gt;"
-                  moduleName = "SignUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/SignUp/SignUpModuleBuilder.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "128">
-               </Location>
-               <Location
-                  uuid = "8A1AB1D0-31DE-4889-B11A-731E5D012A02 - bb76c1edb1bc02a0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SignUp.SignUpModuleBuilder.buildModule&lt;&#x3c4;_0_0&gt;(with: Core.NavigationControllable) -&gt; Swift.Optional&lt;Core.Module&lt;&#x3c4;_0_0&gt;&gt;"
-                  moduleName = "SignUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/SignUp/SignUpModuleBuilder.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "232">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "2053EBE7-EBB8-470B-ABAF-74F0C49F685F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -142,8 +62,8 @@
             filePath = "Features/SignUp/SignUp/SignUpModuleBuilder.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "registerCoordinator(rootViewController:)"
             landmarkType = "7">
             <Locations>
@@ -177,116 +97,20 @@
                   endingLineNumber = "68"
                   offsetFromSymbolStart = "284">
                </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B8AFBEDB-F734-4E22-B3C5-BB15FB58D614"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Welcome/Welcome/WelcomeCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "start()"
-            landmarkType = "7">
-            <Locations>
                <Location
-                  uuid = "B8AFBEDB-F734-4E22-B3C5-BB15FB58D614 - e4ba5c7aa9e84659"
+                  uuid = "2053EBE7-EBB8-470B-ABAF-74F0C49F685F - 4ef33a354cbd624c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (RxSwift.Event&lt;()&gt;) -&gt; () in Welcome.WelcomeCoordinator.start() -&gt; RxSwift.Observable&lt;()&gt;"
-                  moduleName = "Welcome"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Welcome/Welcome/WelcomeCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "196">
-               </Location>
-               <Location
-                  uuid = "B8AFBEDB-F734-4E22-B3C5-BB15FB58D614 - e4ba5c7aa9e84659"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (RxSwift.Event&lt;()&gt;) -&gt; () in Welcome.WelcomeCoordinator.start() -&gt; RxSwift.Observable&lt;()&gt;"
-                  moduleName = "Welcome"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Welcome/Welcome/WelcomeCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "204">
-               </Location>
-               <Location
-                  uuid = "B8AFBEDB-F734-4E22-B3C5-BB15FB58D614 - e4ba5c7aa9e84659"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (RxSwift.Event&lt;()&gt;) -&gt; () in Welcome.WelcomeCoordinator.start() -&gt; RxSwift.Observable&lt;()&gt;"
-                  moduleName = "Welcome"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Welcome/Welcome/WelcomeCoordinator.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "33"
-                  endingLineNumber = "33"
-                  offsetFromSymbolStart = "304">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D6FBEB15-5408-4121-861C-2E3C866C0F24"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/SignUp/SignUp/SignUpModuleBuilder.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "buildModule(with:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "D6FBEB15-5408-4121-861C-2E3C866C0F24 - bb76c1edb1bc01a8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SignUp.SignUpModuleBuilder.buildModule&lt;&#x3c4;_0_0&gt;(with: Core.NavigationControllable) -&gt; Swift.Optional&lt;Core.Module&lt;&#x3c4;_0_0&gt;&gt;"
+                  symbolName = "closure #1 () -&gt; Swift.Optional&lt;SignUp.SignUpCoordinator&gt; in SignUp.SignUpModuleBuilder.registerCoordinator(rootViewController: Swift.Optional&lt;Core.NavigationControllable&gt;) -&gt; ()"
                   moduleName = "SignUp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/SignUp/SignUpModuleBuilder.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "64">
-               </Location>
-               <Location
-                  uuid = "D6FBEB15-5408-4121-861C-2E3C866C0F24 - bb76c1edb1bc01f6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SignUp.SignUpModuleBuilder.buildModule&lt;&#x3c4;_0_0&gt;(with: Core.NavigationControllable) -&gt; Swift.Optional&lt;Core.Module&lt;&#x3c4;_0_0&gt;&gt;"
-                  moduleName = "SignUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/SignUp/SignUpModuleBuilder.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "17"
-                  endingLineNumber = "17"
-                  offsetFromSymbolStart = "64">
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
+                  offsetFromSymbolStart = "284">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -353,6 +177,38 @@
             endingLineNumber = "41"
             landmarkName = "buildModule(with:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3ABA997A-8F32-4B04-8D04-71DC2B34296C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/SignUp/SignUp/SignUpService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "signUp(userName:email:password:gender:bio:favoritePosition:foot:preferedNumber:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B823559B-E53D-408E-A477-674458E0E271"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Common/Core/Core/GraphQL/Client/GraphQLClient.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "client"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

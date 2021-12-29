@@ -17,6 +17,12 @@
 		50B78D4F2779D9B80010BEAC /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B78D492779D9B80010BEAC /* SignUpViewController.swift */; };
 		50B78D502779D9B80010BEAC /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B78D4A2779D9B80010BEAC /* SignUpViewModel.swift */; };
 		50B78D512779D9B80010BEAC /* SignUpService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B78D4B2779D9B80010BEAC /* SignUpService.swift */; };
+		50BA0FE6277C64EA0091ED04 /* CreateProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FE0277C64EA0091ED04 /* CreateProfileCoordinator.swift */; };
+		50BA0FE7277C64EA0091ED04 /* CreateProfileModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FE1277C64EA0091ED04 /* CreateProfileModuleBuilder.swift */; };
+		50BA0FE8277C64EA0091ED04 /* CreateProfileUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FE2277C64EA0091ED04 /* CreateProfileUseCase.swift */; };
+		50BA0FE9277C64EA0091ED04 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FE3277C64EA0091ED04 /* CreateProfileViewController.swift */; };
+		50BA0FEA277C64EA0091ED04 /* CreateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FE4277C64EA0091ED04 /* CreateProfileViewModel.swift */; };
+		50BA0FEB277C64EA0091ED04 /* CreateProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FE5277C64EA0091ED04 /* CreateProfileService.swift */; };
 		92D4DFCFD6B06B0863CA890D /* Pods_SignUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22DEAFB5B850AE470BFC78E2 /* Pods_SignUp.framework */; };
 		98FC40C7ED1946416238E153 /* Pods_SignUpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38990208414BE57E3F8F1979 /* Pods_SignUpTests.framework */; };
 /* End PBXBuildFile section */
@@ -47,6 +53,12 @@
 		50B78D492779D9B80010BEAC /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		50B78D4A2779D9B80010BEAC /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		50B78D4B2779D9B80010BEAC /* SignUpService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpService.swift; sourceTree = "<group>"; };
+		50BA0FE0277C64EA0091ED04 /* CreateProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileCoordinator.swift; sourceTree = "<group>"; };
+		50BA0FE1277C64EA0091ED04 /* CreateProfileModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileModuleBuilder.swift; sourceTree = "<group>"; };
+		50BA0FE2277C64EA0091ED04 /* CreateProfileUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileUseCase.swift; sourceTree = "<group>"; };
+		50BA0FE3277C64EA0091ED04 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
+		50BA0FE4277C64EA0091ED04 /* CreateProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewModel.swift; sourceTree = "<group>"; };
+		50BA0FE5277C64EA0091ED04 /* CreateProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileService.swift; sourceTree = "<group>"; };
 		7189B40473CEE4A5492C0FE5 /* Pods-SignUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignUp.debug.xcconfig"; path = "Target Support Files/Pods-SignUp/Pods-SignUp.debug.xcconfig"; sourceTree = "<group>"; };
 		E114C462D0AA5CAA19E2933F /* Pods-SignUpTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignUpTests.debug.xcconfig"; path = "Target Support Files/Pods-SignUpTests/Pods-SignUpTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +87,7 @@
 		50B78D192779D8DA0010BEAC = {
 			isa = PBXGroup;
 			children = (
+				50BA0FDF277C61460091ED04 /* CreateProfile */,
 				50B78D252779D8DA0010BEAC /* SignUp */,
 				50B78D312779D8DB0010BEAC /* SignUpTests */,
 				50B78D242779D8DA0010BEAC /* Products */,
@@ -113,6 +126,19 @@
 				50B78D322779D8DB0010BEAC /* SignUpTests.swift */,
 			);
 			path = SignUpTests;
+			sourceTree = "<group>";
+		};
+		50BA0FDF277C61460091ED04 /* CreateProfile */ = {
+			isa = PBXGroup;
+			children = (
+				50BA0FE0277C64EA0091ED04 /* CreateProfileCoordinator.swift */,
+				50BA0FE1277C64EA0091ED04 /* CreateProfileModuleBuilder.swift */,
+				50BA0FE2277C64EA0091ED04 /* CreateProfileUseCase.swift */,
+				50BA0FE3277C64EA0091ED04 /* CreateProfileViewController.swift */,
+				50BA0FE4277C64EA0091ED04 /* CreateProfileViewModel.swift */,
+				50BA0FE5277C64EA0091ED04 /* CreateProfileService.swift */,
+			);
+			path = CreateProfile;
 			sourceTree = "<group>";
 		};
 		E9EE1E255BBA4761C6999E4C /* Frameworks */ = {
@@ -313,12 +339,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				50B78D4D2779D9B80010BEAC /* SignUpModuleBuilder.swift in Sources */,
+				50BA0FE8277C64EA0091ED04 /* CreateProfileUseCase.swift in Sources */,
 				50B78D4E2779D9B80010BEAC /* SignUpUseCase.swift in Sources */,
+				50BA0FEB277C64EA0091ED04 /* CreateProfileService.swift in Sources */,
+				50BA0FE9277C64EA0091ED04 /* CreateProfileViewController.swift in Sources */,
+				50BA0FE6277C64EA0091ED04 /* CreateProfileCoordinator.swift in Sources */,
 				50B78D512779D9B80010BEAC /* SignUpService.swift in Sources */,
 				50B78D4C2779D9B80010BEAC /* SignUpCoordinator.swift in Sources */,
 				50B78D282779D8DA0010BEAC /* SignUp.docc in Sources */,
+				50BA0FEA277C64EA0091ED04 /* CreateProfileViewModel.swift in Sources */,
 				50B78D502779D9B80010BEAC /* SignUpViewModel.swift in Sources */,
 				50B78D4F2779D9B80010BEAC /* SignUpViewController.swift in Sources */,
+				50BA0FE7277C64EA0091ED04 /* CreateProfileModuleBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

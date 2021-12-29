@@ -14,25 +14,43 @@ protocol SignUpViewModellable: ViewModellable {
     var outputs: SignUpViewModelOutputs { get }
 }
 
-struct SignUpViewModelInputs {}
+struct SignUpViewModelInputs {
+    var signUpButtonTapped = PublishSubject<(userName: String, email: String, password: String, gender: String, bio: String, favoritePosition: String, foot: String, preferedNumber: Int)>()
+}
 
 struct SignUpViewModelOutputs {}
 
 class SignUpViewModel: SignUpViewModellable {
-
+    
     let disposeBag = DisposeBag()
     let inputs = SignUpViewModelInputs()
     let outputs = SignUpViewModelOutputs()
     var useCase: SignUpInteractable
-
+    
     init(useCase: SignUpInteractable) {
         self.useCase = useCase
+        
+        setupObservables()
     }
 }
 
 // MARK: - Observables
 
 private extension SignUpViewModel {
-
-    func setupObservables() {}
+    
+    func setupObservables() {
+        inputs.signUpButtonTapped.subscribe(onNext: { [weak self] (userName: String, email: String, password: String, gender: String, bio: String, favoritePosition: String, foot: String, preferedNumber: Int) in
+            guard let self = self else { return }
+            
+            self.useCase.signUp(userName: userName, email: email, password: password, gender: gender, bio: bio, favoritePosition: favoritePosition, foot: foot, preferedNumber: preferedNumber)
+                .subscribe { event in
+                    switch event {
+                    case let .success(result):
+                        print("User created succcefully")
+                    case let .error(error):
+                        print("Error occured while creating a user")
+                    }
+                }.disposed(by: self.disposeBag)
+        }).disposed(by: disposeBag)
+    }
 }

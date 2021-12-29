@@ -95,6 +95,7 @@ class SignUpViewController: ViewController<SignUpViewModel> {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
         button.backgroundColor = .black
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -187,5 +188,6 @@ class SignUpViewController: ViewController<SignUpViewModel> {
     override func setupObservers() {}
     
     @objc func signUpButtonTapped() {
+        viewModel.inputs.signUpButtonTapped.onNext((userName: "Ronaldo", email: emailTextField.text ?? "", password: passwordTextField.text ?? "", gender: "Male", bio: "Hey! there it's Ronaldo", favoritePosition: "Stricker", foot: "Right", preferedNumber: 10))
     }
 }

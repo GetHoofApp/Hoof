@@ -9,5 +9,5 @@ import Core
 
 extension AppConfig: CoreConfigurable {
     public static var baseURL = Environment.string(for: .baseURL)
-    public static var grahQLBaseURL = baseURL + "/graphql"
+    public static var grahQLBaseURL = baseURL + "/graphql/"
 }

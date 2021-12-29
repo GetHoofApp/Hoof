@@ -11,18 +11,24 @@ import Core
 
 public protocol SignUpServicePerforming {
     func doSomething() -> Single<Bool>
+    func signUp(userName: String, email: String, password: String, gender: String, bio: String, favoritePosition: String, foot: String, preferedNumber: Int) -> Single<Bool>
 }
 
 class SignUpService: SignUpServicePerforming {
     
-//    private let client: GraphQLClientProtocol
-//
-//    public init(client: GraphQLClientProtocol) {
-//        self.client = client
-//    }
+    private let client: GraphQLClientProtocol
     
+    public init(client: GraphQLClientProtocol) {
+        self.client = client
+    }    
     
     func doSomething() -> Single<Bool> {
         return .just(true)
+    }
+    
+    func signUp(userName: String, email: String, password: String, gender: String, bio: String, favoritePosition: String, foot: String, preferedNumber: Int) -> Single<Bool> {
+        return client.perform(mutation: CreateUserMutation(username: userName, password: password, email: email, gender: gender, bio: bio, favoritePosition: favoritePosition, foot: foot, preferedNumber: preferedNumber)).map {
+            $0.createUser?.id != nil            
+        }.asSingle()
     }
 }
