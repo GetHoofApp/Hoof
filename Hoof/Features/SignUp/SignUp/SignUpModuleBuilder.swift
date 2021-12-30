@@ -9,16 +9,25 @@
 import UIKit
 import Core
 
+private final class SignUpDependencyProvider: DependencyProvider<EmptyDependency> {
+        
+    var createProfileModuleBuilder: CreateProfileModuleBuildable {
+        CreateProfileModuleBuilder()
+    }
+}
+
 public protocol SignUpModuleBuildable: ModuleBuildable {}
 
 public class SignUpModuleBuilder: Builder<EmptyDependency>, SignUpModuleBuildable {
 
     public func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
+        let dependencyProvider = SignUpDependencyProvider()
+
         registerService()
         registerUsecase()
         registerViewModel()
         registerView()
-        registerCoordinator(rootViewController: rootViewController)
+        registerCoordinator(rootViewController: rootViewController, createProfileModuleBuilder: dependencyProvider.createProfileModuleBuilder)
         
         guard let coordinator = container.resolve(SignUpCoordinator.self) else {
             return nil
@@ -66,13 +75,14 @@ private extension SignUpModuleBuilder {
         }
     }
     
-    func registerCoordinator(rootViewController: NavigationControllable? = nil) {
+    func registerCoordinator(rootViewController: NavigationControllable? = nil, createProfileModuleBuilder: CreateProfileModuleBuildable) {
         container.register(SignUpCoordinator.self) { [weak self] in
             guard let viewController = self?.container.resolve(SignUpViewController.self) else {
                 return nil
             }
             
-            let coordinator = SignUpCoordinator(rootViewController: rootViewController, viewController: viewController)
+            let coordinator = SignUpCoordinator(rootViewController: rootViewController, viewController: viewController, createProfileModuleBuilder: createProfileModuleBuilder)
+            coordinator.showCreateProfile = viewController.viewModel.outputs.showCreateProfile
             return coordinator
         }
     }

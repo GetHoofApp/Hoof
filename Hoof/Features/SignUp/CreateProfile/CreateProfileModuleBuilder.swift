@@ -9,20 +9,16 @@
 import UIKit
 import Core
 
-protocol CreateProfileModuleBuildable: ModuleBuildable {}
+protocol CreateProfileModuleBuildable: ModuleBuildable {
+    func buildModule<T>(with email: String, password: String, rootViewController: NavigationControllable) -> Module<T>?
+}
 
-class CreateProfileModuleBuilder: CreateProfileModuleBuildable {
+class CreateProfileModuleBuilder: Builder<EmptyDependency>, CreateProfileModuleBuildable {
     
-    private let container: DependencyManager
-    
-    public init(container: DependencyManager) {
-        self.container = container
-    }
-    
-    func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
+    func buildModule<T>(with email: String, password: String, rootViewController: NavigationControllable) -> Module<T>? {
         registerService()
         registerUsecase()
-        registerViewModel()
+        registerViewModel(email: email, password: password)
         registerView()
         registerCoordinator(rootViewController: rootViewController)
         
@@ -54,11 +50,11 @@ private extension CreateProfileModuleBuilder {
         }
     }
     
-    func registerViewModel() {
+    func registerViewModel(email: String, password: String) {
         container.register(CreateProfileViewModel.self) { [weak self] in
             guard let useCase = self?.container.resolve(CreateProfileInteractable.self) else { return nil }
             
-            return CreateProfileViewModel(useCase: useCase)
+            return CreateProfileViewModel(useCase: useCase, email: email, password: password)
         }
     }
     

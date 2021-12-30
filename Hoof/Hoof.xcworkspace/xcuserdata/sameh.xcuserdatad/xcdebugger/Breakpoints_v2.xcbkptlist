@@ -55,69 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2053EBE7-EBB8-470B-ABAF-74F0C49F685F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/SignUp/SignUp/SignUpModuleBuilder.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
-            landmarkName = "registerCoordinator(rootViewController:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2053EBE7-EBB8-470B-ABAF-74F0C49F685F - d1bc8c3db726138e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SignUp.SignUpModuleBuilder.registerCoordinator(rootViewController: Swift.Optional&lt;Core.NavigationControllable&gt;) -&gt; ()"
-                  moduleName = "SignUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/SignUp/SignUpModuleBuilder.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "100">
-               </Location>
-               <Location
-                  uuid = "2053EBE7-EBB8-470B-ABAF-74F0C49F685F - 4ef33a354cbd62c8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; Swift.Optional&lt;SignUp.SignUpCoordinator&gt; in SignUp.SignUpModuleBuilder.registerCoordinator(rootViewController: Swift.Optional&lt;Core.NavigationControllable&gt;) -&gt; ()"
-                  moduleName = "SignUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/SignUp/SignUpModuleBuilder.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "284">
-               </Location>
-               <Location
-                  uuid = "2053EBE7-EBB8-470B-ABAF-74F0C49F685F - 4ef33a354cbd624c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; Swift.Optional&lt;SignUp.SignUpCoordinator&gt; in SignUp.SignUpModuleBuilder.registerCoordinator(rootViewController: Swift.Optional&lt;Core.NavigationControllable&gt;) -&gt; ()"
-                  moduleName = "SignUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/SignUp/SignUpModuleBuilder.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "72"
-                  endingLineNumber = "72"
-                  offsetFromSymbolStart = "284">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "CEAC3294-7329-42AF-9F4B-D974BCB56B24"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -209,6 +146,118 @@
             endingLineNumber = "18"
             landmarkName = "client"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9F1C6EBC-FD11-435C-B7AE-85AF81C2E342"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/SignUp/CreateProfile/CreateProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "255"
+            endingLineNumber = "255"
+            landmarkName = "textFieldDidEndEditing(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9F1C6EBC-FD11-435C-B7AE-85AF81C2E342 - eaed51b6ef9f3177"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SignUp.CreateProfileViewController.textFieldDidEndEditing(__C.UITextField) -&gt; ()"
+                  moduleName = "SignUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/CreateProfile/CreateProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "255"
+                  endingLineNumber = "255"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "9F1C6EBC-FD11-435C-B7AE-85AF81C2E342 - eaed51b6ef9f3177"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SignUp.CreateProfileViewController.textFieldDidEndEditing(__C.UITextField) -&gt; ()"
+                  moduleName = "SignUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/CreateProfile/CreateProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "255"
+                  endingLineNumber = "255"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "340433BC-AF97-43EA-AE87-1C26AA21D28B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/SignUp/CreateProfile/CreateProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
+            landmarkName = "updateContinueButtonUI()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "340433BC-AF97-43EA-AE87-1C26AA21D28B - 6edc32b7ea9d829d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SignUp.CreateProfileViewController.updateContinueButtonUI() -&gt; ()"
+                  moduleName = "SignUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/CreateProfile/CreateProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "221"
+                  endingLineNumber = "221"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "340433BC-AF97-43EA-AE87-1C26AA21D28B - 6edc32b7ea9d82fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SignUp.CreateProfileViewController.updateContinueButtonUI() -&gt; ()"
+                  moduleName = "SignUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/CreateProfile/CreateProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "220"
+                  endingLineNumber = "220"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D8EA90C8-FE98-48D4-A959-3FC5B8F5D482"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/SignUp/CreateProfile/Views/SelectorView/SelectionView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "updateSelection(_:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

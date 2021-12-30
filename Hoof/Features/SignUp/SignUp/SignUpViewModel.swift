@@ -18,7 +18,9 @@ struct SignUpViewModelInputs {
     var signUpButtonTapped = PublishSubject<(userName: String, email: String, password: String, gender: String, bio: String, favoritePosition: String, foot: String, preferedNumber: Int)>()
 }
 
-struct SignUpViewModelOutputs {}
+struct SignUpViewModelOutputs {
+    var showCreateProfile = PublishSubject<(email: String, password: String)>()
+}
 
 class SignUpViewModel: SignUpViewModellable {
     
@@ -40,8 +42,11 @@ private extension SignUpViewModel {
     
     func setupObservables() {
         inputs.signUpButtonTapped.subscribe(onNext: { [weak self] (userName: String, email: String, password: String, gender: String, bio: String, favoritePosition: String, foot: String, preferedNumber: Int) in
+                        
             guard let self = self else { return }
             
+            self.outputs.showCreateProfile.onNext((email: email, password: password))
+            /*
             self.useCase.signUp(userName: userName, email: email, password: password, gender: gender, bio: bio, favoritePosition: favoritePosition, foot: foot, preferedNumber: preferedNumber)
                 .subscribe { event in
                     switch event {
@@ -51,6 +56,7 @@ private extension SignUpViewModel {
                         print("Error occured while creating a user")
                     }
                 }.disposed(by: self.disposeBag)
+             */
         }).disposed(by: disposeBag)
     }
 }

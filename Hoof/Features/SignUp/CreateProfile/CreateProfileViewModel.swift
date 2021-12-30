@@ -14,25 +14,49 @@ protocol CreateProfileViewModellable: ViewModellable {
     var outputs: CreateProfileViewModelOutputs { get }
 }
 
-struct CreateProfileViewModelInputs {}
+struct CreateProfileViewModelInputs {
+    var continueButtonTapped = PublishSubject<(firstName: String, lastName: String, gender: String)>()
+}
 
 struct CreateProfileViewModelOutputs {}
 
 class CreateProfileViewModel: CreateProfileViewModellable {
-
+    
     let disposeBag = DisposeBag()
     let inputs = CreateProfileViewModelInputs()
     let outputs = CreateProfileViewModelOutputs()
-    var useCase: CreateProfileInteractable
-
-    init(useCase: CreateProfileInteractable) {
+    private let useCase: CreateProfileInteractable
+    private let email: String
+    private let password: String
+    
+    
+    init(useCase: CreateProfileInteractable, email: String, password: String) {
         self.useCase = useCase
+        self.email = email
+        self.password = password
+        
+        setupObservables()
     }
 }
 
 // MARK: - Observables
 
 private extension CreateProfileViewModel {
-
-    func setupObservables() {}
+    
+    func setupObservables() {
+        inputs.continueButtonTapped.subscribe(onNext: { [weak self] (firstName: String, lastName: String, gender: String) in
+            
+            guard let self = self else { return }
+            
+            self.useCase.createProfile(firstName: firstName, lastName: lastName, email: self.email, password: self.password, gender: gender)
+                .subscribe { event in
+                    switch event {
+                    case let .success(result):
+                        print("User created succcefully")
+                    case let .error(error):
+                        print("Error occured while creating a user")
+                    }
+                }.disposed(by: self.disposeBag)
+        }).disposed(by: disposeBag)
+    }
 }
