@@ -35,14 +35,18 @@ private extension HomeModuleBuilder {
     func registerUsecase() {
         container.register(HomeInteractable.self) { [weak self] in
             guard let self = self,
-                let service = self.container.resolve(HomeServicePerforming.self) else { return nil }
+                let service = self.container.resolve(HomeServiceFetching.self) else { return nil }
             return HomeUseCase(service: service)
         }
     }
     
     func registerService() {
-        container.register(HomeServicePerforming.self) {
-            return HomeService()
+        container.register(GraphQLClientProtocol.self) {
+            return GraphQLClient()
+        }
+        container.register(HomeServiceFetching.self) { [weak self] in
+            guard let client = self?.container.resolve(GraphQLClientProtocol.self) else { return nil }
+            return HomeService(client: client)
         }
     }
     

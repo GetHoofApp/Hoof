@@ -44,16 +44,15 @@ class AppRootCoordinator: BaseCoordinator<Void> {
     }
     
     override func start() -> Observable<Void> {
-        let navController = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
-        guard let welcomeCoordinator: BaseCoordinator<Void> = welcomeModuleBuilder.buildModule(with: navController)?.coordinator else {
-            preconditionFailure("[AppCoordinator] Cannot get welcomeModuleBuilder from module builder")
-        }
-        self.welcomeCoordinator = welcomeCoordinator
-        _ = welcomeCoordinator.start()
+//        let navController = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
+//        guard let welcomeCoordinator: BaseCoordinator<Void> = welcomeModuleBuilder.buildModule(with: navController)?.coordinator else {
+//            preconditionFailure("[AppCoordinator] Cannot get welcomeModuleBuilder from module builder")
+//        }
+//        self.welcomeCoordinator = welcomeCoordinator
+//        _ = welcomeCoordinator.start()
+//
+//        window.rootViewController = navController
 
-        window.rootViewController = navController
-
-        /*
         let navController = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
         guard let homeCoordinator: BaseCoordinator<Void> = homeModuleBuilder.buildModule(with: navController)?.coordinator else {
             preconditionFailure("[AppCoordinator] Cannot get homeModuleBuilder from module builder")
@@ -100,14 +99,14 @@ class AppRootCoordinator: BaseCoordinator<Void> {
         self.profileCoordinator = profileCoordinator
         _ = profileCoordinator.start()
         
-        // TabBar Appearance
+//         TabBar Appearance
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 187/255, green: 187/255, blue: 187/255, alpha: 1.0)], for: .normal)
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)], for: .selected)
         
         tabBarController.setViewControllers([navController, mapNavController, groupsNavController, profileNavController], animated: false)
         window.rootViewController = tabBarController
-        */
+         
         return .never()
     }
 }

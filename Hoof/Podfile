@@ -25,12 +25,14 @@ target 'Core' do
   project 'Common/Core/Core'
   shared_pods
   graphql
+  pod 'CodableGeoJSON'
 end
 
 # Feature modules
 target 'Home' do
   project 'Features/Home/Home'
   shared_pods
+  pod 'CodableGeoJSON'
   
   target 'HomeTests' do
     inherit! :search_paths
@@ -107,7 +109,8 @@ target 'Hoof' do
   shared_UIPods
   graphql
   pod 'MapCache', '~> 0.9.0'
-  
+  pod 'CodableGeoJSON'
+
   target 'HoofTests' do
     inherit! :search_paths
     # Pods for testing

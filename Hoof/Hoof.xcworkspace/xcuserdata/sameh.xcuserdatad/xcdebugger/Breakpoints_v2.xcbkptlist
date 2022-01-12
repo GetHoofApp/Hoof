@@ -7,257 +7,176 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "B64B6C22-F432-4C33-A784-F05C473ED250"
+            uuid = "8737FE4B-71F1-4CBD-967D-5A5882D4422E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            filePath = "Features/Home/Home/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
-            landmarkName = "addHeatmap()"
+            startingLineNumber = "121"
+            endingLineNumber = "121"
+            landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "75BA2A34-8C58-4CEC-B8B1-26D144B48021"
+            uuid = "CCE4349A-EE5C-42DF-B89E-C2BFE79A58B9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            filePath = "Features/Home/Home/HomeService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
-            landmarkName = "addHeatmap()"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "likePost(userID:postID:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F51F8318-E07D-402F-832A-A4BA2DCC551B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Welcome/Welcome/WelcomeViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CEAC3294-7329-42AF-9F4B-D974BCB56B24"
+            uuid = "95E5D7B8-3CD6-445E-BE23-749DBAA9EF9F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Common/Core/Core/Common/Module.swift"
+            filePath = "Features/Home/Home/HomeService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "37"
             endingLineNumber = "37"
-            landmarkName = "buildModule(with:)"
+            landmarkName = "fetchAthleteActivties()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "07D32B2B-1374-4026-A4DA-D167FA78AEDB"
+            uuid = "EBF570A4-BB05-450F-A229-E7F0BA225FA4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Common/Core/Core/Common/Module.swift"
+            filePath = "Features/Home/Home/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "buildModule(with:context:)"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "setupObservables()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1F0CBEE9-09F1-4E4A-9F39-34B0722DDEFD"
+            uuid = "8BA64920-7965-4B51-AB90-130F04F83A16"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Common/Core/Core/Common/Module.swift"
+            filePath = "Features/Home/Home/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "buildModule(with:)"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "setupObservables()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BB1C4508-15A7-49AD-810F-D633C560CC84"
+            uuid = "81039F00-929D-4726-BF6A-C15FBE044DE1"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Common/Core/Core/Common/Module.swift"
+            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "buildModule(with:)"
+            startingLineNumber = "272"
+            endingLineNumber = "272"
+            landmarkName = "ActivityCell"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "46125F52-B3A6-4900-B21E-922887DDE9F3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
+            landmarkName = "likeButtonAction(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3ABA997A-8F32-4B04-8D04-71DC2B34296C"
+            uuid = "E1410AD9-DCF9-4D8D-9067-1604524BA927"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/SignUp/SignUp/SignUpService.swift"
+            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "signUp(userName:email:password:gender:bio:favoritePosition:foot:preferedNumber:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B823559B-E53D-408E-A477-674458E0E271"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Common/Core/Core/GraphQL/Client/GraphQLClient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
-            landmarkName = "client"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9F1C6EBC-FD11-435C-B7AE-85AF81C2E342"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/SignUp/CreateProfile/CreateProfileViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
-            landmarkName = "textFieldDidEndEditing(_:)"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
+            landmarkName = "formateLikesLabelText(activity:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "9F1C6EBC-FD11-435C-B7AE-85AF81C2E342 - eaed51b6ef9f3177"
+                  uuid = "E1410AD9-DCF9-4D8D-9067-1604524BA927 - b744d9e4ce0ad52e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SignUp.CreateProfileViewController.textFieldDidEndEditing(__C.UITextField) -&gt; ()"
-                  moduleName = "SignUp"
+                  symbolName = "Home.ActivityCell.formateLikesLabelText(activity: Home.Activity) -&gt; ()"
+                  moduleName = "Home"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/CreateProfile/CreateProfileViewController.swift"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Map/Map/Cells/ActivityCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "32">
+                  startingLineNumber = "277"
+                  endingLineNumber = "277"
+                  offsetFromSymbolStart = "668">
                </Location>
                <Location
-                  uuid = "9F1C6EBC-FD11-435C-B7AE-85AF81C2E342 - eaed51b6ef9f3177"
+                  uuid = "E1410AD9-DCF9-4D8D-9067-1604524BA927 - b744d9e4ce0ad52e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "SignUp.CreateProfileViewController.textFieldDidEndEditing(__C.UITextField) -&gt; ()"
-                  moduleName = "SignUp"
+                  symbolName = "Home.ActivityCell.formateLikesLabelText(activity: Home.Activity) -&gt; ()"
+                  moduleName = "Home"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/CreateProfile/CreateProfileViewController.swift"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Map/Map/Cells/ActivityCell.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "255"
-                  endingLineNumber = "255"
-                  offsetFromSymbolStart = "28">
+                  startingLineNumber = "277"
+                  endingLineNumber = "277"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "E1410AD9-DCF9-4D8D-9067-1604524BA927 - b744d9e4ce0ad52e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Home.ActivityCell.formateLikesLabelText(activity: Home.Activity) -&gt; ()"
+                  moduleName = "Home"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Map/Map/Cells/ActivityCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "277"
+                  endingLineNumber = "277"
+                  offsetFromSymbolStart = "120">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "340433BC-AF97-43EA-AE87-1C26AA21D28B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/SignUp/CreateProfile/CreateProfileViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
-            landmarkName = "updateContinueButtonUI()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "340433BC-AF97-43EA-AE87-1C26AA21D28B - 6edc32b7ea9d829d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SignUp.CreateProfileViewController.updateContinueButtonUI() -&gt; ()"
-                  moduleName = "SignUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/CreateProfile/CreateProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "221"
-                  endingLineNumber = "221"
-                  offsetFromSymbolStart = "28">
-               </Location>
-               <Location
-                  uuid = "340433BC-AF97-43EA-AE87-1C26AA21D28B - 6edc32b7ea9d82fc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "SignUp.CreateProfileViewController.updateContinueButtonUI() -&gt; ()"
-                  moduleName = "SignUp"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/CreateProfile/CreateProfileViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "220"
-                  endingLineNumber = "220"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D8EA90C8-FE98-48D4-A959-3FC5B8F5D482"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/SignUp/CreateProfile/Views/SelectorView/SelectionView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
-            landmarkName = "updateSelection(_:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

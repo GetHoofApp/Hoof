@@ -1,0 +1,5 @@
+mutation UnlikePost($userId: ID!, $postId: ID!) {
+  unlikePost(userId: $userId, postId:$postId) {
+    success
+  }
+}

@@ -1,0 +1,19 @@
+query Posts {
+  posts {
+    id
+    title
+    description
+    createdAt
+    coordinates
+    likes {
+      id
+      creator {
+        id
+      }
+    }
+    comments {
+      id
+      message
+    }
+  }
+}

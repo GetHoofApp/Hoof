@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		037B8CBE724BA392236E3162 /* Pods_HomeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFCC639AE6D3C0D3BC72901 /* Pods_HomeTests.framework */; };
 		2DA18A1341947ED1857D8CB4 /* Pods_Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BB2C2A0A1BE75CC2F8FBD02 /* Pods_Home.framework */; };
-		5085AD92274CDFF600315D67 /* ActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085AD91274CDFF600315D67 /* ActivityItem.swift */; };
+		5085AD92274CDFF600315D67 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085AD91274CDFF600315D67 /* Activity.swift */; };
 		509805772739690D0063219B /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5098056D2739690D0063219B /* Home.framework */; };
 		5098057C2739690D0063219B /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098057B2739690D0063219B /* HomeTests.swift */; };
 		5098057E2739690D0063219B /* Home.h in Headers */ = {isa = PBXBuildFile; fileRef = 509805702739690D0063219B /* Home.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -48,6 +48,7 @@
 		50A313AB27713D5800A1B29F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A313AA27713D5800A1B29F /* SystemConfiguration.framework */; };
 		50A313AD27713D5C00A1B29F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A313AC27713D5C00A1B29F /* UIKit.framework */; };
 		50A313B1277142C500A1B29F /* GoogleMapsUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A313B0277142C500A1B29F /* GoogleMapsUtils.framework */; };
+		50CD12C32786F5E400B5D1DC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD12C22786F5E400B5D1DC /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +65,7 @@
 		1AF58D2C2E0360AD98EFAA69 /* Pods-HomeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTests.release.xcconfig"; path = "Target Support Files/Pods-HomeTests/Pods-HomeTests.release.xcconfig"; sourceTree = "<group>"; };
 		2BB2C2A0A1BE75CC2F8FBD02 /* Pods_Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFCC639AE6D3C0D3BC72901 /* Pods_HomeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5085AD91274CDFF600315D67 /* ActivityItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityItem.swift; sourceTree = "<group>"; };
+		5085AD91274CDFF600315D67 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		5098056D2739690D0063219B /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		509805702739690D0063219B /* Home.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home.h; sourceTree = "<group>"; };
 		509805712739690D0063219B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 		50A313AA27713D5800A1B29F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		50A313AC27713D5C00A1B29F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		50A313B0277142C500A1B29F /* GoogleMapsUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsUtils.framework; sourceTree = "<group>"; };
+		50CD12C22786F5E400B5D1DC /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7AD5CB26663229EEE1F2DD00 /* Pods-HomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTests.debug.xcconfig"; path = "Target Support Files/Pods-HomeTests/Pods-HomeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9AC892D68FEFC6495B594FC /* Pods-Home.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Home.release.xcconfig"; path = "Target Support Files/Pods-Home/Pods-Home.release.xcconfig"; sourceTree = "<group>"; };
 		F97EC5DE79380982F648FC27 /* Pods-Home.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Home.debug.xcconfig"; path = "Target Support Files/Pods-Home/Pods-Home.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,7 +164,8 @@
 		5085AD90274CDFCF00315D67 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5085AD91274CDFF600315D67 /* ActivityItem.swift */,
+				5085AD91274CDFF600315D67 /* Activity.swift */,
+				50CD12C22786F5E400B5D1DC /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -472,11 +475,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				50980593273978BF0063219B /* HomeService.swift in Sources */,
-				5085AD92274CDFF600315D67 /* ActivityItem.swift in Sources */,
+				5085AD92274CDFF600315D67 /* Activity.swift in Sources */,
 				50980590273978BF0063219B /* HomeUseCase.swift in Sources */,
 				5098058F273978BF0063219B /* HomeModuleBuilder.swift in Sources */,
 				5098058E273978BF0063219B /* HomeCoordinator.swift in Sources */,
 				509805E8273AC5E80063219B /* ActivityCell.swift in Sources */,
+				50CD12C32786F5E400B5D1DC /* Post.swift in Sources */,
 				50980592273978BF0063219B /* HomeViewModel.swift in Sources */,
 				50980591273978BF0063219B /* HomeViewController.swift in Sources */,
 			);

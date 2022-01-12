@@ -177,6 +177,8 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CodableGeoJSON/CodableGeoJSON.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CodableJSON/CodableJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CoreGPX-iOS/CoreGPX.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-iOS/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxRelay-iOS/RxRelay.framework"
@@ -186,6 +188,8 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CodableGeoJSON/CodableGeoJSON.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/CodableJSON/CodableJSON.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/CoreGPX-iOS/CoreGPX.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-iOS/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxRelay-iOS/RxRelay.framework"

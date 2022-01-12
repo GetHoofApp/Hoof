@@ -1,0 +1,16 @@
+mutation LikePost($userId: ID!, $postId: ID!) {
+  likePost(userId: $userId, postId:$postId) {
+    like {
+      id
+      creator {
+        firstName
+        lastName
+      }
+      post {
+        id
+        title
+      }
+    }
+  }
+}
+
