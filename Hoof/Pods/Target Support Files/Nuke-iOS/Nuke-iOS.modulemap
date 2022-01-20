@@ -1,0 +1,6 @@
+framework module Nuke {
+  umbrella header "Nuke-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

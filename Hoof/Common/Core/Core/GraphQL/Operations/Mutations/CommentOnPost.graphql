@@ -1,0 +1,6 @@
+mutation CommentOnPost($userId: ID!, $postId: ID!, $message: String!) {
+  commentOnPost(userId: $userId, postId:$postId, message:$message) {
+    success
+  }
+}
+

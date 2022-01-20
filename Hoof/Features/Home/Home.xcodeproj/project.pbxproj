@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		037B8CBE724BA392236E3162 /* Pods_HomeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FFCC639AE6D3C0D3BC72901 /* Pods_HomeTests.framework */; };
 		2DA18A1341947ED1857D8CB4 /* Pods_Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BB2C2A0A1BE75CC2F8FBD02 /* Pods_Home.framework */; };
-		5085AD92274CDFF600315D67 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085AD91274CDFF600315D67 /* Activity.swift */; };
 		509805772739690D0063219B /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5098056D2739690D0063219B /* Home.framework */; };
 		5098057C2739690D0063219B /* HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098057B2739690D0063219B /* HomeTests.swift */; };
 		5098057E2739690D0063219B /* Home.h in Headers */ = {isa = PBXBuildFile; fileRef = 509805702739690D0063219B /* Home.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -20,12 +19,12 @@
 		50980592273978BF0063219B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098058C273978BF0063219B /* HomeViewModel.swift */; };
 		50980593273978BF0063219B /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5098058D273978BF0063219B /* HomeService.swift */; };
 		509805E2273AC2450063219B /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 509805E1273AC2450063219B /* Core.framework */; platformFilter = ios; };
-		509805E8273AC5E80063219B /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509805E7273AC5E80063219B /* ActivityCell.swift */; };
 		5099B3EA27721E4300252359 /* MapboxCommon.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A1C6CF27721D09008E0DB7 /* MapboxCommon.xcframework */; };
 		5099B3EC27721E4300252359 /* MapboxCoreMaps.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A1C6D027721D09008E0DB7 /* MapboxCoreMaps.xcframework */; };
 		5099B3EE27721E4300252359 /* MapboxMaps.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A1C6D127721D09008E0DB7 /* MapboxMaps.xcframework */; };
 		5099B3F027721E4300252359 /* MapboxMobileEvents.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A1C6D227721D09008E0DB7 /* MapboxMobileEvents.xcframework */; };
 		5099B3F227721E4300252359 /* Turf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A1C6DC27721D1D008E0DB7 /* Turf.xcframework */; };
+		509A2DB32796CC2E00C79809 /* MessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509A2DB22796CC2E00C79809 /* MessageInputView.swift */; };
 		50A3138527713C8B00A1B29F /* GoogleMapsBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A3138427713C8B00A1B29F /* GoogleMapsBase.framework */; };
 		50A3138727713CA000A1B29F /* GoogleMapsM4B.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A3138627713CA000A1B29F /* GoogleMapsM4B.framework */; };
 		50A3138A27713CAE00A1B29F /* GoogleMapsCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A3138827713CAD00A1B29F /* GoogleMapsCore.framework */; };
@@ -48,6 +47,18 @@
 		50A313AB27713D5800A1B29F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A313AA27713D5800A1B29F /* SystemConfiguration.framework */; };
 		50A313AD27713D5C00A1B29F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A313AC27713D5C00A1B29F /* UIKit.framework */; };
 		50A313B1277142C500A1B29F /* GoogleMapsUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A313B0277142C500A1B29F /* GoogleMapsUtils.framework */; };
+		50BE9846278F01CC0019D9B4 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE9845278F01CC0019D9B4 /* ActivityCell.swift */; };
+		50C7DF292790886500015861 /* DiscussionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7DF232790886500015861 /* DiscussionService.swift */; };
+		50C7DF2A2790886500015861 /* DiscussionModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7DF242790886500015861 /* DiscussionModuleBuilder.swift */; };
+		50C7DF2B2790886500015861 /* DiscussionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7DF252790886500015861 /* DiscussionCoordinator.swift */; };
+		50C7DF2C2790886500015861 /* DiscussionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7DF262790886500015861 /* DiscussionUseCase.swift */; };
+		50C7DF2D2790886500015861 /* DiscussionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7DF272790886500015861 /* DiscussionViewController.swift */; };
+		50C7DF2E2790886500015861 /* DiscussionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7DF282790886500015861 /* DiscussionViewModel.swift */; };
+		50C7DF342790889B00015861 /* ActivityDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7DF312790889B00015861 /* ActivityDetailsCell.swift */; };
+		50C7DF352790889B00015861 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7DF322790889B00015861 /* MapCell.swift */; };
+		50C7DF362790889B00015861 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7DF332790889B00015861 /* CommentCell.swift */; };
+		50C7DF3A279577B200015861 /* TableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7DF39279577B100015861 /* TableViewSectionHeader.swift */; };
+		50C7DF3C2795993200015861 /* TableViewSectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7DF3B2795993200015861 /* TableViewSectionFooter.swift */; };
 		50CD12C32786F5E400B5D1DC /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD12C22786F5E400B5D1DC /* Post.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +76,6 @@
 		1AF58D2C2E0360AD98EFAA69 /* Pods-HomeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTests.release.xcconfig"; path = "Target Support Files/Pods-HomeTests/Pods-HomeTests.release.xcconfig"; sourceTree = "<group>"; };
 		2BB2C2A0A1BE75CC2F8FBD02 /* Pods_Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FFCC639AE6D3C0D3BC72901 /* Pods_HomeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5085AD91274CDFF600315D67 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		5098056D2739690D0063219B /* Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		509805702739690D0063219B /* Home.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Home.h; sourceTree = "<group>"; };
 		509805712739690D0063219B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,7 +89,7 @@
 		5098058C273978BF0063219B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5098058D273978BF0063219B /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		509805E1273AC2450063219B /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		509805E7273AC5E80063219B /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ActivityCell.swift; path = ../../../../Map/Map/Cells/ActivityCell.swift; sourceTree = "<group>"; };
+		509A2DB22796CC2E00C79809 /* MessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInputView.swift; sourceTree = "<group>"; };
 		50A1C6CF27721D09008E0DB7 /* MapboxCommon.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxCommon.xcframework; path = ../../Mabbox/MapboxCommon.xcframework; sourceTree = "<group>"; };
 		50A1C6D027721D09008E0DB7 /* MapboxCoreMaps.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxCoreMaps.xcframework; path = ../../Mabbox/MapboxCoreMaps.xcframework; sourceTree = "<group>"; };
 		50A1C6D127721D09008E0DB7 /* MapboxMaps.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = MapboxMaps.xcframework; path = ../../Mabbox/MapboxMaps.xcframework; sourceTree = "<group>"; };
@@ -107,6 +117,19 @@
 		50A313AA27713D5800A1B29F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		50A313AC27713D5C00A1B29F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		50A313B0277142C500A1B29F /* GoogleMapsUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsUtils.framework; sourceTree = "<group>"; };
+		50BE9845278F01CC0019D9B4 /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityCell.swift; path = ../../../../Map/Map/Cells/ActivityCell.swift; sourceTree = "<group>"; };
+		50BE9847278F05BF0019D9B4 /* Discussion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Discussion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50C7DF232790886500015861 /* DiscussionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiscussionService.swift; path = ../Discussion/Discussion/DiscussionService.swift; sourceTree = "<group>"; };
+		50C7DF242790886500015861 /* DiscussionModuleBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiscussionModuleBuilder.swift; path = ../Discussion/Discussion/DiscussionModuleBuilder.swift; sourceTree = "<group>"; };
+		50C7DF252790886500015861 /* DiscussionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiscussionCoordinator.swift; path = ../Discussion/Discussion/DiscussionCoordinator.swift; sourceTree = "<group>"; };
+		50C7DF262790886500015861 /* DiscussionUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiscussionUseCase.swift; path = ../Discussion/Discussion/DiscussionUseCase.swift; sourceTree = "<group>"; };
+		50C7DF272790886500015861 /* DiscussionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiscussionViewController.swift; path = ../Discussion/Discussion/DiscussionViewController.swift; sourceTree = "<group>"; };
+		50C7DF282790886500015861 /* DiscussionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiscussionViewModel.swift; path = ../Discussion/Discussion/DiscussionViewModel.swift; sourceTree = "<group>"; };
+		50C7DF312790889B00015861 /* ActivityDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityDetailsCell.swift; sourceTree = "<group>"; };
+		50C7DF322790889B00015861 /* MapCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
+		50C7DF332790889B00015861 /* CommentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		50C7DF39279577B100015861 /* TableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionHeader.swift; sourceTree = "<group>"; };
+		50C7DF3B2795993200015861 /* TableViewSectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSectionFooter.swift; sourceTree = "<group>"; };
 		50CD12C22786F5E400B5D1DC /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		7AD5CB26663229EEE1F2DD00 /* Pods-HomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeTests.debug.xcconfig"; path = "Target Support Files/Pods-HomeTests/Pods-HomeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9AC892D68FEFC6495B594FC /* Pods-Home.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Home.release.xcconfig"; path = "Target Support Files/Pods-Home/Pods-Home.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,7 +187,6 @@
 		5085AD90274CDFCF00315D67 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				5085AD91274CDFF600315D67 /* Activity.swift */,
 				50CD12C22786F5E400B5D1DC /* Post.swift */,
 			);
 			path = Models;
@@ -173,6 +195,8 @@
 		509805632739690D0063219B = {
 			isa = PBXGroup;
 			children = (
+				50C7DF2F2790889B00015861 /* Views */,
+				50C7DF222790883B00015861 /* Discussion */,
 				5098056F2739690D0063219B /* Home */,
 				5098057A2739690D0063219B /* HomeTests */,
 				5098056E2739690D0063219B /* Products */,
@@ -193,11 +217,10 @@
 		5098056F2739690D0063219B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				50A1C699277219D6008E0DB7 /* Mapbox */,
 				50A3138C27713CD300A1B29F /* GoogleMaps.bundle */,
 				50A3138327713C7000A1B29F /* Google Maps */,
+				50BE9843278F01BC0019D9B4 /* Views */,
 				5085AD90274CDFCF00315D67 /* Models */,
-				509805E5273AC5BD0063219B /* Views */,
 				509805702739690D0063219B /* Home.h */,
 				509805712739690D0063219B /* Info.plist */,
 				50980588273978BF0063219B /* HomeCoordinator.swift */,
@@ -219,29 +242,6 @@
 			path = HomeTests;
 			sourceTree = "<group>";
 		};
-		509805E5273AC5BD0063219B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				509805E6273AC5C20063219B /* Cellls */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		509805E6273AC5C20063219B /* Cellls */ = {
-			isa = PBXGroup;
-			children = (
-				509805E7273AC5E80063219B /* ActivityCell.swift */,
-			);
-			path = Cellls;
-			sourceTree = "<group>";
-		};
-		50A1C699277219D6008E0DB7 /* Mapbox */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mapbox;
-			sourceTree = "<group>";
-		};
 		50A3138327713C7000A1B29F /* Google Maps */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +252,57 @@
 				50A313B0277142C500A1B29F /* GoogleMapsUtils.framework */,
 			);
 			path = "Google Maps";
+			sourceTree = "<group>";
+		};
+		50BE9843278F01BC0019D9B4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				50BE9844278F01C00019D9B4 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		50BE9844278F01C00019D9B4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				50BE9845278F01CC0019D9B4 /* ActivityCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		50C7DF222790883B00015861 /* Discussion */ = {
+			isa = PBXGroup;
+			children = (
+				50C7DF252790886500015861 /* DiscussionCoordinator.swift */,
+				50C7DF242790886500015861 /* DiscussionModuleBuilder.swift */,
+				50C7DF272790886500015861 /* DiscussionViewController.swift */,
+				50C7DF282790886500015861 /* DiscussionViewModel.swift */,
+				50C7DF262790886500015861 /* DiscussionUseCase.swift */,
+				50C7DF232790886500015861 /* DiscussionService.swift */,
+			);
+			name = Discussion;
+			sourceTree = "<group>";
+		};
+		50C7DF2F2790889B00015861 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				50C7DF302790889B00015861 /* Cells */,
+				50C7DF39279577B100015861 /* TableViewSectionHeader.swift */,
+				50C7DF3B2795993200015861 /* TableViewSectionFooter.swift */,
+				509A2DB22796CC2E00C79809 /* MessageInputView.swift */,
+			);
+			name = Views;
+			path = ../Discussion/Discussion/Views;
+			sourceTree = "<group>";
+		};
+		50C7DF302790889B00015861 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				50C7DF312790889B00015861 /* ActivityDetailsCell.swift */,
+				50C7DF322790889B00015861 /* MapCell.swift */,
+				50C7DF332790889B00015861 /* CommentCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		799495DA337EE4402590057C /* Pods */ = {
@@ -269,6 +320,7 @@
 		D21EB1BEB15A618C0DD71632 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50BE9847278F05BF0019D9B4 /* Discussion.framework */,
 				50A1C6DC27721D1D008E0DB7 /* Turf.xcframework */,
 				50A1C6CF27721D09008E0DB7 /* MapboxCommon.xcframework */,
 				50A1C6D027721D09008E0DB7 /* MapboxCoreMaps.xcframework */,
@@ -475,11 +527,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				50980593273978BF0063219B /* HomeService.swift in Sources */,
-				5085AD92274CDFF600315D67 /* Activity.swift in Sources */,
+				509A2DB32796CC2E00C79809 /* MessageInputView.swift in Sources */,
+				50C7DF2A2790886500015861 /* DiscussionModuleBuilder.swift in Sources */,
+				50C7DF342790889B00015861 /* ActivityDetailsCell.swift in Sources */,
+				50C7DF2D2790886500015861 /* DiscussionViewController.swift in Sources */,
+				50C7DF3A279577B200015861 /* TableViewSectionHeader.swift in Sources */,
+				50C7DF292790886500015861 /* DiscussionService.swift in Sources */,
 				50980590273978BF0063219B /* HomeUseCase.swift in Sources */,
+				50C7DF3C2795993200015861 /* TableViewSectionFooter.swift in Sources */,
+				50C7DF352790889B00015861 /* MapCell.swift in Sources */,
 				5098058F273978BF0063219B /* HomeModuleBuilder.swift in Sources */,
+				50BE9846278F01CC0019D9B4 /* ActivityCell.swift in Sources */,
+				50C7DF362790889B00015861 /* CommentCell.swift in Sources */,
+				50C7DF2B2790886500015861 /* DiscussionCoordinator.swift in Sources */,
+				50C7DF2C2790886500015861 /* DiscussionUseCase.swift in Sources */,
 				5098058E273978BF0063219B /* HomeCoordinator.swift in Sources */,
-				509805E8273AC5E80063219B /* ActivityCell.swift in Sources */,
+				50C7DF2E2790886500015861 /* DiscussionViewModel.swift in Sources */,
 				50CD12C32786F5E400B5D1DC /* Post.swift in Sources */,
 				50980592273978BF0063219B /* HomeViewModel.swift in Sources */,
 				50980591273978BF0063219B /* HomeViewController.swift in Sources */,

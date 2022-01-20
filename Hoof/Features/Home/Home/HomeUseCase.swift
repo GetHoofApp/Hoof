@@ -7,6 +7,7 @@
 //
 
 import RxSwift
+import Core
 
 public protocol HomeInteractable {
     func fetchAthleteActivties() -> Single<[Activity?]>

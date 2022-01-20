@@ -8,5 +8,6 @@ query Users {
     favoritePosition
     foot
     preferedNumber
+    profileImage
   }
 }

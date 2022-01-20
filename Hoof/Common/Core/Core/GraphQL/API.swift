@@ -175,6 +175,103 @@ public enum AthleteFoot: RawRepresentable, Equatable, Hashable, CaseIterable, Ap
   }
 }
 
+public final class CommentOnPostMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation CommentOnPost($userId: ID!, $postId: ID!, $message: String!) {
+      commentOnPost(userId: $userId, postId: $postId, message: $message) {
+        __typename
+        success
+      }
+    }
+    """
+
+  public let operationName: String = "CommentOnPost"
+
+  public var userId: GraphQLID
+  public var postId: GraphQLID
+  public var message: String
+
+  public init(userId: GraphQLID, postId: GraphQLID, message: String) {
+    self.userId = userId
+    self.postId = postId
+    self.message = message
+  }
+
+  public var variables: GraphQLMap? {
+    return ["userId": userId, "postId": postId, "message": message]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("commentOnPost", arguments: ["userId": GraphQLVariable("userId"), "postId": GraphQLVariable("postId"), "message": GraphQLVariable("message")], type: .object(CommentOnPost.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(commentOnPost: CommentOnPost? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "commentOnPost": commentOnPost.flatMap { (value: CommentOnPost) -> ResultMap in value.resultMap }])
+    }
+
+    public var commentOnPost: CommentOnPost? {
+      get {
+        return (resultMap["commentOnPost"] as? ResultMap).flatMap { CommentOnPost(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "commentOnPost")
+      }
+    }
+
+    public struct CommentOnPost: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["CommentOnPost"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("success", type: .scalar(Bool.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(success: Bool? = nil) {
+        self.init(unsafeResultMap: ["__typename": "CommentOnPost", "success": success])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var success: Bool? {
+        get {
+          return resultMap["success"] as? Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "success")
+        }
+      }
+    }
+  }
+}
+
 public final class CreateUserMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -1057,6 +1154,7 @@ public final class UsersQuery: GraphQLQuery {
         favoritePosition
         foot
         preferedNumber
+        profileImage
       }
     }
     """
@@ -1108,6 +1206,7 @@ public final class UsersQuery: GraphQLQuery {
           GraphQLField("favoritePosition", type: .scalar(AthleteFavoritePosition.self)),
           GraphQLField("foot", type: .scalar(AthleteFoot.self)),
           GraphQLField("preferedNumber", type: .scalar(Int.self)),
+          GraphQLField("profileImage", type: .nonNull(.scalar(String.self))),
         ]
       }
 
@@ -1117,8 +1216,8 @@ public final class UsersQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: GraphQLID, username: String, email: String, gender: AthleteGender? = nil, bio: String? = nil, favoritePosition: AthleteFavoritePosition? = nil, foot: AthleteFoot? = nil, preferedNumber: Int? = nil) {
-        self.init(unsafeResultMap: ["__typename": "UserType", "id": id, "username": username, "email": email, "gender": gender, "bio": bio, "favoritePosition": favoritePosition, "foot": foot, "preferedNumber": preferedNumber])
+      public init(id: GraphQLID, username: String, email: String, gender: AthleteGender? = nil, bio: String? = nil, favoritePosition: AthleteFavoritePosition? = nil, foot: AthleteFoot? = nil, preferedNumber: Int? = nil, profileImage: String) {
+        self.init(unsafeResultMap: ["__typename": "UserType", "id": id, "username": username, "email": email, "gender": gender, "bio": bio, "favoritePosition": favoritePosition, "foot": foot, "preferedNumber": preferedNumber, "profileImage": profileImage])
       }
 
       public var __typename: String {
@@ -1200,6 +1299,15 @@ public final class UsersQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "preferedNumber")
+        }
+      }
+
+      public var profileImage: String {
+        get {
+          return resultMap["profileImage"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "profileImage")
         }
       }
     }

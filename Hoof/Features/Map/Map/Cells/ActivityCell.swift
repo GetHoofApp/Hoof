@@ -10,12 +10,14 @@ import Core
 import GoogleMaps
 import GoogleMapsUtils
 import CoreGPX
-import MapboxMaps
 import CodableGeoJSON
 import RxCocoa
+import RxSwift
 
 class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
     
+    private(set) var disposeBag = DisposeBag()
+
     private lazy var image: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -182,6 +184,10 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
         return likeButton.rx.tap
     }
     
+    var commentButtonTap: ControlEvent<Void> {
+        return commentButton.rx.tap
+    }
+    
     private lazy var socialActivityDivider1: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
@@ -221,6 +227,11 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
+    }
+    
+    override func prepareForReuse() {
+       super.prepareForReuse()
+       disposeBag = DisposeBag() // because life cicle of every cell ends on prepare for reuse
     }
     
     func configure(withActivity activity: Activity) {
@@ -282,7 +293,7 @@ private extension ActivityCell {
             if areYouTheOnlyAthleteWhoLikThisActivity {
                 kudosLabel.text = "You gave a like"
             } else {
-                kudosLabel.text = activity.isActivityLiked ? "You and " + "\(likes.count)" + "others gave likes" : "\(likes.count)" + "gave likes"
+                kudosLabel.text = activity.isActivityLiked ? "You and " + "\(likes.count)" + " others gave likes" : "\(likes.count)" + " gave likes"
             }
         }
     }

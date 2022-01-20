@@ -1,30 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
-   <FileRef
-      location = "group:Pods/../Features/SignUp/SignUp.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Features/Welcome/Welcome.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Common/Core/Core.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Features/CreateChallenge/CreateChallenge.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Features/Groups/Groups.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Features/Home/Home.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Features/Map/Map.xcodeproj">
-   </FileRef>
-   <FileRef
-      location = "group:Features/Profile/Profile.xcodeproj">
-   </FileRef>
+   <Group
+      location = "group:Common"
+      name = "Common">
+      <FileRef
+         location = "group:Core/Core.xcodeproj">
+      </FileRef>
+   </Group>
+   <Group
+      location = "container:"
+      name = "Features">
+      <FileRef
+         location = "group:Pods/../Features/SignUp/SignUp.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Features/Welcome/Welcome.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Features/CreateChallenge/CreateChallenge.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Features/Groups/Groups.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Features/Home/Home.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Features/Map/Map.xcodeproj">
+      </FileRef>
+      <FileRef
+         location = "group:Features/Profile/Profile.xcodeproj">
+      </FileRef>
+   </Group>
    <FileRef
       location = "group:Hoof.xcodeproj">
    </FileRef>

@@ -7,59 +7,107 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8737FE4B-71F1-4CBD-967D-5A5882D4422E"
+            uuid = "34F28C8D-A0FE-4A65-9A1B-BC859AFFB9B4"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Home/Home/HomeViewController.swift"
+            filePath = "Features/Home/Home/HomeCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "tableView(_:cellForRowAt:)"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "start()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CCE4349A-EE5C-42DF-B89E-C2BFE79A58B9"
+            uuid = "6076645C-D088-4061-BA57-BD0672C36A63"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Home/Home/HomeService.swift"
+            filePath = "Features/Discussion/Discussion/DiscussionCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "likePost(userID:postID:)"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "start()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "95E5D7B8-3CD6-445E-BE23-749DBAA9EF9F"
+            uuid = "0219142B-FBFB-4728-BDAC-D05144B206AE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Home/Home/HomeService.swift"
+            filePath = "Features/Discussion/Discussion/DiscussionViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "fetchAthleteActivties()"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "willMove(toParent:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0219142B-FBFB-4728-BDAC-D05144B206AE - 1d8e4428610db024"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (CoreGraphics.CGFloat) -&gt; () in Discussion.DiscussionViewController.setupObservers() -&gt; ()"
+                  moduleName = "Discussion"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Discussion/Discussion/DiscussionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "188">
+               </Location>
+               <Location
+                  uuid = "0219142B-FBFB-4728-BDAC-D05144B206AE - 2558637d4767a755"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Home.DiscussionViewController.willMove(toParent: Swift.Optional&lt;__C.UIViewController&gt;) -&gt; ()"
+                  moduleName = "Home"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Discussion/Discussion/DiscussionViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "200">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EBF570A4-BB05-450F-A229-E7F0BA225FA4"
+            uuid = "2BDF24A1-F7DC-4AA2-8696-91630B292E16"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Features/Home/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "updateComments"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C9FA2FE2-6FBB-46F6-94BC-EED05B517F40"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/Discussion/Discussion/DiscussionViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "82"
@@ -71,15 +119,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8BA64920-7965-4B51-AB90-130F04F83A16"
+            uuid = "141CBF94-2506-49FE-9E45-5BB0BCDE2FDF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Home/Home/HomeViewModel.swift"
+            filePath = "Features/Discussion/Discussion/DiscussionViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "setupObservables()"
             landmarkType = "7">
          </BreakpointContent>
@@ -87,96 +135,65 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "81039F00-929D-4726-BF6A-C15FBE044DE1"
-            shouldBeEnabled = "Yes"
+            uuid = "74964C78-C625-4B5F-A33F-583F149438CC"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            filePath = "Features/Discussion/Discussion/DiscussionViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
-            landmarkName = "ActivityCell"
-            landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "46125F52-B3A6-4900-B21E-922887DDE9F3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
-            landmarkName = "likeButtonAction(_:)"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "setupObservables()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E1410AD9-DCF9-4D8D-9067-1604524BA927"
+            uuid = "0D091E37-B38E-4823-9D5A-92067ED70809"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            filePath = "Features/Discussion/Discussion/DiscussionViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
-            landmarkName = "formateLikesLabelText(activity:)"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "setupObservables()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E1410AD9-DCF9-4D8D-9067-1604524BA927 - b744d9e4ce0ad52e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Home.ActivityCell.formateLikesLabelText(activity: Home.Activity) -&gt; ()"
-                  moduleName = "Home"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Map/Map/Cells/ActivityCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "277"
-                  endingLineNumber = "277"
-                  offsetFromSymbolStart = "668">
-               </Location>
-               <Location
-                  uuid = "E1410AD9-DCF9-4D8D-9067-1604524BA927 - b744d9e4ce0ad52e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Home.ActivityCell.formateLikesLabelText(activity: Home.Activity) -&gt; ()"
-                  moduleName = "Home"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Map/Map/Cells/ActivityCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "277"
-                  endingLineNumber = "277"
-                  offsetFromSymbolStart = "84">
-               </Location>
-               <Location
-                  uuid = "E1410AD9-DCF9-4D8D-9067-1604524BA927 - b744d9e4ce0ad52e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Home.ActivityCell.formateLikesLabelText(activity: Home.Activity) -&gt; ()"
-                  moduleName = "Home"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Map/Map/Cells/ActivityCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "277"
-                  endingLineNumber = "277"
-                  offsetFromSymbolStart = "120">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7866333B-6B2C-4FB5-A4D5-70953D60F5F7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/Discussion/Discussion/DiscussionUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "likePost(userID:postID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4D79B9A4-BF1C-46E2-A0E9-DACA0B899DF3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/Discussion/Discussion/DiscussionUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "unlikePost(userID:postID:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

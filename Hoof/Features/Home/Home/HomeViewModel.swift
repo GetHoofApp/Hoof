@@ -17,19 +17,38 @@ protocol HomeViewModellable: ViewModellable {
 struct HomeViewModelInputs {
     var viewState = PublishSubject<ViewState>()
     var likeButtonTapped = PublishSubject<(String, Bool)>()
+    var commentButtonTapped = PublishSubject<(Activity)>()
 }
 
 struct HomeViewModelOutputs {
     let viewData = PublishSubject<HomeViewController.ViewData>()
+    let showDiscussion = PublishSubject<(Activity)>()
 }
 
 class HomeViewModel: HomeViewModellable {
     
     let disposeBag = DisposeBag()
-    let inputs = HomeViewModelInputs()
+    var inputs = HomeViewModelInputs()
     let outputs = HomeViewModelOutputs()
     var useCase: HomeInteractable
+    
+    private var activities = [Activity]()
+    private var selectedActivity: Activity!
+    var updateComments = PublishSubject<[Comment]?>() {
+        didSet {
+            updateComments.subscribe(onNext: { [weak self] comments in
+                guard let self = self else { return }
 
+                if let index = self.activities.firstIndex(where: { $0.id == self.selectedActivity.id }) {
+                    self.activities[index].comments = comments
+                }
+                
+                self.outputs.viewData.onNext(HomeViewController.ViewData(activities: self.activities))
+
+            }).disposed(by: disposeBag)
+        }
+    }
+    
     init(useCase: HomeInteractable) {
         self.useCase = useCase
         
@@ -51,6 +70,7 @@ private extension HomeViewModel {
                     switch event {
                     case let .success(posts):
                         let activities = posts.compactMap { $0 }
+                        self.activities = activities
                         self.outputs.viewData.onNext(HomeViewController.ViewData(activities: activities))
                     case .error:
                         break
@@ -86,6 +106,11 @@ private extension HomeViewModel {
                     }
                 }).disposed(by: self.disposeBag)
             }
+        }).disposed(by: disposeBag)
+        
+        inputs.commentButtonTapped.subscribe(onNext: { [weak self] activity in
+            self?.selectedActivity = activity
+            self?.outputs.showDiscussion.onNext(activity)
         }).disposed(by: disposeBag)
     }
 }

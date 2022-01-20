@@ -9,6 +9,13 @@
 import UIKit
 import Core
 
+private final class HomeDependencyProvider: DependencyProvider<EmptyDependency> {
+        
+    var discussionModuleBuilder: DiscussionModuleBuildable {
+        DiscussionModuleBuilder()
+    }
+}
+
 public protocol HomeModuleBuildable: ModuleBuildable {
     func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>?
 }
@@ -16,11 +23,13 @@ public protocol HomeModuleBuildable: ModuleBuildable {
 public class HomeModuleBuilder: Builder<EmptyDependency>, HomeModuleBuildable {
 
     public func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
+        let dependencyProvider = HomeDependencyProvider()
+
         registerService()
         registerUsecase()
         registerViewModel()
         registerView()
-        registerCoordinator(rootViewController: rootViewController)
+        registerCoordinator(rootViewController: rootViewController, discussionModuleBuilder: dependencyProvider.discussionModuleBuilder)
         
         guard let coordinator = container.resolve(HomeCoordinator.self) else {
             return nil
@@ -68,13 +77,15 @@ private extension HomeModuleBuilder {
         }
     }
     
-    func registerCoordinator(rootViewController: NavigationControllable? = nil) {
+    func registerCoordinator(rootViewController: NavigationControllable? = nil, discussionModuleBuilder: DiscussionModuleBuildable) {
         container.register(HomeCoordinator.self) { [weak self] in
             guard let viewController = self?.container.resolve(HomeViewController.self) else {
                 return nil
             }
             
-            let coordinator = HomeCoordinator(rootViewController: rootViewController, viewController: viewController)
+            let coordinator = HomeCoordinator(rootViewController: rootViewController, viewController: viewController, discussionModuleBuilder: discussionModuleBuilder)
+            coordinator.showDiscussion = viewController.viewModel.outputs.showDiscussion
+            viewController.viewModel.updateComments = coordinator.updateComments
             return coordinator
         }
     }

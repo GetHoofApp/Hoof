@@ -43,6 +43,9 @@
 		50BB8B4E277B36E400FF6834 /* URL+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B4D277B36E400FF6834 /* URL+Util.swift */; };
 		50BE980E278DB0F00019D9B4 /* LikePost.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 50BE980D278DB0F00019D9B4 /* LikePost.graphql */; };
 		50BE9810278DC1E60019D9B4 /* UnlikePost.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 50BE980F278DC1E60019D9B4 /* UnlikePost.graphql */; };
+		50BE9853278F06C90019D9B4 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE9852278F06C90019D9B4 /* Activity.swift */; };
+		50C7DF382791CAE100015861 /* KeyboardObserving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7DF372791CAE100015861 /* KeyboardObserving.swift */; };
+		50C7DF3E2795AB6500015861 /* CommentOnPost.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 50C7DF3D2795AB6400015861 /* CommentOnPost.graphql */; };
 		50CD12C727871E8900B5D1DC /* String+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50CD12C627871E8900B5D1DC /* String+Util.swift */; };
 		50E8E4E62742D66000FB73FA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8E4E52742D66000FB73FA /* Location.swift */; };
 		50E8E4E82743CB1600FB73FA /* SportCourtAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50E8E4E72743CB1600FB73FA /* SportCourtAnnotation.swift */; };
@@ -97,6 +100,9 @@
 		50BB8B4D277B36E400FF6834 /* URL+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "URL+Util.swift"; path = "Core/Configs/URL+Util.swift"; sourceTree = SOURCE_ROOT; };
 		50BE980D278DB0F00019D9B4 /* LikePost.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = LikePost.graphql; sourceTree = "<group>"; };
 		50BE980F278DC1E60019D9B4 /* UnlikePost.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnlikePost.graphql; sourceTree = "<group>"; };
+		50BE9852278F06C90019D9B4 /* Activity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		50C7DF372791CAE100015861 /* KeyboardObserving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardObserving.swift; sourceTree = "<group>"; };
+		50C7DF3D2795AB6400015861 /* CommentOnPost.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CommentOnPost.graphql; sourceTree = "<group>"; };
 		50CD12C627871E8900B5D1DC /* String+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Util.swift"; sourceTree = "<group>"; };
 		50E8E4E52742D66000FB73FA /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		50E8E4E72743CB1600FB73FA /* SportCourtAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportCourtAnnotation.swift; sourceTree = "<group>"; };
@@ -194,6 +200,7 @@
 				509805CC27397ACB0063219B /* NavigationControllable.swift */,
 				509805CD27397ACB0063219B /* Dequeueable.swift */,
 				509805CE27397ACB0063219B /* ViewControllable.swift */,
+				50C7DF372791CAE100015861 /* KeyboardObserving.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -210,6 +217,7 @@
 		50B78D5A277B1DF40010BEAC /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
+				50BE984B278F06390019D9B4 /* Models */,
 				50BB8B42277B35A200FF6834 /* Protocols */,
 				50BB8B3D277B34F300FF6834 /* Client */,
 				50BB8B34277B2E6B00FF6834 /* Operations */,
@@ -244,6 +252,7 @@
 				50BB8B3B277B2F8A00FF6834 /* CreateUser.graphql */,
 				50BE980D278DB0F00019D9B4 /* LikePost.graphql */,
 				50BE980F278DC1E60019D9B4 /* UnlikePost.graphql */,
+				50C7DF3D2795AB6400015861 /* CommentOnPost.graphql */,
 			);
 			path = Mutations;
 			sourceTree = "<group>";
@@ -283,6 +292,14 @@
 				5006123127886772006E54A6 /* Date+Util.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		50BE984B278F06390019D9B4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				50BE9852278F06C90019D9B4 /* Activity.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		50E8E4E42742D64C00FB73FA /* Models */ = {
@@ -406,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50BB8B3C277B2F8A00FF6834 /* CreateUser.graphql in Resources */,
+				50C7DF3E2795AB6500015861 /* CommentOnPost.graphql in Resources */,
 				50BB8B37277B2E9000FF6834 /* Users.graphql in Resources */,
 				50BB8B33277B2D6C00FF6834 /* schema.json in Resources */,
 				50BE9810278DC1E60019D9B4 /* UnlikePost.graphql in Resources */,
@@ -471,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50BE9853278F06C90019D9B4 /* Activity.swift in Sources */,
 				509805D327397ACB0063219B /* NavigationControllable.swift in Sources */,
 				50BB8B39277B2EC100FF6834 /* API.swift in Sources */,
 				50BB8B44277B35AE00FF6834 /* GraphQLClientProtocol.swift in Sources */,
@@ -484,6 +503,7 @@
 				50BB8B47277B366000FF6834 /* AppConfig.swift in Sources */,
 				50E8E4E62742D66000FB73FA /* Location.swift in Sources */,
 				509805D127397ACB0063219B /* Presentable.swift in Sources */,
+				50C7DF382791CAE100015861 /* KeyboardObserving.swift in Sources */,
 				509805D427397ACB0063219B /* Dequeueable.swift in Sources */,
 				509805C027397ABC0063219B /* Alertable.swift in Sources */,
 				509805D527397ACB0063219B /* ViewControllable.swift in Sources */,

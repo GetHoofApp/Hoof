@@ -31,10 +31,8 @@ class HomeViewController: ViewController<HomeViewModel> {
     }()
     
     private var activities = [Activity]()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
+    let commentButtonTapped = PublishSubject<Void>()
+    var selectedActivity: Activity!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,13 +44,17 @@ class HomeViewController: ViewController<HomeViewModel> {
         viewModel.inputs.viewState.onNext(.loaded)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupObservers()
+    }
+    
     // MARK: - setupUI
     
     override func setupUI() {
         setupSubviews()
         setupConstraints()
         setupNavogationBar()
-        setupObservers()
         
         view.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 243/255, alpha: 1.0)
     }
@@ -85,6 +87,12 @@ class HomeViewController: ViewController<HomeViewModel> {
                 self.activities = viewData.activities
                 self.tableView.reloadData()
             }).disposed(by: viewModel.disposeBag)
+        
+        commentButtonTapped.take(1).subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.viewModel.inputs.commentButtonTapped.onNext(self.selectedActivity)
+        }).disposed(by: viewModel.disposeBag)
     }
 }
 
@@ -116,11 +124,18 @@ extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.getCell(forType: ActivityCell.self)
         let activity = activities[indexPath.section]
+        selectedActivity = activity
         cell.likeButtonTap
             .subscribe(onNext: { [weak self] in
                 self?.viewModel.inputs.likeButtonTapped.onNext((activity.id, activity.isActivityLiked))
             })
             .disposed(by: viewModel.disposeBag)
+
+        cell.commentButtonTap
+            .subscribe(onNext: { [weak self] in
+                self?.viewModel.inputs.commentButtonTapped.onNext(activity)
+            })
+            .disposed(by: cell.disposeBag)
 
         cell.configure(withActivity: activity)
         return cell
