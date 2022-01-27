@@ -172,7 +172,9 @@ class ActivityDetailsCell: UITableViewCell, Dequeueable {
     
     func configure(with activity: Activity) {
         titleLabel.text = activity.title
-        athleteNameLabel.text = activity.userName
+        if let firstName = activity.creator?.firstName, let lastName = activity.creator?.lastName {
+            athleteNameLabel.text = firstName + lastName
+        }
         dateLabel.text = "Jan 9, 2022"
         averageSpeedLabel.text = "Avg Speed: \(activity.pace)"
         likesCountLabel.text = "\(activity.likes?.count ?? 0)"

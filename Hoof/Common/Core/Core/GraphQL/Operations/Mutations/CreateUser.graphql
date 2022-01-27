@@ -1,13 +1,9 @@
-mutation CreateUser($firstName: String!, $lastName: String!, $password: String!, $email: String!, $gender: String!, $bio: String, $favoritePosition: String, $foot: String, $preferedNumber: Int) {
-  createUser(firstName: $firstName, lastName: $lastName, email: $email, password: $password, gender: $gender, bio: $bio, favoritePosition: $favoritePosition, foot: $foot, preferedNumber: $preferedNumber) {
+mutation CreateUser($firstName: String!, $lastName: String!, $password: String!, $email: String!, $gender: String!) {
+  createUser(firstName: $firstName, lastName: $lastName, email: $email, password: $password, gender: $gender) {
     id
     firstName
     lastName
     email
     gender
-    bio
-    favoritePosition
-    foot
-    preferedNumber
   }
 }

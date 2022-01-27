@@ -11,7 +11,7 @@ import Core
 
 public protocol SignUpServicePerforming {
     func doSomething() -> Single<Bool>
-    func signUp(firstName: String, lastName: String, email: String, password: String, gender: String, bio: String, favoritePosition: String, foot: String, preferedNumber: Int) -> Single<Bool>
+//    func signUp(firstName: String, lastName: String, email: String, password: String, gender: String, bio: String, favoritePosition: String, foot: String, preferedNumber: Int) -> Single<Bool>
 }
 
 class SignUpService: SignUpServicePerforming {
@@ -26,9 +26,9 @@ class SignUpService: SignUpServicePerforming {
         return .just(true)
     }
     
-    func signUp(firstName: String, lastName: String, email: String, password: String, gender: String, bio: String, favoritePosition: String, foot: String, preferedNumber: Int) -> Single<Bool> {
-        return client.perform(mutation: CreateUserMutation(firstName: firstName, lastName: lastName, password: password, email: email, gender: gender, bio: bio, favoritePosition: favoritePosition, foot: foot, preferedNumber: preferedNumber)).map {
-            $0.createUser?.id != nil            
-        }.asSingle()
-    }
+//    func signUp(firstName: String, lastName: String, email: String, password: String, gender: String, bio: String, favoritePosition: String, foot: String, preferedNumber: Int) -> Single<Bool> {
+//        return client.perform(mutation: CreateUserMutation(firstName: firstName, lastName: lastName, password: password, email: email, gender: gender, bio: bio, favoritePosition: favoritePosition, foot: foot, preferedNumber: preferedNumber)).map {
+//            $0.createUser?.id != nil
+//        }.asSingle()
+//    }
 }

@@ -30,6 +30,7 @@
 		509805D527397ACB0063219B /* ViewControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509805CE27397ACB0063219B /* ViewControllable.swift */; };
 		509805D927397ADF0063219B /* UIWindow+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509805D727397ADF0063219B /* UIWindow+Utils.swift */; };
 		509805DA27397ADF0063219B /* UIApplication+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509805D827397ADF0063219B /* UIApplication+Utils.swift */; };
+		50B20332279ADCA6008AA037 /* UIImageView+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B20331279ADCA6008AA037 /* UIImageView+Utils.swift */; };
 		50BB8B33277B2D6C00FF6834 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = 50BB8B32277B2D6C00FF6834 /* schema.json */; };
 		50BB8B37277B2E9000FF6834 /* Users.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 50BB8B36277B2E9000FF6834 /* Users.graphql */; };
 		50BB8B39277B2EC100FF6834 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B38277B2EC100FF6834 /* API.swift */; };
@@ -87,6 +88,7 @@
 		509805CE27397ACB0063219B /* ViewControllable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllable.swift; sourceTree = "<group>"; };
 		509805D727397ADF0063219B /* UIWindow+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+Utils.swift"; sourceTree = "<group>"; };
 		509805D827397ADF0063219B /* UIApplication+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Utils.swift"; sourceTree = "<group>"; };
+		50B20331279ADCA6008AA037 /* UIImageView+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Utils.swift"; sourceTree = "<group>"; };
 		50BB8B32277B2D6C00FF6834 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		50BB8B36277B2E9000FF6834 /* Users.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Users.graphql; sourceTree = "<group>"; };
 		50BB8B38277B2EC100FF6834 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			children = (
 				509805D727397ADF0063219B /* UIWindow+Utils.swift */,
 				509805D827397ADF0063219B /* UIApplication+Utils.swift */,
+				50B20331279ADCA6008AA037 /* UIImageView+Utils.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				509805DA27397ADF0063219B /* UIApplication+Utils.swift in Sources */,
 				50BB8B3F277B34FC00FF6834 /* GraphQLClient.swift in Sources */,
 				509805C427397ABC0063219B /* Dependency.swift in Sources */,
+				50B20332279ADCA6008AA037 /* UIImageView+Utils.swift in Sources */,
 				509805C127397ABC0063219B /* DependencyManager.swift in Sources */,
 				50BB8B47277B366000FF6834 /* AppConfig.swift in Sources */,
 				50E8E4E62742D66000FB73FA /* Location.swift in Sources */,

@@ -9,7 +9,7 @@
 import RxSwift
 
 public protocol SignUpInteractable {
-    func signUp(firstName: String, lastName: String, email: String, password: String, gender: String, bio: String, favoritePosition: String, foot: String, preferedNumber: Int) -> Single<Bool>
+//    func signUp(firstName: String, lastName: String, email: String, password: String, gender: String, bio: String, favoritePosition: String, foot: String, preferedNumber: Int) -> Single<Bool>
 }
 
 class SignUpUseCase: SignUpInteractable {
@@ -20,7 +20,7 @@ class SignUpUseCase: SignUpInteractable {
         self.service = service
     }
     
-    func signUp(firstName: String, lastName: String, email: String, password: String, gender: String, bio: String, favoritePosition: String, foot: String, preferedNumber: Int) -> Single<Bool> {
-        service.signUp(firstName: firstName, lastName: lastName, email: email, password: password, gender: gender, bio: bio, favoritePosition: favoritePosition, foot: foot, preferedNumber: preferedNumber)
-    }
+//    func signUp(firstName: String, lastName: String, email: String, password: String, gender: String, bio: String, favoritePosition: String, foot: String, preferedNumber: Int) -> Single<Bool> {
+//        service.signUp(firstName: firstName, lastName: lastName, email: email, password: password, gender: gender, bio: bio, favoritePosition: favoritePosition, foot: foot, preferedNumber: preferedNumber)
+//    }
 }

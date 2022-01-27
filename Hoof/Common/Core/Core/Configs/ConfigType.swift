@@ -15,7 +15,7 @@ public func setup(with config: CoreConfigurable.Type) {
     ConfigType.shared = ConfigType(config)
 }
 
-var Config: ConfigType { // swiftlint:disable:this variable_name
+public var Config: ConfigType { // swiftlint:disable:this variable_name
     if let config = ConfigType.shared {
         return config
     } else {
@@ -23,12 +23,12 @@ var Config: ConfigType { // swiftlint:disable:this variable_name
     }
 }
 
-final class ConfigType {
+public final class ConfigType {
     
     static fileprivate var shared: ConfigType?
     
-    let baseURL: String
-    let graphQLBaseURL: String
+    public let baseURL: String
+    public let graphQLBaseURL: String
     
     fileprivate init(_ config: CoreConfigurable.Type) {
         self.baseURL = config.baseURL

@@ -9,7 +9,7 @@
 import UIKit
 import Core
 
-class CreateProfileViewController: ViewController<CreateProfileViewModel> {
+class CreateProfileViewController: ViewController<CreateProfileViewModel>, UIScrollViewDelegate {
     
     // MARK: - Properties
 
@@ -24,10 +24,10 @@ class CreateProfileViewController: ViewController<CreateProfileViewModel> {
     
     private lazy var createProfileSubtitleLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "Your profile is the home of  your activities and how friends find you on Hoof. "
+        label.text = "Your profile is the home of  your activities and how friends find you on Hoof."
         label.numberOfLines = 2
         label.textColor = UIColor(red: 17/255, green: 17/255, blue: 17/255, alpha: 1.0)
-        label.font = UIFont.systemFont(ofSize: 18)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -58,7 +58,7 @@ class CreateProfileViewController: ViewController<CreateProfileViewModel> {
     
     private lazy var lastNameLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "Password"
+        label.text = "Last Name"
         label.textColor = UIColor(red: 115/255, green: 114/255, blue: 119/255, alpha: 1.0)
         label.font = UIFont.systemFont(ofSize: 13)
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -109,6 +109,20 @@ class CreateProfileViewController: ViewController<CreateProfileViewModel> {
         return button
     }()
     
+    lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.delegate = self
+        scrollView.contentSize = CGSize(width: view.frame.size.width, height: 600)
+        return scrollView
+    }()
+    
+    lazy var contentView: UIView = {
+        let view = UIView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private var selectedGender: String?
     
     override func viewDidLoad() {
@@ -138,65 +152,81 @@ class CreateProfileViewController: ViewController<CreateProfileViewModel> {
     
     override func setupConstraints() {
         NSLayoutConstraint.activate([
-            createProfileLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 29),
-            createProfileLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            createProfileLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -90),
+            scrollView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8.0),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 29),
+            scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8.0),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8.0),
+            
+            contentView.heightAnchor.constraint(equalToConstant: 600),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 8.0),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -8.0),
+
+            createProfileLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 29),
+            createProfileLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
+            createProfileLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -90),
             
             createProfileSubtitleLabel.topAnchor.constraint(equalTo: createProfileLabel.bottomAnchor, constant: 20),
-            createProfileSubtitleLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            createProfileSubtitleLabel.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            createProfileSubtitleLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
+            createProfileSubtitleLabel.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
             
             firstNameLabel.topAnchor.constraint(equalTo: createProfileSubtitleLabel.bottomAnchor, constant: 40),
-            firstNameLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            firstNameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             
             firstNameTextField.topAnchor.constraint(equalTo: firstNameLabel.bottomAnchor, constant: 20),
-            firstNameTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            firstNameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            firstNameTextField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
+            firstNameTextField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
             
             firstNameFooterView.topAnchor.constraint(equalTo: firstNameTextField.bottomAnchor, constant: 1),
-            firstNameFooterView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            firstNameFooterView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            firstNameFooterView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
+            firstNameFooterView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
             firstNameFooterView.heightAnchor.constraint(equalToConstant: 1),
             
             lastNameLabel.topAnchor.constraint(equalTo: firstNameFooterView.bottomAnchor, constant: 20),
-            lastNameLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            lastNameLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             
             lastNameTextField.topAnchor.constraint(equalTo: lastNameLabel.bottomAnchor, constant: 20),
-            lastNameTextField.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            lastNameTextField.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            lastNameTextField.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
+            lastNameTextField.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
             
             lastNameFooterView.topAnchor.constraint(equalTo: lastNameTextField.bottomAnchor, constant: 1),
-            lastNameFooterView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            lastNameFooterView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            lastNameFooterView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
+            lastNameFooterView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
             lastNameFooterView.heightAnchor.constraint(equalToConstant: 1),
 
             genderLabel.topAnchor.constraint(equalTo: lastNameFooterView.bottomAnchor, constant: 20),
-            genderLabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
+            genderLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
             
             genderSelectorView.topAnchor.constraint(equalTo: genderLabel.bottomAnchor, constant: 5),
-            genderSelectorView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8),
-            genderSelectorView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            genderSelectorView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8),
+            genderSelectorView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             genderSelectorView.heightAnchor.constraint(equalToConstant: 150),
             
             continueButton.topAnchor.constraint(equalTo: genderSelectorView.bottomAnchor, constant: 19),
-            continueButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 16),
-            continueButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16),
+            continueButton.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 16),
+            continueButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
             continueButton.heightAnchor.constraint(equalToConstant: 39),
         ])
     }
     
     func setupSubviews() {
-        view.addSubview(createProfileLabel)
-        view.addSubview(createProfileSubtitleLabel)
-        view.addSubview(firstNameLabel)
-        view.addSubview(firstNameTextField)
-        view.addSubview(firstNameFooterView)
-        view.addSubview(lastNameLabel)
-        view.addSubview(lastNameTextField)
-        view.addSubview(lastNameFooterView)
-        view.addSubview(genderLabel)
-        view.addSubview(genderSelectorView)
-        view.addSubview(continueButton)
+        view.addSubview(scrollView)
+        
+        contentView.addSubview(createProfileLabel)
+        contentView.addSubview(createProfileSubtitleLabel)
+        contentView.addSubview(firstNameLabel)
+        contentView.addSubview(firstNameTextField)
+        contentView.addSubview(firstNameFooterView)
+        contentView.addSubview(lastNameLabel)
+        contentView.addSubview(lastNameTextField)
+        contentView.addSubview(lastNameFooterView)
+        contentView.addSubview(genderLabel)
+        contentView.addSubview(genderSelectorView)
+        contentView.addSubview(continueButton)
+        
+        scrollView.addSubview(contentView)
     }
     
     private func setupNavogationBar() {
@@ -224,7 +254,6 @@ extension CreateProfileViewController {
             continueButton.backgroundColor = UIColor(red: 223/255, green: 223/255, blue: 231/255, alpha: 1.0)
             continueButton.setTitleColor(UIColor(red: 56/255, green: 55/255, blue: 60/255, alpha: 1.0), for: .normal)
         }
-        
     }
 }
 
@@ -246,8 +275,16 @@ extension CreateProfileViewController: SelectionViewDelegate {
 extension CreateProfileViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == firstNameTextField && (lastNameTextField.text?.isEmpty ?? false) {
+            firstNameTextField.resignFirstResponder()
+            lastNameTextField.becomeFirstResponder()
+        }
+        
+        if !(firstNameTextField.text?.isEmpty ?? false) && !(lastNameTextField.text?.isEmpty ?? false) {
+            view.endEditing(true)
+        }
+
         updateContinueButtonUI()
-        view.endEditing(true)
         return false
     }
     

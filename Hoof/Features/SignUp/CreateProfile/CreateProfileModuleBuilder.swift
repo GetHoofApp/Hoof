@@ -75,6 +75,7 @@ private extension CreateProfileModuleBuilder {
             }
             
             let coordinator = CreateProfileCoordinator(rootViewController: rootViewController, viewController: viewController)
+            coordinator.userCreated = viewController.viewModel.outputs.userCreated
             return coordinator
         }
     }

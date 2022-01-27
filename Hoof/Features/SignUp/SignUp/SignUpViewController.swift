@@ -33,6 +33,7 @@ class SignUpViewController: ViewController<SignUpViewModel> {
     
     private lazy var emailTextField: UITextField = {
         let textField = UITextField(frame: .zero)
+        textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -57,6 +58,7 @@ class SignUpViewController: ViewController<SignUpViewModel> {
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField(frame: .zero)
         textField.isSecureTextEntry = true
+        textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -120,6 +122,8 @@ class SignUpViewController: ViewController<SignUpViewModel> {
         setupObservers()
         
         view.backgroundColor = .white
+        
+        self.emailTextField.becomeFirstResponder()
     }
     
     override func setupConstraints() {
@@ -189,5 +193,23 @@ class SignUpViewController: ViewController<SignUpViewModel> {
     
     @objc func signUpButtonTapped() {
         viewModel.inputs.signUpButtonTapped.onNext((userName: "Ronaldo", email: emailTextField.text ?? "", password: passwordTextField.text ?? "", gender: "Male", bio: "Hey! there it's Ronaldo", favoritePosition: "Stricker", foot: "Right", preferedNumber: 10))
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension SignUpViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextField && (passwordTextField.text?.isEmpty ?? false) {
+            emailTextField.resignFirstResponder()
+            passwordTextField.becomeFirstResponder()
+        }
+        
+        if !(emailTextField.text?.isEmpty ?? false) && !(passwordTextField.text?.isEmpty ?? false) {
+            view.endEditing(true)
+        }
+
+        return false
     }
 }

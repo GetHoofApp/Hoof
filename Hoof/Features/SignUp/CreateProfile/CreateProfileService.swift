@@ -11,7 +11,7 @@ import Apollo
 import Core
 
 public protocol CreateProfileServicePerforming {
-    func createProfile(firstName: String, lastName: String, email: String, password: String, gender: String) -> Single<Bool>
+    func createProfile(firstName: String, lastName: String, email: String, password: String, gender: String) -> Single<String>
 }
 
 class CreateProfileService: CreateProfileServicePerforming {
@@ -22,10 +22,10 @@ class CreateProfileService: CreateProfileServicePerforming {
         self.client = client
     }
     
-    func createProfile(firstName: String, lastName: String, email: String, password: String, gender: String) -> Single<Bool> {
-//        return client.perform(mutation: CreateUserMutation(username: userName, password: password, email: email, gender: gender)).map {
-//            $0.createUser?.id != nil
-//        }.asSingle()
-        return Single.never()
+    func createProfile(firstName: String, lastName: String, email: String, password: String, gender: String) -> Single<String> {
+        return client.perform(mutation: CreateUserMutation(firstName: firstName, lastName: lastName, password: password, email: email, gender: gender))
+            .map {
+                "\(String(describing: $0.createUser?.id))" 
+            }.asSingle()
     }
 }

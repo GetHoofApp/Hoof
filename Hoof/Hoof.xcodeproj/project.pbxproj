@@ -126,8 +126,6 @@
 		50B78D572779E5810010BEAC /* SignUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B78D562779E5810010BEAC /* SignUp.framework */; };
 		50B78D582779E5810010BEAC /* SignUp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50B78D562779E5810010BEAC /* SignUp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50BB8B51277B3A3E00FF6834 /* AppConfig+Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B50277B3A3E00FF6834 /* AppConfig+Client.swift */; };
-		50C7DEE8278F0C2C00015861 /* Discussion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C7DEE7278F0C2C00015861 /* Discussion.framework */; };
-		50C7DEE9278F0C2C00015861 /* Discussion.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50C7DEE7278F0C2C00015861 /* Discussion.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50E8E438273D7ABB00FB73FA /* Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E437273D7ABB00FB73FA /* Home.framework */; };
 		50E8E439273D7ABB00FB73FA /* Home.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E437273D7ABB00FB73FA /* Home.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50E8E46B2742987C00FB73FA /* Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50E8E46A2742987C00FB73FA /* Map.framework */; };
@@ -225,7 +223,6 @@
 				509805DF273AA89B0063219B /* Core.framework in Embed Frameworks */,
 				50E8E4DE2742BCBE00FB73FA /* Profile.framework in Embed Frameworks */,
 				5099B3FA27721E8A00252359 /* MapboxMaps.xcframework in Embed Frameworks */,
-				50C7DEE9278F0C2C00015861 /* Discussion.framework in Embed Frameworks */,
 				50B78D582779E5810010BEAC /* SignUp.framework in Embed Frameworks */,
 				5099B3F627721E8A00252359 /* MapboxCommon.xcframework in Embed Frameworks */,
 				5085ADD4274F7CD800315D67 /* CreateChallenge.framework in Embed Frameworks */,
@@ -396,7 +393,6 @@
 				50A3137A27713B9200A1B29F /* Metal.framework in Frameworks */,
 				50B78D572779E5810010BEAC /* SignUp.framework in Frameworks */,
 				5099B3F927721E8A00252359 /* MapboxMaps.xcframework in Frameworks */,
-				50C7DEE8278F0C2C00015861 /* Discussion.framework in Frameworks */,
 				50A3137827713B8900A1B29F /* libz.tbd in Frameworks */,
 				50A3137627713B7C00A1B29F /* libc++.tbd in Frameworks */,
 				5099B3FD27721E8E00252359 /* Turf.xcframework in Frameworks */,

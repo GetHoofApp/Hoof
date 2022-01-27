@@ -7,79 +7,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "34F28C8D-A0FE-4A65-9A1B-BC859AFFB9B4"
+            uuid = "71E307DE-5470-4B02-8D3B-98682C73BCAC"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Home/Home/HomeCoordinator.swift"
+            filePath = "Features/SignUp/CreateProfile/CreateProfileViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "start()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6076645C-D088-4061-BA57-BD0672C36A63"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Discussion/Discussion/DiscussionCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "start()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0219142B-FBFB-4728-BDAC-D05144B206AE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Discussion/Discussion/DiscussionViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "willMove(toParent:)"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "setupObservables()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "0219142B-FBFB-4728-BDAC-D05144B206AE - 1d8e4428610db024"
+                  uuid = "71E307DE-5470-4B02-8D3B-98682C73BCAC - b7ebb470f2229bcc"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (CoreGraphics.CGFloat) -&gt; () in Discussion.DiscussionViewController.setupObservers() -&gt; ()"
-                  moduleName = "Discussion"
+                  symbolName = "closure #1 (Swift.String, Swift.String, Swift.String) -&gt; () in SignUp.CreateProfileViewModel.setupObservables() -&gt; ()"
+                  moduleName = "SignUp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Discussion/Discussion/DiscussionViewController.swift"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/CreateProfile/CreateProfileViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "159"
-                  endingLineNumber = "159"
-                  offsetFromSymbolStart = "188">
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "540">
                </Location>
                <Location
-                  uuid = "0219142B-FBFB-4728-BDAC-D05144B206AE - 2558637d4767a755"
+                  uuid = "71E307DE-5470-4B02-8D3B-98682C73BCAC - 2334a6eb61cefae6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Home.DiscussionViewController.willMove(toParent: Swift.Optional&lt;__C.UIViewController&gt;) -&gt; ()"
-                  moduleName = "Home"
+                  symbolName = "closure #1 (RxSwift.SingleEvent&lt;Swift.Bool&gt;) -&gt; () in closure #1 (Swift.String, Swift.String, Swift.String) -&gt; () in SignUp.CreateProfileViewModel.setupObservables() -&gt; ()"
+                  moduleName = "SignUp"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Discussion/Discussion/DiscussionViewController.swift"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/CreateProfile/CreateProfileViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "159"
-                  endingLineNumber = "159"
-                  offsetFromSymbolStart = "200">
+                  startingLineNumber = "59"
+                  endingLineNumber = "59"
+                  offsetFromSymbolStart = "196">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -87,113 +55,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "2BDF24A1-F7DC-4AA2-8696-91630B292E16"
+            uuid = "0D90E787-8932-4CA3-B83A-793DC5310E9E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Home/Home/HomeViewModel.swift"
+            filePath = "Features/SignUp/CreateProfile/CreateProfileViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "updateComments"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C9FA2FE2-6FBB-46F6-94BC-EED05B517F40"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Discussion/Discussion/DiscussionViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "setupObservables()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "141CBF94-2506-49FE-9E45-5BB0BCDE2FDF"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Discussion/Discussion/DiscussionViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "setupObservables()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "74964C78-C625-4B5F-A33F-583F149438CC"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Discussion/Discussion/DiscussionViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "setupObservables()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0D091E37-B38E-4823-9D5A-92067ED70809"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Discussion/Discussion/DiscussionViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "setupObservables()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7866333B-6B2C-4FB5-A4D5-70953D60F5F7"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Discussion/Discussion/DiscussionUseCase.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
-            landmarkName = "likePost(userID:postID:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4D79B9A4-BF1C-46E2-A0E9-DACA0B899DF3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Discussion/Discussion/DiscussionUseCase.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "unlikePost(userID:postID:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0D90E787-8932-4CA3-B83A-793DC5310E9E - f279869d599387fe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SignUp.CreateProfileViewModel.setupObservables() -&gt; ()"
+                  moduleName = "SignUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/CreateProfile/CreateProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "396">
+               </Location>
+               <Location
+                  uuid = "0D90E787-8932-4CA3-B83A-793DC5310E9E - 2334a6eb61cef920"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RxSwift.SingleEvent&lt;Swift.Bool&gt;) -&gt; () in closure #1 (Swift.String, Swift.String, Swift.String) -&gt; () in SignUp.CreateProfileViewModel.setupObservables() -&gt; ()"
+                  moduleName = "SignUp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/SignUp/CreateProfile/CreateProfileViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "368">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

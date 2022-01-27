@@ -24,7 +24,7 @@ class AppRootCoordinator: BaseCoordinator<Void> {
     private var groupsCoordinator: BaseCoordinator<Void>!
     private var profileCoordinator: BaseCoordinator<Void>!
     
-    private var welcomeCoordinator: BaseCoordinator<Void>!
+    private var welcomeCoordinator: BaseCoordinator<String>!
 
     private let homeModuleBuilder: HomeModuleBuildable
     private let mapModuleBuilder: MapModuleBuildable
@@ -44,17 +44,39 @@ class AppRootCoordinator: BaseCoordinator<Void> {
     }
     
     override func start() -> Observable<Void> {
-//        let navController = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
-//        guard let welcomeCoordinator: BaseCoordinator<Void> = welcomeModuleBuilder.buildModule(with: navController)?.coordinator else {
-//            preconditionFailure("[AppCoordinator] Cannot get welcomeModuleBuilder from module builder")
-//        }
-//        self.welcomeCoordinator = welcomeCoordinator
-//        _ = welcomeCoordinator.start()
-//
-//        window.rootViewController = navController
+        guard let _ = UserDefaults.standard.value(forKey: "UserID") else {
+            
+            let navController = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
+            guard let welcomeCoordinator: BaseCoordinator<String> = welcomeModuleBuilder.buildModule(with: navController)?.coordinator else {
+                preconditionFailure("[AppCoordinator] Cannot get welcomeModuleBuilder from module builder")
+            }
+            
+            self.welcomeCoordinator = welcomeCoordinator
+            _ = welcomeCoordinator.start().subscribe(onNext: { [weak self] userId in
+                guard let self = self else { return }
 
+                // Save userId to user defaults
+                UserDefaults.standard.set(userId, forKey: "UserID")
+                self.showMainTabBar()
+            }).disposed(by: self.disposeBag)
+
+            window.rootViewController = navController
+            
+            return .never()
+        }
+        
+        showMainTabBar()
+
+        return .never()
+    }
+}
+
+private extension AppRootCoordinator {
+    
+    func showMainTabBar() {
+        // Show tab bar
         let navController = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
-        guard let homeCoordinator: BaseCoordinator<Void> = homeModuleBuilder.buildModule(with: navController)?.coordinator else {
+        guard let homeCoordinator: BaseCoordinator<Void> = self.homeModuleBuilder.buildModule(with: navController)?.coordinator else {
             preconditionFailure("[AppCoordinator] Cannot get homeModuleBuilder from module builder")
         }
                 
@@ -66,7 +88,7 @@ class AppRootCoordinator: BaseCoordinator<Void> {
         
         
         let mapNavController = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
-        guard let mapCoordinator: BaseCoordinator<Void> = mapModuleBuilder.buildModule(with: mapNavController)?.coordinator else {
+        guard let mapCoordinator: BaseCoordinator<Void> = self.mapModuleBuilder.buildModule(with: mapNavController)?.coordinator else {
             preconditionFailure("[AppCoordinator] Cannot get mapModuleBuilder from module builder")
         }
         
@@ -78,7 +100,7 @@ class AppRootCoordinator: BaseCoordinator<Void> {
         
 
         let groupsNavController = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
-        guard let groupsCoordinator: BaseCoordinator<Void> = groupsModuleBuilder.buildModule(with: groupsNavController)?.coordinator else {
+        guard let groupsCoordinator: BaseCoordinator<Void> = self.groupsModuleBuilder.buildModule(with: groupsNavController)?.coordinator else {
             preconditionFailure("[AppCoordinator] Cannot get groupsModuleBuilder from module builder")
         }
         
@@ -89,7 +111,7 @@ class AppRootCoordinator: BaseCoordinator<Void> {
         _ = groupsCoordinator.start()
         
         let profileNavController = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
-        guard let profileCoordinator: BaseCoordinator<Void> = profileModuleBuilder.buildModule(with: profileNavController)?.coordinator else {
+        guard let profileCoordinator: BaseCoordinator<Void> = self.profileModuleBuilder.buildModule(with: profileNavController)?.coordinator else {
             preconditionFailure("[AppCoordinator] Cannot get groupsModuleBuilder from module builder")
         }
         
@@ -104,9 +126,7 @@ class AppRootCoordinator: BaseCoordinator<Void> {
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)], for: .selected)
         
-        tabBarController.setViewControllers([navController, mapNavController, groupsNavController, profileNavController], animated: false)
-        window.rootViewController = tabBarController
-         
-        return .never()
+        self.tabBarController.setViewControllers([navController, mapNavController, groupsNavController, profileNavController], animated: false)
+        self.window.rootViewController = self.tabBarController
     }
 }

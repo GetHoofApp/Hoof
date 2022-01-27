@@ -5,10 +5,19 @@ query Posts {
     description
     createdAt
     coordinates
+    creator {
+      id
+      firstName
+      lastName
+      profileImage
+    }
     likes {
       id
       creator {
         id
+        firstName
+        lastName
+        profileImage
       }
     }
     comments {

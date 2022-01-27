@@ -18,7 +18,10 @@ struct CreateProfileViewModelInputs {
     var continueButtonTapped = PublishSubject<(firstName: String, lastName: String, gender: String)>()
 }
 
-struct CreateProfileViewModelOutputs {}
+struct CreateProfileViewModelOutputs {
+    let showDiscussion = PublishSubject<(Activity)>()
+    var userCreated = PublishSubject<String>()
+}
 
 class CreateProfileViewModel: CreateProfileViewModellable {
     
@@ -52,6 +55,7 @@ private extension CreateProfileViewModel {
                 .subscribe { event in
                     switch event {
                     case let .success(result):
+                        self.outputs.userCreated.onNext((result))
                         print("User created succcefully")
                     case let .error(error):
                         print("Error occured while creating a user")
