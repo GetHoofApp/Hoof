@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5029BF1927BE5D860058F2BB /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5029BF1827BE5D860058F2BB /* Core.framework */; };
 		5085ADA7274E4E7A00315D67 /* CreateChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5085AD9D274E4E7A00315D67 /* CreateChallenge.framework */; };
 		5085ADAC274E4E7A00315D67 /* CreateChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085ADAB274E4E7A00315D67 /* CreateChallengeTests.swift */; };
 		5085ADAE274E4E7A00315D67 /* CreateChallenge.h in Headers */ = {isa = PBXBuildFile; fileRef = 5085ADA0274E4E7A00315D67 /* CreateChallenge.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,6 +37,7 @@
 /* Begin PBXFileReference section */
 		119C1DAD1BE3DA934056D2B8 /* Pods_CreateChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CreateChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		120C54DEA453AEF82D34D828 /* Pods-CreateChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CreateChallengeTests.release.xcconfig"; path = "Target Support Files/Pods-CreateChallengeTests/Pods-CreateChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		5029BF1827BE5D860058F2BB /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5085AD9D274E4E7A00315D67 /* CreateChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CreateChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5085ADA0274E4E7A00315D67 /* CreateChallenge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateChallenge.h; sourceTree = "<group>"; };
 		5085ADA1274E4E7A00315D67 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99C139BF0B029731ACBB410E /* Pods_CreateChallenge.framework in Frameworks */,
+				5029BF1927BE5D860058F2BB /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +155,7 @@
 		56B9F0BCEBDDE6DC6884EABA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5029BF1827BE5D860058F2BB /* Core.framework */,
 				119C1DAD1BE3DA934056D2B8 /* Pods_CreateChallenge.framework */,
 				E1F87CE4DF2CC213E18F4C19 /* Pods_CreateChallengeTests.framework */,
 			);

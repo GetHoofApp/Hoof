@@ -11,6 +11,10 @@
 		5006122C278785C3006E54A6 /* DateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5006122B278785C3006E54A6 /* DateTime.swift */; };
 		5006122E278787B0006E54A6 /* Posts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5006122D278787B0006E54A6 /* Posts.graphql */; };
 		5006123227886772006E54A6 /* Date+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5006123127886772006E54A6 /* Date+Util.swift */; };
+		5027DC6827B7C64A00EC92CB /* UITableView+beginRefreshing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5027DC6727B7C64A00EC92CB /* UITableView+beginRefreshing.swift */; };
+		5081566127B53ED10072A8D7 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5081566027B53ED10072A8D7 /* Notification.swift */; };
+		5081568627B6587D0072A8D7 /* UploadActivity.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5081568527B6587D0072A8D7 /* UploadActivity.graphql */; };
+		5085F95327BD436F008E05FD /* KalmanFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085F95227BD436F008E05FD /* KalmanFilter.swift */; };
 		509805A8273979790063219B /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5098059E273979790063219B /* Core.framework */; };
 		509805AD273979790063219B /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509805AC273979790063219B /* CoreTests.swift */; };
 		509805AF273979790063219B /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 509805A1273979790063219B /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -66,6 +70,10 @@
 		5006122B278785C3006E54A6 /* DateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTime.swift; sourceTree = "<group>"; };
 		5006122D278787B0006E54A6 /* Posts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Posts.graphql; sourceTree = "<group>"; };
 		5006123127886772006E54A6 /* Date+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Util.swift"; sourceTree = "<group>"; };
+		5027DC6727B7C64A00EC92CB /* UITableView+beginRefreshing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+beginRefreshing.swift"; sourceTree = "<group>"; };
+		5081566027B53ED10072A8D7 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		5081568527B6587D0072A8D7 /* UploadActivity.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = UploadActivity.graphql; sourceTree = "<group>"; };
+		5085F95227BD436F008E05FD /* KalmanFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KalmanFilter.swift; sourceTree = "<group>"; };
 		5098059E273979790063219B /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		509805A1273979790063219B /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		509805A2273979790063219B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -188,6 +196,8 @@
 				509805BD27397ABC0063219B /* Dependency.swift */,
 				509805BE27397ABC0063219B /* Module.swift */,
 				509805BF27397ABC0063219B /* BaseCoordinator.swift */,
+				5081566027B53ED10072A8D7 /* Notification.swift */,
+				5085F95227BD436F008E05FD /* KalmanFilter.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -213,6 +223,7 @@
 				509805D727397ADF0063219B /* UIWindow+Utils.swift */,
 				509805D827397ADF0063219B /* UIApplication+Utils.swift */,
 				50B20331279ADCA6008AA037 /* UIImageView+Utils.swift */,
+				5027DC6727B7C64A00EC92CB /* UITableView+beginRefreshing.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -256,6 +267,7 @@
 				50BE980D278DB0F00019D9B4 /* LikePost.graphql */,
 				50BE980F278DC1E60019D9B4 /* UnlikePost.graphql */,
 				50C7DF3D2795AB6400015861 /* CommentOnPost.graphql */,
+				5081568527B6587D0072A8D7 /* UploadActivity.graphql */,
 			);
 			path = Mutations;
 			sourceTree = "<group>";
@@ -425,6 +437,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5081568627B6587D0072A8D7 /* UploadActivity.graphql in Resources */,
 				50BB8B3C277B2F8A00FF6834 /* CreateUser.graphql in Resources */,
 				50C7DF3E2795AB6500015861 /* CommentOnPost.graphql in Resources */,
 				50BB8B37277B2E9000FF6834 /* Users.graphql in Resources */,
@@ -500,6 +513,7 @@
 				509805C227397ABC0063219B /* DependencyProvider.swift in Sources */,
 				50BB8B41277B350D00FF6834 /* ApolloClient+Rx.swift in Sources */,
 				509805DA27397ADF0063219B /* UIApplication+Utils.swift in Sources */,
+				5081566127B53ED10072A8D7 /* Notification.swift in Sources */,
 				50BB8B3F277B34FC00FF6834 /* GraphQLClient.swift in Sources */,
 				509805C427397ABC0063219B /* Dependency.swift in Sources */,
 				50B20332279ADCA6008AA037 /* UIImageView+Utils.swift in Sources */,
@@ -512,7 +526,9 @@
 				509805C027397ABC0063219B /* Alertable.swift in Sources */,
 				509805D527397ACB0063219B /* ViewControllable.swift in Sources */,
 				509805C627397ABC0063219B /* BaseCoordinator.swift in Sources */,
+				5085F95327BD436F008E05FD /* KalmanFilter.swift in Sources */,
 				50E8E4E82743CB1600FB73FA /* SportCourtAnnotation.swift in Sources */,
+				5027DC6827B7C64A00EC92CB /* UITableView+beginRefreshing.swift in Sources */,
 				509805D227397ACB0063219B /* ViewModellable.swift in Sources */,
 				509805D027397ACB0063219B /* ViewState.swift in Sources */,
 				50BB8B4B277B367A00FF6834 /* Environment.swift in Sources */,

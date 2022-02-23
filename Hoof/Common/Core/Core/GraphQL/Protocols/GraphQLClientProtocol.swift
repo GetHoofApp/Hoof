@@ -13,4 +13,5 @@ import RxSwift
 public protocol GraphQLClientProtocol {
     func fetch<Query: GraphQLQuery>(query: Query) -> Observable<Query.Data>
     func perform<Mutation: GraphQLMutation>(mutation: Mutation) -> Observable<Mutation.Data>
+    func upload<Mutation: GraphQLMutation>(mutation: Mutation, files: [GraphQLFile]) -> Observable<Mutation.Data>
 }

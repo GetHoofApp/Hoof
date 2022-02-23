@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5029BF1D27BE5DA40058F2BB /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5029BF1C27BE5DA40058F2BB /* Core.framework */; };
 		50B78D282779D8DA0010BEAC /* SignUp.docc in Sources */ = {isa = PBXBuildFile; fileRef = 50B78D272779D8DA0010BEAC /* SignUp.docc */; };
 		50B78D2E2779D8DB0010BEAC /* SignUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B78D232779D8DA0010BEAC /* SignUp.framework */; };
 		50B78D332779D8DB0010BEAC /* SignUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B78D322779D8DB0010BEAC /* SignUpTests.swift */; };
@@ -48,6 +49,7 @@
 		2AE594E1EFDFA3C92C498458 /* Pods-SignUpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignUpTests.release.xcconfig"; path = "Target Support Files/Pods-SignUpTests/Pods-SignUpTests.release.xcconfig"; sourceTree = "<group>"; };
 		38990208414BE57E3F8F1979 /* Pods_SignUpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SignUpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC20BBAFB4EA94E969D951A /* Pods-SignUp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignUp.release.xcconfig"; path = "Target Support Files/Pods-SignUp/Pods-SignUp.release.xcconfig"; sourceTree = "<group>"; };
+		5029BF1C27BE5DA40058F2BB /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B78D232779D8DA0010BEAC /* SignUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SignUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B78D262779D8DA0010BEAC /* SignUp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignUp.h; sourceTree = "<group>"; };
 		50B78D272779D8DA0010BEAC /* SignUp.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = SignUp.docc; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92D4DFCFD6B06B0863CA890D /* Pods_SignUp.framework in Frameworks */,
+				5029BF1D27BE5DA40058F2BB /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +181,7 @@
 		E9EE1E255BBA4761C6999E4C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5029BF1C27BE5DA40058F2BB /* Core.framework */,
 				22DEAFB5B850AE470BFC78E2 /* Pods_SignUp.framework */,
 				38990208414BE57E3F8F1979 /* Pods_SignUpTests.framework */,
 			);

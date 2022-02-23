@@ -1,0 +1,8 @@
+mutation UploadActivity($file: Upload!, $title: String!, $description: String!, $userId: ID!) {
+  createPost(file: $file, title: $title, description: $description, userId: $userId) {
+    id
+    title
+    description
+  }
+}
+

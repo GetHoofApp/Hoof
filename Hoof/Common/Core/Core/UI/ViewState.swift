@@ -12,4 +12,5 @@ public enum ViewState {
     case appeared
     case empty
     case dismiss
+    case refresh
 }

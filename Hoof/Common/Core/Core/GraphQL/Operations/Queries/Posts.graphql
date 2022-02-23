@@ -1,5 +1,5 @@
-query Posts {
-  posts {
+query Posts($userId: Int!) {
+  posts(id: $userId) {
     id
     title
     description

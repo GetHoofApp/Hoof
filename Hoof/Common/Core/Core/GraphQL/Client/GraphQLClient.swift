@@ -52,4 +52,8 @@ public class GraphQLClient: GraphQLClientProtocol {
     public func perform<Mutation>(mutation: Mutation) -> Observable<Mutation.Data> where Mutation: GraphQLMutation {
         return client.rx.perform(mutation: mutation).asObservable()
     }
+    
+    public func upload<Mutation>(mutation: Mutation, files: [GraphQLFile]) -> Observable<Mutation.Data> where Mutation : GraphQLMutation {
+        return client.rx.upload(mutation: mutation, files: files).asObservable()
+    }
 }

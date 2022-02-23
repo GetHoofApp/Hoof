@@ -8,6 +8,8 @@
 import Apollo
 import CodableGeoJSON
 
+public typealias Upload = String
+
 public typealias DateTime = Date
 
 private let iso8601DateFormatter = ISO8601DateFormatter()

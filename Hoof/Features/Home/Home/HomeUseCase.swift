@@ -10,7 +10,7 @@ import RxSwift
 import Core
 
 public protocol HomeInteractable {
-    func fetchAthleteActivties() -> Single<[Activity?]>
+    func fetchAthleteActivties(userID: Int) -> Single<[Activity?]>
     func likePost(userID: String, postID: String) -> Single<Bool>
     func unlikePost(userID: String, postID: String) -> Single<Bool>
 }
@@ -23,8 +23,8 @@ class HomeUseCase: HomeInteractable {
         self.service = service
     }
     
-    func fetchAthleteActivties() -> Single<[Activity?]> {
-        service.fetchAthleteActivties()
+    func fetchAthleteActivties(userID: Int) -> Single<[Activity?]> {
+        service.fetchAthleteActivties(userID: userID)
     }
     
     func likePost(userID: String, postID: String) -> Single<Bool> {

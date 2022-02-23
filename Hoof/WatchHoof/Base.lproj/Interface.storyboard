@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="18122" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kqr-Vn-L9P">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pDn-lf-xNt">
     <device id="watch38"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="18022"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19514"/>
     </dependencies>
     <scenes>
         <!--Interface Controller-->
@@ -27,7 +28,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-389" y="288"/>
+            <point key="canvasLocation" x="-26" y="288"/>
         </scene>
         <!--Interface Controller-->
         <scene sceneID="GVB-UU-ewH">
@@ -53,7 +54,7 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-84" y="288"/>
+            <point key="canvasLocation" x="279" y="288"/>
         </scene>
         <!--Interface Controller-->
         <scene sceneID="xc6-jh-edA">
@@ -93,7 +94,7 @@
                     </items>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="213" y="288.5"/>
+            <point key="canvasLocation" x="576" y="289"/>
         </scene>
         <!--Static Notification Interface Controller-->
         <scene sceneID="AEw-b0-oYE">
@@ -110,21 +111,21 @@
                     </connections>
                 </notificationController>
             </objects>
-            <point key="canvasLocation" x="220" y="643"/>
+            <point key="canvasLocation" x="-108" y="1368"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
                 <controller id="4sK-HA-Art" customClass="NotificationController" customModule="WatchHoof" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="468" y="643"/>
+            <point key="canvasLocation" x="752" y="1808"/>
         </scene>
         <!--Notification Controller-->
         <scene sceneID="Niz-AI-uX2">
             <objects>
                 <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="WatchHoof" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="468" y="345"/>
+            <point key="canvasLocation" x="681" y="1128"/>
         </scene>
         <!--Interface Controller-->
         <scene sceneID="PYm-R5-KPU">
@@ -257,10 +258,300 @@
                     </connections>
                 </controller>
             </objects>
-            <point key="canvasLocation" x="-281" y="-208"/>
+            <point key="canvasLocation" x="82" y="-209"/>
+        </scene>
+        <!--Tracking-->
+        <scene sceneID="MNT-8D-4Ow">
+            <objects>
+                <controller identifier="trackingControl" title="Tracking" id="bSZ-ZQ-q2U" customClass="ActivityControlInterfaceController" customModule="WatchHoof_Extension">
+                    <items>
+                        <group width="1" height="151" alignment="left" layout="vertical" id="3vk-4u-ojc" userLabel="Main Page">
+                            <items>
+                                <group width="1" height="65" alignment="left" layout="vertical" id="NIV-oX-Xba" userLabel="Top Group">
+                                    <items>
+                                        <group width="1" height="45" alignment="left" id="D8d-Th-3VR">
+                                            <items>
+                                                <button width="45" height="43" alignment="center" verticalAlignment="center" backgroundImage="Round Button" id="U6q-x5-xdl">
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="font" type="system" pointSize="30"/>
+                                                    <connections>
+                                                        <action selector="lockAction" destination="bSZ-ZQ-q2U" id="Ohf-ef-YWC"/>
+                                                    </connections>
+                                                </button>
+                                            </items>
+                                        </group>
+                                        <label alignment="center" verticalAlignment="bottom" text="Lock" id="uzO-Ph-JYD">
+                                            <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                        </label>
+                                    </items>
+                                </group>
+                                <group width="1" height="2" alignment="center" verticalAlignment="center" id="cfX-KO-vo7" userLabel="Handling Group"/>
+                                <group width="1" height="82" alignment="center" verticalAlignment="center" id="Gn1-vl-ff1" userLabel="Handling Group">
+                                    <items>
+                                        <group width="67" height="71" alignment="left" layout="vertical" id="PcI-NA-31O">
+                                            <items>
+                                                <button width="41" height="40" alignment="center" verticalAlignment="center" backgroundImage="end" id="Ue9-Rc-sht">
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <connections>
+                                                        <action selector="endAction" destination="bSZ-ZQ-q2U" id="KX7-K4-8j1"/>
+                                                    </connections>
+                                                </button>
+                                                <label alignment="center" verticalAlignment="bottom" text="End" textAlignment="center" id="lBr-7N-var">
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                        <group width="53" alignment="right" verticalAlignment="center" layout="vertical" id="Njx-Xd-2i4">
+                                            <items>
+                                                <button width="41" height="40" alignment="center" verticalAlignment="center" backgroundImage="pause" id="S9Y-G7-uDU">
+                                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <connections>
+                                                        <action selector="pauseAction" destination="bSZ-ZQ-q2U" id="f97-hc-RaS"/>
+                                                    </connections>
+                                                </button>
+                                                <label width="100" alignment="center" verticalAlignment="bottom" text="Pause" textAlignment="center" id="9Y2-YJ-Gw1">
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                                <label alignment="center" verticalAlignment="bottom" text="Lock" id="2gX-Bt-GKE"/>
+                            </items>
+                            <variation key="device=watch40mm" height="162"/>
+                            <variation key="device=watch42mm" height="174"/>
+                            <variation key="device=watch44mm" height="190"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="endActivityButton" destination="Ue9-Rc-sht" id="zK0-aB-tq4"/>
+                        <outlet property="endActivityLabel" destination="lBr-7N-var" id="Wj5-KZ-yRH"/>
+                        <outlet property="pauseAndResumeLabel" destination="9Y2-YJ-Gw1" id="hax-ru-K4V"/>
+                        <outlet property="trackerButton" destination="S9Y-G7-uDU" id="vJW-LE-qjv"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-578" y="-541"/>
+        </scene>
+        <!--Start-->
+        <scene sceneID="rln-Qf-hqy">
+            <objects>
+                <controller identifier="gameOptions" title="Start" id="mtE-jv-hHq" customClass="GameOptionsInterfaceController" customModule="WatchHoof_Extension">
+                    <items>
+                        <group width="1" height="151" alignment="left" layout="vertical" id="S8d-Na-HEV" userLabel="Main Page">
+                            <items>
+                                <table alignment="left" id="uBX-4k-98f">
+                                    <items>
+                                        <tableRow identifier="GameOptionRow" id="CMV-Bk-suA" customClass="GameOptionsRowController" customModule="WatchHoof_Extension">
+                                            <group key="rootItem" width="1" height="0.0" alignment="left" spacing="6" id="m9D-mP-MQL">
+                                                <items>
+                                                    <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="M4y-GC-Jcv">
+                                                        <color key="color" red="0.98039215686274506" green="0.066666666666666666" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </separator>
+                                                    <group width="1" alignment="left" layout="vertical" spacing="0.0" id="iAm-J0-DYq">
+                                                        <items>
+                                                            <group width="1" height="50" alignment="left" spacing="4" id="ktx-Bq-hiE">
+                                                                <items>
+                                                                    <label alignment="left" verticalAlignment="center" text="Game" id="mt4-5d-5ru"/>
+                                                                    <imageView width="30" height="30" alignment="right" verticalAlignment="center" image="game" id="za6-5l-2q7">
+                                                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </imageView>
+                                                                </items>
+                                                            </group>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                            <connections>
+                                                <outlet property="image" destination="za6-5l-2q7" id="Ezt-4e-3F5"/>
+                                                <outlet property="label" destination="mt4-5d-5ru" id="IvY-Bn-gDj"/>
+                                                <outlet property="separator" destination="M4y-GC-Jcv" id="vde-9a-a73"/>
+                                            </connections>
+                                        </tableRow>
+                                    </items>
+                                </table>
+                            </items>
+                            <variation key="device=watch40mm" height="162"/>
+                            <variation key="device=watch42mm" height="174"/>
+                            <variation key="device=watch44mm" height="190"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="gameOptionsTable" destination="uBX-4k-98f" id="X24-Rc-6n5"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-578" y="-197"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="O4u-XF-yCX">
+            <objects>
+                <controller identifier="settings" title="Settings" id="pDn-lf-xNt" customClass="SettingsInterfaceController" customModule="WatchHoof_Extension">
+                    <items>
+                        <group width="1" height="151" alignment="left" layout="vertical" id="hwy-Yf-ATs" userLabel="Main Page">
+                            <items>
+                                <table alignment="left" id="T9m-oA-EMW">
+                                    <items>
+                                        <tableRow identifier="SettingsRow" id="BDB-tI-wxf">
+                                            <group key="rootItem" width="1" height="0.0" alignment="left" spacing="6" id="BTC-OO-gWZ">
+                                                <items>
+                                                    <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="vsD-Or-llS">
+                                                        <color key="color" red="0.98039215690000003" green="0.066666666669999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </separator>
+                                                    <group width="1" alignment="left" layout="vertical" spacing="0.0" id="wap-I8-geu">
+                                                        <items>
+                                                            <group width="114" height="50" alignment="left" spacing="4" id="PT4-By-AYx">
+                                                                <items>
+                                                                    <label alignment="left" verticalAlignment="center" text="Units" id="FS9-mZ-mdt"/>
+                                                                    <label alignment="right" verticalAlignment="center" text="Miles" id="ZQE-Pw-nuG"/>
+                                                                </items>
+                                                            </group>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </tableRow>
+                                    </items>
+                                </table>
+                            </items>
+                            <variation key="device=watch40mm" height="162"/>
+                            <variation key="device=watch42mm" height="174"/>
+                            <variation key="device=watch44mm" height="190"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="settingsTable" destination="T9m-oA-EMW" id="ASO-N4-o4I"/>
+                        <segue destination="mtE-jv-hHq" kind="relationship" relationship="nextPage" id="CKt-Cf-Vvn"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-938" y="-197"/>
+        </scene>
+        <!--Tracking-->
+        <scene sceneID="tNn-1Z-c9M">
+            <objects>
+                <controller identifier="tracking" title="Tracking" id="Y8Q-k4-aUk" customClass="TrackingInterfaceController" customModule="WatchHoof_Extension">
+                    <items>
+                        <group width="1" height="151" alignment="left" layout="vertical" id="w38-T4-25w" userLabel="Main Page">
+                            <items>
+                                <group width="1" height="35" alignment="left" id="ekQ-nv-2Jz" userLabel="Top Group">
+                                    <items>
+                                        <group width="136" height="41" alignment="left" id="Wwp-A9-rkC" userLabel="Small Info">
+                                            <items>
+                                                <label width="136" height="36" alignment="left" text="00:00:00" textAlignment="left" minimumScaleFactor="0.90000000000000002" id="K1N-Ii-xYY">
+                                                    <color key="textColor" red="0.81176470588235294" green="0.90588235294117647" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="font" style="UICTFontTextStyleTitle0"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                                <group width="1" height="0.33000000000000002" alignment="right" layout="vertical" id="9hE-PT-ScR" userLabel="Top Group">
+                                    <items>
+                                        <label alignment="left" text="Avg Speed" id="f7o-rC-eoa"/>
+                                        <group width="133" height="1" alignment="left" id="gf0-z2-oCE" userLabel="Small Info">
+                                            <items>
+                                                <label width="87" height="0.5" alignment="left" text="0:00" id="d0e-r6-wHK">
+                                                    <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                                </label>
+                                                <label width="34" alignment="right" text="/mi" textAlignment="right" id="nQe-Sk-p51"/>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                                <group width="1" height="53" alignment="right" layout="vertical" id="rEM-pd-fRj" userLabel="Top Group">
+                                    <items>
+                                        <group width="136" height="27" alignment="left" id="Zwg-6b-V6w" userLabel="Small Info">
+                                            <items>
+                                                <label width="37" alignment="left" verticalAlignment="center" text="--" textAlignment="center" id="nVh-UI-Ana">
+                                                    <fontDescription key="font" style="UICTFontTextStyleTitle3"/>
+                                                </label>
+                                                <label width="28" alignment="left" verticalAlignment="center" text="BPM" textAlignment="center" id="63j-lX-WiF">
+                                                    <fontDescription key="font" style="UICTFontTextStyleFootnote"/>
+                                                </label>
+                                                <spriteKitScene width="30" height="30" alignment="left" verticalAlignment="center" scene="AnimatedHeart.sks" id="rLt-6p-hjn"/>
+                                            </items>
+                                        </group>
+                                        <group width="1" alignment="left" id="nYv-6t-b51">
+                                            <items>
+                                                <label width="104" height="30" alignment="left" verticalAlignment="center" text="0.00 mi" id="J6B-on-oo7">
+                                                    <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                            </items>
+                            <variation key="device=watch40mm" height="162"/>
+                            <variation key="device=watch42mm" height="174"/>
+                            <variation key="device=watch44mm" height="190"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="heartRateValueLabel" destination="nVh-UI-Ana" id="j1e-Ky-vOr"/>
+                        <outlet property="sceneInterface" destination="rLt-6p-hjn" id="zqr-np-A0U"/>
+                        <outlet property="speedLabel" destination="d0e-r6-wHK" id="Vgv-88-JWf"/>
+                        <outlet property="timeLabel" destination="K1N-Ii-xYY" id="B3i-g9-eSd"/>
+                        <outlet property="totalTrackedDistanceLabel" destination="J6B-on-oo7" id="AK0-hT-qhX"/>
+                        <outlet property="userMovementLabel" destination="f7o-rC-eoa" id="0oB-S5-RKb"/>
+                        <segue destination="bSZ-ZQ-q2U" kind="relationship" relationship="nextPage" id="K1d-q2-jKM"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-938" y="-541"/>
+        </scene>
+        <!--Start-->
+        <scene sceneID="VqA-Ok-f9n">
+            <objects>
+                <controller identifier="positionOptions" title="Start" id="HOZ-EP-LDA" customClass="PositionOptionsInterfaceController" customModule="WatchHoof_Extension">
+                    <items>
+                        <label alignment="left" text="Which position did you play the most now?" numberOfLines="3" id="GtG-gN-nAW">
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
+                        </label>
+                        <table alignment="left" id="6OT-oI-Gne">
+                            <items>
+                                <tableRow identifier="PositionRow" id="p3I-ft-yin" customClass="PositionOptionsRowController" customModule="WatchHoof_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" spacing="6" id="6go-zm-cAR">
+                                        <items>
+                                            <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="EEg-EN-1qZ">
+                                                <color key="color" red="0.98039215690000003" green="0.066666666669999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                            </separator>
+                                            <group width="1" alignment="left" layout="vertical" spacing="0.0" id="41w-Wb-BAl">
+                                                <items>
+                                                    <group width="1" height="50" alignment="left" spacing="4" id="Iho-5G-cwA">
+                                                        <items>
+                                                            <label alignment="left" verticalAlignment="center" text="Play Maker" id="NDi-Fo-9Op"/>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="label" destination="NDi-Fo-9Op" id="p2t-GZ-jzf"/>
+                                        <outlet property="separator" destination="EEg-EN-1qZ" id="y82-IA-Nvq"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="positionOptionsTable" destination="6OT-oI-Gne" id="EmI-13-v41"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-279" y="-818"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
+        <image name="Round Button" width="67" height="67"/>
+        <image name="end" width="67" height="67"/>
+        <image name="game" width="24" height="24"/>
         <image name="pause" catalog="system" width="93" height="128"/>
+        <image name="pause" width="67" height="67"/>
     </resources>
 </document>

@@ -11,9 +11,13 @@ import Core
 import CodableGeoJSON
 
 public protocol HomeServiceFetching {
-    func fetchAthleteActivties() -> Single<[Activity?]>
+    func fetchAthleteActivties(userID: Int) -> Single<[Activity?]>
     func likePost(userID: String, postID: String) -> Single<Bool>
     func unlikePost(userID: String, postID: String) -> Single<Bool>
+}
+
+public protocol HomeServicePerforming {
+    func uploadActivity()
 }
 
 class HomeService: HomeServiceFetching {
@@ -24,8 +28,8 @@ class HomeService: HomeServiceFetching {
         self.client = client
     }
     
-    func fetchAthleteActivties() -> Single<[Activity?]> {
-        return client.fetch(query: PostsQuery())
+    func fetchAthleteActivties(userID: Int) -> Single<[Activity?]> {
+        return client.fetch(query: PostsQuery(userId: userID))
             .map {
                 $0.posts?.compactMap {
                     guard case .geometry(let geometry, _) = $0?.coordinates else {

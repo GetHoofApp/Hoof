@@ -147,7 +147,6 @@ class GPXSession {
     }
     
     func continueFromGPXRoot(_ gpx: GPXRoot) {
-        
         let lastTrack = gpx.tracks.last ?? GPXTrack()
         totalTrackedDistance += lastTrack.length
         
@@ -158,6 +157,5 @@ class GPXSession {
         // remove last track as that track is packaged by Core Data, but should its tracksegments should be seperated, into self.tracksegments.
         self.tracks.removeLast()
         
-    }
-    
+    }    
 }

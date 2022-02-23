@@ -30,6 +30,12 @@ class HomeViewController: ViewController<HomeViewModel> {
         return tableView
     }()
     
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshAthleteActivities), for: .valueChanged)
+        return refreshControl
+    }()
+
     private var activities = [Activity]()
     let commentButtonTapped = PublishSubject<Void>()
     var selectedActivity: Activity!
@@ -57,6 +63,7 @@ class HomeViewController: ViewController<HomeViewModel> {
         setupNavogationBar()
         
         view.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 243/255, alpha: 1.0)
+        tableView.refreshControl = refreshControl
     }
     
     override func setupConstraints() {
@@ -75,7 +82,21 @@ class HomeViewController: ViewController<HomeViewModel> {
     private func setupNavogationBar() {
         title = "Home"
         
+        if #available(iOS 15.0, *) {
+
+            self.tableView.sectionHeaderTopPadding = 0.0
+        }
+        
         navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.barTintColor = .white
+        navigationController?.navigationBar.tintColor = .black
+        
+        let findFriendsButton = UIButton(type: .custom)
+        findFriendsButton.setImage(UIImage(named: "people"), for: .normal)
+        findFriendsButton.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
+        findFriendsButton.addTarget(self, action: #selector(findFriendsButtonTapped), for: .touchUpInside)
+        let findFriendsBarButtonItem = UIBarButtonItem(customView: findFriendsButton)
+        navigationItem.leftBarButtonItem = findFriendsBarButtonItem
     }
     
     override func setupObservers() {
@@ -86,6 +107,7 @@ class HomeViewController: ViewController<HomeViewModel> {
 
                 self.activities = viewData.activities
                 self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
             }).disposed(by: viewModel.disposeBag)
         
         commentButtonTapped.take(1).subscribe(onNext: { [weak self] _ in
@@ -93,6 +115,24 @@ class HomeViewController: ViewController<HomeViewModel> {
             
             self.viewModel.inputs.commentButtonTapped.onNext(self.selectedActivity)
         }).disposed(by: viewModel.disposeBag)
+        
+        viewModel.outputs.showRefreshControl
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] viewData in
+                guard let self = self else { return }
+
+                self.refreshControl.beginRefreshing()
+            }).disposed(by: viewModel.disposeBag)
+        
+        commentButtonTapped.take(1).subscribe(onNext: { [weak self] _ in
+            guard let self = self else { return }
+            
+            self.viewModel.inputs.commentButtonTapped.onNext(self.selectedActivity)
+        }).disposed(by: viewModel.disposeBag)
+    }
+    
+    @objc func findFriendsButtonTapped() {
+        
     }
 }
 
@@ -111,7 +151,7 @@ extension HomeViewController: UITableViewDataSource {
     
     // Set the spacing between sections
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 0 : 10
+        return section == 0 ? 0 : 20
     }
     
     // Make the background color show through
@@ -155,5 +195,12 @@ extension HomeViewController {
     
     struct ViewData {
         let activities: [Activity]
+    }
+}
+
+extension HomeViewController {
+    
+    @objc func refreshAthleteActivities() {
+        viewModel.inputs.viewState.onNext(.refresh)
     }
 }

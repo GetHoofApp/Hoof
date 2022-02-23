@@ -93,4 +93,43 @@ extension Reactive where Base: ApolloClient {
             }
         }
     }
+    
+    /**
+     Performs a mutation by sending it to the server.
+     - parameter mutation: The mutation.
+     - parameter context: [optional] A context to use for the cache to work with results. Should default to nil.
+     - parameter queue: A dispatch queue on which the result handler will be called. Defaults to the main queue.
+     - returns: A generic observable of created mutation data
+     */
+    public func upload<Mutation: GraphQLMutation>(
+        mutation: Mutation,
+        files: [GraphQLFile],
+        context: UnsafeMutableRawPointer? = nil,
+        queue: DispatchQueue = DispatchQueue.main
+    ) -> Maybe<Mutation.Data> {
+        return Maybe.create { [weak base] observer in
+            let cancellable = base?.upload(
+                operation: mutation,
+                files: files,
+                queue: queue,
+                resultHandler: { result in
+                    switch result {
+                    case let .success(gqlResult):
+                        if let errors = gqlResult.errors {
+                            observer(.error(ApolloError.gqlErrors(errors)))
+                        } else if let data = gqlResult.data {
+                            observer(.success(data))
+                        } else {
+                            observer(.completed)
+                        }
+                        
+                    case let .failure(error):
+                        observer(.error(error))
+                    }
+            })
+            return Disposables.create {
+                cancellable?.cancel()
+            }
+        }
+    }
 }

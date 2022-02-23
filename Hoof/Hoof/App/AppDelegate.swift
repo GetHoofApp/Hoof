@@ -10,6 +10,8 @@ import CoreData
 import WatchConnectivity
 import CoreGPX
 import GoogleMaps
+import WatchConnectivity
+import Core
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -224,14 +226,3 @@ extension AppDelegate: WCSessionDelegate {
         NotificationCenter.default.post(name: .didReceiveFileFromAppleWatch, object: nil, userInfo: ["fileName": fileName ?? ""])
     }
 }
-
-/// Notifications for file receival from external source.
-extension Notification.Name {
-    
-    /// Use when a file is received from external source.
-    static let didReceiveFileFromURL = Notification.Name("didReceiveFileFromURL")
-    
-    /// Use when a file is received from Apple Watch.
-    static let didReceiveFileFromAppleWatch = Notification.Name("didReceiveFileFromAppleWatch")
-}
-

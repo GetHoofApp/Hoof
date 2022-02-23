@@ -103,7 +103,7 @@ public struct User {
         self.id = data.id
         self.firstName = data.firstName
         self.lastName = data.lastName
-        self.photoURL = data.profileImage
+        self.photoURL = data.profileImage ?? ""
     }
     
     public init?(data: PostsQuery.Data.Post.Creator?) {
@@ -112,7 +112,7 @@ public struct User {
         self.id = data.id
         self.firstName = data.firstName
         self.lastName = data.lastName
-        self.photoURL = data.profileImage
+        self.photoURL = data.profileImage ?? ""
     }
     
     public init(id: String, firstName: String, lastName: String, photoURL: String) {

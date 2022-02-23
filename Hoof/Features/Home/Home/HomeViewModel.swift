@@ -8,6 +8,7 @@
 
 import Core
 import RxSwift
+import CoreGPX
 
 protocol HomeViewModellable: ViewModellable {
     var inputs: HomeViewModelInputs { get }
@@ -22,6 +23,7 @@ struct HomeViewModelInputs {
 
 struct HomeViewModelOutputs {
     let viewData = PublishSubject<HomeViewController.ViewData>()
+    let showRefreshControl = PublishSubject<Void>()
     let showDiscussion = PublishSubject<(Activity)>()
 }
 
@@ -59,24 +61,16 @@ class HomeViewModel: HomeViewModellable {
 // MARK: - Observables
 
 private extension HomeViewModel {
-
+    
     func setupObservables() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadActivities), name: .didReceiveFileFromAppleWatch, object: nil)
+        
         inputs.viewState.subscribe(onNext: { [weak self] state in
             guard let self = self else { return }
             
             switch state {
-            case .loaded:
-                self.useCase.fetchAthleteActivties().subscribe { event in
-                    switch event {
-                    case let .success(posts):
-                        let activities = posts.compactMap { $0 }
-                        self.activities = activities
-                        self.outputs.viewData.onNext(HomeViewController.ViewData(activities: activities))
-                    case .error:
-                        break
-                    }
-                    
-                }.disposed(by: self.disposeBag)
+            case .loaded, .refresh:
+                self.fetchAthleteActivities()
             default:
                 break
             }
@@ -112,5 +106,27 @@ private extension HomeViewModel {
             self?.selectedActivity = activity
             self?.outputs.showDiscussion.onNext(activity)
         }).disposed(by: disposeBag)
+    }
+}
+
+private extension HomeViewModel {
+    
+    @objc func reloadActivities() {
+        print("[DEBUG] HomeViewModel: reload activities")
+        outputs.showRefreshControl.onNext(())
+        fetchAthleteActivities()
+    }
+    
+    func fetchAthleteActivities() {
+        self.useCase.fetchAthleteActivties(userID: 7).subscribe { event in
+            switch event {
+            case let .success(posts):
+                let activities = posts.compactMap { $0 }
+                self.activities = activities
+                self.outputs.viewData.onNext(HomeViewController.ViewData(activities: activities))
+            case .error:
+                break
+            }            
+        }.disposed(by: self.disposeBag)
     }
 }
