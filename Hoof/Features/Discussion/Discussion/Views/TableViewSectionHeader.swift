@@ -13,7 +13,7 @@ public class Separator: UIView {
     }
 } 
 
-class TableViewSectionHeader: UITableViewHeaderFooterView {
+public class TableViewSectionHeader: UITableViewHeaderFooterView {
     
     private lazy var separatorView: Separator = {
         let separator = Separator(frame: .zero)
@@ -31,7 +31,6 @@ class TableViewSectionHeader: UITableViewHeaderFooterView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 
 // MARK: - Setup UI
 

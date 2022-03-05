@@ -103,6 +103,17 @@ target 'SignUp' do
   end
 end
 
+target 'FindFriends' do
+  project 'Features/FindFriends/FindFriends'
+  shared_pods
+  graphql
+  
+  target 'FindFriendsTests' do
+    inherit! :search_paths
+    shared_pods
+  end
+end
+
 # Apps
 target 'Hoof' do
   # Pods for Hoof

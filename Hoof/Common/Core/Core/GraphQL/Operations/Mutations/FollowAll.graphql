@@ -1,0 +1,6 @@
+mutation FollowAll($userId: ID!, $usersIdsToFollow: [ID!]) {
+  followAll(id: $userId, usersIdsToFollow:$usersIdsToFollow) {
+      success
+  }
+}
+

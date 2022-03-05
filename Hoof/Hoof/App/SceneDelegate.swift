@@ -75,20 +75,19 @@ open class UIUtil {
     public static func setBasicAppearance() {
         if #available(iOS 15.0, *) {
             let appearance = UITabBarAppearance()
-               appearance.configureWithOpaqueBackground()
-               UITabBar.appearance().standardAppearance = appearance
-               UITabBar.appearance().scrollEdgeAppearance = appearance
+            appearance.configureWithOpaqueBackground()
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
             
             let appearance1 = UINavigationBarAppearance()
             appearance1.backgroundColor = .white
             UINavigationBar.appearance().standardAppearance = appearance1
             UINavigationBar.appearance().scrollEdgeAppearance = appearance1
-        } else {
-            UITabBar.appearance().isTranslucent = false
-            UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 187/255, green: 187/255, blue: 187/255, alpha: 1.0)], for: .normal)
-            UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)], for: .selected)
-            UITabBar.appearance().tintColor = UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)
         }
+        UITabBar.appearance().isTranslucent = false
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 187/255, green: 187/255, blue: 187/255, alpha: 1.0)], for: .normal)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)], for: .selected)
+        UITabBar.appearance().tintColor = UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)
     }
     
 }
@@ -189,10 +188,10 @@ extension SceneDelegate {
             }
         }
     }
-
+    
     func sendNotification() {
         let notificationContent = UNMutableNotificationContent()
-//        notificationContent.title = "Test"
+        //        notificationContent.title = "Test"
         notificationContent.body = NSLocalizedString("MATCH_READY_TO_UPLOAD", comment: "no comment")
         
         let request = UNNotificationRequest(identifier: "testNotification",

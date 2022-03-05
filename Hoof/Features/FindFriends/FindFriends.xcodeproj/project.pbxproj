@@ -1,0 +1,613 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		501F8565993BB8917CFABA81 /* Pods_FindFriends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACADF10006660B4BEB42F38 /* Pods_FindFriends.framework */; };
+		50A08C6627C78B460017E3CE /* FindFriends.docc in Sources */ = {isa = PBXBuildFile; fileRef = 50A08C6527C78B460017E3CE /* FindFriends.docc */; };
+		50A08C6C27C78B470017E3CE /* FindFriends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A08C6127C78B460017E3CE /* FindFriends.framework */; };
+		50A08C7127C78B470017E3CE /* FindFriendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A08C7027C78B470017E3CE /* FindFriendsTests.swift */; };
+		50A08C7227C78B470017E3CE /* FindFriends.h in Headers */ = {isa = PBXBuildFile; fileRef = 50A08C6427C78B460017E3CE /* FindFriends.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		50A08C8127C78DA60017E3CE /* FindFriendsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A08C7B27C78DA60017E3CE /* FindFriendsCoordinator.swift */; };
+		50A08C8227C78DA60017E3CE /* FindFriendsModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A08C7C27C78DA60017E3CE /* FindFriendsModuleBuilder.swift */; };
+		50A08C8327C78DA60017E3CE /* FindFriendsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A08C7D27C78DA60017E3CE /* FindFriendsUseCase.swift */; };
+		50A08C8427C78DA60017E3CE /* FindFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A08C7E27C78DA60017E3CE /* FindFriendsViewController.swift */; };
+		50A08C8527C78DA60017E3CE /* FindFriendsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A08C7F27C78DA60017E3CE /* FindFriendsViewModel.swift */; };
+		50A08C8627C78DA60017E3CE /* FindFriendsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A08C8027C78DA60017E3CE /* FindFriendsService.swift */; };
+		50A08C8927C791DB0017E3CE /* FriendsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A08C8827C791DB0017E3CE /* FriendsCell.swift */; };
+		50BD1FCD27CCDA6500AA94CB /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50BD1FCC27CCDA6500AA94CB /* Core.framework */; };
+		50BD1FD127CE2E9700AA94CB /* FindFriendsTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD1FD027CE2E9700AA94CB /* FindFriendsTableViewSectionHeader.swift */; };
+		DF71598C0A1A71A138A82829 /* Pods_FindFriendsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A853D5AFCEE4EE9B5ACA44C1 /* Pods_FindFriendsTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		50A08C6D27C78B470017E3CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 50A08C5827C78B460017E3CE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 50A08C6027C78B460017E3CE;
+			remoteInfo = FindFriends;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2C9491E2CBE1C5091C3F5D6C /* Pods-FindFriendsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindFriendsTests.release.xcconfig"; path = "Target Support Files/Pods-FindFriendsTests/Pods-FindFriendsTests.release.xcconfig"; sourceTree = "<group>"; };
+		4207A870FCA8E907C4A318C2 /* Pods-FindFriendsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindFriendsTests.debug.xcconfig"; path = "Target Support Files/Pods-FindFriendsTests/Pods-FindFriendsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		50A08C6127C78B460017E3CE /* FindFriends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FindFriends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50A08C6427C78B460017E3CE /* FindFriends.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindFriends.h; sourceTree = "<group>"; };
+		50A08C6527C78B460017E3CE /* FindFriends.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = FindFriends.docc; sourceTree = "<group>"; };
+		50A08C6B27C78B470017E3CE /* FindFriendsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FindFriendsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50A08C7027C78B470017E3CE /* FindFriendsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendsTests.swift; sourceTree = "<group>"; };
+		50A08C7B27C78DA60017E3CE /* FindFriendsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendsCoordinator.swift; sourceTree = "<group>"; };
+		50A08C7C27C78DA60017E3CE /* FindFriendsModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendsModuleBuilder.swift; sourceTree = "<group>"; };
+		50A08C7D27C78DA60017E3CE /* FindFriendsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendsUseCase.swift; sourceTree = "<group>"; };
+		50A08C7E27C78DA60017E3CE /* FindFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendsViewController.swift; sourceTree = "<group>"; };
+		50A08C7F27C78DA60017E3CE /* FindFriendsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendsViewModel.swift; sourceTree = "<group>"; };
+		50A08C8027C78DA60017E3CE /* FindFriendsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendsService.swift; sourceTree = "<group>"; };
+		50A08C8827C791DB0017E3CE /* FriendsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsCell.swift; sourceTree = "<group>"; };
+		50BD1FCC27CCDA6500AA94CB /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50BD1FD027CE2E9700AA94CB /* FindFriendsTableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFriendsTableViewSectionHeader.swift; sourceTree = "<group>"; };
+		6ACADF10006660B4BEB42F38 /* Pods_FindFriends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindFriends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A21F73B3014231BF327AF379 /* Pods-FindFriends.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindFriends.release.xcconfig"; path = "Target Support Files/Pods-FindFriends/Pods-FindFriends.release.xcconfig"; sourceTree = "<group>"; };
+		A853D5AFCEE4EE9B5ACA44C1 /* Pods_FindFriendsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindFriendsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2E24072B0FD99DBA92E7D31 /* Pods-FindFriends.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindFriends.debug.xcconfig"; path = "Target Support Files/Pods-FindFriends/Pods-FindFriends.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		50A08C5E27C78B460017E3CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				501F8565993BB8917CFABA81 /* Pods_FindFriends.framework in Frameworks */,
+				50BD1FCD27CCDA6500AA94CB /* Core.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50A08C6827C78B470017E3CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50A08C6C27C78B470017E3CE /* FindFriends.framework in Frameworks */,
+				DF71598C0A1A71A138A82829 /* Pods_FindFriendsTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		50A08C5727C78B460017E3CE = {
+			isa = PBXGroup;
+			children = (
+				50A08C6327C78B460017E3CE /* FindFriends */,
+				50A08C6F27C78B470017E3CE /* FindFriendsTests */,
+				50A08C6227C78B460017E3CE /* Products */,
+				9BC4986834FCDA12D170EBD2 /* Pods */,
+				9D523D8421AAA775DD37BD04 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		50A08C6227C78B460017E3CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50A08C6127C78B460017E3CE /* FindFriends.framework */,
+				50A08C6B27C78B470017E3CE /* FindFriendsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		50A08C6327C78B460017E3CE /* FindFriends */ = {
+			isa = PBXGroup;
+			children = (
+				50BD1FD027CE2E9700AA94CB /* FindFriendsTableViewSectionHeader.swift */,
+				50A08C8727C791C20017E3CE /* Cells */,
+				50A08C7B27C78DA60017E3CE /* FindFriendsCoordinator.swift */,
+				50A08C7C27C78DA60017E3CE /* FindFriendsModuleBuilder.swift */,
+				50A08C7E27C78DA60017E3CE /* FindFriendsViewController.swift */,
+				50A08C7F27C78DA60017E3CE /* FindFriendsViewModel.swift */,
+				50A08C7D27C78DA60017E3CE /* FindFriendsUseCase.swift */,
+				50A08C8027C78DA60017E3CE /* FindFriendsService.swift */,
+				50A08C6427C78B460017E3CE /* FindFriends.h */,
+				50A08C6527C78B460017E3CE /* FindFriends.docc */,
+			);
+			path = FindFriends;
+			sourceTree = "<group>";
+		};
+		50A08C6F27C78B470017E3CE /* FindFriendsTests */ = {
+			isa = PBXGroup;
+			children = (
+				50A08C7027C78B470017E3CE /* FindFriendsTests.swift */,
+			);
+			path = FindFriendsTests;
+			sourceTree = "<group>";
+		};
+		50A08C8727C791C20017E3CE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				50A08C8827C791DB0017E3CE /* FriendsCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		9BC4986834FCDA12D170EBD2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E2E24072B0FD99DBA92E7D31 /* Pods-FindFriends.debug.xcconfig */,
+				A21F73B3014231BF327AF379 /* Pods-FindFriends.release.xcconfig */,
+				4207A870FCA8E907C4A318C2 /* Pods-FindFriendsTests.debug.xcconfig */,
+				2C9491E2CBE1C5091C3F5D6C /* Pods-FindFriendsTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../../Pods;
+			sourceTree = "<group>";
+		};
+		9D523D8421AAA775DD37BD04 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50BD1FCC27CCDA6500AA94CB /* Core.framework */,
+				6ACADF10006660B4BEB42F38 /* Pods_FindFriends.framework */,
+				A853D5AFCEE4EE9B5ACA44C1 /* Pods_FindFriendsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		50A08C5C27C78B460017E3CE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50A08C7227C78B470017E3CE /* FindFriends.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		50A08C6027C78B460017E3CE /* FindFriends */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50A08C7527C78B470017E3CE /* Build configuration list for PBXNativeTarget "FindFriends" */;
+			buildPhases = (
+				9C8087A9FBACCFA9FC27BDB4 /* [CP] Check Pods Manifest.lock */,
+				50A08C5C27C78B460017E3CE /* Headers */,
+				50A08C5D27C78B460017E3CE /* Sources */,
+				50A08C5E27C78B460017E3CE /* Frameworks */,
+				50A08C5F27C78B460017E3CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FindFriends;
+			productName = FindFriends;
+			productReference = 50A08C6127C78B460017E3CE /* FindFriends.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		50A08C6A27C78B470017E3CE /* FindFriendsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50A08C7827C78B470017E3CE /* Build configuration list for PBXNativeTarget "FindFriendsTests" */;
+			buildPhases = (
+				D1F186A898A24B18E92F3CCB /* [CP] Check Pods Manifest.lock */,
+				50A08C6727C78B470017E3CE /* Sources */,
+				50A08C6827C78B470017E3CE /* Frameworks */,
+				50A08C6927C78B470017E3CE /* Resources */,
+				8C5CE835ADC8790DBC69AF33 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				50A08C6E27C78B470017E3CE /* PBXTargetDependency */,
+			);
+			name = FindFriendsTests;
+			productName = FindFriendsTests;
+			productReference = 50A08C6B27C78B470017E3CE /* FindFriendsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		50A08C5827C78B460017E3CE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					50A08C6027C78B460017E3CE = {
+						CreatedOnToolsVersion = 13.2;
+					};
+					50A08C6A27C78B470017E3CE = {
+						CreatedOnToolsVersion = 13.2;
+					};
+				};
+			};
+			buildConfigurationList = 50A08C5B27C78B460017E3CE /* Build configuration list for PBXProject "FindFriends" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 50A08C5727C78B460017E3CE;
+			productRefGroup = 50A08C6227C78B460017E3CE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				50A08C6027C78B460017E3CE /* FindFriends */,
+				50A08C6A27C78B470017E3CE /* FindFriendsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		50A08C5F27C78B460017E3CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50A08C6927C78B470017E3CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8C5CE835ADC8790DBC69AF33 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FindFriendsTests/Pods-FindFriendsTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FindFriendsTests/Pods-FindFriendsTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FindFriendsTests/Pods-FindFriendsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C8087A9FBACCFA9FC27BDB4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FindFriends-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1F186A898A24B18E92F3CCB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FindFriendsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		50A08C5D27C78B460017E3CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50A08C8427C78DA60017E3CE /* FindFriendsViewController.swift in Sources */,
+				50A08C8527C78DA60017E3CE /* FindFriendsViewModel.swift in Sources */,
+				50A08C8327C78DA60017E3CE /* FindFriendsUseCase.swift in Sources */,
+				50A08C6627C78B460017E3CE /* FindFriends.docc in Sources */,
+				50A08C8627C78DA60017E3CE /* FindFriendsService.swift in Sources */,
+				50BD1FD127CE2E9700AA94CB /* FindFriendsTableViewSectionHeader.swift in Sources */,
+				50A08C8127C78DA60017E3CE /* FindFriendsCoordinator.swift in Sources */,
+				50A08C8227C78DA60017E3CE /* FindFriendsModuleBuilder.swift in Sources */,
+				50A08C8927C791DB0017E3CE /* FriendsCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		50A08C6727C78B470017E3CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				50A08C7127C78B470017E3CE /* FindFriendsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		50A08C6E27C78B470017E3CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 50A08C6027C78B460017E3CE /* FindFriends */;
+			targetProxy = 50A08C6D27C78B470017E3CE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		50A08C7327C78B470017E3CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		50A08C7427C78B470017E3CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		50A08C7627C78B470017E3CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2E24072B0FD99DBA92E7D31 /* Pods-FindFriends.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.FindFriends;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50A08C7727C78B470017E3CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A21F73B3014231BF327AF379 /* Pods-FindFriends.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.FindFriends;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		50A08C7927C78B470017E3CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4207A870FCA8E907C4A318C2 /* Pods-FindFriendsTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.FindFriendsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		50A08C7A27C78B470017E3CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C9491E2CBE1C5091C3F5D6C /* Pods-FindFriendsTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 9X9VYGUMW9;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.FindFriendsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		50A08C5B27C78B460017E3CE /* Build configuration list for PBXProject "FindFriends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50A08C7327C78B470017E3CE /* Debug */,
+				50A08C7427C78B470017E3CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50A08C7527C78B470017E3CE /* Build configuration list for PBXNativeTarget "FindFriends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50A08C7627C78B470017E3CE /* Debug */,
+				50A08C7727C78B470017E3CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		50A08C7827C78B470017E3CE /* Build configuration list for PBXNativeTarget "FindFriendsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50A08C7927C78B470017E3CE /* Debug */,
+				50A08C7A27C78B470017E3CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 50A08C5827C78B460017E3CE /* Project object */;
+}

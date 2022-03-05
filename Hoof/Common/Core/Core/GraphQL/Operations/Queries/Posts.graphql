@@ -5,6 +5,9 @@ query Posts($userId: Int!) {
     description
     createdAt
     coordinates
+    duration
+    distance
+    pace
     creator {
       id
       firstName

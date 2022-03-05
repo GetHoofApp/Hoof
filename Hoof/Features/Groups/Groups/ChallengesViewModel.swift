@@ -18,6 +18,7 @@ protocol ChallengesViewModellable: ViewModellable {
 
 struct ChallengesViewModelInputs {
     var createGroupChallengeButtonTapped = PublishSubject<Void>()
+    var followOrUnfollowButtonTapped = PublishSubject<Void>()    
 }
 
 struct ChallengesViewModelOutputs {

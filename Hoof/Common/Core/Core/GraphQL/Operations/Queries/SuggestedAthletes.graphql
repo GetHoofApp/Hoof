@@ -1,0 +1,15 @@
+query SuggestedAthletes($userId: Int!) {
+  athletesToFollow(id: $userId) {
+    id
+    username
+    firstName
+    lastName
+    email
+    profileImage
+    followers{
+      id
+      firstName
+      lastName
+    }
+  }
+}

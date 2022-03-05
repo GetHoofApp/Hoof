@@ -12,6 +12,8 @@ public typealias Upload = String
 
 public typealias DateTime = Date
 
+public typealias Decimal = Float
+
 private let iso8601DateFormatter = ISO8601DateFormatter()
 
 extension DateTime: JSONDecodable {

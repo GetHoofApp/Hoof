@@ -119,8 +119,7 @@ class GPXSession {
         
         self.totalTrackedDistance = 0.00
         self.currentTrackDistance = 0.00
-        self.currentSegmentDistance = 0.00
-        
+        self.currentSegmentDistance = 0.00        
     }
     
     ///
@@ -156,6 +155,5 @@ class GPXSession {
         
         // remove last track as that track is packaged by Core Data, but should its tracksegments should be seperated, into self.tracksegments.
         self.tracks.removeLast()
-        
     }    
 }

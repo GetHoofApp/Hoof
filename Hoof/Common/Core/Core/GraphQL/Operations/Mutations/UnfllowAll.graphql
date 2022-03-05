@@ -1,0 +1,7 @@
+mutation UnfollowAll($userId: ID!, $usersIdsToUnfollow: [ID!]) {
+  unfollowAll(id: $userId, usersIdsToUnfollow:$usersIdsToUnfollow) {
+      success
+  }
+}
+
+

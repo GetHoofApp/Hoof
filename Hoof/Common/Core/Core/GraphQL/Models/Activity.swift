@@ -28,21 +28,23 @@ public class Activity {
     public let createdAt: Date
     public let creator: User?
     public let coordinates: MultiLineStringGeometry.Coordinates
-    public let distance: String
-    public let pace: String
+    public var duration: String
+    public var distance: String
+    public var pace: String
     public let activityImage: UIImage
     public var likes: [Like]?
     public var comments: [Comment]?
     public var isActivityLiked = false
     public var activityLikabilityStatus: ActivityLikabilityStatus
     
-    public init(id: String, title: String, description: String, createdAt: Date, creator: User?, coordinates: MultiLineStringGeometry.Coordinates, distance: String, pace: String, activityImage: UIImage, likes: [Like]?, comments: [Comment]?, isActivityLiked: Bool) {
+    public init(id: String, title: String, description: String, createdAt: Date, creator: User?, coordinates: MultiLineStringGeometry.Coordinates, duration: String, distance: String, pace: String, activityImage: UIImage, likes: [Like]?, comments: [Comment]?, isActivityLiked: Bool) {
         self.id = id
         self.title = title
         self.description = description
         self.createdAt = createdAt
         self.creator = creator
         self.coordinates = coordinates
+        self.duration = duration
         self.distance = distance
         self.pace = pace
         self.activityImage = activityImage
@@ -92,13 +94,14 @@ public struct Like {
     }
 }
 
-public struct User {
+public class User {
     
     public let id: String
     public let firstName: String
     public let lastName: String
     public let photoURL: String
-    
+    public var isAthleteFollowed = false
+
     public init(data: PostsQuery.Data.Post.Like.Creator) {
         self.id = data.id
         self.firstName = data.firstName
@@ -107,6 +110,24 @@ public struct User {
     }
     
     public init?(data: PostsQuery.Data.Post.Creator?) {
+        guard let data = data else { return nil }
+
+        self.id = data.id
+        self.firstName = data.firstName
+        self.lastName = data.lastName
+        self.photoURL = data.profileImage ?? ""
+    }
+    
+    public init?(data: SuggestedAthletesQuery.Data.AthletesToFollow?) {
+        guard let data = data else { return nil }
+
+        self.id = data.id
+        self.firstName = data.firstName
+        self.lastName = data.lastName
+        self.photoURL = data.profileImage ?? ""
+    }
+
+    public init?(data: SearchUsersQuery.Data.SearchUser?) {
         guard let data = data else { return nil }
 
         self.id = data.id

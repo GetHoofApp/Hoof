@@ -56,8 +56,10 @@
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "8"
       notificationPayloadFile = "WatchHoof Extension/PushNotificationPayload.apns">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/Hoof">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5002EB072727298700740144"
@@ -65,7 +67,7 @@
             BlueprintName = "WatchHoof"
             ReferencedContainer = "container:Hoof.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -75,8 +77,10 @@
       debugDocumentVersioning = "YES"
       launchAutomaticallySubstyle = "8"
       notificationPayloadFile = "WatchHoof Extension/PushNotificationPayload.apns">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <RemoteRunnable
+         runnableDebuggingMode = "2"
+         BundleIdentifier = "com.apple.Carousel"
+         RemotePath = "/Hoof">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "5002EB072727298700740144"
@@ -84,7 +88,16 @@
             BlueprintName = "WatchHoof"
             ReferencedContainer = "container:Hoof.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </RemoteRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "5002EB072727298700740144"
+            BuildableName = "WatchHoof.app"
+            BlueprintName = "WatchHoof"
+            ReferencedContainer = "container:Hoof.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

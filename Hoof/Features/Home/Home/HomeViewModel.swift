@@ -19,12 +19,14 @@ struct HomeViewModelInputs {
     var viewState = PublishSubject<ViewState>()
     var likeButtonTapped = PublishSubject<(String, Bool)>()
     var commentButtonTapped = PublishSubject<(Activity)>()
+    var findFriendsButtonTapped = PublishSubject<Void>()
 }
 
 struct HomeViewModelOutputs {
     let viewData = PublishSubject<HomeViewController.ViewData>()
     let showRefreshControl = PublishSubject<Void>()
     let showDiscussion = PublishSubject<(Activity)>()
+    let showFindFriends = PublishSubject<(Void)>()
 }
 
 class HomeViewModel: HomeViewModellable {
@@ -105,6 +107,10 @@ private extension HomeViewModel {
         inputs.commentButtonTapped.subscribe(onNext: { [weak self] activity in
             self?.selectedActivity = activity
             self?.outputs.showDiscussion.onNext(activity)
+        }).disposed(by: disposeBag)
+        
+        inputs.findFriendsButtonTapped.subscribe(onNext: { [weak self] activity in
+            self?.outputs.showFindFriends.onNext(())
         }).disposed(by: disposeBag)
     }
 }

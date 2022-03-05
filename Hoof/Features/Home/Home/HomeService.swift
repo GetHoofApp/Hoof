@@ -42,13 +42,66 @@ class HomeService: HomeServiceFetching {
                         let likes = $0?.likes.compactMap { Like(data: $0) }
                         let comments = $0?.comments.compactMap { Comment(data: $0) }
                         
+                        let distance = (($0?.distance ?? 0.0) / 1000).round(to: 2)
+                        
+                        var durationAsString = ""
+                        if let duration = $0?.duration?.round(to: 2), duration > 0 {
+                            let durationAsHour = duration / 3600
+                            if durationAsHour > 1 {
+                                durationAsString = "\(durationAsHour)"
+                            }
+                            
+                            let durationAsMinutes = duration / 60
+                            if durationAsMinutes > 0 {
+                                if durationAsHour > 1 {
+                                    durationAsString.append(contentsOf: ":")
+                                }
+                                durationAsString.append(contentsOf: "\(Int(durationAsMinutes))")
+                            }
+
+                            let durationAsSeconds = duration.truncatingRemainder(dividingBy: 60.0)
+                            if durationAsSeconds > 0 {
+                                if durationAsMinutes > 0 {
+                                    durationAsString.append(contentsOf: ":")
+                                }
+                                durationAsString.append(contentsOf: "\(Int(durationAsSeconds))")
+                            }
+                        }
+                        
+                        var paceAsString = ""
+                        if let pace = $0?.pace?.round(to: 2), pace > 0 {
+                            let paceAsHour = pace / 3600
+                            if paceAsHour > 1 {
+                                paceAsString = "\(paceAsHour)"
+                            }
+                            
+                            let paceAsMinutes = pace / 60
+                            if paceAsMinutes > 0 {
+                                if paceAsHour > 1 {
+                                    paceAsString.append(contentsOf: ":")
+                                }
+                                paceAsString.append(contentsOf: "\(Int(paceAsMinutes))")
+                            }
+
+                            let paceAsSeconds = pace.truncatingRemainder(dividingBy: 60.0)
+                            if paceAsSeconds > 0 {
+                                if paceAsMinutes > 0 {
+                                    paceAsString.append(contentsOf: ":")
+                                }
+                                paceAsString.append(contentsOf: "\(Int(paceAsSeconds))")
+
+                            }
+                        }
+
                         return Activity(id: $0?.id ?? "",
                                         title: $0?.title ?? "",
                                         description: $0?.description ?? "",
                                         createdAt: $0?.createdAt ?? Date(),
                                         creator: User(data: $0?.creator),
                                         coordinates: coordinates,
-                                        distance: "30 KM", pace: "5 /Km",
+                                        duration: durationAsString,
+                                        distance: "\(distance)" + " km",
+                                        pace: paceAsString + " /km",
                                         activityImage: #imageLiteral(resourceName: "player5"),
                                         likes: likes,
                                         comments: comments,

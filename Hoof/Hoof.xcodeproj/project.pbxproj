@@ -129,6 +129,8 @@
 		50A3137E27713BA200A1B29F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A3137D27713BA200A1B29F /* QuartzCore.framework */; };
 		50A3138027713BAA00A1B29F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A3137F27713BAA00A1B29F /* SystemConfiguration.framework */; };
 		50A3138227713BB300A1B29F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A3138127713BB300A1B29F /* UIKit.framework */; };
+		50AC025727C7C36000B8EB5E /* FindFriends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AC025627C7C36000B8EB5E /* FindFriends.framework */; };
+		50AC025827C7C36100B8EB5E /* FindFriends.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50AC025627C7C36000B8EB5E /* FindFriends.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50B78D572779E5810010BEAC /* SignUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B78D562779E5810010BEAC /* SignUp.framework */; };
 		50B78D582779E5810010BEAC /* SignUp.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50B78D562779E5810010BEAC /* SignUp.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50BB8B51277B3A3E00FF6834 /* AppConfig+Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B50277B3A3E00FF6834 /* AppConfig+Client.swift */; };
@@ -231,6 +233,7 @@
 				50E8E46C2742987C00FB73FA /* Map.framework in Embed Frameworks */,
 				5099B3FE27721E8E00252359 /* Turf.xcframework in Embed Frameworks */,
 				5099B3F827721E8A00252359 /* MapboxCoreMaps.xcframework in Embed Frameworks */,
+				50AC025827C7C36100B8EB5E /* FindFriends.framework in Embed Frameworks */,
 				502C185027BE5CA7005DC76B /* Core.framework in Embed Frameworks */,
 				50E8E4DE2742BCBE00FB73FA /* Profile.framework in Embed Frameworks */,
 				5099B3FA27721E8A00252359 /* MapboxMaps.xcframework in Embed Frameworks */,
@@ -362,6 +365,7 @@
 		50A3137D27713BA200A1B29F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		50A3137F27713BAA00A1B29F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		50A3138127713BB300A1B29F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		50AC025627C7C36000B8EB5E /* FindFriends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FindFriends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50B78D562779E5810010BEAC /* SignUp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignUp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BB8B50277B3A3E00FF6834 /* AppConfig+Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppConfig+Client.swift"; sourceTree = "<group>"; };
 		50BB8B54277B3B0900FF6834 /* Common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
@@ -423,6 +427,7 @@
 				50A3137627713B7C00A1B29F /* libc++.tbd in Frameworks */,
 				5099B3FD27721E8E00252359 /* Turf.xcframework in Frameworks */,
 				50A3137427713B6C00A1B29F /* ImageIO.framework in Frameworks */,
+				50AC025727C7C36000B8EB5E /* FindFriends.framework in Frameworks */,
 				5099B3FB27721E8A00252359 /* MapboxMobileEvents.xcframework in Frameworks */,
 				50A3137227713B6400A1B29F /* GLKit.framework in Frameworks */,
 				50A3137027713B5D00A1B29F /* CoreText.framework in Frameworks */,
@@ -778,6 +783,7 @@
 		856C5B1E3FD5FEF46995A408 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				50AC025627C7C36000B8EB5E /* FindFriends.framework */,
 				502C184E27BE5CA7005DC76B /* Core.framework */,
 				50487CA427B92E5200D1A458 /* HealthKit.framework */,
 				50C7DEE7278F0C2C00015861 /* Discussion.framework */,

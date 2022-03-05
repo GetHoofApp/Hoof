@@ -91,6 +91,7 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
         let label = UILabel()
         label.text = "30 KM"
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        label.textColor = UIColor(red: 56/255, green: 55/255, blue: 60/255, alpha: 1.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -108,6 +109,25 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
         let label = UILabel()
         label.text = "5 /Km"
         label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        label.textColor = UIColor(red: 56/255, green: 55/255, blue: 60/255, alpha: 1.0)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var durationLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Game time"
+        label.textColor = UIColor(red: 115/255, green: 114/255, blue: 119/255, alpha: 1.0)
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private lazy var durationValueLabel: UILabel = {
+        let label = UILabel()
+        label.text = "1h 15m"
+        label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        label.textColor = UIColor(red: 56/255, green: 55/255, blue: 60/255, alpha: 1.0)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -129,6 +149,22 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
     }()
     
     private lazy var paceStackView: UIStackView = {
+        let stackView = UIStackView(frame: .zero)
+        stackView.axis = .vertical
+        stackView.spacing = spacing
+        
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
+    
+    private lazy var divider2: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private lazy var durationStackView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
         stackView.axis = .vertical
         stackView.spacing = spacing
@@ -274,6 +310,7 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
         activityTitleLabel.text = activity.title
         distanceValueLabel.text = activity.distance
         paceValueLabel.text = activity.pace
+        durationValueLabel.text = activity.duration
         
         if let comments = activity.comments, !comments.isEmpty {
             commentsLabel.text = "\(comments.count)" + " comments"
@@ -659,9 +696,14 @@ private extension ActivityCell {
         paceStackView.addArrangedSubview(paceLabel)
         paceStackView.addArrangedSubview(paceValueLabel)
         
+        durationStackView.addArrangedSubview(durationLabel)
+        durationStackView.addArrangedSubview(durationValueLabel)
+        
         contentView.addSubview(distanceStackView)
         contentView.addSubview(divider)
         contentView.addSubview(paceStackView)
+        contentView.addSubview(divider2)
+        contentView.addSubview(durationStackView)
         
         //        addSubview(heatmapImage)
         contentView.addSubview(mapView)
@@ -713,8 +755,16 @@ private extension ActivityCell {
             divider.heightAnchor.constraint(equalToConstant: 25),
             
             paceStackView.leftAnchor.constraint(equalTo: divider.leftAnchor, constant: 28),
-            paceStackView.topAnchor.constraint(equalTo: activityTitleLabel.bottomAnchor, constant: 16),
+            paceStackView.topAnchor.constraint(equalTo: activityTitleLabel.bottomAnchor, constant: 21),
             //            paceStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
+            
+            divider2.leftAnchor.constraint(equalTo: paceStackView.rightAnchor, constant: 37),
+            divider2.topAnchor.constraint(equalTo: activityTitleLabel.bottomAnchor, constant: 30),
+            divider2.widthAnchor.constraint(equalToConstant: 1),
+            divider2.heightAnchor.constraint(equalToConstant: 25),
+            
+            durationStackView.leftAnchor.constraint(equalTo: divider2.leftAnchor, constant: 28),
+            durationStackView.topAnchor.constraint(equalTo: activityTitleLabel.bottomAnchor, constant: 21),
             
             mapView.topAnchor.constraint(equalTo: paceStackView.bottomAnchor, constant: 12),
             mapView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 0),

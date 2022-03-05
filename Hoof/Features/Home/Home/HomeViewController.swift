@@ -53,6 +53,13 @@ class HomeViewController: ViewController<HomeViewModel> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupObservers()
+        navigationItem.title = "Home"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        navigationItem.title = " "
     }
     
     // MARK: - setupUI
@@ -83,7 +90,6 @@ class HomeViewController: ViewController<HomeViewModel> {
         title = "Home"
         
         if #available(iOS 15.0, *) {
-
             self.tableView.sectionHeaderTopPadding = 0.0
         }
         
@@ -132,7 +138,7 @@ class HomeViewController: ViewController<HomeViewModel> {
     }
     
     @objc func findFriendsButtonTapped() {
-        
+        viewModel.inputs.findFriendsButtonTapped.onNext(())
     }
 }
 
@@ -141,7 +147,6 @@ class HomeViewController: ViewController<HomeViewModel> {
 extension HomeViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        activities.count
         return 1
     }
     
