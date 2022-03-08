@@ -23,6 +23,10 @@ class HomeViewController: ViewController<HomeViewModel> {
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableView.automaticDimension
         tableView.registerCell(withType: ActivityCell.self)
+        tableView.registerCell(withType: GettingStartedCell.self)
+        tableView.registerCell(withType: GettingStartedHeaderCell.self)
+        tableView.register(TableViewSectionHeader.self, forHeaderFooterViewReuseIdentifier: String(describing: TableViewSectionHeader.self))
+        tableView.register(TableViewSectionFooter.self, forHeaderFooterViewReuseIdentifier: String(describing: TableViewSectionFooter.self))
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = .clear
@@ -39,6 +43,9 @@ class HomeViewController: ViewController<HomeViewModel> {
     private var activities = [Activity]()
     let commentButtonTapped = PublishSubject<Void>()
     var selectedActivity: Activity!
+    let gettingStartedItems = [GettingStartedItem(image: #imageLiteral(resourceName: "smart-watch"), title: "Connect your GPS watch"), GettingStartedItem(image: #imageLiteral(resourceName: "football-shoe"), title: "Record your game using the watch app app"), GettingStartedItem(image: #imageLiteral(resourceName: "people"), title: "Follow friends and see their matches")]
+    
+    private var shouldShowGettingStartedView = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -111,6 +118,11 @@ class HomeViewController: ViewController<HomeViewModel> {
             .subscribe(onNext: { [weak self] viewData in
                 guard let self = self else { return }
 
+                if viewData.activities.isEmpty {
+                    
+                }
+                self.shouldShowGettingStartedView = viewData.activities.isEmpty
+                
                 self.activities = viewData.activities
                 self.tableView.reloadData()
                 self.refreshControl.endRefreshing()
@@ -151,22 +163,53 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        activities.count
+        return shouldShowGettingStartedView ? 4 : activities.count
     }
     
     // Set the spacing between sections
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return section == 0 ? 0 : 20
+        return shouldShowGettingStartedView ? ((section == 0 || section == 1) ? 0 : 0.2) : (section == 0 ? 0 : 20)
     }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
+                                                                    String(describing: TableViewSectionFooter.self)) as? TableViewSectionFooter else { return nil }
+        if shouldShowGettingStartedView {
+            view.tintColor = .white
+        }
+        
+        return view
+    }    
     
     // Make the background color show through
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView()
-        headerView.backgroundColor = UIColor.clear
-        return headerView
+        guard shouldShowGettingStartedView else {
+            let headerView = UIView()
+            headerView.backgroundColor = UIColor.clear
+            return headerView
+        }
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
+                                                                    String(describing: TableViewSectionHeader.self)) as? TableViewSectionHeader else { return nil }
+        return view
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard !shouldShowGettingStartedView else {
+            if indexPath.section == 0 {
+                let cell = tableView.getCell(forType: GettingStartedHeaderCell.self)
+                return cell
+
+            } else {
+                let cell = tableView.getCell(forType: GettingStartedCell.self)
+                cell.configure(gettingStartedItem: gettingStartedItems[indexPath.section - 1])
+                return cell
+            }
+        }
+        
         let cell = tableView.getCell(forType: ActivityCell.self)
         let activity = activities[indexPath.section]
         selectedActivity = activity
@@ -200,6 +243,11 @@ extension HomeViewController {
     
     struct ViewData {
         let activities: [Activity]
+    }
+    
+    struct GettingStartedItem {
+        let image: UIImage
+        let title: String
     }
 }
 

@@ -7,7 +7,7 @@
 
 import UIKit
 import Core
-import Nuke
+import Kingfisher
 import RxCocoa
 
 class FriendsCell: UITableViewCell, Dequeueable {
@@ -89,13 +89,21 @@ class FriendsCell: UITableViewCell, Dequeueable {
     
     func configure(with suggestedAthlete: User) {
         if !suggestedAthlete.photoURL.isEmpty, let userPhotoURL = URL(string: Config.baseURL + "/media/" + suggestedAthlete.photoURL) {
-            Nuke.loadImage(with: userPhotoURL, into: userImageView, completion: { [weak self] response , _ in
-                self?.userImageView.makeRounded()
-            })
+            let processor = RoundCornerImageProcessor(cornerRadius: userImageView.frame.height / 2)
+            userImageView.kf.indicatorType = .activity
+            userImageView.kf.setImage(
+                with: userPhotoURL,
+                placeholder: UIImage(named: "athlete-placeholder"),
+                options: [
+                    .processor(processor),
+                    .scaleFactor(UIScreen.main.scale),
+                    .transition(.fade(1)),
+                    .cacheOriginalImage
+                ])            
         } else {
             userImageView.image = #imageLiteral(resourceName: "athlete-placeholder")
         }
-        
+    
         userNameLabel.text = suggestedAthlete.firstName + " " + suggestedAthlete.lastName
 
         suggestedAthlete.isAthleteFollowed ? followOrUnfollowButton.setTitle("Unfollow", for: .normal) : followOrUnfollowButton.setTitle("Follow", for: .normal)

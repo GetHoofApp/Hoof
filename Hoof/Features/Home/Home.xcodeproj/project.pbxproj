@@ -48,6 +48,8 @@
 		50A313AD27713D5C00A1B29F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A313AC27713D5C00A1B29F /* UIKit.framework */; };
 		50A313B1277142C500A1B29F /* GoogleMapsUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A313B0277142C500A1B29F /* GoogleMapsUtils.framework */; };
 		50AC025327C7C10D00B8EB5E /* FindFriends.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50AC025227C7C10D00B8EB5E /* FindFriends.framework */; };
+		50BD200E27D4C9DA00AA94CB /* GettingStartedHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD200D27D4C9DA00AA94CB /* GettingStartedHeaderCell.swift */; };
+		50BD201027D4CF6C00AA94CB /* GettingStartedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BD200F27D4CF6C00AA94CB /* GettingStartedCell.swift */; };
 		50BE9846278F01CC0019D9B4 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BE9845278F01CC0019D9B4 /* ActivityCell.swift */; };
 		50C7DF292790886500015861 /* DiscussionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7DF232790886500015861 /* DiscussionService.swift */; };
 		50C7DF2A2790886500015861 /* DiscussionModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50C7DF242790886500015861 /* DiscussionModuleBuilder.swift */; };
@@ -118,6 +120,8 @@
 		50A313AC27713D5C00A1B29F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		50A313B0277142C500A1B29F /* GoogleMapsUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsUtils.framework; sourceTree = "<group>"; };
 		50AC025227C7C10D00B8EB5E /* FindFriends.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FindFriends.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		50BD200D27D4C9DA00AA94CB /* GettingStartedHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingStartedHeaderCell.swift; sourceTree = "<group>"; };
+		50BD200F27D4CF6C00AA94CB /* GettingStartedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GettingStartedCell.swift; sourceTree = "<group>"; };
 		50BE9845278F01CC0019D9B4 /* ActivityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActivityCell.swift; path = ../../../../Map/Map/Cells/ActivityCell.swift; sourceTree = "<group>"; };
 		50BE9847278F05BF0019D9B4 /* Discussion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Discussion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		50C7DF232790886500015861 /* DiscussionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiscussionService.swift; path = ../Discussion/Discussion/DiscussionService.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 		509805632739690D0063219B = {
 			isa = PBXGroup;
 			children = (
+				50BD200A27D4C63300AA94CB /* GettingStarted */,
 				50C7DF2F2790889B00015861 /* Views */,
 				50C7DF222790883B00015861 /* Discussion */,
 				5098056F2739690D0063219B /* Home */,
@@ -253,6 +258,15 @@
 				50A313B0277142C500A1B29F /* GoogleMapsUtils.framework */,
 			);
 			path = "Google Maps";
+			sourceTree = "<group>";
+		};
+		50BD200A27D4C63300AA94CB /* GettingStarted */ = {
+			isa = PBXGroup;
+			children = (
+				50BD200D27D4C9DA00AA94CB /* GettingStartedHeaderCell.swift */,
+				50BD200F27D4CF6C00AA94CB /* GettingStartedCell.swift */,
+			);
+			name = GettingStarted;
 			sourceTree = "<group>";
 		};
 		50BE9843278F01BC0019D9B4 /* Views */ = {
@@ -531,7 +545,9 @@
 				509A2DB32796CC2E00C79809 /* MessageInputView.swift in Sources */,
 				50C7DF2A2790886500015861 /* DiscussionModuleBuilder.swift in Sources */,
 				50C7DF342790889B00015861 /* ActivityDetailsCell.swift in Sources */,
+				50BD201027D4CF6C00AA94CB /* GettingStartedCell.swift in Sources */,
 				50C7DF2D2790886500015861 /* DiscussionViewController.swift in Sources */,
+				50BD200E27D4C9DA00AA94CB /* GettingStartedHeaderCell.swift in Sources */,
 				50C7DF292790886500015861 /* DiscussionService.swift in Sources */,
 				50980590273978BF0063219B /* HomeUseCase.swift in Sources */,
 				50C7DF3C2795993200015861 /* TableViewSectionFooter.swift in Sources */,

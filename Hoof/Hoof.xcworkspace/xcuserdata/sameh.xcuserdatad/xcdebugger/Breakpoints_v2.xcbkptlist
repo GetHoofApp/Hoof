@@ -7,97 +7,129 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BB1783D1-B8FC-419D-B9B8-1AD7F3E41895"
+            uuid = "17EB5E90-A7CC-426E-B2CC-9A5AC31E2A14"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Home/Home/HomeService.swift"
+            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "88"
-            endingLineNumber = "88"
-            landmarkName = "fetchAthleteActivties(userID:)"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
+            landmarkName = "likeButtonAction(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "BB1783D1-B8FC-419D-B9B8-1AD7F3E41895 - 980aa43b9d87ee51"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Core.PostsQuery.Data.Post&gt;) -&gt; Swift.Optional&lt;Swift.Optional&lt;Core.Activity&gt;&gt; in closure #1 (Core.PostsQuery.Data) -&gt; Swift.Array&lt;Swift.Optional&lt;Core.Activity&gt;&gt; in Home.HomeService.fetchAthleteActivties(userID: Swift.Int) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Array&lt;Swift.Optional&lt;Core.Activity&gt;&gt;&gt;"
-                  moduleName = "Home"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "5228">
-               </Location>
-               <Location
-                  uuid = "BB1783D1-B8FC-419D-B9B8-1AD7F3E41895 - 980aa43b9d87ee51"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Core.PostsQuery.Data.Post&gt;) -&gt; Swift.Optional&lt;Swift.Optional&lt;Core.Activity&gt;&gt; in closure #1 (Core.PostsQuery.Data) -&gt; Swift.Array&lt;Swift.Optional&lt;Core.Activity&gt;&gt; in Home.HomeService.fetchAthleteActivties(userID: Swift.Int) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Array&lt;Swift.Optional&lt;Core.Activity&gt;&gt;&gt;"
-                  moduleName = "Home"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "88"
-                  endingLineNumber = "88"
-                  offsetFromSymbolStart = "5756">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "44AD6E82-01C3-4AC4-88BE-913ED3C71284"
+            uuid = "CAE3F138-D4D3-4F48-8E76-D92956747CA6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Home/Home/HomeService.swift"
+            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "fetchAthleteActivties(userID:)"
+            startingLineNumber = "361"
+            endingLineNumber = "361"
+            landmarkName = "likeButtonAction(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "44AD6E82-01C3-4AC4-88BE-913ED3C71284 - 980aa43b9d87ec0c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Core.PostsQuery.Data.Post&gt;) -&gt; Swift.Optional&lt;Swift.Optional&lt;Core.Activity&gt;&gt; in closure #1 (Core.PostsQuery.Data) -&gt; Swift.Array&lt;Swift.Optional&lt;Core.Activity&gt;&gt; in Home.HomeService.fetchAthleteActivties(userID: Swift.Int) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Array&lt;Swift.Optional&lt;Core.Activity&gt;&gt;&gt;"
-                  moduleName = "Home"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "4416">
-               </Location>
-               <Location
-                  uuid = "44AD6E82-01C3-4AC4-88BE-913ED3C71284 - 980aa43b9d87ec0c"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Core.PostsQuery.Data.Post&gt;) -&gt; Swift.Optional&lt;Swift.Optional&lt;Core.Activity&gt;&gt; in closure #1 (Core.PostsQuery.Data) -&gt; Swift.Array&lt;Swift.Optional&lt;Core.Activity&gt;&gt; in Home.HomeService.fetchAthleteActivties(userID: Swift.Int) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Array&lt;Swift.Optional&lt;Core.Activity&gt;&gt;&gt;"
-                  moduleName = "Home"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "75"
-                  endingLineNumber = "75"
-                  offsetFromSymbolStart = "4780">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "11754CB3-B472-459B-BB55-EAB431165B9F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "535"
+            endingLineNumber = "535"
+            landmarkName = "updateActivityLikabilityStatus()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6256407F-DA38-4A1A-A6CD-A56E2D9AED7B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
+            landmarkName = "formateLikesLabelText(activity:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C4BCFEFC-1ABC-4B66-BCD3-065D74B9FA2F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "490"
+            endingLineNumber = "490"
+            landmarkName = "formateLikesLabelText(activity:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F5E29ECA-742D-443B-AFEA-D94C417F7520"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "467"
+            endingLineNumber = "467"
+            landmarkName = "formateLikesLabelText(activity:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD20A88D-0404-4647-B9A6-B9C69218E8A7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "415"
+            endingLineNumber = "415"
+            landmarkName = "formateLikesLabelText(activity:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "488C5351-1C5D-4625-A67E-A8722FF793DC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "475"
+            endingLineNumber = "475"
+            landmarkName = "formateLikesLabelText(activity:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

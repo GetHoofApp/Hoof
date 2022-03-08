@@ -13,7 +13,7 @@ import CoreGPX
 import CodableGeoJSON
 import RxCocoa
 import RxSwift
-import Nuke
+import Kingfisher
 
 class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
     
@@ -24,6 +24,7 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
 //        image.backgroundColor = UIColor(red: 223/255, green: 223/255, blfffcue: 231/255, alpha: 1.0)
 //        image.clipsToBounds = true
 //        image.contentMode = .scaleAspectFill
+        
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = #imageLiteral(resourceName: "athlete-placeholder")
         return image
@@ -339,7 +340,7 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
     // MARK: - UIButton Action
     @objc func likeButtonAction(_ button: UIButton) {
         if self.activity.isActivityLiked {
-            self.activity.isActivityLiked = false
+            activity.isActivityLiked = false
             likeButton.tintColor = UIColor(red: 115/255, green: 114/255, blue: 119/255, alpha: 1.0)
             likeButton.setImage(#imageLiteral(resourceName: "thumb-up"), for: .normal)
 //            kudosLabel.text = "Be the first to give a like!"
@@ -357,7 +358,7 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
 //            kudosLabelLeftConstraint.constant = 16
             
         } else {
-            self.activity.isActivityLiked = true
+            activity.isActivityLiked = true
             likeButton.tintColor = UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)
             likeButton.setImage(#imageLiteral(resourceName: "thumb-up-selected"), for: .normal)
             
@@ -387,8 +388,8 @@ private extension ActivityCell {
             kudosLabel.text = "Be the first to give a like!"
             kudosLabelLeftConstraint.constant = 16
         case .youAndOneOthersGaveALike:
-            if let likes = activity.likes, !likes.isEmpty {
-                kudosLabel.text = "You and " + "\(likes.count)" + " others gave likes"
+            if let likes = activity.likes, activity.isActivityLiked, !likes.isEmpty {
+                kudosLabel.text = "You and " + "1 others gave likes"
             }
             kudosLabelLeftConstraint.constant = 88
         case .youAndXOthersGaveALike:
@@ -400,7 +401,7 @@ private extension ActivityCell {
             if let likes = activity.likes, !likes.isEmpty {
                 kudosLabel.text = "\(likes.count)" + " gave likes"
             }
-            kudosLabelLeftConstraint.constant = 113
+            kudosLabelLeftConstraint.constant = 63
         case .youGaveALike:
             kudosLabel.text = "You gave a like"
             kudosLabelLeftConstraint.constant = 63
@@ -419,28 +420,46 @@ private extension ActivityCell {
             likesStackView.addArrangedSubview(image3)
 //            kudosLabelLeftConstraint.constant = 113
             
-            if let like = activity.likes?[1], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + "images/ibrahimafellay.jpeg") {
-                Nuke.loadImage(with: photoURL, options: ImageLoadingOptions(placeholder: placeholder, transition: nil, failureImage: placeholder, failureImageTransition: nil, contentModes: nil), into: image2, completion: { [weak self] response , _ in
-                    DispatchQueue.main.async {
-                        self?.image2.makeRounded()
-                    }
-                })
+            if let like = activity.likes?[1], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + photoURLString) {
+                let processor = RoundCornerImageProcessor(cornerRadius: image2.frame.height / 2, targetSize: CGSize(width: 32, height: 32))
+                image2.kf.indicatorType = .activity
+                image2.kf.setImage(
+                    with: photoURL,
+                    placeholder: placeholder,
+                    options: [
+                        .processor(processor),
+                        .scaleFactor(UIScreen.main.scale),
+                        .transition(.fade(1)),
+                        .cacheOriginalImage
+                    ])
             }
             
-            if let like = activity.likes?[0], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + "images/test.jpg") {
-                Nuke.loadImage(with: photoURL, options: ImageLoadingOptions(placeholder: placeholder, transition: nil, failureImage: placeholder, failureImageTransition: nil, contentModes: nil), into: image1, completion: { [weak self] response , _ in
-                    DispatchQueue.main.async {
-                        self?.image1.makeRounded()
-                    }
-                })
+            if let like = activity.likes?[0], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + photoURLString) {
+                let processor = RoundCornerImageProcessor(cornerRadius: image1.frame.height / 2, targetSize: CGSize(width: 32, height: 32))
+                image1.kf.indicatorType = .activity
+                image1.kf.setImage(
+                    with: photoURL,
+                    placeholder: placeholder,
+                    options: [
+                        .processor(processor),
+                        .scaleFactor(UIScreen.main.scale),
+                        .transition(.fade(1)),
+                        .cacheOriginalImage
+                    ])
             }
             
-            if let like = activity.likes?[2], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + "images/ibrahimafellay.jpeg") {
-                Nuke.loadImage(with: photoURL, options: ImageLoadingOptions(placeholder: placeholder, transition: nil, failureImage: placeholder, failureImageTransition: nil, contentModes: nil), into: image3, completion: { [weak self] response , _ in
-                    DispatchQueue.main.async {
-                        self?.image3.makeRounded()
-                    }
-                })
+            if let like = activity.likes?[2], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + photoURLString) {
+                let processor = RoundCornerImageProcessor(cornerRadius: image3.frame.height / 2, targetSize: CGSize(width: 32, height: 32))
+                image3.kf.indicatorType = .activity
+                image3.kf.setImage(
+                    with: photoURL,
+                    placeholder: placeholder,
+                    options: [
+                        .processor(processor),
+                        .scaleFactor(UIScreen.main.scale),
+                        .transition(.fade(1)),
+                        .cacheOriginalImage
+                    ])
             }
         }
         
@@ -452,41 +471,39 @@ private extension ActivityCell {
             likesStackView.addArrangedSubview(image2)
 //            kudosLabelLeftConstraint.constant = 88
             
-            if let like = activity.likes?[1], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + "images/ibrahimafellay.jpeg") {
-                Nuke.loadImage(with: photoURL, options: ImageLoadingOptions(placeholder: placeholder, transition: nil, failureImage: placeholder, failureImageTransition: nil, contentModes: nil), into: image2, completion: { [weak self] response , _ in
-                    DispatchQueue.main.async {
-                        self?.image2.makeRounded()
-                    }
-                })
-            }
-            
-            if let like = activity.likes?[0], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + "images/test.jpg") {
-                Nuke.loadImage(with: photoURL, options: ImageLoadingOptions(placeholder: placeholder, transition: nil, failureImage: placeholder, failureImageTransition: nil, contentModes: nil), into: image1, completion: { [weak self] response , _ in
-                    DispatchQueue.main.async {
-                        self?.image1.makeRounded()
-                    }
-                })
+            if let like = activity.likes?[1], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + photoURLString) {
+                let processor = RoundCornerImageProcessor(cornerRadius: 16, targetSize: CGSize(width: 32, height: 32))
+                image2.kf.indicatorType = .activity
+                image2.kf.setImage(
+                    with: photoURL,
+                    placeholder: placeholder,
+                    options: [
+                        .processor(processor),
+                        .scaleFactor(UIScreen.main.scale),
+                        .transition(.fade(1)),
+                        .cacheOriginalImage
+                    ])
             }
         }
-        
-//        if activity.likes?.count == 0 {
-//            likesStackView.subviews.forEach { view in
-//                likesStackView.removeArrangedSubview(view)
-//            }
-//        }
-//
+    
         if activity.likes?.count == 1 {
             image2.isHidden = true
             image3.isHidden = true
             image1.isHidden = false
             likesStackView.addArrangedSubview(image1)
 //            kudosLabelLeftConstraint.constant = 63
-            if let like = activity.likes?[0], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + "images/ibrahimafellay.jpeg") {
-                Nuke.loadImage(with: photoURL, options: ImageLoadingOptions(placeholder: placeholder, transition: nil, failureImage: placeholder, failureImageTransition: nil, contentModes: nil), into: image1, completion: { [weak self] response , _ in
-                    DispatchQueue.main.async {
-                        self?.image1.makeRounded()
-                    }
-                })
+            if let like = activity.likes?[0], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + photoURLString) {
+                let processor = RoundCornerImageProcessor(cornerRadius: 10, targetSize: CGSize(width: 25, height: 25))
+                image1.kf.indicatorType = .activity
+                image1.kf.setImage(
+                    with: photoURL,
+                    placeholder: placeholder,
+                    options: [
+                        .processor(processor),
+                        .scaleFactor(UIScreen.main.scale),
+                        .transition(.fade(1)),
+                        .cacheOriginalImage
+                    ])
             }
         }
         
@@ -497,10 +514,18 @@ private extension ActivityCell {
 //            kudosLabelLeftConstraint.constant = 16
         }
                 
-        if let userPhotoURLString = activity.creator?.photoURL, !userPhotoURLString.isEmpty, let userPhotoURL = URL(string: Config.baseURL + "/media/" + userPhotoURLString) {
-            Nuke.loadImage(with: userPhotoURL, into: userImageView, completion: { [weak self] response , _ in
-                self?.userImageView.makeRounded()
-            })
+        if let photoURLString = activity.creator?.photoURL, let userPhotoURL = URL(string: Config.baseURL + "/media/" + photoURLString) {
+            let processor = RoundCornerImageProcessor(cornerRadius: 25, targetSize: CGSize(width: 50, height: 50))
+            userImageView.kf.indicatorType = .activity
+            userImageView.kf.setImage(
+                with: userPhotoURL,
+                placeholder: placeholder,
+                options: [
+                    .processor(processor),
+                    .scaleFactor(UIScreen.main.scale),
+                    .transition(.fade(1)),
+                    .cacheOriginalImage
+                ])
         } else {
             userImageView.image = #imageLiteral(resourceName: "athlete-placeholder")
         }
@@ -566,9 +591,9 @@ private extension ActivityCell {
         setupSubviews()
         setupConstraints()
         
-        image1.makeRounded()
-        image2.makeRounded()
-        image3.makeRounded()
+//        image1.makeRounded()
+//        image2.makeRounded()
+//        image3.makeRounded()
         
 //        userImageView.layer.cornerRadius = userImageView.frame.size.width / 2
 //        userImageView.clipsToBounds = true
@@ -797,7 +822,7 @@ private extension ActivityCell {
             likesStackView.heightAnchor.constraint(equalToConstant: 32),
 //            likesStackView.widthAnchor.constraint(equalToConstant: 85),
 //            likesStackView.bottomAnchor.constraint(equalTo: socialActivityView.topAnchor, constant: 10),
-            likesStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -57),
+//            likesStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -57),
 
 //            kudosLabel.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: 12),
 //            kudosLabel.leftAnchor.constraint(equalTo: likesStackView.rightAnchor, constant: 12),
@@ -815,10 +840,11 @@ private extension ActivityCell {
             socialActivityView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             socialActivityView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             socialActivityView.heightAnchor.constraint(equalToConstant: 49),
+            socialActivityView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
             likeButton.leftAnchor.constraint(equalTo: socialActivityView.leftAnchor, constant: 59),
-            likeButton.widthAnchor.constraint(equalToConstant: 26),
-            likeButton.heightAnchor.constraint(equalToConstant: 26),
+            likeButton.widthAnchor.constraint(equalToConstant: 24),
+            likeButton.heightAnchor.constraint(equalToConstant: 24),
             likeButton.centerYAnchor.constraint(equalTo: socialActivityView.centerYAnchor),
             
             socialActivityDivider1.leftAnchor.constraint(equalTo: likeButton.rightAnchor, constant: 45),

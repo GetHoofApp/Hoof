@@ -7,8 +7,8 @@ PODS:
   - CodableJSON (2.0.2)
   - CoreGPX (0.9.0)
   - DrawerView (1.3.3)
+  - Kingfisher (4.10.0)
   - MapCache (0.9.0)
-  - Nuke (7.5.2)
   - RxCocoa (5.1.3):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -21,8 +21,8 @@ DEPENDENCIES:
   - CodableGeoJSON
   - CoreGPX
   - DrawerView
+  - Kingfisher
   - MapCache (~> 0.9.0)
-  - Nuke
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
 
@@ -38,7 +38,7 @@ SPEC REPOS:
     - Apollo
     - CodableGeoJSON
     - CodableJSON
-    - Nuke
+    - Kingfisher
 
 SPEC CHECKSUMS:
   Apollo: 5e4476a3236bd576686085b7cd99655c788e4d74
@@ -46,12 +46,12 @@ SPEC CHECKSUMS:
   CodableJSON: e20f26bebb4a0244516b6b24bcccb31fddc3f410
   CoreGPX: 1381c8c47428c3a6bcac2f93d25ca1c5e3525811
   DrawerView: 41c5e5d6593d86335ee2cf9b18d738835593dbc1
+  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   MapCache: b0a9f5f9a0ed7cbac45443fea0e7e03a97bf0c66
-  Nuke: 0350d346a688426e8f2331253ef28dc2fc4f6178
   RxCocoa: e2ed092d5432e4296aa818021d27de4090ac0354
   RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
 
-PODFILE CHECKSUM: 9c7a716c8accb3a1bcd34cc44ec764f77cb1889c
+PODFILE CHECKSUM: 6f09153d63d1499ac3705522f0293484ef8bbcd7
 
 COCOAPODS: 1.11.2

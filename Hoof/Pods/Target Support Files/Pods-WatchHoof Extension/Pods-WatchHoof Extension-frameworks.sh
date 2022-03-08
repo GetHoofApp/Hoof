@@ -177,14 +177,14 @@ code_sign_if_enabled() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CoreGPX-watchOS/CoreGPX.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Nuke-watchOS/Nuke.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher-watchOS/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-watchOS/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxRelay-watchOS/RxRelay.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-watchOS/RxSwift.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/CoreGPX-watchOS/CoreGPX.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Nuke-watchOS/Nuke.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher-watchOS/Kingfisher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxCocoa-watchOS/RxCocoa.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxRelay-watchOS/RxRelay.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/RxSwift-watchOS/RxSwift.framework"
