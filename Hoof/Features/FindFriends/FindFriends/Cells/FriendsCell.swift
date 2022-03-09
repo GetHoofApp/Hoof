@@ -77,8 +77,7 @@ class FriendsCell: UITableViewCell, Dequeueable {
             user.isAthleteFollowed = false            
             followOrUnfollowButton.backgroundColor = .clear
             followOrUnfollowButton.setTitleColor(.black, for: .normal)
-            followOrUnfollowButton.setTitle("Follow", for: .normal)
-            
+            followOrUnfollowButton.setTitle("Follow", for: .normal)            
         } else {
             user.isAthleteFollowed = true
             followOrUnfollowButton.backgroundColor = .black
@@ -89,7 +88,7 @@ class FriendsCell: UITableViewCell, Dequeueable {
     
     func configure(with suggestedAthlete: User) {
         if !suggestedAthlete.photoURL.isEmpty, let userPhotoURL = URL(string: Config.baseURL + "/media/" + suggestedAthlete.photoURL) {
-            let processor = RoundCornerImageProcessor(cornerRadius: userImageView.frame.height / 2)
+            let processor = RoundCornerImageProcessor(cornerRadius: 25, targetSize: CGSize(width: 50, height: 50))
             userImageView.kf.indicatorType = .activity
             userImageView.kf.setImage(
                 with: userPhotoURL,
@@ -99,7 +98,7 @@ class FriendsCell: UITableViewCell, Dequeueable {
                     .scaleFactor(UIScreen.main.scale),
                     .transition(.fade(1)),
                     .cacheOriginalImage
-                ])            
+                ])
         } else {
             userImageView.image = #imageLiteral(resourceName: "athlete-placeholder")
         }

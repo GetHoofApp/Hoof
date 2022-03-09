@@ -12,6 +12,9 @@
       location = "container:"
       name = "Features">
       <FileRef
+         location = "group:Features/ActivityDetails/ActivityDetails.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Features/FindFriends/FindFriends.xcodeproj">
       </FileRef>
       <FileRef

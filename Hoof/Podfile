@@ -114,6 +114,17 @@ target 'FindFriends' do
   end
 end
 
+target 'ActivityDetails' do
+  project 'Features/ActivityDetails/ActivityDetails'
+  shared_pods
+  graphql
+  
+  target 'ActivityDetailsTests' do
+    inherit! :search_paths
+    shared_pods
+  end
+end
+
 # Apps
 target 'Hoof' do
   # Pods for Hoof
@@ -125,7 +136,7 @@ target 'Hoof' do
 
   target 'HoofTests' do
     inherit! :search_paths
-    # Pods for testing
+    # Pods for testingxx
     shared_pods
   end
   
