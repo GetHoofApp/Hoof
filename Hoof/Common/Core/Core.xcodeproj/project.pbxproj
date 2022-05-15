@@ -12,6 +12,13 @@
 		5006122E278787B0006E54A6 /* Posts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5006122D278787B0006E54A6 /* Posts.graphql */; };
 		5006123227886772006E54A6 /* Date+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5006123127886772006E54A6 /* Date+Util.swift */; };
 		5027DC6827B7C64A00EC92CB /* UITableView+beginRefreshing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5027DC6727B7C64A00EC92CB /* UITableView+beginRefreshing.swift */; };
+		5080D69A27DA01AC0039C776 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080D69427DA01AA0039C776 /* SelectionView.swift */; };
+		5080D69B27DA01AC0039C776 /* SelectorView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080D69527DA01AA0039C776 /* SelectorView+Extensions.swift */; };
+		5080D69C27DA01AC0039C776 /* SelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080D69627DA01AB0039C776 /* SelectableCell.swift */; };
+		5080D69D27DA01AC0039C776 /* SelectorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080D69727DA01AB0039C776 /* SelectorItem.swift */; };
+		5080D69E27DA01AC0039C776 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080D69827DA01AC0039C776 /* FlowLayout.swift */; };
+		5080D69F27DA01AC0039C776 /* SelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080D69927DA01AC0039C776 /* SelectionType.swift */; };
+		5080D6A127DA47E60039C776 /* UpdateUserProfile.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5080D6A027DA47E60039C776 /* UpdateUserProfile.graphql */; };
 		5081566127B53ED10072A8D7 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5081566027B53ED10072A8D7 /* Notification.swift */; };
 		5081568627B6587D0072A8D7 /* UploadActivity.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5081568527B6587D0072A8D7 /* UploadActivity.graphql */; };
 		5085F95327BD436F008E05FD /* KalmanFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085F95227BD436F008E05FD /* KalmanFilter.swift */; };
@@ -79,6 +86,13 @@
 		5006122D278787B0006E54A6 /* Posts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Posts.graphql; sourceTree = "<group>"; };
 		5006123127886772006E54A6 /* Date+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Util.swift"; sourceTree = "<group>"; };
 		5027DC6727B7C64A00EC92CB /* UITableView+beginRefreshing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+beginRefreshing.swift"; sourceTree = "<group>"; };
+		5080D69427DA01AA0039C776 /* SelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
+		5080D69527DA01AA0039C776 /* SelectorView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SelectorView+Extensions.swift"; sourceTree = "<group>"; };
+		5080D69627DA01AB0039C776 /* SelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableCell.swift; sourceTree = "<group>"; };
+		5080D69727DA01AB0039C776 /* SelectorItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectorItem.swift; sourceTree = "<group>"; };
+		5080D69827DA01AC0039C776 /* FlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
+		5080D69927DA01AC0039C776 /* SelectionType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionType.swift; sourceTree = "<group>"; };
+		5080D6A027DA47E60039C776 /* UpdateUserProfile.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = UpdateUserProfile.graphql; sourceTree = "<group>"; };
 		5081566027B53ED10072A8D7 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		5081568527B6587D0072A8D7 /* UploadActivity.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = UploadActivity.graphql; sourceTree = "<group>"; };
 		5085F95227BD436F008E05FD /* KalmanFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KalmanFilter.swift; sourceTree = "<group>"; };
@@ -157,6 +171,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5080D69327DA01A00039C776 /* SelectorView */ = {
+			isa = PBXGroup;
+			children = (
+				5080D69827DA01AC0039C776 /* FlowLayout.swift */,
+				5080D69627DA01AB0039C776 /* SelectableCell.swift */,
+				5080D69927DA01AC0039C776 /* SelectionType.swift */,
+				5080D69427DA01AA0039C776 /* SelectionView.swift */,
+				5080D69727DA01AB0039C776 /* SelectorItem.swift */,
+				5080D69527DA01AA0039C776 /* SelectorView+Extensions.swift */,
+			);
+			path = SelectorView;
+			sourceTree = "<group>";
+		};
 		50980594273979790063219B = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +248,7 @@
 		509805C727397ACB0063219B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				5080D69327DA01A00039C776 /* SelectorView */,
 				509805C827397ACB0063219B /* ViewController.swift */,
 				509805C927397ACB0063219B /* ViewState.swift */,
 				509805CA27397ACB0063219B /* Presentable.swift */,
@@ -292,6 +320,7 @@
 				50AC026027C9354500B8EB5E /* UnFollowAthlete.graphql */,
 				50BD1FD427CE3F6D00AA94CB /* FollowAll.graphql */,
 				50BD1FD627CE3FD000AA94CB /* UnfllowAll.graphql */,
+				5080D6A027DA47E60039C776 /* UpdateUserProfile.graphql */,
 			);
 			path = Mutations;
 			sourceTree = "<group>";
@@ -462,6 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50AC025B27C90FE000B8EB5E /* SuggestedAthletes.graphql in Resources */,
+				5080D6A127DA47E60039C776 /* UpdateUserProfile.graphql in Resources */,
 				5081568627B6587D0072A8D7 /* UploadActivity.graphql in Resources */,
 				50BB8B3C277B2F8A00FF6834 /* CreateUser.graphql in Resources */,
 				50BD1FD727CE3FD000AA94CB /* UnfllowAll.graphql in Resources */,
@@ -535,6 +565,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5080D69F27DA01AC0039C776 /* SelectionType.swift in Sources */,
+				5080D69B27DA01AC0039C776 /* SelectorView+Extensions.swift in Sources */,
 				50BD1FD927D36C6B00AA94CB /* Double.swift in Sources */,
 				50BE9853278F06C90019D9B4 /* Activity.swift in Sources */,
 				509805D327397ACB0063219B /* NavigationControllable.swift in Sources */,
@@ -545,6 +577,7 @@
 				50BB8B41277B350D00FF6834 /* ApolloClient+Rx.swift in Sources */,
 				509805DA27397ADF0063219B /* UIApplication+Utils.swift in Sources */,
 				5081566127B53ED10072A8D7 /* Notification.swift in Sources */,
+				5080D69C27DA01AC0039C776 /* SelectableCell.swift in Sources */,
 				50BB8B3F277B34FC00FF6834 /* GraphQLClient.swift in Sources */,
 				509805C427397ABC0063219B /* Dependency.swift in Sources */,
 				50B20332279ADCA6008AA037 /* UIImageView+Utils.swift in Sources */,
@@ -552,14 +585,17 @@
 				50BB8B47277B366000FF6834 /* AppConfig.swift in Sources */,
 				50E8E4E62742D66000FB73FA /* Location.swift in Sources */,
 				509805D127397ACB0063219B /* Presentable.swift in Sources */,
+				5080D69E27DA01AC0039C776 /* FlowLayout.swift in Sources */,
 				50C7DF382791CAE100015861 /* KeyboardObserving.swift in Sources */,
 				509805D427397ACB0063219B /* Dequeueable.swift in Sources */,
 				509805C027397ABC0063219B /* Alertable.swift in Sources */,
+				5080D69D27DA01AC0039C776 /* SelectorItem.swift in Sources */,
 				509805D527397ACB0063219B /* ViewControllable.swift in Sources */,
 				50AC025D27C9243300B8EB5E /* TableViewSectionHeader.swift in Sources */,
 				509805C627397ABC0063219B /* BaseCoordinator.swift in Sources */,
 				5085F95327BD436F008E05FD /* KalmanFilter.swift in Sources */,
 				50E8E4E82743CB1600FB73FA /* SportCourtAnnotation.swift in Sources */,
+				5080D69A27DA01AC0039C776 /* SelectionView.swift in Sources */,
 				5027DC6827B7C64A00EC92CB /* UITableView+beginRefreshing.swift in Sources */,
 				509805D227397ACB0063219B /* ViewModellable.swift in Sources */,
 				509805D027397ACB0063219B /* ViewState.swift in Sources */,

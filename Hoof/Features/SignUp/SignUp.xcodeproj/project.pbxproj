@@ -24,12 +24,6 @@
 		50BA0FE9277C64EA0091ED04 /* CreateProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FE3277C64EA0091ED04 /* CreateProfileViewController.swift */; };
 		50BA0FEA277C64EA0091ED04 /* CreateProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FE4277C64EA0091ED04 /* CreateProfileViewModel.swift */; };
 		50BA0FEB277C64EA0091ED04 /* CreateProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FE5277C64EA0091ED04 /* CreateProfileService.swift */; };
-		50BA0FF2277C794F0091ED04 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FF1277C794F0091ED04 /* SelectionView.swift */; };
-		50BA0FF4277C79830091ED04 /* SelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FF3277C79830091ED04 /* SelectableCell.swift */; };
-		50BA0FF6277C79B40091ED04 /* SelectionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FF5277C79B40091ED04 /* SelectionType.swift */; };
-		50BA0FF8277C7AAB0091ED04 /* SelectorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FF7277C7AAB0091ED04 /* SelectorItem.swift */; };
-		50BA0FFA277C7AE10091ED04 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FF9277C7AE10091ED04 /* FlowLayout.swift */; };
-		50BA0FFD277C7BA60091ED04 /* SelectorView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BA0FFC277C7BA60091ED04 /* SelectorView+Extensions.swift */; };
 		92D4DFCFD6B06B0863CA890D /* Pods_SignUp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22DEAFB5B850AE470BFC78E2 /* Pods_SignUp.framework */; };
 		98FC40C7ED1946416238E153 /* Pods_SignUpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38990208414BE57E3F8F1979 /* Pods_SignUpTests.framework */; };
 /* End PBXBuildFile section */
@@ -67,12 +61,6 @@
 		50BA0FE3277C64EA0091ED04 /* CreateProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewController.swift; sourceTree = "<group>"; };
 		50BA0FE4277C64EA0091ED04 /* CreateProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileViewModel.swift; sourceTree = "<group>"; };
 		50BA0FE5277C64EA0091ED04 /* CreateProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileService.swift; sourceTree = "<group>"; };
-		50BA0FF1277C794F0091ED04 /* SelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
-		50BA0FF3277C79830091ED04 /* SelectableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableCell.swift; sourceTree = "<group>"; };
-		50BA0FF5277C79B40091ED04 /* SelectionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionType.swift; sourceTree = "<group>"; };
-		50BA0FF7277C7AAB0091ED04 /* SelectorItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectorItem.swift; sourceTree = "<group>"; };
-		50BA0FF9277C7AE10091ED04 /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
-		50BA0FFC277C7BA60091ED04 /* SelectorView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SelectorView+Extensions.swift"; sourceTree = "<group>"; };
 		7189B40473CEE4A5492C0FE5 /* Pods-SignUp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignUp.debug.xcconfig"; path = "Target Support Files/Pods-SignUp/Pods-SignUp.debug.xcconfig"; sourceTree = "<group>"; };
 		E114C462D0AA5CAA19E2933F /* Pods-SignUpTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignUpTests.debug.xcconfig"; path = "Target Support Files/Pods-SignUpTests/Pods-SignUpTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,22 +148,8 @@
 		50BA0FEC277C75610091ED04 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				50BA0FFB277C7B720091ED04 /* SelectorView */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		50BA0FFB277C7B720091ED04 /* SelectorView */ = {
-			isa = PBXGroup;
-			children = (
-				50BA0FF1277C794F0091ED04 /* SelectionView.swift */,
-				50BA0FF3277C79830091ED04 /* SelectableCell.swift */,
-				50BA0FF5277C79B40091ED04 /* SelectionType.swift */,
-				50BA0FF7277C7AAB0091ED04 /* SelectorItem.swift */,
-				50BA0FF9277C7AE10091ED04 /* FlowLayout.swift */,
-				50BA0FFC277C7BA60091ED04 /* SelectorView+Extensions.swift */,
-			);
-			path = SelectorView;
 			sourceTree = "<group>";
 		};
 		E9EE1E255BBA4761C6999E4C /* Frameworks */ = {
@@ -377,8 +351,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				50B78D4D2779D9B80010BEAC /* SignUpModuleBuilder.swift in Sources */,
-				50BA0FF4277C79830091ED04 /* SelectableCell.swift in Sources */,
-				50BA0FF2277C794F0091ED04 /* SelectionView.swift in Sources */,
 				50BA0FE8277C64EA0091ED04 /* CreateProfileUseCase.swift in Sources */,
 				50B78D4E2779D9B80010BEAC /* SignUpUseCase.swift in Sources */,
 				50BA0FEB277C64EA0091ED04 /* CreateProfileService.swift in Sources */,
@@ -387,14 +359,10 @@
 				50B78D512779D9B80010BEAC /* SignUpService.swift in Sources */,
 				50B78D4C2779D9B80010BEAC /* SignUpCoordinator.swift in Sources */,
 				50B78D282779D8DA0010BEAC /* SignUp.docc in Sources */,
-				50BA0FF6277C79B40091ED04 /* SelectionType.swift in Sources */,
 				50BA0FEA277C64EA0091ED04 /* CreateProfileViewModel.swift in Sources */,
-				50BA0FFA277C7AE10091ED04 /* FlowLayout.swift in Sources */,
 				50B78D502779D9B80010BEAC /* SignUpViewModel.swift in Sources */,
 				50B78D4F2779D9B80010BEAC /* SignUpViewController.swift in Sources */,
-				50BA0FFD277C7BA60091ED04 /* SelectorView+Extensions.swift in Sources */,
 				50BA0FE7277C64EA0091ED04 /* CreateProfileModuleBuilder.swift in Sources */,
-				50BA0FF8277C7AAB0091ED04 /* SelectorItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

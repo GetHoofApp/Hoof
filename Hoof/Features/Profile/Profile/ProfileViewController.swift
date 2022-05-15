@@ -106,6 +106,13 @@ extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.getCell(forType: AthleteDetailsCell.self)
+            cell.editButtonTap
+                .subscribe(onNext: { [weak self] in
+                    guard let self = self else { return }
+                    
+                    self.viewModel.inputs.editProfileButtonTapped.onNext((profilePhotoURL: "player5", firstName: "Alex", lastName: "Jones", gender: "Male"))
+                })
+                .disposed(by: viewModel.disposeBag)
             cell.configure(userImageURL: "player5", userName: "Alex Jones", userLocation: "AMSTERDAM, NORTH HOLAND", followers: "150", following: "100")
             return cell
         } else {
@@ -123,8 +130,7 @@ extension ProfileViewController: UITableViewDataSource {
             let cell = tableView.getCell(forType: AthleteActivitiesCell.self)
             cell.configure(title: "Activities", subtitle: "January 1, 2022")
             return cell
-        }
-        
+        }        
     }
 }
 

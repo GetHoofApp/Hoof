@@ -2,12 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSMotionUsageDescription</key>
-	<string>$(PRODUCT_NAME)  would like to track your motion.</string>
-	<key>NSHealthShareUsageDescription</key>
-	<string>$(PRODUCT_NAME)  would like to access your Health data.</string>
-	<key>NSHealthUpdateUsageDescription</key>
-	<string>$(PRODUCT_NAME) would like to update your health usage with heart rate data.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -30,14 +24,18 @@
 	<string>$(PRODUCT_MODULE_NAME).ComplicationController</string>
 	<key>NSExtension</key>
 	<dict>
-		<key>NSExtensionPointIdentifier</key>
-		<string>com.apple.watchkit</string>
 		<key>NSExtensionAttributes</key>
 		<dict>
 			<key>WKAppBundleIdentifier</key>
-			<string>com.smapps.Hoof.watchkitapp</string>
+			<string>com.hoof.Hoof.watchkitapp</string>
 		</dict>
+		<key>NSExtensionPointIdentifier</key>
+		<string>com.apple.watchkit</string>
 	</dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>$(PRODUCT_NAME)  would like to access your Health data.</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like to update your health usage with heart rate data.</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Location is only used to display your position in the map. Select always allow to track your position even if the app is in background.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -46,6 +44,8 @@
 	<string>Location is needed to create GPX and add PDIs</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location is used to display in the map where are you and where you have been.</string>
+	<key>NSMotionUsageDescription</key>
+	<string>$(PRODUCT_NAME)  would like to track your motion.</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>

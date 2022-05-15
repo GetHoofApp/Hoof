@@ -1247,6 +1247,113 @@ public final class UnlikePostMutation: GraphQLMutation {
   }
 }
 
+public final class UpdateUserProfileMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation UpdateUserProfile($firstName: String!, $lastName: String!, $gender: String!, $userId: ID!, $logo: Upload) {
+      updateUserProfile(
+        firstName: $firstName
+        lastName: $lastName
+        gender: $gender
+        userId: $userId
+        logo: $logo
+      ) {
+        __typename
+        success
+      }
+    }
+    """
+
+  public let operationName: String = "UpdateUserProfile"
+
+  public var firstName: String
+  public var lastName: String
+  public var gender: String
+  public var userId: GraphQLID
+  public var logo: Upload?
+
+  public init(firstName: String, lastName: String, gender: String, userId: GraphQLID, logo: Upload? = nil) {
+    self.firstName = firstName
+    self.lastName = lastName
+    self.gender = gender
+    self.userId = userId
+    self.logo = logo
+  }
+
+  public var variables: GraphQLMap? {
+    return ["firstName": firstName, "lastName": lastName, "gender": gender, "userId": userId, "logo": logo]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static var selections: [GraphQLSelection] {
+      return [
+        GraphQLField("updateUserProfile", arguments: ["firstName": GraphQLVariable("firstName"), "lastName": GraphQLVariable("lastName"), "gender": GraphQLVariable("gender"), "userId": GraphQLVariable("userId"), "logo": GraphQLVariable("logo")], type: .object(UpdateUserProfile.selections)),
+      ]
+    }
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(updateUserProfile: UpdateUserProfile? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "updateUserProfile": updateUserProfile.flatMap { (value: UpdateUserProfile) -> ResultMap in value.resultMap }])
+    }
+
+    public var updateUserProfile: UpdateUserProfile? {
+      get {
+        return (resultMap["updateUserProfile"] as? ResultMap).flatMap { UpdateUserProfile(unsafeResultMap: $0) }
+      }
+      set {
+        resultMap.updateValue(newValue?.resultMap, forKey: "updateUserProfile")
+      }
+    }
+
+    public struct UpdateUserProfile: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["UpdateUserProfile"]
+
+      public static var selections: [GraphQLSelection] {
+        return [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("success", type: .scalar(Bool.self)),
+        ]
+      }
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(success: Bool? = nil) {
+        self.init(unsafeResultMap: ["__typename": "UpdateUserProfile", "success": success])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var success: Bool? {
+        get {
+          return resultMap["success"] as? Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "success")
+        }
+      }
+    }
+  }
+}
+
 public final class UploadActivityMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =

@@ -8,6 +8,14 @@
 
 import UIKit
 import Core
+import UpdateProfile
+
+private final class HomeDependencyProvider: DependencyProvider<EmptyDependency> {
+        
+    var updateProfileModuleBuilder: UpdateProfileModuleBuildable {
+        UpdateProfileModuleBuilder()
+    }
+}
 
 public protocol ProfileModuleBuildable: ModuleBuildable {
     func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>?
@@ -16,11 +24,13 @@ public protocol ProfileModuleBuildable: ModuleBuildable {
 public class ProfileModuleBuilder: Builder<EmptyDependency>, ProfileModuleBuildable {
     
     public func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
+        let dependencyProvider = HomeDependencyProvider()
+
         registerService()
         registerUsecase()
         registerViewModel()
         registerView()
-        registerCoordinator(rootViewController: rootViewController)
+        registerCoordinator(rootViewController: rootViewController, updateProfileModuleBuilder: dependencyProvider.updateProfileModuleBuilder)
         
         guard let coordinator = container.resolve(ProfileCoordinator.self) else {
             return nil
@@ -64,13 +74,14 @@ private extension ProfileModuleBuilder {
         }
     }
     
-    func registerCoordinator(rootViewController: NavigationControllable? = nil) {
+    func registerCoordinator(rootViewController: NavigationControllable? = nil, updateProfileModuleBuilder: UpdateProfileModuleBuildable) {
         container.register(ProfileCoordinator.self) { [weak self] in
             guard let viewController = self?.container.resolve(ProfileViewController.self) else {
                 return nil
             }
             
-            let coordinator = ProfileCoordinator(rootViewController: rootViewController, viewController: viewController)
+            let coordinator = ProfileCoordinator(rootViewController: rootViewController, viewController: viewController, updateProfileModuleBuilder: updateProfileModuleBuilder)
+            coordinator.showUpdateProfile = viewController.viewModel.outputs.showUpdateProfile
             return coordinator
         }
     }

@@ -1,0 +1,6 @@
+mutation UpdateUserProfile($firstName: String!, $lastName: String!, $gender: String!, $userId: ID!, $logo: Upload) {
+  updateUserProfile(firstName: $firstName, lastName: $lastName, gender: $gender, userId: $userId, logo: $logo) {
+    success
+  }
+}
+

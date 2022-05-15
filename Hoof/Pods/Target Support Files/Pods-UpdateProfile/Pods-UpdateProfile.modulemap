@@ -1,0 +1,6 @@
+framework module Pods_UpdateProfile {
+  umbrella header "Pods-UpdateProfile-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -12,6 +12,7 @@ import CoreGPX
 import GoogleMaps
 import WatchConnectivity
 import Core
+import FirebaseCore
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     /// Default placeholder function
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+
+		FirebaseApp.configure()
         return true
     }
 

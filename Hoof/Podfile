@@ -21,6 +21,11 @@ def graphql
   pod "Apollo"
 end
 
+def firebase
+	pod 'FirebaseAuth'
+	pod 'FirebaseFirestore'
+end
+
 # Common modules
 target 'Core' do
   project 'Common/Core/Core'
@@ -125,12 +130,24 @@ target 'ActivityDetails' do
   end
 end
 
+target 'UpdateProfile' do
+  project 'Features/UpdateProfile/UpdateProfile'
+  shared_pods
+  graphql
+  
+  target 'UpdateProfileTests' do
+    inherit! :search_paths
+    shared_pods
+  end
+end
+
 # Apps
 target 'Hoof' do
   # Pods for Hoof
   shared_pods
   shared_UIPods
   graphql
+	firebase
   pod 'MapCache', '~> 0.9.0'
   pod 'CodableGeoJSON'
 

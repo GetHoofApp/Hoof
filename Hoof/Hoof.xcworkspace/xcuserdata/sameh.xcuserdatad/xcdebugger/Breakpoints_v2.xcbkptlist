@@ -55,22 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6256407F-DA38-4A1A-A6CD-A56E2D9AED7B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "386"
-            endingLineNumber = "386"
-            landmarkName = "formateLikesLabelText(activity:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C4BCFEFC-1ABC-4B66-BCD3-065D74B9FA2F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -80,22 +64,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "490"
             endingLineNumber = "490"
-            landmarkName = "formateLikesLabelText(activity:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F5E29ECA-742D-443B-AFEA-D94C417F7520"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "467"
-            endingLineNumber = "467"
             landmarkName = "formateLikesLabelText(activity:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -119,16 +87,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "488C5351-1C5D-4625-A67E-A8722FF793DC"
+            uuid = "8E25E366-EF71-4461-979A-33FCD3DD4F51"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileModuleBuilder.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "475"
-            endingLineNumber = "475"
-            landmarkName = "formateLikesLabelText(activity:)"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "buildModule(with:profilePhotoURL:firstName:lastName:gender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A3056F8E-AC57-435E-81D5-7B4C97764657"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileModuleBuilder.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "buildModule(with:profilePhotoURL:firstName:lastName:gender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C7215FC8-4DD9-45D2-AB17-A98BBDFA2B56"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileModuleBuilder.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "buildModule(with:profilePhotoURL:firstName:lastName:gender:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2CA8E20F-2644-4372-9EEC-89531D8CC346"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Common/Core/Core/Common/Module.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "buildModule(with:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

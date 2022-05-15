@@ -30,6 +30,8 @@
 		502C185027BE5CA7005DC76B /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 502C184E27BE5CA7005DC76B /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50487CA527B92E5200D1A458 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50487CA427B92E5200D1A458 /* HealthKit.framework */; };
 		5056099327B286E600AF16EF /* ActivityControlInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056099227B286E600AF16EF /* ActivityControlInterfaceController.swift */; };
+		5080D6A327DA54EF0039C776 /* UpdateProfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5080D6A227DA54EF0039C776 /* UpdateProfile.framework */; };
+		5080D6A427DA54EF0039C776 /* UpdateProfile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5080D6A227DA54EF0039C776 /* UpdateProfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5081565927B5191D0072A8D7 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5081565827B5191D0072A8D7 /* Notifications.swift */; };
 		5081565C27B52C760072A8D7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5081565E27B52C760072A8D7 /* Localizable.strings */; };
 		5081568427B656A20072A8D7 /* AppService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5081568327B656A20072A8D7 /* AppService.swift */; };
@@ -103,6 +105,9 @@
 		5099B3FC27721E8A00252359 /* MapboxMobileEvents.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50A1C6BC27721BE3008E0DB7 /* MapboxMobileEvents.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5099B3FD27721E8E00252359 /* Turf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50A1C6C227721BF1008E0DB7 /* Turf.xcframework */; };
 		5099B3FE27721E8E00252359 /* Turf.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 50A1C6C227721BF1008E0DB7 /* Turf.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		509A244E282FB856005BD7AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 509A244D282FB856005BD7AF /* GoogleService-Info.plist */; };
+		509A244F282FB856005BD7AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 509A244D282FB856005BD7AF /* GoogleService-Info.plist */; };
+		509A2450282FB856005BD7AF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 509A244D282FB856005BD7AF /* GoogleService-Info.plist */; };
 		50A1C69427714904008E0DB7 /* police_stations.json in Resources */ = {isa = PBXBuildFile; fileRef = 50A1C69327714904008E0DB7 /* police_stations.json */; };
 		50A1C69627714C4E008E0DB7 /* KSV_4_to_the_stars_beyond_.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 50A1C69527714C4E008E0DB7 /* KSV_4_to_the_stars_beyond_.gpx */; };
 		50A1C6982771F1DC008E0DB7 /* Avondactiviteit.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 50A1C6972771F1DC008E0DB7 /* Avondactiviteit.gpx */; };
@@ -234,6 +239,7 @@
 				5099B3FE27721E8E00252359 /* Turf.xcframework in Embed Frameworks */,
 				5099B3F827721E8A00252359 /* MapboxCoreMaps.xcframework in Embed Frameworks */,
 				50AC025827C7C36100B8EB5E /* FindFriends.framework in Embed Frameworks */,
+				5080D6A427DA54EF0039C776 /* UpdateProfile.framework in Embed Frameworks */,
 				502C185027BE5CA7005DC76B /* Core.framework in Embed Frameworks */,
 				50E8E4DE2742BCBE00FB73FA /* Profile.framework in Embed Frameworks */,
 				5099B3FA27721E8A00252359 /* MapboxMaps.xcframework in Embed Frameworks */,
@@ -289,6 +295,7 @@
 		50487CA327B92E5200D1A458 /* WatchHoof Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchHoof Extension.entitlements"; sourceTree = "<group>"; };
 		50487CA427B92E5200D1A458 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		5056099227B286E600AF16EF /* ActivityControlInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityControlInterfaceController.swift; sourceTree = "<group>"; };
+		5080D6A227DA54EF0039C776 /* UpdateProfile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpdateProfile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5081565827B5191D0072A8D7 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		5081565D27B52C760072A8D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5081565F27B52C7B0072A8D7 /* nl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nl; path = nl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -336,6 +343,7 @@
 		509805DD273AA89B0063219B /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		509805E9273C2D080063219B /* AppRootCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootCoordinator.swift; sourceTree = "<group>"; };
 		509805EB273C2D170063219B /* RootBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootBuilder.swift; sourceTree = "<group>"; };
+		509A244D282FB856005BD7AF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		50A1C69327714904008E0DB7 /* police_stations.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = police_stations.json; sourceTree = "<group>"; };
 		50A1C69527714C4E008E0DB7 /* KSV_4_to_the_stars_beyond_.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = KSV_4_to_the_stars_beyond_.gpx; sourceTree = "<group>"; };
 		50A1C6972771F1DC008E0DB7 /* Avondactiviteit.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Avondactiviteit.gpx; sourceTree = "<group>"; };
@@ -442,6 +450,7 @@
 				50E8E4DD2742BCBE00FB73FA /* Profile.framework in Frameworks */,
 				50E8E438273D7ABB00FB73FA /* Home.framework in Frameworks */,
 				502C184F27BE5CA7005DC76B /* Core.framework in Frameworks */,
+				5080D6A327DA54EF0039C776 /* UpdateProfile.framework in Frameworks */,
 				50E8E46B2742987C00FB73FA /* Map.framework in Frameworks */,
 				5085ADD3274F7CD800315D67 /* CreateChallenge.framework in Frameworks */,
 				50A3135A27713AA100A1B29F /* GoogleMapsBase.framework in Frameworks */,
@@ -746,6 +755,7 @@
 		50BB8B52277B3AC800FF6834 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				509A244D282FB856005BD7AF /* GoogleService-Info.plist */,
 				50BB8B53277B3AD100FF6834 /* Config */,
 				5081565E27B52C760072A8D7 /* Localizable.strings */,
 			);
@@ -783,6 +793,7 @@
 		856C5B1E3FD5FEF46995A408 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5080D6A227DA54EF0039C776 /* UpdateProfile.framework */,
 				50AC025627C7C36000B8EB5E /* FindFriends.framework */,
 				502C184E27BE5CA7005DC76B /* Core.framework */,
 				50487CA427B92E5200D1A458 /* HealthKit.framework */,
@@ -955,6 +966,7 @@
 				5002EB252727298900740144 /* Sources */,
 				5002EB262727298900740144 /* Frameworks */,
 				5002EB272727298900740144 /* Resources */,
+				509A2451283123C4005BD7AF /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -1060,6 +1072,7 @@
 			files = (
 				5002EAE3272726C000740144 /* LaunchScreen.storyboard in Resources */,
 				50A1C69427714904008E0DB7 /* police_stations.json in Resources */,
+				509A244E282FB856005BD7AF /* GoogleService-Info.plist in Resources */,
 				5002EAE0272726C000740144 /* Assets.xcassets in Resources */,
 				50A1C6982771F1DC008E0DB7 /* Avondactiviteit.gpx in Resources */,
 				5002EADE272726BD00740144 /* Main.storyboard in Resources */,
@@ -1089,6 +1102,7 @@
 			files = (
 				5002EB0E2727298800740144 /* Assets.xcassets in Resources */,
 				5002EB0C2727298700740144 /* Interface.storyboard in Resources */,
+				509A244F282FB856005BD7AF /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1097,6 +1111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				509804AB27318D340063219B /* Interface.storyboard in Resources */,
+				509A2450282FB856005BD7AF /* GoogleService-Info.plist in Resources */,
 				5002EB222727298900740144 /* Assets.xcassets in Resources */,
 				502A173027BA630C003DE32F /* AnimatedHeart.sks in Resources */,
 			);
@@ -1135,6 +1150,24 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hoof/Pods-Hoof-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		509A2451283123C4005BD7AF /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/FirebaseCrashlytics/run\"\n";
 		};
 		6F88F9A540A1225E035FE8BA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1674,7 +1707,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Hoof;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoof.Hoof;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1701,7 +1734,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Hoof;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoof.Hoof;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1810,7 +1843,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Hoof.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoof.Hoof.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1834,7 +1867,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Hoof.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoof.Hoof.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1858,7 +1891,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Hoof.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoof.Hoof.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -1882,7 +1915,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.smapps.Hoof.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hoof.Hoof.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;

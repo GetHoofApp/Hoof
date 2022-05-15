@@ -8,6 +8,8 @@
 import Foundation
 import UIKit
 import Core
+import RxSwift
+import RxCocoa
 
 class AthleteDetailsCell: UITableViewCell, Dequeueable {
     
@@ -92,6 +94,23 @@ class AthleteDetailsCell: UITableViewCell, Dequeueable {
         return stackView
     }()
     
+    private lazy var editProfileButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.setTitle("Edit", for: .normal)
+        button.layer.cornerRadius = 5
+        button.layer.borderColor = UIColor.black.cgColor
+        button.backgroundColor = .black
+        button.layer.borderWidth = 1
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
+        button.setTitleColor(.white, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
+    var editButtonTap: ControlEvent<Void> {
+        return editProfileButton.rx.tap
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -134,6 +153,7 @@ extension AthleteDetailsCell {
         contentView.addSubview(followersStackView)
         contentView.addSubview(divider)
         contentView.addSubview(followingStackView)
+        contentView.addSubview(editProfileButton)
     }
     
     func setupConstraints() {
@@ -162,7 +182,12 @@ extension AthleteDetailsCell {
 
             followingStackView.leftAnchor.constraint(equalTo: divider.leftAnchor, constant: 12),
             followingStackView.topAnchor.constraint(equalTo: userImageView.bottomAnchor, constant: 28),
-            followingStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
+            followingStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
+            
+            editProfileButton.centerYAnchor.constraint(equalTo: followingStackView.centerYAnchor),
+            editProfileButton.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -16),
+            editProfileButton.heightAnchor.constraint(equalToConstant: 30),
+            editProfileButton.widthAnchor.constraint(equalToConstant: 70)
         ])
     }
 }

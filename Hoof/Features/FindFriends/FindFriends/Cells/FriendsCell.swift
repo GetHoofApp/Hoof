@@ -77,7 +77,7 @@ class FriendsCell: UITableViewCell, Dequeueable {
             user.isAthleteFollowed = false            
             followOrUnfollowButton.backgroundColor = .clear
             followOrUnfollowButton.setTitleColor(.black, for: .normal)
-            followOrUnfollowButton.setTitle("Follow", for: .normal)            
+            followOrUnfollowButton.setTitle("Follow", for: .normal)
         } else {
             user.isAthleteFollowed = true
             followOrUnfollowButton.backgroundColor = .black

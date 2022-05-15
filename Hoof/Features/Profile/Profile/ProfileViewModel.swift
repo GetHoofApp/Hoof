@@ -14,9 +14,13 @@ protocol ProfileViewModellable: ViewModellable {
     var outputs: ProfileViewModelOutputs { get }
 }
 
-struct ProfileViewModelInputs {}
+struct ProfileViewModelInputs {
+    var editProfileButtonTapped = PublishSubject<(profilePhotoURL: String, firstName: String, lastName: String, gender: String)>()
+}
 
-struct ProfileViewModelOutputs {}
+struct ProfileViewModelOutputs {
+    var showUpdateProfile = PublishSubject<(profilePhotoURL: String, firstName: String, lastName: String, gender: String)>()
+}
 
 class ProfileViewModel: ProfileViewModellable {
 
@@ -27,6 +31,8 @@ class ProfileViewModel: ProfileViewModellable {
 
     init(useCase: ProfileInteractable) {
         self.useCase = useCase
+        
+        setupObservables()
     }
 }
 
@@ -34,5 +40,9 @@ class ProfileViewModel: ProfileViewModellable {
 
 private extension ProfileViewModel {
 
-    func setupObservables() {}
+    func setupObservables() {
+        inputs.editProfileButtonTapped.subscribe(onNext: { [weak self] (profilePhotoURL, firstName, lastName, gender) in
+            self?.outputs.showUpdateProfile.onNext((profilePhotoURL: profilePhotoURL, firstName: firstName, lastName: lastName, gender: gender))
+        }).disposed(by: disposeBag)
+    }
 }

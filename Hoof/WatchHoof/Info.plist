@@ -26,7 +26,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.smapps.Hoof</string>
+	<string>com.hoof.Hoof</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>

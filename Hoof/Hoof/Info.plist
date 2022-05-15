@@ -2,22 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIUserInterfaceStyle</key>
-	<string>Light</string>
 	<key>BaseURL</key>
 	<string>https://$(BASE_URL)</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Location is used to display in the map where are you and where you have been.</string>
-	<key>NSLocationUsageDescription</key>
-	<string>Location is needed to create GPX and add PDIs</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Location is needed to create the GPX track even when the app is in background.</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Location is only used to display your position in the map. Select always allow to track your position even if the app is in background.</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -36,6 +22,14 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Location is only used to display your position in the map. Select always allow to track your position even if the app is in background.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Location is needed to create the GPX track even when the app is in background.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Location is needed to create GPX and add PDIs</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location is used to display in the map where are you and where you have been.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -57,6 +51,10 @@
 	</dict>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -78,5 +76,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>
