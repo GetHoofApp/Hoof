@@ -152,7 +152,7 @@ class ChallengesViewController: ViewController<ChallengesViewModel> {
             //            createChallengeView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0),
             //            createChallengeView.heightAnchor.constraint(equalToConstant: 52),
             //
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: -91),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
             collectionView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 0),
             collectionView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -220),

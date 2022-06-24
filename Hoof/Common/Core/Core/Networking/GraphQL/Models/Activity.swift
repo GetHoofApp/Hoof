@@ -127,6 +127,18 @@ public class User {
         self.photoURL = data.profileImage ?? ""
     }
 
+	public init?(data: Dictionary<String, Any>) {
+
+		guard let id = data["user_id"] as? String,
+			  let firstName = data["first_name"] as? String,
+			  let lastName = data["last_name"] as? String else { return nil }
+
+		self.id = id
+		self.firstName = firstName
+		self.lastName = lastName
+		self.photoURL = ""
+	}
+
     public init?(data: SearchUsersQuery.Data.SearchUser?) {
         guard let data = data else { return nil }
 

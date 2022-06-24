@@ -40,9 +40,9 @@ class HomeViewController: ViewController<HomeViewModel> {
         return refreshControl
     }()
 
-    private var activities = [Activity]()
+    private var activities = [AthleteActivity]()
     let commentButtonTapped = PublishSubject<Void>()
-    var selectedActivity: Activity!
+    var selectedActivity: AthleteActivity!
     let gettingStartedItems = [GettingStartedItem(image: #imageLiteral(resourceName: "smart-watch"), title: "Connect your GPS watch"), GettingStartedItem(image: #imageLiteral(resourceName: "football-shoe"), title: "Record your game using the watch app app"), GettingStartedItem(image: #imageLiteral(resourceName: "people"), title: "Follow friends and see their matches")]
     
     private var shouldShowGettingStartedView = false
@@ -215,13 +215,13 @@ extension HomeViewController: UITableViewDataSource {
         selectedActivity = activity
         cell.likeButtonTap
             .subscribe(onNext: { [weak self] in
-                self?.viewModel.inputs.likeButtonTapped.onNext((activity.id, activity.isActivityLiked))
+//                self?.viewModel.inputs.likeButtonTapped.onNext((activity.id, activity.isActivityLiked))
             })
             .disposed(by: viewModel.disposeBag)
 
         cell.commentButtonTap
             .subscribe(onNext: { [weak self] in
-                self?.viewModel.inputs.commentButtonTapped.onNext(activity)
+//                self?.viewModel.inputs.commentButtonTapped.onNext(activity)
             })
             .disposed(by: cell.disposeBag)
 
@@ -242,7 +242,7 @@ extension HomeViewController: UITableViewDelegate {
 extension HomeViewController {
     
     struct ViewData {
-        let activities: [Activity]
+        let activities: [AthleteActivity]
     }
     
     struct GettingStartedItem {

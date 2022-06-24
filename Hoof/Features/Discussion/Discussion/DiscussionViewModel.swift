@@ -32,9 +32,9 @@ class DiscussionViewModel: DiscussionViewModellable {
     let outputs = DiscussionViewModelOutputs()
     var useCase: DiscussionInteractable
     
-    let activity: Activity
+    let activity: AthleteActivity
     
-    init(useCase: DiscussionInteractable, activity: Activity) {
+    init(useCase: DiscussionInteractable, activity: AthleteActivity) {
         self.useCase = useCase
         self.activity = activity
         

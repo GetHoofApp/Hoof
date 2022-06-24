@@ -11,11 +11,11 @@ import Core
 
 public protocol FindFriendsInteractable {
     func fetchSuggestedAthletes(userID: Int) -> Single<[User?]>
-    func followUser(userID: String, userToFollowID: String) -> Single<Bool>
+	func followUser(userID: String, userToFollow: User) -> Single<Bool>
     func unfollowUser(userID: String, userToUnfollowID: String) -> Single<Bool>
     func searchUsers(query: String) -> Single<[User?]>
-    func followAll(userID: String, usersIdsToFollow: [String]) -> Single<Bool>
-    func unfollowAll(userID: String, usersIdsToUnfollow: [String]) -> Single<Bool>
+	func followAll(userID: String, usersToFollow: [User]) -> Single<Bool>
+	func unfollowAll(userID: String, usersIdsToUnfollow: [String]) -> Single<Bool>
 }
 
 class FindFriendsUseCase: FindFriendsInteractable {
@@ -30,8 +30,8 @@ class FindFriendsUseCase: FindFriendsInteractable {
         service.fetchSuggestedAthletes(userID: userID)
     }
     
-    func followUser(userID: String, userToFollowID: String) -> Single<Bool> {
-        service.followUser(userID: userID, userToFollowID: userToFollowID)
+	func followUser(userID: String, userToFollow: User) -> Single<Bool> {
+        service.followUser(userID: userID, userToFollow: userToFollow)
     }
     
     func unfollowUser(userID: String, userToUnfollowID: String) -> Single<Bool> {
@@ -42,11 +42,11 @@ class FindFriendsUseCase: FindFriendsInteractable {
         service.searchUsers(query: query)
     }
     
-    func followAll(userID: String, usersIdsToFollow: [String]) -> Single<Bool> {
-        service.followAll(userID: userID, usersIdsToFollow: usersIdsToFollow)
-    }
-    
-    func unfollowAll(userID: String, usersIdsToUnfollow: [String]) -> Single<Bool> {
-        service.unfollowAll(userID: userID, usersIdsToUnfollow: usersIdsToUnfollow)
-    }
+	func followAll(userID: String, usersToFollow: [User]) -> Single<Bool> {
+		service.followAll(userID: userID, usersToFollow: usersToFollow)
+	}
+
+	func unfollowAll(userID: String, usersIdsToUnfollow: [String]) -> Single<Bool> {
+		service.unfollowAll(userID: userID, usersIdsToUnfollow: usersIdsToUnfollow)
+	}
 }

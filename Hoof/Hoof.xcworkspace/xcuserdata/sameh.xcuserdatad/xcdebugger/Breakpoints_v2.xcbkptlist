@@ -7,145 +7,256 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "17EB5E90-A7CC-426E-B2CC-9A5AC31E2A14"
+            uuid = "685D8CA2-CFE1-49E7-B227-3C0D97B7D075"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            filePath = "Features/Home/Home/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "354"
-            endingLineNumber = "354"
-            landmarkName = "likeButtonAction(_:)"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "fetchAthleteActivities()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "685D8CA2-CFE1-49E7-B227-3C0D97B7D075 - b3e3b043ffacd5e7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RxSwift.SingleEvent&lt;Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;) -&gt; () in Home.HomeViewModel.fetchAthleteActivities() -&gt; ()"
+                  moduleName = "Home"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "496">
+               </Location>
+               <Location
+                  uuid = "685D8CA2-CFE1-49E7-B227-3C0D97B7D075 - b3e3b043ffacd5c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RxSwift.SingleEvent&lt;Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;) -&gt; () in Home.HomeViewModel.fetchAthleteActivities() -&gt; ()"
+                  moduleName = "Home"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "136">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CAE3F138-D4D3-4F48-8E76-D92956747CA6"
+            uuid = "5B40E78F-F6B1-429B-98C9-0AC01BC0C21B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            filePath = "Features/Home/Home/HomeService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "361"
-            endingLineNumber = "361"
-            landmarkName = "likeButtonAction(_:)"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "fetchAthelteActivitiesTimeline(userID:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "5B40E78F-F6B1-429B-98C9-0AC01BC0C21B - 91a2f76f799e0176"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #1 ((RxSwift.SingleEvent&lt;Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;) -&gt; ()) -&gt; RxSwift.Disposable in Home.HomeService.fetchAthelteActivitiesTimeline(userID: Swift.String) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;"
+                  moduleName = "Home"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "5B40E78F-F6B1-429B-98C9-0AC01BC0C21B - 91a2f76f799e0176"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #1 ((RxSwift.SingleEvent&lt;Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;) -&gt; ()) -&gt; RxSwift.Disposable in Home.HomeService.fetchAthelteActivitiesTimeline(userID: Swift.String) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;"
+                  moduleName = "Home"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "264">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "11754CB3-B472-459B-BB55-EAB431165B9F"
+            uuid = "C00C4ED0-F25A-4D23-BA22-EA31E0A6506C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            filePath = "Features/Home/Home/HomeService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "535"
-            endingLineNumber = "535"
-            landmarkName = "updateActivityLikabilityStatus()"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
+            landmarkName = "fetchAthelteActivitiesTimeline(userID:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C00C4ED0-F25A-4D23-BA22-EA31E0A6506C - 91a2f76f799e005f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #1 ((RxSwift.SingleEvent&lt;Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;) -&gt; ()) -&gt; RxSwift.Disposable in Home.HomeService.fetchAthelteActivitiesTimeline(userID: Swift.String) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;"
+                  moduleName = "Home"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "1128">
+               </Location>
+               <Location
+                  uuid = "C00C4ED0-F25A-4D23-BA22-EA31E0A6506C - 91a2f76f799e005f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #1 ((RxSwift.SingleEvent&lt;Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;) -&gt; ()) -&gt; RxSwift.Disposable in Home.HomeService.fetchAthelteActivitiesTimeline(userID: Swift.String) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;"
+                  moduleName = "Home"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "89"
+                  endingLineNumber = "89"
+                  offsetFromSymbolStart = "1140">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C4BCFEFC-1ABC-4B66-BCD3-065D74B9FA2F"
+            uuid = "0C709BA7-2C4C-4738-B037-30201678982E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            filePath = "Features/Home/Home/HomeService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "490"
-            endingLineNumber = "490"
-            landmarkName = "formateLikesLabelText(activity:)"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "fetchAthelteActivitiesTimeline(userID:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0C709BA7-2C4C-4738-B037-30201678982E - 91a2f76f799e3f19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #1 ((RxSwift.SingleEvent&lt;Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;) -&gt; ()) -&gt; RxSwift.Disposable in Home.HomeService.fetchAthelteActivitiesTimeline(userID: Swift.String) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;"
+                  moduleName = "Home"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "992">
+               </Location>
+               <Location
+                  uuid = "0C709BA7-2C4C-4738-B037-30201678982E - 91a2f76f799e3f19"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #1 ((RxSwift.SingleEvent&lt;Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;) -&gt; ()) -&gt; RxSwift.Disposable in Home.HomeService.fetchAthelteActivitiesTimeline(userID: Swift.String) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;"
+                  moduleName = "Home"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "1004">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FD20A88D-0404-4647-B9A6-B9C69218E8A7"
+            uuid = "E9521DFF-6E93-4683-94CA-68CDC86502CE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Map/Map/Cells/ActivityCell.swift"
+            filePath = "Features/Home/Home/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "415"
-            endingLineNumber = "415"
-            landmarkName = "formateLikesLabelText(activity:)"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "fetchAthleteActivities()"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8E25E366-EF71-4461-979A-33FCD3DD4F51"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileModuleBuilder.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "buildModule(with:profilePhotoURL:firstName:lastName:gender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A3056F8E-AC57-435E-81D5-7B4C97764657"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileModuleBuilder.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
-            landmarkName = "buildModule(with:profilePhotoURL:firstName:lastName:gender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C7215FC8-4DD9-45D2-AB17-A98BBDFA2B56"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileModuleBuilder.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
-            landmarkName = "buildModule(with:profilePhotoURL:firstName:lastName:gender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2CA8E20F-2644-4372-9EEC-89531D8CC346"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Common/Core/Core/Common/Module.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "buildModule(with:)"
-            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E9521DFF-6E93-4683-94CA-68CDC86502CE - b3e3b043ffacd47b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RxSwift.SingleEvent&lt;Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;) -&gt; () in Home.HomeViewModel.fetchAthleteActivities() -&gt; ()"
+                  moduleName = "Home"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "136">
+               </Location>
+               <Location
+                  uuid = "E9521DFF-6E93-4683-94CA-68CDC86502CE - 86c21bb4abda30ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Home.HomeViewModel.fetchAthleteActivities() -&gt; ()"
+                  moduleName = "Home"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "476">
+               </Location>
+               <Location
+                  uuid = "E9521DFF-6E93-4683-94CA-68CDC86502CE - 86c21bb4abda30ac"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Home.HomeViewModel.fetchAthleteActivities() -&gt; ()"
+                  moduleName = "Home"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "472">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -11,6 +11,7 @@ def shared_pods
   pod 'RxSwift', '~> 5'
   pod 'RxCocoa', '~> 5'
   pod 'Kingfisher'
+	pod 'Alamofire'
 end
 
 def shared_UIPods
@@ -24,6 +25,7 @@ end
 def firebase
 	pod 'FirebaseAuth'
 	pod 'FirebaseFirestore'
+	pod 'FirebaseFunctions'
 end
 
 # Common modules
@@ -38,6 +40,7 @@ end
 target 'Home' do
   project 'Features/Home/Home'
   shared_pods
+	firebase
   pod 'CodableGeoJSON'
   
   target 'HomeTests' do
@@ -101,7 +104,8 @@ target 'SignUp' do
   project 'Features/SignUp/SignUp'
   shared_pods
   graphql
-  
+	firebase
+
   target 'SignUpTests' do
     inherit! :search_paths
     shared_pods
@@ -112,6 +116,7 @@ target 'FindFriends' do
   project 'Features/FindFriends/FindFriends'
   shared_pods
   graphql
+	firebase
   
   target 'FindFriendsTests' do
     inherit! :search_paths

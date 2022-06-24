@@ -9,11 +9,15 @@
 import RxSwift
 import Core
 import CodableGeoJSON
+import FirebaseFunctions
+import Alamofire
 
 public protocol HomeServiceFetching {
     func fetchAthleteActivties(userID: Int) -> Single<[Activity?]>
+	func fetchAthelteActivitiesTimeline(userID: String) -> Single<[AthleteActivity?]>
     func likePost(userID: String, postID: String) -> Single<Bool>
     func unlikePost(userID: String, postID: String) -> Single<Bool>
+	func helloWorld()
 }
 
 public protocol HomeServicePerforming {
@@ -23,11 +27,79 @@ public protocol HomeServicePerforming {
 class HomeService: HomeServiceFetching {
     
     private let client: GraphQLClientProtocol
+	private let session: SessionManager
     
-    public init(client: GraphQLClientProtocol) {
+	public init(client: GraphQLClientProtocol, session: SessionManager) {
         self.client = client
+		self.session = session
     }
-    
+
+	func helloWorld() {
+		lazy var functions = Functions.functions()
+		functions.httpsCallable("hello_world").call { result, error in
+			if let error = error as NSError? {
+				if error.domain == FunctionsErrorDomain {
+					let code = FunctionsErrorCode(rawValue: error.code)
+					let message = error.localizedDescription
+					let details = error.userInfo[FunctionsErrorDetailsKey]
+				}
+			}
+		}
+	}
+
+	func fetchAthelteActivitiesTimeline(userID: String) -> Single<[AthleteActivity?]> {
+
+//		return Single.create { observer in
+//
+//		lazy var functions = Functions.functions()
+//
+//			functions.httpsCallable("athlete_activities_timeline").call(["user_id": "WylSuRdHaSXXdYYHXU3kGKGvKEj2"]) { result, error in
+//			 if let error = error as NSError? {
+//				 if error.domain == FunctionsErrorDomain {
+//					 let code = FunctionsErrorCode(rawValue: error.code)
+//					 let message = error.localizedDescription
+//					 let details = error.userInfo[FunctionsErrorDetailsKey]
+//				 }
+//				 print("fetchAthelteActivitiesTimeline [Firestore Error]: \(String(describing: error))")
+//				 observer(.error(error))
+//			 } else {
+//				 print("[Firestore]: response")
+//				 if let data = result?.data as? [String: Any] {
+//					 print("[Firestore Response]:", data)
+//				 }
+//				 observer(.success([]))
+//			 }
+//		 }
+//
+//			return Disposables.create()
+//		}
+
+		return Single.create { [unowned self] observer in
+
+			self.session.request(Router.fetchAthelteActivitiesTimeline(userID: userID)).responseJSON { response in
+				switch response.result {
+				case .success:
+					if let data = response.data {
+						do {
+							let json = try JSONDecoder().decode([AthleteActivity].self, from: data)
+							let activities = json
+							observer(.success(activities))
+						}
+						catch {
+							print("Error processing data \(error)")
+							observer(.success([]))
+						}
+					}
+				case  let .failure(error):
+					print("Error\(String(describing: error))")
+					observer(.error(error))
+				}
+			}
+
+			return Disposables.create()
+		}
+	}
+	
     func fetchAthleteActivties(userID: Int) -> Single<[Activity?]> {
         return client.fetch(query: PostsQuery(userId: userID))
             .map {
@@ -38,9 +110,9 @@ class HomeService: HomeServiceFetching {
                     
                     switch geometry {
                     case .multiLineString(let coordinates):
-                        let foundUserLike = $0?.likes.first(where: { $0.creator?.id == "7" }) != nil
-                        let likes = $0?.likes.compactMap { Like(data: $0) }
-                        let comments = $0?.comments.compactMap { Comment(data: $0) }
+						let foundUserLike = $0?.likes?.first(where: { $0?.creator?.id == "7" }) != nil
+						let likes = $0?.likes?.compactMap { Like(data: $0) }
+                        let comments = $0?.comments?.compactMap { Comment(data: $0) }
                         
                         let distance = (($0?.distance ?? 0.0) / 1000).round(to: 2)
                         

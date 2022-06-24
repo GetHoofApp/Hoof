@@ -17,8 +17,8 @@ protocol FindFriendsViewModellable: ViewModellable {
 
 struct FindFriendsViewModelInputs {
     var viewState = PublishSubject<ViewState>()
-    var followOrUnfollowButtonTapped = PublishSubject<(String, Bool)>()
-    var followOrUnfollowAllButtonTapped = PublishSubject<([String], Bool)>()
+    var followOrUnfollowButtonTapped = PublishSubject<(User)>()
+    var followOrUnfollowAllButtonTapped = PublishSubject<([User], Bool)>()
     var searchForAthletesTriggered = PublishSubject<String>()
 }
 
@@ -58,11 +58,12 @@ private extension FindFriendsViewModel {
             }
         }).disposed(by: disposeBag)
         
-        inputs.followOrUnfollowButtonTapped.subscribe(onNext: { [weak self] (userToFollowOrUnfollowID, shouldFollow) in
-            guard let self = self else { return }
-            
-            if shouldFollow {
-                self.useCase.followUser(userID: "7", userToFollowID: userToFollowOrUnfollowID).subscribe({ event in
+        inputs.followOrUnfollowButtonTapped.subscribe(onNext: { [weak self] (userToFollow) in
+            guard let self = self, let userID = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
+
+			if userToFollow.isAthleteFollowed {
+
+                self.useCase.followUser(userID: userID, userToFollow: userToFollow).subscribe({ event in
                     switch event {
                     case .success:
                         print("User followed successfully")
@@ -72,7 +73,7 @@ private extension FindFriendsViewModel {
                     }
                 }).disposed(by: self.disposeBag)
             } else {
-                self.useCase.unfollowUser(userID: "7", userToUnfollowID: userToFollowOrUnfollowID).subscribe({ event in
+				self.useCase.unfollowUser(userID: userID, userToUnfollowID: userToFollow.id).subscribe({ event in
                     switch event {
                     case .success:
                         print("User unfollowed successfully")
@@ -84,11 +85,11 @@ private extension FindFriendsViewModel {
             }
         }).disposed(by: disposeBag)
 
-        inputs.followOrUnfollowAllButtonTapped.subscribe(onNext: { [weak self] (userIdsToFollowOrUnfollow, shouldFollowAll) in
-            guard let self = self else { return }
+        inputs.followOrUnfollowAllButtonTapped.subscribe(onNext: { [weak self] (suggestedUsers, shouldFollowAll) in
+			guard let self = self, let userID = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
             
             if shouldFollowAll {
-                self.useCase.followAll(userID: "7", usersIdsToFollow: userIdsToFollowOrUnfollow).subscribe({ event in
+                self.useCase.followAll(userID: userID, usersToFollow: suggestedUsers).subscribe({ event in
                     switch event {
                     case .success:
                         print("User followed All successfully")
@@ -102,7 +103,9 @@ private extension FindFriendsViewModel {
                     }
                 }).disposed(by: self.disposeBag)
             } else {
-                self.useCase.unfollowAll(userID: "7", usersIdsToUnfollow: userIdsToFollowOrUnfollow).subscribe({ event in
+				let athltesToUnfollow = suggestedUsers.map { $0.id }
+
+                self.useCase.unfollowAll(userID: userID, usersIdsToUnfollow: athltesToUnfollow).subscribe({ event in
                     switch event {
                     case .success:
                         print("User unfollowed All successfully")

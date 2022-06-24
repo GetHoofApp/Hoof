@@ -75,7 +75,7 @@ class DiscussionViewController: ViewController<DiscussionViewModel>, KeyboardObs
     var comments: [Comment]?
     
     @objc func selectButtonAction(_ button: UIButton) {
-        viewModel.inputs.sendButtonTapped.onNext((viewModel.activity.id, commentView.textView?.text ?? ""))
+//        viewModel.inputs.sendButtonTapped.onNext((viewModel.activity.id, commentView.textView?.text ?? ""))
         commentView.textView?.text = nil
     }
     
@@ -90,7 +90,7 @@ class DiscussionViewController: ViewController<DiscussionViewModel>, KeyboardObs
         
         GMSServices.provideAPIKey("AIzaSyAQEtHPhRoMo1EoXu8FS_459wrEtyEBfSo")
         
-        comments = viewModel.activity.comments
+//        comments = viewModel.activity.comments
         
         setupUI()
     }
@@ -188,8 +188,8 @@ class DiscussionViewController: ViewController<DiscussionViewModel>, KeyboardObs
                     self.commentViewBottomConstraint.constant = -250
                     //                    self.tableView.scrollToBottom(animated: true)
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.1, execute: {
-                        let indexPath = IndexPath(row: 0, section: ((self.viewModel.activity.comments?.count ?? 0) + 2) - 1)
-                        self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+//                        let indexPath = IndexPath(row: 0, section: ((self.viewModel.activity.comments?.count ?? 0) + 2) - 1)
+//                        self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                     })
                 }
                 self.view.setNeedsLayout()
@@ -203,8 +203,8 @@ class DiscussionViewController: ViewController<DiscussionViewModel>, KeyboardObs
                 self.comments?.append(comment)
                 self.tableView.reloadData()
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.1, execute: {
-                    let indexPath = IndexPath(row: 0, section: ((self.viewModel.activity.comments?.count ?? 0) + 2) - 1)
-                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+//                    let indexPath = IndexPath(row: 0, section: ((self.viewModel.activity.comments?.count ?? 0) + 2) - 1)
+//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 })
             }).disposed(by: viewModel.disposeBag)
     }
@@ -236,7 +236,8 @@ extension DiscussionViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return section == ((viewModel.activity.comments?.count ?? 0) + 2) - 1 ? 0.2 : 0
+//        return section == ((viewModel.activity.comments?.count ?? 0) + 2) - 1 ? 0.2 : 0
+		return 0
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -249,7 +250,7 @@ extension DiscussionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.getCell(forType: MapCell.self)
-            cell.configure(with: viewModel.activity.coordinates)
+//            cell.configure(with: viewModel.activity.coordinates)
             return cell
         } else if indexPath.section == 1 {
             let cell = tableView.getCell(forType: ActivityDetailsCell.self)
@@ -257,10 +258,10 @@ extension DiscussionViewController: UITableViewDataSource {
                 .subscribe(onNext: { [weak self] in
                     guard let self = self else { return }
 
-                    self.viewModel.inputs.likeButtonTapped.onNext((self.viewModel.activity.id, self.viewModel.activity.isActivityLiked))
+//                    self.viewModel.inputs.likeButtonTapped.onNext((self.viewModel.activity.id, self.viewModel.activity.isActivityLiked))
                 })
                 .disposed(by: viewModel.disposeBag)
-            cell.configure(with: viewModel.activity)
+//            cell.configure(with: viewModel.activity)
             return cell
         } else {
             let cell = tableView.getCell(forType: CommentCell.self)

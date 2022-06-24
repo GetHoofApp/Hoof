@@ -18,14 +18,14 @@ protocol HomeViewModellable: ViewModellable {
 struct HomeViewModelInputs {
     var viewState = PublishSubject<ViewState>()
     var likeButtonTapped = PublishSubject<(String, Bool)>()
-    var commentButtonTapped = PublishSubject<(Activity)>()
+    var commentButtonTapped = PublishSubject<(AthleteActivity)>()
     var findFriendsButtonTapped = PublishSubject<Void>()
 }
 
 struct HomeViewModelOutputs {
     let viewData = PublishSubject<HomeViewController.ViewData>()
     let showRefreshControl = PublishSubject<Void>()
-    let showDiscussion = PublishSubject<(Activity)>()
+    let showDiscussion = PublishSubject<(AthleteActivity)>()
     let showFindFriends = PublishSubject<(Void)>()
 }
 
@@ -36,22 +36,23 @@ class HomeViewModel: HomeViewModellable {
     let outputs = HomeViewModelOutputs()
     var useCase: HomeInteractable
     
-    private var activities = [Activity]()
-    private var selectedActivity: Activity!
-    var updateComments = PublishSubject<[Comment]?>() {
-        didSet {
-            updateComments.subscribe(onNext: { [weak self] comments in
-                guard let self = self else { return }
-
-                if let index = self.activities.firstIndex(where: { $0.id == self.selectedActivity.id }) {
-                    self.activities[index].comments = comments
-                }
-                
-                self.outputs.viewData.onNext(HomeViewController.ViewData(activities: self.activities))
-
-            }).disposed(by: disposeBag)
-        }
-    }
+    private var activities = [AthleteActivity]()
+    private var selectedActivity: AthleteActivity!
+    var updateComments = PublishSubject<[Comment]?>()
+//	{
+//        didSet {
+//            updateComments.subscribe(onNext: { [weak self] comments in
+//                guard let self = self else { return }
+//
+//                if let index = self.activities.firstIndex(where: { $0.id == self.selectedActivity.id }) {
+//                    self.activities[index].comments = comments
+//                }
+//
+//                self.outputs.viewData.onNext(HomeViewController.ViewData(activities: self.activities))
+//
+//            }).disposed(by: disposeBag)
+//        }
+//    }
     
     init(useCase: HomeInteractable) {
         self.useCase = useCase
@@ -124,7 +125,10 @@ private extension HomeViewModel {
     }
     
     func fetchAthleteActivities() {
-        self.useCase.fetchAthleteActivties(userID: 7).subscribe { event in
+
+		guard let userID = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
+
+        self.useCase.fetchAthleteActivties(userID: "WylSuRdHaSXXdYYHXU3kGKGvKEj2").subscribe { event in
             switch event {
             case let .success(posts):
                 let activities = posts.compactMap { $0 }
@@ -134,5 +138,6 @@ private extension HomeViewModel {
                 break
             }            
         }.disposed(by: self.disposeBag)
+//		useCase.helloWorld()
     }
 }

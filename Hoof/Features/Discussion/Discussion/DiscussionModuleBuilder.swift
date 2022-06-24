@@ -10,12 +10,12 @@ import UIKit
 import Core
 
 public protocol DiscussionModuleBuildable: ModuleBuildable {
-    func buildModule(with rootViewController: NavigationControllable, activity: Activity) -> Module<[Comment]?>?
+    func buildModule(with rootViewController: NavigationControllable, activity: AthleteActivity) -> Module<[Comment]?>?
 }
 
 public class DiscussionModuleBuilder: Builder<EmptyDependency>, DiscussionModuleBuildable {
     
-    public func buildModule(with rootViewController: NavigationControllable, activity: Activity) -> Module<[Comment]?>? {
+    public func buildModule(with rootViewController: NavigationControllable, activity: AthleteActivity) -> Module<[Comment]?>? {
         registerService()
         registerUsecase()
         registerViewModel(activity: activity)
@@ -51,7 +51,7 @@ private extension DiscussionModuleBuilder {
         }
     }
     
-    func registerViewModel(activity: Activity) {
+    func registerViewModel(activity: AthleteActivity) {
         container.register(DiscussionViewModel.self) { [weak self] in
             guard let useCase = self?.container.resolve(DiscussionInteractable.self) else { return nil }
             

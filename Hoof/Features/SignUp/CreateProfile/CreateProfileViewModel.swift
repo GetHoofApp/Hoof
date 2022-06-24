@@ -50,14 +50,16 @@ private extension CreateProfileViewModel {
         inputs.continueButtonTapped.subscribe(onNext: { [weak self] (firstName: String, lastName: String, gender: String) in
             
             guard let self = self else { return }
-            
-            self.useCase.createProfile(firstName: firstName, lastName: lastName, email: self.email, password: self.password, gender: gender)
+
+            self.useCase.createUserProfile(firstName: firstName, lastName: lastName, email: self.email, password: self.password, gender: gender)
                 .subscribe { event in
                     switch event {
                     case let .success(result):
-                        self.outputs.userCreated.onNext((result))
-                        print("User created succcefully")
-                    case let .error(error):
+						if let result = result {
+							self.outputs.userCreated.onNext((result))
+							print("User created succcefully, userID: \(result)")
+						}
+                    case .error:
                         print("Error occured while creating a user")
                     }
                 }.disposed(by: self.disposeBag)

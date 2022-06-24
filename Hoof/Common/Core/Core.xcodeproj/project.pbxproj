@@ -12,6 +12,7 @@
 		5006122E278787B0006E54A6 /* Posts.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5006122D278787B0006E54A6 /* Posts.graphql */; };
 		5006123227886772006E54A6 /* Date+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5006123127886772006E54A6 /* Date+Util.swift */; };
 		5027DC6827B7C64A00EC92CB /* UITableView+beginRefreshing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5027DC6727B7C64A00EC92CB /* UITableView+beginRefreshing.swift */; };
+		506C543A2864CB8200C43445 /* Int+secondsToHoursMinutesSeconds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 506C54392864CB8200C43445 /* Int+secondsToHoursMinutesSeconds.swift */; };
 		5080D69A27DA01AC0039C776 /* SelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080D69427DA01AA0039C776 /* SelectionView.swift */; };
 		5080D69B27DA01AC0039C776 /* SelectorView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080D69527DA01AA0039C776 /* SelectorView+Extensions.swift */; };
 		5080D69C27DA01AC0039C776 /* SelectableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5080D69627DA01AB0039C776 /* SelectableCell.swift */; };
@@ -22,6 +23,10 @@
 		5081566127B53ED10072A8D7 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5081566027B53ED10072A8D7 /* Notification.swift */; };
 		5081568627B6587D0072A8D7 /* UploadActivity.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 5081568527B6587D0072A8D7 /* UploadActivity.graphql */; };
 		5085F95327BD436F008E05FD /* KalmanFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5085F95227BD436F008E05FD /* KalmanFilter.swift */; };
+		508611D128634B6A00DA36C9 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508611D028634B6A00DA36C9 /* Networking.swift */; };
+		508611D328634CB500DA36C9 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508611D228634CB500DA36C9 /* AppConfig.swift */; };
+		508611D528634FAA00DA36C9 /* AthleteActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508611D428634FAA00DA36C9 /* AthleteActivity.swift */; };
+		508611D72863511700DA36C9 /* AthleteActivityTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508611D62863511700DA36C9 /* AthleteActivityTimeline.swift */; };
 		509805A8273979790063219B /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5098059E273979790063219B /* Core.framework */; };
 		509805AD273979790063219B /* CoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 509805AC273979790063219B /* CoreTests.swift */; };
 		509805AF273979790063219B /* Core.h in Headers */ = {isa = PBXBuildFile; fileRef = 509805A1273979790063219B /* Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -53,7 +58,6 @@
 		50BB8B3F277B34FC00FF6834 /* GraphQLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B3E277B34FC00FF6834 /* GraphQLClient.swift */; };
 		50BB8B41277B350D00FF6834 /* ApolloClient+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B40277B350D00FF6834 /* ApolloClient+Rx.swift */; };
 		50BB8B44277B35AE00FF6834 /* GraphQLClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B43277B35AE00FF6834 /* GraphQLClientProtocol.swift */; };
-		50BB8B47277B366000FF6834 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B46277B366000FF6834 /* AppConfig.swift */; };
 		50BB8B49277B366C00FF6834 /* ConfigType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B48277B366C00FF6834 /* ConfigType.swift */; };
 		50BB8B4B277B367A00FF6834 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B4A277B367A00FF6834 /* Environment.swift */; };
 		50BB8B4E277B36E400FF6834 /* URL+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BB8B4D277B36E400FF6834 /* URL+Util.swift */; };
@@ -86,6 +90,7 @@
 		5006122D278787B0006E54A6 /* Posts.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = Posts.graphql; sourceTree = "<group>"; };
 		5006123127886772006E54A6 /* Date+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Util.swift"; sourceTree = "<group>"; };
 		5027DC6727B7C64A00EC92CB /* UITableView+beginRefreshing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+beginRefreshing.swift"; sourceTree = "<group>"; };
+		506C54392864CB8200C43445 /* Int+secondsToHoursMinutesSeconds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+secondsToHoursMinutesSeconds.swift"; sourceTree = "<group>"; };
 		5080D69427DA01AA0039C776 /* SelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectionView.swift; sourceTree = "<group>"; };
 		5080D69527DA01AA0039C776 /* SelectorView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SelectorView+Extensions.swift"; sourceTree = "<group>"; };
 		5080D69627DA01AB0039C776 /* SelectableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectableCell.swift; sourceTree = "<group>"; };
@@ -96,6 +101,10 @@
 		5081566027B53ED10072A8D7 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		5081568527B6587D0072A8D7 /* UploadActivity.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = UploadActivity.graphql; sourceTree = "<group>"; };
 		5085F95227BD436F008E05FD /* KalmanFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KalmanFilter.swift; sourceTree = "<group>"; };
+		508611D028634B6A00DA36C9 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		508611D228634CB500DA36C9 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		508611D428634FAA00DA36C9 /* AthleteActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteActivity.swift; sourceTree = "<group>"; };
+		508611D62863511700DA36C9 /* AthleteActivityTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteActivityTimeline.swift; sourceTree = "<group>"; };
 		5098059E273979790063219B /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		509805A1273979790063219B /* Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
 		509805A2273979790063219B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -184,6 +193,23 @@
 			path = SelectorView;
 			sourceTree = "<group>";
 		};
+		508611CE28634B4200DA36C9 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				508611CF28634B5200DA36C9 /* REST */,
+				50B78D5A277B1DF40010BEAC /* GraphQL */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		508611CF28634B5200DA36C9 /* REST */ = {
+			isa = PBXGroup;
+			children = (
+				508611D028634B6A00DA36C9 /* Networking.swift */,
+			);
+			path = REST;
+			sourceTree = "<group>";
+		};
 		50980594273979790063219B = {
 			isa = PBXGroup;
 			children = (
@@ -207,9 +233,9 @@
 		509805A0273979790063219B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				508611CE28634B4200DA36C9 /* Networking */,
 				50BB8B4C277B36DA00FF6834 /* Utils */,
 				50BB8B45277B365800FF6834 /* Configs */,
-				50B78D5A277B1DF40010BEAC /* GraphQL */,
 				509805D627397ADF0063219B /* Extenstions */,
 				509805B827397ABC0063219B /* Common */,
 				509805C727397ACB0063219B /* UI */,
@@ -270,6 +296,7 @@
 				50B20331279ADCA6008AA037 /* UIImageView+Utils.swift */,
 				5027DC6727B7C64A00EC92CB /* UITableView+beginRefreshing.swift */,
 				50BD1FD827D36C6B00AA94CB /* Double.swift */,
+				506C54392864CB8200C43445 /* Int+secondsToHoursMinutesSeconds.swift */,
 			);
 			path = Extenstions;
 			sourceTree = "<group>";
@@ -337,6 +364,7 @@
 		50BB8B42277B35A200FF6834 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				508611D228634CB500DA36C9 /* AppConfig.swift */,
 				50BB8B43277B35AE00FF6834 /* GraphQLClientProtocol.swift */,
 			);
 			path = Protocols;
@@ -375,6 +403,8 @@
 			children = (
 				50E8E4E52742D66000FB73FA /* Location.swift */,
 				50E8E4E72743CB1600FB73FA /* SportCourtAnnotation.swift */,
+				508611D428634FAA00DA36C9 /* AthleteActivity.swift */,
+				508611D62863511700DA36C9 /* AthleteActivityTimeline.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -534,7 +564,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/Core/GraphQL\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"http://localhost:8000/graphql/\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --passthroughCustomScalars --localSchemaFile=schema.json API.swift\n";
+			shellScript = "#SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\n#cd \"${SRCROOT}/Core/GraphQL\"\n#\"${SCRIPT_PATH}\"/run-bundled-codegen.sh schema:download --endpoint=\"http://localhost:8000/graphql/\"\n#\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --passthroughCustomScalars --localSchemaFile=schema.json API.swift\n";
 		};
 		856B263CA3154895CBCB591F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -580,14 +610,15 @@
 				5080D69C27DA01AC0039C776 /* SelectableCell.swift in Sources */,
 				50BB8B3F277B34FC00FF6834 /* GraphQLClient.swift in Sources */,
 				509805C427397ABC0063219B /* Dependency.swift in Sources */,
+				508611D528634FAA00DA36C9 /* AthleteActivity.swift in Sources */,
 				50B20332279ADCA6008AA037 /* UIImageView+Utils.swift in Sources */,
 				509805C127397ABC0063219B /* DependencyManager.swift in Sources */,
-				50BB8B47277B366000FF6834 /* AppConfig.swift in Sources */,
 				50E8E4E62742D66000FB73FA /* Location.swift in Sources */,
 				509805D127397ACB0063219B /* Presentable.swift in Sources */,
 				5080D69E27DA01AC0039C776 /* FlowLayout.swift in Sources */,
 				50C7DF382791CAE100015861 /* KeyboardObserving.swift in Sources */,
 				509805D427397ACB0063219B /* Dequeueable.swift in Sources */,
+				508611D128634B6A00DA36C9 /* Networking.swift in Sources */,
 				509805C027397ABC0063219B /* Alertable.swift in Sources */,
 				5080D69D27DA01AC0039C776 /* SelectorItem.swift in Sources */,
 				509805D527397ACB0063219B /* ViewControllable.swift in Sources */,
@@ -595,15 +626,18 @@
 				509805C627397ABC0063219B /* BaseCoordinator.swift in Sources */,
 				5085F95327BD436F008E05FD /* KalmanFilter.swift in Sources */,
 				50E8E4E82743CB1600FB73FA /* SportCourtAnnotation.swift in Sources */,
+				506C543A2864CB8200C43445 /* Int+secondsToHoursMinutesSeconds.swift in Sources */,
 				5080D69A27DA01AC0039C776 /* SelectionView.swift in Sources */,
 				5027DC6827B7C64A00EC92CB /* UITableView+beginRefreshing.swift in Sources */,
 				509805D227397ACB0063219B /* ViewModellable.swift in Sources */,
 				509805D027397ACB0063219B /* ViewState.swift in Sources */,
 				50BB8B4B277B367A00FF6834 /* Environment.swift in Sources */,
+				508611D328634CB500DA36C9 /* AppConfig.swift in Sources */,
 				50BB8B49277B366C00FF6834 /* ConfigType.swift in Sources */,
 				50BB8B4E277B36E400FF6834 /* URL+Util.swift in Sources */,
 				509805D927397ADF0063219B /* UIWindow+Utils.swift in Sources */,
 				509805C327397ABC0063219B /* Builder.swift in Sources */,
+				508611D72863511700DA36C9 /* AthleteActivityTimeline.swift in Sources */,
 				509805CF27397ACB0063219B /* ViewController.swift in Sources */,
 				5006123227886772006E54A6 /* Date+Util.swift in Sources */,
 				5006122C278785C3006E54A6 /* DateTime.swift in Sources */,

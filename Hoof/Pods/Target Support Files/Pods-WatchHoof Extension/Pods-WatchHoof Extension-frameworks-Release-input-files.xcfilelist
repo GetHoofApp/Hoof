@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-WatchHoof Extension/Pods-WatchHoof Extension-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire-watchOS/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/CoreGPX-watchOS/CoreGPX.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher-watchOS/Kingfisher.framework
 ${BUILT_PRODUCTS_DIR}/RxCocoa-watchOS/RxCocoa.framework

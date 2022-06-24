@@ -596,6 +596,7 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
+  - Alamofire (4.9.1)
   - Apollo (0.50.0):
     - Apollo/Core (= 0.50.0)
   - Apollo/Core (0.50.0)
@@ -610,11 +611,13 @@ PODS:
   - CodableJSON (2.0.2)
   - CoreGPX (0.9.0)
   - DrawerView (1.3.3)
+  - FirebaseAppCheckInterop (9.1.0)
   - FirebaseAuth (9.0.0):
     - FirebaseCore (~> 9.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
     - GoogleUtilities/Environment (~> 7.7)
     - GTMSessionFetcher/Core (~> 1.7)
+  - FirebaseAuthInterop (9.1.0)
   - FirebaseCore (9.0.0):
     - FirebaseCoreDiagnostics (~> 9.0)
     - FirebaseCoreInternal (~> 9.0)
@@ -625,6 +628,8 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
     - nanopb (~> 2.30908.0)
+  - FirebaseCoreExtension (9.1.0):
+    - FirebaseCore (~> 9.0)
   - FirebaseCoreInternal (9.0.0):
     - "GoogleUtilities/NSData+zlib (~> 7.7)"
   - FirebaseFirestore (9.0.0):
@@ -640,6 +645,16 @@ PODS:
     - "gRPC-C++ (~> 1.44.0)"
     - leveldb-library (~> 1.22)
     - nanopb (~> 2.30908.0)
+  - FirebaseFunctions (9.1.0):
+    - FirebaseAppCheckInterop (~> 9.0)
+    - FirebaseAuthInterop (~> 9.0)
+    - FirebaseCore (~> 9.0)
+    - FirebaseCoreExtension (~> 9.0)
+    - FirebaseMessagingInterop (~> 9.0)
+    - FirebaseSharedSwift (~> 9.0)
+    - GTMSessionFetcher/Core (< 3.0, >= 1.7)
+  - FirebaseMessagingInterop (9.1.0)
+  - FirebaseSharedSwift (9.1.0)
   - GoogleDataTransport (9.1.4):
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
@@ -734,12 +749,14 @@ PODS:
   - RxSwift (5.1.3)
 
 DEPENDENCIES:
+  - Alamofire
   - Apollo
   - CodableGeoJSON
   - CoreGPX
   - DrawerView
   - FirebaseAuth
   - FirebaseFirestore
+  - FirebaseFunctions
   - Kingfisher
   - MapCache (~> 0.9.0)
   - RxCocoa (~> 5)
@@ -755,15 +772,22 @@ SPEC REPOS:
     - RxSwift
   trunk:
     - abseil
+    - Alamofire
     - Apollo
     - BoringSSL-GRPC
     - CodableGeoJSON
     - CodableJSON
+    - FirebaseAppCheckInterop
     - FirebaseAuth
+    - FirebaseAuthInterop
     - FirebaseCore
     - FirebaseCoreDiagnostics
+    - FirebaseCoreExtension
     - FirebaseCoreInternal
     - FirebaseFirestore
+    - FirebaseFunctions
+    - FirebaseMessagingInterop
+    - FirebaseSharedSwift
     - GoogleDataTransport
     - GoogleUtilities
     - "gRPC-C++"
@@ -777,17 +801,24 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Apollo: 5e4476a3236bd576686085b7cd99655c788e4d74
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   CodableGeoJSON: 14cc11957f44ca494d1d9fda97b5113c3220e463
   CodableJSON: e20f26bebb4a0244516b6b24bcccb31fddc3f410
   CoreGPX: 1381c8c47428c3a6bcac2f93d25ca1c5e3525811
   DrawerView: 41c5e5d6593d86335ee2cf9b18d738835593dbc1
+  FirebaseAppCheckInterop: 39f963659691a896a4f16065c00183f128ab5d46
   FirebaseAuth: eae56c13e1161da89be202b1fae3ca60b4b8d689
+  FirebaseAuthInterop: 81e0af3efc37bde8f58807d5f8e50f40ef18d275
   FirebaseCore: e4c0b5d9727eaee0b43f9ed00baff7500c188d7b
   FirebaseCoreDiagnostics: 54410e5d156bf406a764c2722d9f77d682723b4c
+  FirebaseCoreExtension: c2efdc29b8ffeaa0be3e1bd1fc59758de9b3fe6d
   FirebaseCoreInternal: 5b8f4f2e2970a4cb9bd1cf7ada16c8ba69a29530
   FirebaseFirestore: 3ff0784d61f9a0faa3d67c5a8b1e4fb0b828c6b1
+  FirebaseFunctions: 709f13ce67c1df045831b85d38fbe18357003e04
+  FirebaseMessagingInterop: ddd5154a72c1551f1ce38c81f64ac1ba491316d6
+  FirebaseSharedSwift: b9683a74b2ef41c9c89b179c057e28f5d2dd67af
   GoogleDataTransport: 5fffe35792f8b96ec8d6775f5eccd83c998d5a3b
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   "gRPC-C++": 9675f953ace2b3de7c506039d77be1f2e77a8db2
@@ -803,6 +834,6 @@ SPEC CHECKSUMS:
   RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
   RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
 
-PODFILE CHECKSUM: 08aefac34cfb751730f4d4189719cbce75108e4e
+PODFILE CHECKSUM: 840c0b8af51aa93c68a59d05cfcf4979c476bf63
 
 COCOAPODS: 1.11.3

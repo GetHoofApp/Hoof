@@ -10,5 +10,5 @@
 
 #include "Common.xcconfig"
 
-BASE_URL=c4fa-156-210-81-255.ngrok.io
+BASE_URL=us-central1-hoof-b57bc.cloudfunctions.net
 

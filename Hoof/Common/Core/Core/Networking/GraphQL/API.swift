@@ -1577,8 +1577,8 @@ public final class PostsQuery: GraphQLQuery {
           GraphQLField("distance", type: .scalar(Double.self)),
           GraphQLField("pace", type: .scalar(Double.self)),
           GraphQLField("creator", type: .object(Creator.selections)),
-          GraphQLField("likes", type: .nonNull(.list(.nonNull(.object(Like.selections))))),
-          GraphQLField("comments", type: .nonNull(.list(.nonNull(.object(Comment.selections))))),
+          GraphQLField("likes", type: .list(.object(Like.selections))),
+          GraphQLField("comments", type: .list(.object(Comment.selections))),
         ]
       }
 
@@ -1588,8 +1588,8 @@ public final class PostsQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: GraphQLID, title: String, description: String, createdAt: DateTime, coordinates: GeoJSON, duration: Double? = nil, distance: Double? = nil, pace: Double? = nil, creator: Creator? = nil, likes: [Like], comments: [Comment]) {
-        self.init(unsafeResultMap: ["__typename": "PostType", "id": id, "title": title, "description": description, "createdAt": createdAt, "coordinates": coordinates, "duration": duration, "distance": distance, "pace": pace, "creator": creator.flatMap { (value: Creator) -> ResultMap in value.resultMap }, "likes": likes.map { (value: Like) -> ResultMap in value.resultMap }, "comments": comments.map { (value: Comment) -> ResultMap in value.resultMap }])
+      public init(id: GraphQLID, title: String, description: String, createdAt: DateTime, coordinates: GeoJSON, duration: Double? = nil, distance: Double? = nil, pace: Double? = nil, creator: Creator? = nil, likes: [Like?]? = nil, comments: [Comment?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "PostType", "id": id, "title": title, "description": description, "createdAt": createdAt, "coordinates": coordinates, "duration": duration, "distance": distance, "pace": pace, "creator": creator.flatMap { (value: Creator) -> ResultMap in value.resultMap }, "likes": likes.flatMap { (value: [Like?]) -> [ResultMap?] in value.map { (value: Like?) -> ResultMap? in value.flatMap { (value: Like) -> ResultMap in value.resultMap } } }, "comments": comments.flatMap { (value: [Comment?]) -> [ResultMap?] in value.map { (value: Comment?) -> ResultMap? in value.flatMap { (value: Comment) -> ResultMap in value.resultMap } } }])
       }
 
       public var __typename: String {
@@ -1685,21 +1685,21 @@ public final class PostsQuery: GraphQLQuery {
         }
       }
 
-      public var likes: [Like] {
+      public var likes: [Like?]? {
         get {
-          return (resultMap["likes"] as! [ResultMap]).map { (value: ResultMap) -> Like in Like(unsafeResultMap: value) }
+          return (resultMap["likes"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Like?] in value.map { (value: ResultMap?) -> Like? in value.flatMap { (value: ResultMap) -> Like in Like(unsafeResultMap: value) } } }
         }
         set {
-          resultMap.updateValue(newValue.map { (value: Like) -> ResultMap in value.resultMap }, forKey: "likes")
+          resultMap.updateValue(newValue.flatMap { (value: [Like?]) -> [ResultMap?] in value.map { (value: Like?) -> ResultMap? in value.flatMap { (value: Like) -> ResultMap in value.resultMap } } }, forKey: "likes")
         }
       }
 
-      public var comments: [Comment] {
+      public var comments: [Comment?]? {
         get {
-          return (resultMap["comments"] as! [ResultMap]).map { (value: ResultMap) -> Comment in Comment(unsafeResultMap: value) }
+          return (resultMap["comments"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Comment?] in value.map { (value: ResultMap?) -> Comment? in value.flatMap { (value: ResultMap) -> Comment in Comment(unsafeResultMap: value) } } }
         }
         set {
-          resultMap.updateValue(newValue.map { (value: Comment) -> ResultMap in value.resultMap }, forKey: "comments")
+          resultMap.updateValue(newValue.flatMap { (value: [Comment?]) -> [ResultMap?] in value.map { (value: Comment?) -> ResultMap? in value.flatMap { (value: Comment) -> ResultMap in value.resultMap } } }, forKey: "comments")
         }
       }
 
@@ -2210,7 +2210,7 @@ public final class SuggestedAthletesQuery: GraphQLQuery {
           GraphQLField("lastName", type: .nonNull(.scalar(String.self))),
           GraphQLField("email", type: .nonNull(.scalar(String.self))),
           GraphQLField("profileImage", type: .scalar(String.self)),
-          GraphQLField("followers", type: .nonNull(.list(.nonNull(.object(Follower.selections))))),
+          GraphQLField("followers", type: .list(.object(Follower.selections))),
         ]
       }
 
@@ -2220,8 +2220,8 @@ public final class SuggestedAthletesQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: GraphQLID, username: String, firstName: String, lastName: String, email: String, profileImage: String? = nil, followers: [Follower]) {
-        self.init(unsafeResultMap: ["__typename": "UserType", "id": id, "username": username, "firstName": firstName, "lastName": lastName, "email": email, "profileImage": profileImage, "followers": followers.map { (value: Follower) -> ResultMap in value.resultMap }])
+      public init(id: GraphQLID, username: String, firstName: String, lastName: String, email: String, profileImage: String? = nil, followers: [Follower?]? = nil) {
+        self.init(unsafeResultMap: ["__typename": "UserType", "id": id, "username": username, "firstName": firstName, "lastName": lastName, "email": email, "profileImage": profileImage, "followers": followers.flatMap { (value: [Follower?]) -> [ResultMap?] in value.map { (value: Follower?) -> ResultMap? in value.flatMap { (value: Follower) -> ResultMap in value.resultMap } } }])
       }
 
       public var __typename: String {
@@ -2288,12 +2288,12 @@ public final class SuggestedAthletesQuery: GraphQLQuery {
         }
       }
 
-      public var followers: [Follower] {
+      public var followers: [Follower?]? {
         get {
-          return (resultMap["followers"] as! [ResultMap]).map { (value: ResultMap) -> Follower in Follower(unsafeResultMap: value) }
+          return (resultMap["followers"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [Follower?] in value.map { (value: ResultMap?) -> Follower? in value.flatMap { (value: ResultMap) -> Follower in Follower(unsafeResultMap: value) } } }
         }
         set {
-          resultMap.updateValue(newValue.map { (value: Follower) -> ResultMap in value.resultMap }, forKey: "followers")
+          resultMap.updateValue(newValue.flatMap { (value: [Follower?]) -> [ResultMap?] in value.map { (value: Follower?) -> ResultMap? in value.flatMap { (value: Follower) -> ResultMap in value.resultMap } } }, forKey: "followers")
         }
       }
 

@@ -163,10 +163,8 @@ extension FindFriendsViewController: UITableViewDataSource {
             view.followOrUnfollowButtonTap
                 .subscribe(onNext: { [weak self] in
                     guard let self = self else { return }
-                    
-                    let suggestedAthletesIds = self.suggestedAthletes.map { $0.id }
-                    
-                    self.viewModel.inputs.followOrUnfollowAllButtonTapped.onNext((suggestedAthletesIds, view.areAllSuggestedAthletesFollowed))
+
+					self.viewModel.inputs.followOrUnfollowAllButtonTapped.onNext((self.suggestedAthletes, view.areAllSuggestedAthletesFollowed))
                 })
                 .disposed(by: viewModel.disposeBag)
             
@@ -191,7 +189,7 @@ extension FindFriendsViewController: UITableViewDataSource {
             .subscribe(onNext: { [weak self] in
                 guard let self = self else { return }
                 
-                self.viewModel.inputs.followOrUnfollowButtonTapped.onNext((suggestedAthlete.id, suggestedAthlete.isAthleteFollowed))
+                self.viewModel.inputs.followOrUnfollowButtonTapped.onNext((suggestedAthlete))
             })
             .disposed(by: viewModel.disposeBag)
         cell.configure(with: suggestedAthlete)

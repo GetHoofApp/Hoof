@@ -290,55 +290,75 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
        disposeBag = DisposeBag() // because life cicle of every cell ends on prepare for reuse
     }
     
-    func configure(withActivity activity: Activity) {
-        userLike = activity.likes?.first(where: { $0.creator?.id == userId })
-        if userLike == nil {
-            userLike = Like(id: "", creator: User(id: "7", firstName: "Sameh", lastName: "Mabrouk", photoURL: "images/ibrahimafellay.jpeg"))
-        }
+    func configure(withActivity activity: AthleteActivity) {
+//        userLike = activity.likes?.first(where: { $0.creator?.id == userId })
+//        if userLike == nil {
+//            userLike = Like(id: "", creator: User(id: "7", firstName: "Sameh", lastName: "Mabrouk", photoURL: "images/ibrahimafellay.jpeg"))
+//        }
         
-        if let firstName = activity.creator?.firstName, !firstName.isEmpty, let lastName = activity.creator?.lastName {
-            userNameLabel.text = firstName + " " + lastName
-        } else {
-            userNameLabel.text = "Athlete"
-        }
+//        if let firstName = activity.creator?.firstName, !firstName.isEmpty, let lastName = activity.creator?.lastName {
+//            userNameLabel.text = firstName + " " + lastName
+//        } else {
+//            userNameLabel.text = "Athlete"
+//        }
         
-        dateLabel.text = activity.createdAt.toString(dateFormat: .yyyy_MM_dd_HH_mm_ss)
+//        dateLabel.text = activity.createdAt.toString(dateFormat: .yyyy_MM_dd_HH_mm_ss)
         
 //        if activity.likes!.count > 0 || activity.likes!.count <= 3 {
 //
 //        }
-                                                                                                                                                    
+
+		let hms = activity.pace.secondsToHoursMinutesSeconds()
+		var paceAsString: String = ""
+		if hms.h > 0 {
+			paceAsString = "\(hms.h)"
+		}
+		if hms.h > 0 && hms.m > 0 && hms.s > 0 {
+			paceAsString = "\(hms.h)" + ":" + "\(hms.m)" + ":" + "\(hms.s)"
+		} else if hms.m > 0 && hms.s > 0 {
+			paceAsString = "\(hms.m)" + ":" + "\(hms.s)"
+		} else if hms.h > 0 {
+			paceAsString = "\(hms.h)"
+		} else if hms.m > 0 {
+			paceAsString = "\(hms.m)"
+		} else if hms.s > 0 {
+			paceAsString = "\(hms.s)"
+		}
+
+		paceAsString.append(" /Km")
+
         activityTitleLabel.text = activity.title
-        distanceValueLabel.text = activity.distance
-        paceValueLabel.text = activity.pace
-        durationValueLabel.text = activity.duration
+        distanceValueLabel.text = "\(activity.distance)"
+        paceValueLabel.text = paceAsString
+        durationValueLabel.text = "\(activity.duration)"
         
-        if let comments = activity.comments, !comments.isEmpty {
-            commentsLabel.text = "\(comments.count)" + " comments"
-        } else {
-            commentsLabel.text = ""
-        }
+//        if let comments = activity.comments, !comments.isEmpty {
+//            commentsLabel.text = "\(comments.count)" + " comments"
+//        } else {
+//            commentsLabel.text = ""
+//        }
 
-        kudosLabel.text = "Be the first to give a like!"
-
-        addHeatmap(coordinates: activity.coordinates)
-        
-        if activity.isActivityLiked {
-            likeButton.tintColor = UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)
-            likeButton.setImage(#imageLiteral(resourceName: "thumb-up-selected"), for: .normal)
-        } else {
-            likeButton.tintColor = UIColor(red: 115/255, green: 114/255, blue: 119/255, alpha: 1.0)
-            likeButton.setImage(#imageLiteral(resourceName: "thumb-up"), for: .normal)
-        }
-        
-        self.activity = activity
-        formateLikesLabelText(activity: activity)
+//        kudosLabel.text = "Be the first to give a like!"
+//
+//        addHeatmap(coordinates: activity.coordinates)
+//
+//        if activity.isActivityLiked {
+//            likeButton.tintColor = UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)
+//            likeButton.setImage(#imageLiteral(resourceName: "thumb-up-selected"), for: .normal)
+//        } else {
+//            likeButton.tintColor = UIColor(red: 115/255, green: 114/255, blue: 119/255, alpha: 1.0)
+//            likeButton.setImage(#imageLiteral(resourceName: "thumb-up"), for: .normal)
+//        }
+//
+//        self.activity = activity
+//        formateLikesLabelText(activity: activity)
     }
     
-    var activity: Activity!
+    var activity: AthleteActivity!
     
     // MARK: - UIButton Action
     @objc func likeButtonAction(_ button: UIButton) {
+		/*
         if self.activity.isActivityLiked {
             activity.isActivityLiked = false
             likeButton.tintColor = UIColor(red: 115/255, green: 114/255, blue: 119/255, alpha: 1.0)
@@ -365,7 +385,7 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
             // Add the the likes of current logged in user to the likes array of the activity to make the UI updates fast without hitting the server, any way
             // all activities will be reloaded when refreshing the feed screen.
             if let userLike = userLike {
-                activity.likes?.append(userLike)
+//                activity.likes?.append(userLike)
             }
             
 //            kudosLabel.text = "You gave a like"
@@ -375,6 +395,7 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
 //            image1.isHidden = false
 //            kudosLabelLeftConstraint.constant = 63
         }
+		 */
     }
 }
 
@@ -532,6 +553,7 @@ private extension ActivityCell {
     }
     
     func updateActivityLikabilityStatus() {
+		/*
         switch activity.activityLikabilityStatus {
         case .beTheFirstToGiveALike:
             activity.activityLikabilityStatus = .youGaveALike
@@ -548,6 +570,7 @@ private extension ActivityCell {
         case .unkown:
             activity.activityLikabilityStatus = .unkown
         }
+		 */
     }
 }
 

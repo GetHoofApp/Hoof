@@ -11,6 +11,10 @@ import Core
 import GoogleMaps
 import WatchConnectivity
 
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
@@ -45,7 +49,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
             
             Core.setup(with: AppConfig.self)
-            
+
+			FirebaseApp.configure()
+
             UIUtil.setBasicAppearance()
             
             appRootCoordinator.start()

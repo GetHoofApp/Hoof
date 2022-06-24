@@ -1,4 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-CreateChallengeTests/Pods-CreateChallengeTests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire-iOS/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/CoreGPX-iOS/CoreGPX.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher-iOS/Kingfisher.framework
 ${BUILT_PRODUCTS_DIR}/RxCocoa-iOS/RxCocoa.framework

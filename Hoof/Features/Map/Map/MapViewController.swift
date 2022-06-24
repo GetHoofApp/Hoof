@@ -117,7 +117,7 @@ class MapViewController: ViewController<MapViewModel> {
     }
     
     private func setupNavogationBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.isNavigationBarHidden = true
     }
     
     override func setupObservers() {

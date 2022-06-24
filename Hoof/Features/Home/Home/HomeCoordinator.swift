@@ -17,7 +17,7 @@ class HomeCoordinator: BaseCoordinator<Void> {
     private let discussionModuleBuilder: DiscussionModuleBuildable
     private let findFriendsModuleBuilder: FindFriendsModuleBuildable
     
-    var showDiscussion = PublishSubject<(Activity)>()
+    var showDiscussion = PublishSubject<(AthleteActivity)>()
     var updateComments = PublishSubject<[Comment]?>()
     var showFindFriends = PublishSubject<Void>()
     
@@ -39,12 +39,12 @@ class HomeCoordinator: BaseCoordinator<Void> {
                     preconditionFailure("Cannot get signupModuleCoordinator from module builder")
                 }
                 
-                self.coordinate(to: discussionCoordinator).subscribe(onNext: { [weak self] comments in
-                    print("comments: \(comments)")
-                    guard let self = self else { return }
-                    
-                    self.updateComments.onNext((comments))
-                }).disposed(by: self.disposeBag)
+//                self.coordinate(to: discussionCoordinator).subscribe(onNext: { [weak self] comments in
+//                    print("comments: \(comments)")
+//                    guard let self = self else { return }
+//                    
+//                    self.updateComments.onNext((comments))
+//                }).disposed(by: self.disposeBag)
             }
         }.disposed(by: disposeBag)
         

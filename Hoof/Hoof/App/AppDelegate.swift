@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     /// Default placeholder function
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-		FirebaseApp.configure()
         return true
     }
 

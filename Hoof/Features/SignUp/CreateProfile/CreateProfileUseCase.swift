@@ -10,6 +10,7 @@ import RxSwift
 
 public protocol CreateProfileInteractable {
     func createProfile(firstName: String, lastName: String, email: String, password: String, gender: String) -> Single<String>
+	func createUserProfile(firstName: String, lastName: String, email: String, password: String, gender: String) -> Single<String?>
 }
 
 class CreateProfileUseCase: CreateProfileInteractable {
@@ -23,4 +24,8 @@ class CreateProfileUseCase: CreateProfileInteractable {
     func createProfile(firstName: String, lastName: String, email: String, password: String, gender: String) -> Single<String> {
         service.createProfile(firstName: firstName, lastName: lastName, email: email, password: password, gender: gender)
     }
+
+	func createUserProfile(firstName: String, lastName: String, email: String, password: String, gender: String) -> Single<String?> {
+		service.createUserProfile(firstName: firstName, lastName: lastName, email: email, password: password, gender: gender)
+	}
 }

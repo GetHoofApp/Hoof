@@ -9,6 +9,7 @@
 import UIKit
 import Core
 import FindFriends
+import Alamofire
 
 private final class HomeDependencyProvider: DependencyProvider<EmptyDependency> {
         
@@ -19,6 +20,8 @@ private final class HomeDependencyProvider: DependencyProvider<EmptyDependency> 
     var findFriendsModuleBuilder: FindFriendsModuleBuildable {
         FindFriendsModuleBuilder()
     }
+
+	var session: SessionManager { SessionManager.default }
 }
 
 public protocol HomeModuleBuildable: ModuleBuildable {
@@ -30,7 +33,7 @@ public class HomeModuleBuilder: Builder<EmptyDependency>, HomeModuleBuildable {
     public func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
         let dependencyProvider = HomeDependencyProvider()
 
-        registerService()
+		registerService(session: dependencyProvider.session)
         registerUsecase()
         registerViewModel()
         registerView()
@@ -54,13 +57,14 @@ private extension HomeModuleBuilder {
         }
     }
     
-    func registerService() {
+	func registerService(session: SessionManager) {
         container.register(GraphQLClientProtocol.self) {
             return GraphQLClient()
         }
+
         container.register(HomeServiceFetching.self) { [weak self] in
             guard let client = self?.container.resolve(GraphQLClientProtocol.self) else { return nil }
-            return HomeService(client: client)
+            return HomeService(client: client, session: session)
         }
     }
     

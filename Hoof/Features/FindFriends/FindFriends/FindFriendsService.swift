@@ -9,47 +9,98 @@
 import RxSwift
 import Apollo
 import Core
+import FirebaseCore
+import FirebaseFirestore
 
 public protocol FindFriendsServicePerforming {
     func fetchSuggestedAthletes(userID: Int) -> Single<[User?]>
-    func followUser(userID: String, userToFollowID: String) -> Single<Bool>
+	func followUser(userID: String, userToFollow: User) -> Single<Bool> 
     func unfollowUser(userID: String, userToUnfollowID: String) -> Single<Bool>
     func searchUsers(query: String) -> Single<[User?]>
-    func followAll(userID: String, usersIdsToFollow: [String]) -> Single<Bool>
-    func unfollowAll(userID: String, usersIdsToUnfollow: [String]) -> Single<Bool>
+	func followAll(userID: String, usersToFollow: [User]) -> Single<Bool>
+	func unfollowAll(userID: String, usersIdsToUnfollow: [String]) -> Single<Bool> 
 }
 
 class FindFriendsService: FindFriendsServicePerforming {
     
     private let client: GraphQLClientProtocol
-    
+    private let db = Firestore.firestore()
+
     public init(client: GraphQLClientProtocol) {
         self.client = client
     }
     
     func fetchSuggestedAthletes(userID: Int) -> Single<[User?]> {
-        return client.fetch(query: SuggestedAthletesQuery(userId: userID))
-            .map {
-                $0.athletesToFollow?.compactMap {
-                    return User(data: $0)
-                } ?? []
-            }.asSingle()
+		return Single.create { observer in
+
+			let db = Firestore.firestore()
+			db.collection("users").getDocuments() { (querySnapshot, error) in
+				if let error = error {
+					print("Error getting documents: \(error)")
+					observer(.error(error))
+				} else {
+					for document in querySnapshot!.documents {
+						print("\(document.documentID) => \(document.data())")
+
+					}
+
+					let users = querySnapshot?.documents.compactMap {
+						return User(data: $0.data())
+					}
+
+					observer(.success(users ?? []))
+				}
+			}
+			return Disposables.create()
+		}
     }
     
-    func followUser(userID: String, userToFollowID: String) -> Single<Bool> {
-        return client.perform(mutation: FollowUserMutation(userId: userID, userToFollowId: userToFollowID))
-            .map {
-                $0.followUser?.user?.id != nil
-            }
-            .asSingle()
+    func followUser(userID: String, userToFollow: User) -> Single<Bool> {
+		return Single.create { observer in
+
+			let db = Firestore.firestore()
+			db.collection("following")
+				.document(userID)
+				.collection("userFollowing")
+				.document(userToFollow.id)
+				.setData([
+					"user_id": userToFollow.id,
+					"first_name": userToFollow.firstName,
+					"last_name": userToFollow.lastName,
+				  ]) { error in
+					  if let error = error {
+						  print("Error writing document: \(error)")
+						  observer(.error(error))
+					  } else {
+						  observer(.success(true))
+						  print("Document successfully written!")
+					  }
+				  }
+
+			return Disposables.create()
+		}
     }
     
     func unfollowUser(userID: String, userToUnfollowID: String) -> Single<Bool> {
-        return client.perform(mutation: UnFollowUserMutation(userId: userID, userToUnfollowId: userToUnfollowID))
-            .map {
-                $0.unfollowUser?.user?.id != nil
-            }
-            .asSingle()
+		return Single.create { observer in
+
+			let db = Firestore.firestore()
+			db.collection("following")
+				.document(userID)
+				.collection("userFollowing")
+				.document(userToUnfollowID)
+				.delete() { error in
+					  if let error = error {
+						  print("Error writing document: \(error)")
+						  observer(.error(error))
+					  } else {
+						  observer(.success(true))
+						  print("Document successfully written!")
+					  }
+				  }
+
+			return Disposables.create()
+		}
     }
     
     func searchUsers(query: String) -> Single<[User?]> {
@@ -61,19 +112,53 @@ class FindFriendsService: FindFriendsServicePerforming {
             }.asSingle()
     }
     
-    func followAll(userID: String, usersIdsToFollow: [String]) -> Single<Bool> {
-        return client.perform(mutation: FollowAllMutation(userId: userID, usersIdsToFollow: usersIdsToFollow))
-            .map {
-                $0.followAll?.success ?? false
-            }
-            .asSingle()
+    func followAll(userID: String, usersToFollow: [User]) -> Single<Bool> {
+		return Single.create { observer in
+			usersToFollow.forEach { userToFollow in
+				let db = Firestore.firestore()
+				db.collection("following")
+					.document(userID)
+					.collection("userFollowing")
+					.document(userToFollow.id)
+					.setData([
+						"user_id": userToFollow.id,
+						"first_name": userToFollow.firstName,
+						"last_name": userToFollow.lastName,
+					]) { error in
+						if let error = error {
+							print("Error writing document: \(error)")
+							observer(.error(error))
+						} else {
+							observer(.success(true))
+							print("Document successfully written!")
+						}
+					}
+			}
+
+			return Disposables.create()
+		}
     }
     
     func unfollowAll(userID: String, usersIdsToUnfollow: [String]) -> Single<Bool> {
-        return client.perform(mutation: UnfollowAllMutation(userId: userID, usersIdsToUnfollow: usersIdsToUnfollow))
-            .map {
-                $0.unfollowAll?.success ?? false
-            }
-            .asSingle()
+		return Single.create { observer in
+			usersIdsToUnfollow.forEach { userIDToUnfollow in
+				let db = Firestore.firestore()
+				db.collection("following")
+					.document(userID)
+					.collection("userFollowing")
+					.document(userIDToUnfollow)
+					.delete() { error in
+						if let error = error {
+							print("Error writing document: \(error)")
+							observer(.error(error))
+						} else {
+							observer(.success(true))
+							print("Document successfully written!")
+						}
+					}
+			}
+
+			return Disposables.create()
+		}
     }
 }
