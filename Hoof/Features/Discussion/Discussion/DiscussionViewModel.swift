@@ -15,14 +15,14 @@ protocol DiscussionViewModellable: ViewModellable {
 }
 
 struct DiscussionViewModelInputs {
-    var likeButtonTapped = PublishSubject<(String, Bool)>()
-    var sendButtonTapped = PublishSubject<(String, String)>()
-    var dismiss = PublishSubject<([Comment]?)>()
+	var likeButtonTapped = PublishSubject<(AthleteActivity, String, String, String?, Bool)>()
+    var sendButtonTapped = PublishSubject<(String, String, String)>()
+    var dismiss = PublishSubject<([AthleteActivityComment]?)>()
 }
 
 struct DiscussionViewModelOutputs {
-    var updateView = PublishSubject<Comment>()
-    var dismiss = PublishSubject<([Comment]?)>()
+    var updateView = PublishSubject<AthleteActivityComment>()
+    var dismiss = PublishSubject<([AthleteActivityComment]?)>()
 }
 
 class DiscussionViewModel: DiscussionViewModellable {
@@ -47,15 +47,14 @@ class DiscussionViewModel: DiscussionViewModellable {
 private extension DiscussionViewModel {
     
     func setupObservables() {
-        inputs.sendButtonTapped.subscribe(onNext: { [weak self] (postID, message) in
-            guard let self = self else { return }
-            
-            
-            self.useCase.commentOnPost(userID: "7", postID: postID, message: message).subscribe({ event in
+        inputs.sendButtonTapped.subscribe(onNext: { [weak self] (activityId, activityUserId, comment) in
+            guard let self = self, let userId = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
+
+            self.useCase.commentOnPost(activityUserID: activityUserId, userId: userId, activityId:activityId , comment: comment).subscribe({ event in
                 switch event {
                 case .success:
                     print("User commented on the post successfully")
-                    self.outputs.updateView.onNext(Comment(id: "", message: message))
+                    self.outputs.updateView.onNext(AthleteActivityComment(id: "", user_id: userId, text: comment))
                 case .error:
                     #warning("TODO: Show in app notification for graphql error")
                     break
@@ -63,31 +62,34 @@ private extension DiscussionViewModel {
             }).disposed(by: self.disposeBag)
         }).disposed(by: disposeBag)
         
-        inputs.likeButtonTapped.subscribe(onNext: { [weak self] (postID, shouldLike) in
-            guard let self = self else { return }
+		inputs.likeButtonTapped.subscribe(onNext: { [weak self] (activity, postUserId, postId, likeId, isActivityLiked) in
+			guard let self = self, let userId = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
 
-            if shouldLike {
-                self.useCase.likePost(userID: "7", postID: postID).subscribe({ event in
-                    switch event {
-                    case .success:
-                        print("User liked the post successfully")
-                    case .error:
-                    #warning("TODO: Show in app notification for graphql error")
-                        break
-                    }
-                }).disposed(by: self.disposeBag)
-            } else {
-                self.useCase.unlikePost(userID: "7", postID: postID).subscribe({ event in
-                    switch event {
-                    case .success:
-                        print("User unliked the post successfully")
-                    case .error:
-                    #warning("TODO: Show in app notification for graphql error")
-                        break
-                    }
-                }).disposed(by: self.disposeBag)
-            }
-        }).disposed(by: disposeBag)
+			if isActivityLiked, let likeId = likeId {
+				self.useCase.unlikePost(userID: postUserId, postID: postId, likeId: likeId).subscribe({ event in
+					switch event {
+					case .success:
+						print("User unliked the post successfully")
+
+					case .error:
+					#warning("TODO: Show in app notification for graphql error")
+						break
+					}
+				}).disposed(by: self.disposeBag)
+			} else {
+				self.useCase.likePost(postUserID: postUserId, userId: userId, postID: postId).subscribe({ event in
+					switch event {
+					case let .success(docId):
+						if let likeId = docId {
+						}
+						print("User liked the post successfully")
+					case .error:
+					#warning("TODO: Show in app notification for graphql error")
+						break
+					}
+				}).disposed(by: self.disposeBag)
+			}
+		}).disposed(by: disposeBag)
         
         inputs.dismiss.subscribe(onNext: { [weak self] comments in
             guard let self = self else { return }

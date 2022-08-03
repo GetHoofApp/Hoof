@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		506C54902865EAED00C43445 /* SignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506C548F2865EAED00C43445 /* SignIn.framework */; };
 		508D7B492775EFC90065A54B /* Welcome.docc in Sources */ = {isa = PBXBuildFile; fileRef = 508D7B482775EFC90065A54B /* Welcome.docc */; };
 		508D7B4F2775EFC90065A54B /* Welcome.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508D7B442775EFC90065A54B /* Welcome.framework */; };
 		508D7B542775EFC90065A54B /* WelcomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 508D7B532775EFC90065A54B /* WelcomeTests.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		33D8FA501F470C3E10BFAE77 /* Pods-WelcomeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WelcomeTests.release.xcconfig"; path = "Target Support Files/Pods-WelcomeTests/Pods-WelcomeTests.release.xcconfig"; sourceTree = "<group>"; };
+		506C548F2865EAED00C43445 /* SignIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		508D7B442775EFC90065A54B /* Welcome.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Welcome.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		508D7B472775EFC90065A54B /* Welcome.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Welcome.h; sourceTree = "<group>"; };
 		508D7B482775EFC90065A54B /* Welcome.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Welcome.docc; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				506C54902865EAED00C43445 /* SignIn.framework in Frameworks */,
 				F85529FE32BB4164E28EC5BC /* Pods_Welcome.framework in Frameworks */,
 				508D7B6B2778957C0065A54B /* Core.framework in Frameworks */,
 				50B78D532779DB0C0010BEAC /* SignUp.framework in Frameworks */,
@@ -124,6 +127,7 @@
 		A2899147B85E71CACCAB9FBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				506C548F2865EAED00C43445 /* SignIn.framework */,
 				50B78D522779DB0C0010BEAC /* SignUp.framework */,
 				508D7B6A2778957C0065A54B /* Core.framework */,
 				C27CE5F7DB5A6C88E00E61F5 /* Pods_Welcome.framework */,

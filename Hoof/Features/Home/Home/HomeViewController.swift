@@ -198,6 +198,12 @@ extension HomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+		if indexPath.section == activities.count - 1, !viewModel.isLoadingMore {
+			// load more activities
+			viewModel.inputs.viewState.onNext(.loadMore)
+		}
+
         guard !shouldShowGettingStartedView else {
             if indexPath.section == 0 {
                 let cell = tableView.getCell(forType: GettingStartedHeaderCell.self)
@@ -213,15 +219,17 @@ extension HomeViewController: UITableViewDataSource {
         let cell = tableView.getCell(forType: ActivityCell.self)
         let activity = activities[indexPath.section]
         selectedActivity = activity
-        cell.likeButtonTap
+		cell.likeButtonTapped.take(1)
             .subscribe(onNext: { [weak self] in
-//                self?.viewModel.inputs.likeButtonTapped.onNext((activity.id, activity.isActivityLiked))
+				guard let userId = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
+				let like = cell.activity.likes.first { $0.creator?.user_id == userId }
+				self?.viewModel.inputs.likeButtonTapped.onNext((activity, cell.activity.user_id, cell.activity.id, like?.id, cell.activity.isActivityLiked(userId: userId)))
             })
-            .disposed(by: viewModel.disposeBag)
+            .disposed(by: cell.disposeBag)
 
         cell.commentButtonTap
             .subscribe(onNext: { [weak self] in
-//                self?.viewModel.inputs.commentButtonTapped.onNext(activity)
+                self?.viewModel.inputs.commentButtonTapped.onNext(activity)
             })
             .disposed(by: cell.disposeBag)
 

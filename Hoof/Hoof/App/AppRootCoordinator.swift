@@ -126,7 +126,8 @@ private extension AppRootCoordinator {
         
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)], for: .selected)
         
-        self.tabBarController.setViewControllers([navController, mapNavController, groupsNavController, profileNavController], animated: false)
+//        self.tabBarController.setViewControllers([navController, mapNavController, groupsNavController, profileNavController], animated: false)
+		self.tabBarController.setViewControllers([navController, profileNavController], animated: false)
         self.window.rootViewController = self.tabBarController
     }
 }

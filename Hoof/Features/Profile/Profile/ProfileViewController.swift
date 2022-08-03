@@ -8,6 +8,8 @@
 
 import UIKit
 import Core
+import RxCocoa
+import RxSwift
 
 class ProfileViewController: ViewController<ProfileViewModel> {
     
@@ -24,11 +26,15 @@ class ProfileViewController: ViewController<ProfileViewModel> {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-    
+
+	private var athlete: Athlete!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+		
+		viewModel.inputs.viewState.onNext(.loaded)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -65,20 +71,32 @@ class ProfileViewController: ViewController<ProfileViewModel> {
         navigationController?.navigationBar.prefersLargeTitles = false
     }
     
-    override func setupObservers() {}
-}
+    override func setupObservers() {
+		viewModel.outputs.viewData
+			.observeOn(MainScheduler.asyncInstance)
+			.subscribe(onNext: { [weak self] viewData in
+				guard let self = self else { return }
 
+				self.athlete = viewData.athlete
+				self.tableView.reloadData()
+			}).disposed(by: viewModel.disposeBag)
+	}
+}
 
 // MARK: - UITableViewDataSource
 
 extension ProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		guard athlete != nil else { return 0 }
+
         return 1
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        2
+		guard athlete != nil else { return 0 }
+
+		return 2
     }
 
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -110,10 +128,10 @@ extension ProfileViewController: UITableViewDataSource {
                 .subscribe(onNext: { [weak self] in
                     guard let self = self else { return }
                     
-                    self.viewModel.inputs.editProfileButtonTapped.onNext((profilePhotoURL: "player5", firstName: "Alex", lastName: "Jones", gender: "Male"))
+					self.viewModel.inputs.editProfileButtonTapped.onNext((profilePhotoURL: self.athlete.imageUrl, firstName: self.athlete.first_name, lastName: self.athlete.last_name, gender: self.athlete.gender))
                 })
                 .disposed(by: viewModel.disposeBag)
-            cell.configure(userImageURL: "player5", userName: "Alex Jones", userLocation: "AMSTERDAM, NORTH HOLAND", followers: "150", following: "100")
+			cell.configure(userImageURL: athlete.imageUrl, userName: athlete.first_name + " " + athlete.last_name, userLocation: "AMSTERDAM, NORTH HOLAND", followers: "150", following: "100")
             return cell
         } else {
 //            let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
@@ -141,4 +159,11 @@ extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+}
+
+extension ProfileViewController {
+
+	struct ViewData {
+		let athlete: Athlete
+	}
 }

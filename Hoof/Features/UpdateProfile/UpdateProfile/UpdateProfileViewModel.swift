@@ -16,7 +16,7 @@ protocol UpdateProfileViewModellable: ViewModellable {
 
 struct UpdateProfileViewModelInputs {
     var viewState = PublishSubject<ViewState>()
-    var continueButtonTapped = PublishSubject<(firstName: String, lastName: String, gender: String)>()
+	var continueButtonTapped = PublishSubject<(firstName: String, lastName: String, gender: String, logo: UIImage?)>()
     var cancelButtonTapped = PublishSubject<Void>()
 }
 
@@ -57,20 +57,21 @@ private extension UpdateProfileViewModel {
             }
         }).disposed(by: disposeBag)
         
-        inputs.continueButtonTapped.subscribe(onNext: { [weak self] (firstName: String, lastName: String, gender: String) in
+		inputs.continueButtonTapped.subscribe(onNext: { [weak self] (firstName: String, lastName: String, gender: String, logo: UIImage?) in
             
-//            guard let self = self else { return }
-//            
-//            self.useCase.createProfile(firstName: firstName, lastName: lastName, email: self.email, password: self.password, gender: gender)
-//                .subscribe { event in
-//                    switch event {
-//                    case let .success(result):
+            guard let self = self else { return }
+
+            self.useCase.updateProfile(firstName: firstName, lastName: lastName, gender: gender, logo: logo, userID: "")
+                .subscribe { event in
+                    switch event {
+                    case let .success:
 //                        self.outputs.userCreated.onNext((result))
-//                        print("User created succcefully")
-//                    case let .error(error):
-//                        print("Error occured while creating a user")
-//                    }
-//                }.disposed(by: self.disposeBag)
+                        print("User updated succcefully")
+						self.outputs.dismiss.onNext(())
+                    case let .error(error):
+                        print("Error occured while creating a user: \(error)")
+                    }
+                }.disposed(by: self.disposeBag)
         }).disposed(by: disposeBag)
         
         inputs.cancelButtonTapped.subscribe(onNext: { [weak self] activity in

@@ -232,9 +232,9 @@
 				50980588273978BF0063219B /* HomeCoordinator.swift */,
 				50980589273978BF0063219B /* HomeModuleBuilder.swift */,
 				5098058A273978BF0063219B /* HomeUseCase.swift */,
+				5098058D273978BF0063219B /* HomeService.swift */,
 				5098058B273978BF0063219B /* HomeViewController.swift */,
 				5098058C273978BF0063219B /* HomeViewModel.swift */,
-				5098058D273978BF0063219B /* HomeService.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";

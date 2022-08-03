@@ -8,7 +8,7 @@
 import Alamofire
 
 public enum Router: URLRequestConvertible {
-	case fetchAthelteActivitiesTimeline(userID: String)
+	case fetchAthelteActivitiesTimeline(userID: String, lastVisibleUserId: String, limit: Int)
 
 	static let baseURLString = Config.baseURL
 
@@ -26,11 +26,17 @@ public enum Router: URLRequestConvertible {
 		}
 	}
 
-	var parameters: [String: AnyObject]? {
+	var parameters: [String: Any]? {
 		switch self {
-		case let .fetchAthelteActivitiesTimeline(userID):
-			let params = ["user_id": userID]
-			return params as [String : AnyObject]?
+		case let .fetchAthelteActivitiesTimeline(userID, lastVisibleUserId, limit):
+			var params: [String: Any]
+			if !lastVisibleUserId.isEmpty {
+				params = ["user_id": userID, "last_visible_user_id": lastVisibleUserId, "limit": limit] as [String : Any]
+			} else {
+				params = ["user_id": userID, "limit": limit] as [String : Any]
+			}
+
+			return params as [String : Any]?
 		}
 	}
 

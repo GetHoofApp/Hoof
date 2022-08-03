@@ -11,12 +11,15 @@ import Core
 import CodableGeoJSON
 import FirebaseFunctions
 import Alamofire
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
 public protocol HomeServiceFetching {
     func fetchAthleteActivties(userID: Int) -> Single<[Activity?]>
-	func fetchAthelteActivitiesTimeline(userID: String) -> Single<[AthleteActivity?]>
-    func likePost(userID: String, postID: String) -> Single<Bool>
-    func unlikePost(userID: String, postID: String) -> Single<Bool>
+	func fetchAthelteActivitiesTimeline(userID: String, lastVisibleUserId: String, limit: Int) -> Single<[AthleteActivity?]>
+    func likePost(postUserID: String, userId: String, postID: String) -> Single<String?>
+	func unlikePost(userID: String, postID: String, likeId: String) -> Single<Bool>
 	func helloWorld()
 }
 
@@ -47,7 +50,7 @@ class HomeService: HomeServiceFetching {
 		}
 	}
 
-	func fetchAthelteActivitiesTimeline(userID: String) -> Single<[AthleteActivity?]> {
+	func fetchAthelteActivitiesTimeline(userID: String, lastVisibleUserId: String, limit: Int) -> Single<[AthleteActivity?]> {
 
 //		return Single.create { observer in
 //
@@ -76,7 +79,7 @@ class HomeService: HomeServiceFetching {
 
 		return Single.create { [unowned self] observer in
 
-			self.session.request(Router.fetchAthelteActivitiesTimeline(userID: userID)).responseJSON { response in
+			self.session.request(Router.fetchAthelteActivitiesTimeline(userID: userID, lastVisibleUserId: lastVisibleUserId, limit: limit)).responseJSON { response in
 				switch response.result {
 				case .success:
 					if let data = response.data {
@@ -161,7 +164,6 @@ class HomeService: HomeServiceFetching {
                                     paceAsString.append(contentsOf: ":")
                                 }
                                 paceAsString.append(contentsOf: "\(Int(paceAsSeconds))")
-
                             }
                         }
 
@@ -187,17 +189,100 @@ class HomeService: HomeServiceFetching {
             }.asSingle()
     }
     
-    func likePost(userID: String, postID: String) -> Single<Bool> {
-        return client.perform(mutation: LikePostMutation(userId: userID, postId: postID))
-            .map {
-                $0.likePost?.like?.id != nil
-            }
-            .asSingle()
+	func likePost(postUserID: String, userId: String, postID: String) -> Single<String?> {
+		return Single.create { observer in
+
+			let db = Firestore.firestore()
+			let uid = Auth.auth().currentUser?.uid ?? ""
+			db.collection("users").document(uid).getDocument { documentSnapshot, error in
+				if let error = error {
+					observer(.error(error))
+				} else {
+					let newDocumentID = UUID().uuidString
+					db.collection("activities")
+						.document(postUserID)
+						.collection("userActivities")
+						.document(postID)
+						.collection("likes")
+						.document(newDocumentID).setData([
+							"user_id": userId,
+							"creator": documentSnapshot?.data()
+						], merge: true) { error in
+							if let error = error {
+								print("Error writing document: \(error)")
+								observer(.error(error))
+							} else {
+								observer(.success(newDocumentID))
+								print("Document successfully written!")
+							}
+						}
+				}
+			}
+
+//			let docId = ref.parent?.documentID
+//			ref.parent?.setData([
+//				"user_id": userId
+//			], completion: { error in
+//				if let error = error {
+//					print("Error writing document: \(error)")
+//					observer(.error(error))
+//				} else {
+//					observer(.success(docId))
+//					print("Document successfully written!")
+//				}
+//			})
+
+//			db.collection("activities")
+//				.document(postUserID)
+//				.collection("userActivities")
+//				.document(postID)
+//				.collection("likes")
+//				.addDocument(data: [
+//					"user_id": userId
+//				  ]) { error in
+//					  if let error = error {
+//						  print("Error writing document: \(error)")
+//						  observer(.error(error))
+//					  } else {
+//						  observer(.success(true))
+//						  print("Document successfully written!")
+//					  }
+//				  }
+
+			return Disposables.create()
+		}
+//
+//        return client.perform(mutation: LikePostMutation(userId: userID, postId: postID))
+//            .map {
+//                $0.likePost?.like?.id != nil
+//            }
+//            .asSingle()
     }
     
-    func unlikePost(userID: String, postID: String) -> Single<Bool> {
-        return client.perform(mutation: UnlikePostMutation(userId: userID, postId: postID))
-            .map { $0.unlikePost?.success != nil }
-            .asSingle()
+	func unlikePost(userID: String, postID: String, likeId: String) -> Single<Bool> {
+//        return client.perform(mutation: UnlikePostMutation(userId: userID, postId: postID))
+//            .map { $0.unlikePost?.success != nil }
+//            .asSingle()
+		return Single.create { observer in
+
+			let db = Firestore.firestore()
+			db.collection("activities")
+				.document(userID)
+				.collection("userActivities")
+				.document(postID)
+				.collection("likes")
+				.document(likeId)
+				.delete() { error in
+					  if let error = error {
+						  print("Error writing document: \(error)")
+						  observer(.error(error))
+					  } else {
+						  observer(.success(true))
+						  print("Document successfully written!")
+					  }
+				  }
+
+			return Disposables.create()
+		}
     }
 }

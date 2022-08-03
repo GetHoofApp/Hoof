@@ -30,6 +30,8 @@
 		502C185027BE5CA7005DC76B /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 502C184E27BE5CA7005DC76B /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		50487CA527B92E5200D1A458 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50487CA427B92E5200D1A458 /* HealthKit.framework */; };
 		5056099327B286E600AF16EF /* ActivityControlInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5056099227B286E600AF16EF /* ActivityControlInterfaceController.swift */; };
+		506C54942865EDDB00C43445 /* SignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 506C54932865EDDB00C43445 /* SignIn.framework */; };
+		506C54952865EDDB00C43445 /* SignIn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 506C54932865EDDB00C43445 /* SignIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5080D6A327DA54EF0039C776 /* UpdateProfile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5080D6A227DA54EF0039C776 /* UpdateProfile.framework */; };
 		5080D6A427DA54EF0039C776 /* UpdateProfile.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5080D6A227DA54EF0039C776 /* UpdateProfile.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5081565927B5191D0072A8D7 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5081565827B5191D0072A8D7 /* Notifications.swift */; };
@@ -237,6 +239,7 @@
 				508D7B7027789CB40065A54B /* Welcome.framework in Embed Frameworks */,
 				50E8E46C2742987C00FB73FA /* Map.framework in Embed Frameworks */,
 				5099B3FE27721E8E00252359 /* Turf.xcframework in Embed Frameworks */,
+				506C54952865EDDB00C43445 /* SignIn.framework in Embed Frameworks */,
 				5099B3F827721E8A00252359 /* MapboxCoreMaps.xcframework in Embed Frameworks */,
 				50AC025827C7C36100B8EB5E /* FindFriends.framework in Embed Frameworks */,
 				5080D6A427DA54EF0039C776 /* UpdateProfile.framework in Embed Frameworks */,
@@ -295,6 +298,7 @@
 		50487CA327B92E5200D1A458 /* WatchHoof Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "WatchHoof Extension.entitlements"; sourceTree = "<group>"; };
 		50487CA427B92E5200D1A458 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.3.sdk/System/Library/Frameworks/HealthKit.framework; sourceTree = DEVELOPER_DIR; };
 		5056099227B286E600AF16EF /* ActivityControlInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityControlInterfaceController.swift; sourceTree = "<group>"; };
+		506C54932865EDDB00C43445 /* SignIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SignIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5080D6A227DA54EF0039C776 /* UpdateProfile.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UpdateProfile.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5081565827B5191D0072A8D7 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		5081565D27B52C760072A8D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -430,6 +434,7 @@
 				508D7B6F27789CB40065A54B /* Welcome.framework in Frameworks */,
 				50A3137A27713B9200A1B29F /* Metal.framework in Frameworks */,
 				50B78D572779E5810010BEAC /* SignUp.framework in Frameworks */,
+				506C54942865EDDB00C43445 /* SignIn.framework in Frameworks */,
 				5099B3F927721E8A00252359 /* MapboxMaps.xcframework in Frameworks */,
 				50A3137827713B8900A1B29F /* libz.tbd in Frameworks */,
 				50A3137627713B7C00A1B29F /* libc++.tbd in Frameworks */,
@@ -793,6 +798,7 @@
 		856C5B1E3FD5FEF46995A408 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				506C54932865EDDB00C43445 /* SignIn.framework */,
 				5080D6A227DA54EF0039C776 /* UpdateProfile.framework */,
 				50AC025627C7C36000B8EB5E /* FindFriends.framework */,
 				502C184E27BE5CA7005DC76B /* Core.framework */,

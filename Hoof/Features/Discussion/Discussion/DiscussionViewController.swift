@@ -72,10 +72,10 @@ class DiscussionViewController: ViewController<DiscussionViewModel>, KeyboardObs
         return button
     }()
     
-    var comments: [Comment]?
+    var comments: [AthleteActivityComment]?
     
     @objc func selectButtonAction(_ button: UIButton) {
-//        viewModel.inputs.sendButtonTapped.onNext((viewModel.activity.id, commentView.textView?.text ?? ""))
+		viewModel.inputs.sendButtonTapped.onNext((viewModel.activity.id, viewModel.activity.user_id, commentView.textView?.text ?? ""))
         commentView.textView?.text = nil
     }
     
@@ -90,7 +90,7 @@ class DiscussionViewController: ViewController<DiscussionViewModel>, KeyboardObs
         
         GMSServices.provideAPIKey("AIzaSyAQEtHPhRoMo1EoXu8FS_459wrEtyEBfSo")
         
-//        comments = viewModel.activity.comments
+        comments = viewModel.activity.comments
         
         setupUI()
     }
@@ -188,8 +188,8 @@ class DiscussionViewController: ViewController<DiscussionViewModel>, KeyboardObs
                     self.commentViewBottomConstraint.constant = -250
                     //                    self.tableView.scrollToBottom(animated: true)
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.1, execute: {
-//                        let indexPath = IndexPath(row: 0, section: ((self.viewModel.activity.comments?.count ?? 0) + 2) - 1)
-//                        self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+						let indexPath = IndexPath(row: 0, section: ((self.viewModel.activity.comments.count) + 2) - 1)
+                        self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                     })
                 }
                 self.view.setNeedsLayout()
@@ -203,8 +203,8 @@ class DiscussionViewController: ViewController<DiscussionViewModel>, KeyboardObs
                 self.comments?.append(comment)
                 self.tableView.reloadData()
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+0.1, execute: {
-//                    let indexPath = IndexPath(row: 0, section: ((self.viewModel.activity.comments?.count ?? 0) + 2) - 1)
-//                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                    let indexPath = IndexPath(row: 0, section: ((self.viewModel.activity.comments.count) + 2) - 1)
+                    self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 })
             }).disposed(by: viewModel.disposeBag)
     }
@@ -256,12 +256,14 @@ extension DiscussionViewController: UITableViewDataSource {
             let cell = tableView.getCell(forType: ActivityDetailsCell.self)
             cell.likeButtonTap
                 .subscribe(onNext: { [weak self] in
-                    guard let self = self else { return }
+					guard let self = self,
+							let userId = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
 
-//                    self.viewModel.inputs.likeButtonTapped.onNext((self.viewModel.activity.id, self.viewModel.activity.isActivityLiked))
+					let like = cell.activity.likes.first { $0.creator?.user_id == userId }
+					self.viewModel.inputs.likeButtonTapped.onNext((self.viewModel.activity, cell.activity.user_id, cell.activity.id, like?.id, cell.activity.isActivityLiked(userId: userId)))
                 })
-                .disposed(by: viewModel.disposeBag)
-//            cell.configure(with: viewModel.activity)
+                .disposed(by: cell.disposeBag)
+            cell.configure(with: viewModel.activity)
             return cell
         } else {
             let cell = tableView.getCell(forType: CommentCell.self)

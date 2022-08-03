@@ -18,7 +18,7 @@ class HomeCoordinator: BaseCoordinator<Void> {
     private let findFriendsModuleBuilder: FindFriendsModuleBuildable
     
     var showDiscussion = PublishSubject<(AthleteActivity)>()
-    var updateComments = PublishSubject<[Comment]?>()
+    var updateComments = PublishSubject<[AthleteActivityComment]?>()
     var showFindFriends = PublishSubject<Void>()
     
     init(rootViewController: NavigationControllable?, viewController: UIViewController, discussionModuleBuilder: DiscussionModuleBuildable, findFriendsModuleBuilder: FindFriendsModuleBuildable) {
@@ -35,16 +35,16 @@ class HomeCoordinator: BaseCoordinator<Void> {
             guard let self = self else { return }
             
             if let activity = event.element {
-                guard let rootViewController = self.rootViewController, let discussionCoordinator: BaseCoordinator<[Comment]?> = self.discussionModuleBuilder.buildModule(with: rootViewController, activity: activity)?.coordinator else {
+                guard let rootViewController = self.rootViewController, let discussionCoordinator: BaseCoordinator<[AthleteActivityComment]?> = self.discussionModuleBuilder.buildModule(with: rootViewController, activity: activity)?.coordinator else {
                     preconditionFailure("Cannot get signupModuleCoordinator from module builder")
                 }
                 
-//                self.coordinate(to: discussionCoordinator).subscribe(onNext: { [weak self] comments in
-//                    print("comments: \(comments)")
-//                    guard let self = self else { return }
-//                    
-//                    self.updateComments.onNext((comments))
-//                }).disposed(by: self.disposeBag)
+                self.coordinate(to: discussionCoordinator).subscribe(onNext: { [weak self] comments in
+                    print("comments: \(comments)")
+                    guard let self = self else { return }
+                    
+                    self.updateComments.onNext((comments))
+                }).disposed(by: self.disposeBag)
             }
         }.disposed(by: disposeBag)
         

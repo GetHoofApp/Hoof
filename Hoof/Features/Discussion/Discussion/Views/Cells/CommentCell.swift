@@ -65,8 +65,8 @@ class CommentCell: UITableViewCell, Dequeueable {
         setupUI()
     }
     
-    func configure(with comment: Comment) {
-        commentLabel.text = comment.message.isEmpty ? "Love it!" : comment.message
+    func configure(with comment: AthleteActivityComment) {
+        commentLabel.text = comment.text
     }
 }
 

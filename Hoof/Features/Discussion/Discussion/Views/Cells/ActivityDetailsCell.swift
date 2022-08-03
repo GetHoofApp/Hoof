@@ -10,9 +10,12 @@ import Core
 import GoogleMaps
 import GoogleMapsUtils
 import RxCocoa
+import RxSwift
 
 class ActivityDetailsCell: UITableViewCell, Dequeueable {
-    
+
+	private(set) var disposeBag = DisposeBag()
+
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.textAlignment = .center
@@ -158,7 +161,7 @@ class ActivityDetailsCell: UITableViewCell, Dequeueable {
         return likeButton.rx.tap
     }
 
-    var activity: Activity!
+    var activity: AthleteActivity!
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -170,15 +173,20 @@ class ActivityDetailsCell: UITableViewCell, Dequeueable {
         setupUI()
     }
     
-    func configure(with activity: Activity) {
+    func configure(with activity: AthleteActivity) {
         titleLabel.text = activity.title
-        if let firstName = activity.creator?.firstName, let lastName = activity.creator?.lastName {
+        if let firstName = activity.creator?.first_name, let lastName = activity.creator?.last_name {
             athleteNameLabel.text = firstName + lastName
-        }
+		} else {
+			athleteNameLabel.text = "-"
+		}
         dateLabel.text = "Jan 9, 2022"
         averageSpeedLabel.text = "Avg Speed: \(activity.pace)"
-        likesCountLabel.text = "\(activity.likes?.count ?? 0)"
-        if activity.isActivityLiked {
+		likesCountLabel.text = "\(activity.likes.count ?? 0)"
+
+		guard let userId = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
+
+        if activity.isActivityLiked(userId: userId) {
             likeButton.tintColor = UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)
             likeButton.setImage(#imageLiteral(resourceName: "thumb-up-selected"), for: .normal)
         } else {
@@ -190,12 +198,14 @@ class ActivityDetailsCell: UITableViewCell, Dequeueable {
     
     // MARK: - UIButton Action
     @objc func likeButtonAction(_ button: UIButton) {
-        if self.activity.isActivityLiked {
-            self.activity.isActivityLiked = false
+		guard let userId = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
+
+        if self.activity.isActivityLiked(userId: userId) {
+//            self.activity.isActivityLiked = false
             likeButton.tintColor = UIColor(red: 115/255, green: 114/255, blue: 119/255, alpha: 1.0)
             likeButton.setImage(#imageLiteral(resourceName: "thumb-up"), for: .normal)
         } else {
-            self.activity.isActivityLiked = true
+//            self.activity.isActivityLiked = true
             likeButton.tintColor = UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)
             likeButton.setImage(#imageLiteral(resourceName: "thumb-up-selected"), for: .normal)
         }

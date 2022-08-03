@@ -10,6 +10,7 @@ import UIKit
 import Core
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class AthleteDetailsCell: UITableViewCell, Dequeueable {
     
@@ -120,8 +121,23 @@ class AthleteDetailsCell: UITableViewCell, Dequeueable {
         setupUI()
     }
     
-    func configure(userImageURL: String, userName: String, userLocation: String, followers: String, following: String) {
-        userImageView.image = UIImage(named: userImageURL)
+    func configure(userImageURL: String?, userName: String, userLocation: String, followers: String, following: String) {
+		let placeholder = #imageLiteral(resourceName: "athlete-placeholder")
+		if let userPhotoURL = URL(string: userImageURL ?? "") {
+			let processor = RoundCornerImageProcessor(cornerRadius: 25, targetSize: CGSize(width: 50, height: 50))
+			userImageView.kf.indicatorType = .activity
+			userImageView.kf.setImage(
+				with: userPhotoURL,
+				placeholder: placeholder,
+				options: [
+					.processor(processor),
+					.scaleFactor(UIScreen.main.scale),
+					.transition(.fade(1)),
+					.cacheOriginalImage
+				])
+		} else {
+			userImageView.image = placeholder
+		}
         userNameLabel.text = userName
         userLocationLabel.text = userLocation
         followersNumberLabel.text = followers

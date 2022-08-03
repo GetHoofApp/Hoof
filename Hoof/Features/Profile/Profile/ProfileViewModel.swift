@@ -15,11 +15,13 @@ protocol ProfileViewModellable: ViewModellable {
 }
 
 struct ProfileViewModelInputs {
-    var editProfileButtonTapped = PublishSubject<(profilePhotoURL: String, firstName: String, lastName: String, gender: String)>()
+	var viewState = PublishSubject<ViewState>()
+    var editProfileButtonTapped = PublishSubject<(profilePhotoURL: String?, firstName: String, lastName: String, gender: String?)>()
 }
 
 struct ProfileViewModelOutputs {
-    var showUpdateProfile = PublishSubject<(profilePhotoURL: String, firstName: String, lastName: String, gender: String)>()
+	let viewData = PublishSubject<ProfileViewController.ViewData>()
+    var showUpdateProfile = PublishSubject<(profilePhotoURL: String?, firstName: String, lastName: String, gender: String?)>()
 }
 
 class ProfileViewModel: ProfileViewModellable {
@@ -44,5 +46,26 @@ private extension ProfileViewModel {
         inputs.editProfileButtonTapped.subscribe(onNext: { [weak self] (profilePhotoURL, firstName, lastName, gender) in
             self?.outputs.showUpdateProfile.onNext((profilePhotoURL: profilePhotoURL, firstName: firstName, lastName: lastName, gender: gender))
         }).disposed(by: disposeBag)
+
+		inputs.viewState.subscribe(onNext: { [weak self] state in
+			guard let self = self else { return }
+
+			switch state {
+			case .loaded:
+				self.useCase.fetchAthleteProfile().subscribe({ event in
+					switch event {
+					case let .success(athlete):
+						print("Successfully fetched Athlete profile")
+						if let athlete = athlete {
+							self.outputs.viewData.onNext(ProfileViewController.ViewData(athlete: athlete))
+						}
+					case .error:
+						break
+					}
+				}).disposed(by: self.disposeBag)
+			default:
+				break
+			}
+		}).disposed(by: disposeBag)
     }
 }

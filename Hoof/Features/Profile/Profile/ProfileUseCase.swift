@@ -7,8 +7,11 @@
 //
 
 import RxSwift
+import Core
 
-public protocol ProfileInteractable {}
+public protocol ProfileInteractable {
+	func fetchAthleteProfile() -> Single<Athlete?>
+}
 
 class ProfileUseCase: ProfileInteractable {
 
@@ -17,4 +20,8 @@ class ProfileUseCase: ProfileInteractable {
     init(service: ProfileServicePerforming) {
         self.service = service
     }
+
+	func fetchAthleteProfile() -> Single<Athlete?> {
+		service.fetchAthleteProfile()
+	}
 }

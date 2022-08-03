@@ -16,7 +16,7 @@ class ProfileCoordinator: BaseCoordinator<Void> {
     private let viewController: UIViewController
     private let updateProfileModuleBuilder: UpdateProfileModuleBuildable
     
-    var showUpdateProfile = PublishSubject<(profilePhotoURL: String, firstName: String, lastName: String, gender: String)>()
+    var showUpdateProfile = PublishSubject<(profilePhotoURL: String?, firstName: String, lastName: String, gender: String?)>()
 
     init(rootViewController:  NavigationControllable?, viewController: UIViewController, updateProfileModuleBuilder: UpdateProfileModuleBuildable) {
         self.rootViewController = rootViewController

@@ -233,10 +233,12 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
-    var likeButtonTap: ControlEvent<Void> {
-        return likeButton.rx.tap
-    }
+
+	var likeButtonTapped = PublishSubject<Void>()
+
+//    var likeButtonTap: ControlEvent<Void> {
+//        return likeButton.rx.tap
+//    }
     
     var commentButtonTap: ControlEvent<Void> {
         return commentButton.rx.tap
@@ -330,55 +332,65 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
         activityTitleLabel.text = activity.title
         distanceValueLabel.text = "\(activity.distance)"
         paceValueLabel.text = paceAsString
-        durationValueLabel.text = "\(activity.duration)"
+		if let duration = activity.duration {
+			durationValueLabel.text = "\(duration)"
+		}
         
-//        if let comments = activity.comments, !comments.isEmpty {
-//            commentsLabel.text = "\(comments.count)" + " comments"
-//        } else {
-//            commentsLabel.text = ""
-//        }
+		if !activity.comments.isEmpty {
+			commentsLabel.text = "\(activity.comments.count)" + " comments"
+        } else {
+            commentsLabel.text = ""
+        }
 
-//        kudosLabel.text = "Be the first to give a like!"
-//
-//        addHeatmap(coordinates: activity.coordinates)
-//
-//        if activity.isActivityLiked {
-//            likeButton.tintColor = UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)
-//            likeButton.setImage(#imageLiteral(resourceName: "thumb-up-selected"), for: .normal)
-//        } else {
-//            likeButton.tintColor = UIColor(red: 115/255, green: 114/255, blue: 119/255, alpha: 1.0)
-//            likeButton.setImage(#imageLiteral(resourceName: "thumb-up"), for: .normal)
-//        }
-//
-//        self.activity = activity
-//        formateLikesLabelText(activity: activity)
+        kudosLabel.text = "Be the first to give a like!"
+
+		if let coordinates = activity.coordinates, !coordinates.isEmpty {
+			addHeatmap(coordinates: coordinates)
+		}
+
+		guard let userId = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
+
+        if activity.isActivityLiked(userId: userId) {
+            likeButton.tintColor = UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)
+            likeButton.setImage(#imageLiteral(resourceName: "thumb-up-selected"), for: .normal)
+        } else {
+            likeButton.tintColor = UIColor(red: 115/255, green: 114/255, blue: 119/255, alpha: 1.0)
+            likeButton.setImage(#imageLiteral(resourceName: "thumb-up"), for: .normal)
+        }
+
+        self.activity = activity
+        formateLikesLabelText(activity: activity, userId: userId)
     }
     
-    var activity: AthleteActivity!
+    public var activity: AthleteActivity!
     
     // MARK: - UIButton Action
     @objc func likeButtonAction(_ button: UIButton) {
-		/*
-        if self.activity.isActivityLiked {
-            activity.isActivityLiked = false
+
+		likeButtonTapped.onNext(())
+		
+		guard let userId = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
+
+        if self.activity.isActivityLiked(userId: userId) {
+//            activity.updateActivityLikability(shouldLikeActivity: false, userId: userId)
             likeButton.tintColor = UIColor(red: 115/255, green: 114/255, blue: 119/255, alpha: 1.0)
             likeButton.setImage(#imageLiteral(resourceName: "thumb-up"), for: .normal)
 //            kudosLabel.text = "Be the first to give a like!"
             
             // Update likes array locally by removing the likes of current logged in user to make the UI updates fast without hitting the server, any way
             // all activities will be reloaded when refreshing the feed screen.
-            activity.likes?.removeAll(where: {
-                $0.creator?.id == userId
-            })
-            
-            updateActivityLikabilityStatus()
-            formateLikesLabelText(activity: activity)
+//            activity.likes?.removeAll(where: {
+//                $0.creator?.id == userId
+//            })
+//
+//            updateActivityLikabilityStatus()
+            formateLikesLabelText(activity: activity, userId: userId)
 
 //            image1.isHidden = true
 //            kudosLabelLeftConstraint.constant = 16
             
         } else {
-            activity.isActivityLiked = true
+//			activity.updateActivityLikability(shouldLikeActivity: true, userId: userId)
             likeButton.tintColor = UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)
             likeButton.setImage(#imageLiteral(resourceName: "thumb-up-selected"), for: .normal)
             
@@ -389,13 +401,12 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
             }
             
 //            kudosLabel.text = "You gave a like"
-            updateActivityLikabilityStatus()
-            formateLikesLabelText(activity: activity)
+//            updateActivityLikabilityStatus()
+			formateLikesLabelText(activity: activity, userId: userId)
             
 //            image1.isHidden = false
 //            kudosLabelLeftConstraint.constant = 63
         }
-		 */
     }
 }
 
@@ -403,24 +414,24 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
 
 private extension ActivityCell {
     
-    func formateLikesLabelText(activity: Activity) {
+	func formateLikesLabelText(activity: AthleteActivity, userId: String) {
         switch activity.activityLikabilityStatus {
         case .beTheFirstToGiveALike:
             kudosLabel.text = "Be the first to give a like!"
             kudosLabelLeftConstraint.constant = 16
         case .youAndOneOthersGaveALike:
-            if let likes = activity.likes, activity.isActivityLiked, !likes.isEmpty {
+            if activity.isActivityLiked(userId: userId), !activity.likes.isEmpty {
                 kudosLabel.text = "You and " + "1 others gave likes"
             }
             kudosLabelLeftConstraint.constant = 88
         case .youAndXOthersGaveALike:
-            if let likes = activity.likes, !likes.isEmpty {
-                kudosLabel.text = "You and " + "\(likes.count)" + " others gave likes"
+			if !activity.likes.isEmpty {
+				kudosLabel.text = "You and " + "\(activity.likes.count)" + " others gave likes"
             }
             kudosLabelLeftConstraint.constant = 113
         case .xGaveLikes, .oneGaveLikes, .twoGaveLikes:
-            if let likes = activity.likes, !likes.isEmpty {
-                kudosLabel.text = "\(likes.count)" + " gave likes"
+			if !activity.likes.isEmpty {
+				kudosLabel.text = "\(activity.likes.count)" + " gave likes"
             }
             kudosLabelLeftConstraint.constant = 63
         case .youGaveALike:
@@ -432,7 +443,7 @@ private extension ActivityCell {
         
         let placeholder = #imageLiteral(resourceName: "athlete-placeholder")
         
-        if activity.likes?.count == 3 {
+		if activity.likes.count == 3 {
             image1.isHidden = false
             image2.isHidden = false
             image3.isHidden = false
@@ -440,8 +451,9 @@ private extension ActivityCell {
             likesStackView.addArrangedSubview(image2)
             likesStackView.addArrangedSubview(image3)
 //            kudosLabelLeftConstraint.constant = 113
-            
-            if let like = activity.likes?[1], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + photoURLString) {
+
+
+			if let photoURLString = activity.likes[1].creator?.imageUrl, let photoURL = URL(string: photoURLString) {
                 let processor = RoundCornerImageProcessor(cornerRadius: image2.frame.height / 2, targetSize: CGSize(width: 32, height: 32))
                 image2.kf.indicatorType = .activity
                 image2.kf.setImage(
@@ -455,7 +467,7 @@ private extension ActivityCell {
                     ])
             }
             
-            if let like = activity.likes?[0], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + photoURLString) {
+			if let photoURLString = activity.likes[0].creator?.imageUrl, let photoURL = URL(string: photoURLString) {
                 let processor = RoundCornerImageProcessor(cornerRadius: image1.frame.height / 2, targetSize: CGSize(width: 32, height: 32))
                 image1.kf.indicatorType = .activity
                 image1.kf.setImage(
@@ -469,7 +481,7 @@ private extension ActivityCell {
                     ])
             }
             
-            if let like = activity.likes?[2], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + photoURLString) {
+			if let photoURLString = activity.likes[2].creator?.imageUrl, let photoURL = URL(string: photoURLString) {
                 let processor = RoundCornerImageProcessor(cornerRadius: image3.frame.height / 2, targetSize: CGSize(width: 32, height: 32))
                 image3.kf.indicatorType = .activity
                 image3.kf.setImage(
@@ -484,7 +496,7 @@ private extension ActivityCell {
             }
         }
         
-        if activity.likes?.count == 2 {
+        if activity.likes.count == 2 {
             image1.isHidden = false
             image2.isHidden = false
             image3.isHidden = true
@@ -492,7 +504,7 @@ private extension ActivityCell {
             likesStackView.addArrangedSubview(image2)
 //            kudosLabelLeftConstraint.constant = 88
             
-            if let like = activity.likes?[1], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + photoURLString) {
+			if let photoURLString = activity.likes[1].creator?.imageUrl, let photoURL = URL(string: photoURLString) {
                 let processor = RoundCornerImageProcessor(cornerRadius: 16, targetSize: CGSize(width: 32, height: 32))
                 image2.kf.indicatorType = .activity
                 image2.kf.setImage(
@@ -507,49 +519,52 @@ private extension ActivityCell {
             }
         }
     
-        if activity.likes?.count == 1 {
+        if activity.likes.count == 1 {
             image2.isHidden = true
             image3.isHidden = true
             image1.isHidden = false
             likesStackView.addArrangedSubview(image1)
 //            kudosLabelLeftConstraint.constant = 63
-            if let like = activity.likes?[0], let photoURLString = like.creator?.photoURL, let photoURL = URL(string: Config.baseURL + "/media/" + photoURLString) {
-                let processor = RoundCornerImageProcessor(cornerRadius: 10, targetSize: CGSize(width: 25, height: 25))
-                image1.kf.indicatorType = .activity
-                image1.kf.setImage(
-                    with: photoURL,
-                    placeholder: placeholder,
-                    options: [
-                        .processor(processor),
-                        .scaleFactor(UIScreen.main.scale),
-                        .transition(.fade(1)),
-                        .cacheOriginalImage
-                    ])
-            }
-        }
+
+
+			if let photoURLString = activity.likes[0].creator?.imageUrl, let photoURL = URL(string: photoURLString) {
+				let processor = RoundCornerImageProcessor(cornerRadius: 16, targetSize: CGSize(width: 32, height: 32))
+				image2.kf.indicatorType = .activity
+				image2.kf.setImage(
+					with: photoURL,
+					placeholder: placeholder,
+					options: [
+						.processor(processor),
+						.scaleFactor(UIScreen.main.scale),
+						.transition(.fade(1)),
+						.cacheOriginalImage
+					])
+			}
+		}
+//	}
         
-        if activity.likes?.count == 0 {
+        if activity.likes.count == 0 {
             image1.isHidden = true
             image2.isHidden = true
             image3.isHidden = true
 //            kudosLabelLeftConstraint.constant = 16
         }
                 
-        if let photoURLString = activity.creator?.photoURL, let userPhotoURL = URL(string: Config.baseURL + "/media/" + photoURLString) {
-            let processor = RoundCornerImageProcessor(cornerRadius: 25, targetSize: CGSize(width: 50, height: 50))
-            userImageView.kf.indicatorType = .activity
-            userImageView.kf.setImage(
-                with: userPhotoURL,
-                placeholder: placeholder,
-                options: [
-                    .processor(processor),
-                    .scaleFactor(UIScreen.main.scale),
-                    .transition(.fade(1)),
-                    .cacheOriginalImage
-                ])
-        } else {
-            userImageView.image = #imageLiteral(resourceName: "athlete-placeholder")
-        }
+//        if let photoURLString = activity.creator?.photoURL, let userPhotoURL = URL(string: Config.baseURL + "/media/" + photoURLString) {
+//            let processor = RoundCornerImageProcessor(cornerRadius: 25, targetSize: CGSize(width: 50, height: 50))
+//            userImageView.kf.indicatorType = .activity
+//            userImageView.kf.setImage(
+//                with: userPhotoURL,
+//                placeholder: placeholder,
+//                options: [
+//                    .processor(processor),
+//                    .scaleFactor(UIScreen.main.scale),
+//                    .transition(.fade(1)),
+//                    .cacheOriginalImage
+//                ])
+//        } else {
+//            userImageView.image = #imageLiteral(resourceName: "athlete-placeholder")
+//        }
     }
     
     func updateActivityLikabilityStatus() {
@@ -622,15 +637,15 @@ private extension ActivityCell {
 //        userImageView.clipsToBounds = true
     }
     
-    func addHeatmap(coordinates: MultiLineStringGeometry.Coordinates) {
+    func addHeatmap(coordinates: [HoofGeoPoint]) {
         var list = [GMUWeightedLatLng]()
         
-        for coordinate in coordinates[0] {
+        for coordinate in coordinates {
             let coords = GMUWeightedLatLng(coordinate: CLLocationCoordinate2DMake(coordinate.longitude, coordinate.latitude), intensity: 10.0)
             list.append(coords)
         }
         
-        let camera = GMSCameraPosition.camera(withLatitude: coordinates[0][0].longitude, longitude: coordinates[0][0].latitude, zoom: 17)
+        let camera = GMSCameraPosition.camera(withLatitude: coordinates[0].longitude, longitude: coordinates[0].latitude, zoom: 17)
         mapView.camera = camera
         // Add the latlngs to the heatmap layer.
         heatmapLayer.weightedData = list

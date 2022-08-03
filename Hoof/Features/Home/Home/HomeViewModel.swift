@@ -17,7 +17,7 @@ protocol HomeViewModellable: ViewModellable {
 
 struct HomeViewModelInputs {
     var viewState = PublishSubject<ViewState>()
-    var likeButtonTapped = PublishSubject<(String, Bool)>()
+    var likeButtonTapped = PublishSubject<(AthleteActivity, String, String, String?, Bool)>()
     var commentButtonTapped = PublishSubject<(AthleteActivity)>()
     var findFriendsButtonTapped = PublishSubject<Void>()
 }
@@ -35,25 +35,29 @@ class HomeViewModel: HomeViewModellable {
     var inputs = HomeViewModelInputs()
     let outputs = HomeViewModelOutputs()
     var useCase: HomeInteractable
+	var isLoadingMore = false
     
     private var activities = [AthleteActivity]()
     private var selectedActivity: AthleteActivity!
-    var updateComments = PublishSubject<[Comment]?>()
-//	{
-//        didSet {
-//            updateComments.subscribe(onNext: { [weak self] comments in
-//                guard let self = self else { return }
-//
-//                if let index = self.activities.firstIndex(where: { $0.id == self.selectedActivity.id }) {
-//                    self.activities[index].comments = comments
-//                }
-//
-//                self.outputs.viewData.onNext(HomeViewController.ViewData(activities: self.activities))
-//
-//            }).disposed(by: disposeBag)
-//        }
-//    }
-    
+    var updateComments = PublishSubject<[AthleteActivityComment]?>()
+	{
+        didSet {
+            updateComments.subscribe(onNext: { [weak self] comments in
+                guard let self = self, let comments = comments else { return }
+
+                if let index = self.activities.firstIndex(where: { $0.id == self.selectedActivity.id }) {
+                    self.activities[index].comments = comments
+                }
+
+                self.outputs.viewData.onNext(HomeViewController.ViewData(activities: self.activities))
+
+            }).disposed(by: disposeBag)
+        }
+    }
+
+	private var lastVisibleUserId: String!
+	private var lastVisibleActivityId: String!
+
     init(useCase: HomeInteractable) {
         self.useCase = useCase
         
@@ -72,36 +76,60 @@ private extension HomeViewModel {
             guard let self = self else { return }
             
             switch state {
-            case .loaded, .refresh:
-                self.fetchAthleteActivities()
+			case .loaded, .refresh:
+				fallthrough
+			case .loadMore:
+				self.isLoadingMore = true
             default:
                 break
             }
+
+			self.fetchAthleteActivities()
         }).disposed(by: disposeBag)
         
-        inputs.likeButtonTapped.subscribe(onNext: { [weak self] (postID, shouldLike) in
-            guard let self = self else { return }
-
-            if shouldLike {
-                self.useCase.likePost(userID: "7", postID: postID).subscribe({ event in
-                    switch event {
-                    case .success:
-                        print("User liked the post successfully")
-                    case .error:
-                    #warning("TODO: Show in app notification for graphql error")
-                        break
-                    }
-                }).disposed(by: self.disposeBag)
+        inputs.likeButtonTapped.subscribe(onNext: { [weak self] (activity, postUserId, postId, likeId, isActivityLiked) in
+            guard let self = self, let userId = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
+			
+            if isActivityLiked, let likeId = likeId {
+				self.useCase.unlikePost(userID: postUserId, postID: postId, likeId: likeId).subscribe({ event in
+					switch event {
+					case .success:
+						print("User unliked the post successfully")
+						if let activityIndex = self.activities.firstIndex(where: {$0.id == postId}) {
+							self.activities[activityIndex].likes.removeAll { $0.creator?.user_id == userId }
+							self.outputs.viewData.onNext(HomeViewController.ViewData(activities: self.activities))
+						}
+					case .error:
+					#warning("TODO: Show in app notification for graphql error")
+						break
+					}
+				}).disposed(by: self.disposeBag)
             } else {
-                self.useCase.unlikePost(userID: "7", postID: postID).subscribe({ event in
-                    switch event {
-                    case .success:
-                        print("User unliked the post successfully")
-                    case .error:
-                    #warning("TODO: Show in app notification for graphql error")
-                        break
-                    }
-                }).disposed(by: self.disposeBag)
+				self.useCase.likePost(postUserID: postUserId, userId: userId, postID: postId).subscribe({ event in
+					switch event {
+					case let .success(docId):
+						if let likeId = docId {
+//							let activity = self.activities.first { $0.id == postId }
+//							var like = activity?.likes.first(where: { $0.user_id == userId })
+//							like?.id = likeId
+
+							if let activityIndex = self.activities.firstIndex(where: {$0.id == postId}) {
+								self.activities[activityIndex].likes.append(AthleteActivityLike(id: likeId, creator: Athlete(user_id: userId, first_name: "", last_name: "", imageUrl: "", gender: "")))
+//								self.activities[activityIndex].likes[likeIndex].id = likeId
+								self.outputs.viewData.onNext(HomeViewController.ViewData(activities: self.activities))
+							}
+//							if let index = self.activities.firstIndex(where: {$0.id == postId}) {
+//								self.activities[index].likes.first(where: { $0.user_id == userId }) {
+//
+//								}
+//							}
+						}
+						print("User liked the post successfully")
+					case .error:
+					#warning("TODO: Show in app notification for graphql error")
+						break
+					}
+				}).disposed(by: self.disposeBag)
             }
         }).disposed(by: disposeBag)
         
@@ -125,19 +153,25 @@ private extension HomeViewModel {
     }
     
     func fetchAthleteActivities() {
-
 		guard let userID = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
 
-        self.useCase.fetchAthleteActivties(userID: "WylSuRdHaSXXdYYHXU3kGKGvKEj2").subscribe { event in
-            switch event {
-            case let .success(posts):
-                let activities = posts.compactMap { $0 }
-                self.activities = activities
-                self.outputs.viewData.onNext(HomeViewController.ViewData(activities: activities))
-            case .error:
-                break
-            }            
-        }.disposed(by: self.disposeBag)
+		let lastVisibleUserId = ((self.lastVisibleUserId != nil && self.lastVisibleUserId.isEmpty) ? "" : self.lastVisibleUserId) ?? ""
+		self.useCase.fetchAthleteActivties(userID: userID, lastVisibleUserId: lastVisibleUserId, limit: 3).subscribe { event in
+			switch event {
+			case let .success(posts):
+				let activities = posts.compactMap { $0 }
+				self.activities.append(contentsOf: activities)
+				self.lastVisibleUserId = self.activities.last?.user_id
+
+				if self.lastVisibleActivityId != self.activities.last?.id {
+					self.lastVisibleActivityId = self.activities.last?.id
+					self.outputs.viewData.onNext(HomeViewController.ViewData(activities: self.activities))
+				}
+				self.isLoadingMore = false
+			case .error:
+				break
+			}
+		}.disposed(by: self.disposeBag)
 //		useCase.helloWorld()
     }
 }

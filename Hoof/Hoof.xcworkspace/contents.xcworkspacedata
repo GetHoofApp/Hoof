@@ -12,6 +12,9 @@
       location = "container:"
       name = "Features">
       <FileRef
+         location = "group:Features/SignIn/SignIn.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:Features/UpdateProfile/UpdateProfile.xcodeproj">
       </FileRef>
       <FileRef

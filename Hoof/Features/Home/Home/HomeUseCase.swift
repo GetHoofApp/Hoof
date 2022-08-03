@@ -10,9 +10,9 @@ import RxSwift
 import Core
 
 public protocol HomeInteractable {
-    func fetchAthleteActivties(userID: String) -> Single<[AthleteActivity?]>
-    func likePost(userID: String, postID: String) -> Single<Bool>
-    func unlikePost(userID: String, postID: String) -> Single<Bool>
+	func fetchAthleteActivties(userID: String, lastVisibleUserId: String, limit: Int) -> Single<[AthleteActivity?]>
+	func likePost(postUserID: String, userId: String, postID: String) -> Single<String?>
+	func unlikePost(userID: String, postID: String, likeId: String) -> Single<Bool>
 	func helloWorld()
 }
 
@@ -24,17 +24,17 @@ class HomeUseCase: HomeInteractable {
         self.service = service
     }
     
-    func fetchAthleteActivties(userID: String) -> Single<[AthleteActivity?]> {
+    func fetchAthleteActivties(userID: String, lastVisibleUserId: String, limit: Int) -> Single<[AthleteActivity?]> {
 //        service.fetchAthleteActivties(userID: userID)
-		service.fetchAthelteActivitiesTimeline(userID: userID)
+		service.fetchAthelteActivitiesTimeline(userID: userID, lastVisibleUserId: lastVisibleUserId, limit: limit)
     }
+
+	func likePost(postUserID: String, userId: String, postID: String) -> Single<String?> {
+		service.likePost(postUserID: postUserID, userId: userId, postID: postID)
+	}
     
-    func likePost(userID: String, postID: String) -> Single<Bool> {
-        service.likePost(userID: userID, postID: postID)
-    }
-    
-    func unlikePost(userID: String, postID: String) -> Single<Bool> {
-        service.unlikePost(userID: userID, postID: postID)
+	func unlikePost(userID: String, postID: String, likeId: String) -> Single<Bool> {
+		service.unlikePost(userID: userID, postID: postID, likeId: likeId)
     }
 
 	func helloWorld() {

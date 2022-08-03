@@ -26,6 +26,7 @@ def firebase
 	pod 'FirebaseAuth'
 	pod 'FirebaseFirestore'
 	pod 'FirebaseFunctions'
+	pod 'FirebaseStorage'
 end
 
 # Common modules
@@ -33,6 +34,7 @@ target 'Core' do
   project 'Common/Core/Core'
   shared_pods
   graphql
+	firebase
   pod 'CodableGeoJSON'
 end
 
@@ -73,7 +75,8 @@ end
 target 'Profile' do
   project 'Features/Profile/Profile'
   shared_pods
-  
+	firebase
+
   target 'ProfileTests' do
     inherit! :search_paths
     shared_pods
@@ -139,11 +142,24 @@ target 'UpdateProfile' do
   project 'Features/UpdateProfile/UpdateProfile'
   shared_pods
   graphql
+	firebase
   
   target 'UpdateProfileTests' do
     inherit! :search_paths
     shared_pods
   end
+end
+
+target 'SignIn' do
+	project 'Features/SignIn/SignIn'
+	shared_pods
+	graphql
+	firebase
+
+	target 'SignInTests' do
+		inherit! :search_paths
+		shared_pods
+	end
 end
 
 # Apps

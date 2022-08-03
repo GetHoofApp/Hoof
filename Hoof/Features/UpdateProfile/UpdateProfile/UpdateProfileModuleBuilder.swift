@@ -8,15 +8,22 @@
 
 import UIKit
 import Core
+import FirebaseStorage
+
+private final class UpdateProfileDependencyProvider: DependencyProvider<EmptyDependency> {
+	var firebaseStorage: Storage { Storage.storage() }
+}
 
 public protocol UpdateProfileModuleBuildable: ModuleBuildable {
-    func buildModule<T>(with rootViewController: Presentable, profilePhotoURL: String, firstName: String, lastName: String, gender: String) -> Module<T>?
+    func buildModule<T>(with rootViewController: Presentable, profilePhotoURL: String?, firstName: String, lastName: String, gender: String?) -> Module<T>?
 }
 
 public class UpdateProfileModuleBuilder: Builder<EmptyDependency>, UpdateProfileModuleBuildable {
     
-    public func buildModule<T>(with rootViewController: Presentable, profilePhotoURL: String, firstName: String, lastName: String, gender: String) -> Module<T>? {
-        registerService()
+    public func buildModule<T>(with rootViewController: Presentable, profilePhotoURL: String?, firstName: String, lastName: String, gender: String?) -> Module<T>? {
+		let dependencyProvider = UpdateProfileDependencyProvider()
+
+		registerService(firebaseStorage: dependencyProvider.firebaseStorage)
         registerUsecase()
         registerViewModel(profilePhotoURL: profilePhotoURL, firstName: firstName, lastName: lastName, gender: gender)
         registerView()
@@ -40,17 +47,17 @@ private extension UpdateProfileModuleBuilder {
         }
     }
     
-    func registerService() {
+	func registerService(firebaseStorage: Storage) {
         container.register(GraphQLClientProtocol.self) {
             return GraphQLClient()
         }
         container.register(UpdateProfileServicePerforming.self) { [weak self] in
             guard let client = self?.container.resolve(GraphQLClientProtocol.self) else { return nil }
-            return UpdateProfileService(client: client)
+            return UpdateProfileService(firebaseStorage: firebaseStorage)
         }
     }
     
-    func registerViewModel(profilePhotoURL: String, firstName: String, lastName: String, gender: String) {
+    func registerViewModel(profilePhotoURL: String?, firstName: String, lastName: String, gender: String?) {
         container.register(UpdateProfileViewModel.self) { [weak self] in
             guard let useCase = self?.container.resolve(UpdateProfileInteractable.self) else { return nil }
             

@@ -13,4 +13,5 @@ public enum ViewState {
     case empty
     case dismiss
     case refresh
+	case loadMore
 }

@@ -9,7 +9,7 @@
 import RxSwift
 
 public protocol UpdateProfileInteractable {
-    func updateProfile(firstName: String, lastName: String, gender: String, logo: UIImage, userID: String) -> Single<String>
+    func updateProfile(firstName: String, lastName: String, gender: String, logo: UIImage?, userID: String) -> Single<Bool>
 }
 
 class UpdateProfileUseCase: UpdateProfileInteractable {
@@ -20,7 +20,7 @@ class UpdateProfileUseCase: UpdateProfileInteractable {
         self.service = service
     }
     
-    func updateProfile(firstName: String, lastName: String, gender: String, logo: UIImage, userID: String) -> Single<String> {
-        return Single.just("")
+    func updateProfile(firstName: String, lastName: String, gender: String, logo: UIImage?, userID: String) -> Single<Bool> {
+		service.updateProfile(firstName: firstName, lastName: lastName, gender: gender, logo: logo, userID: userID)
     }
 }

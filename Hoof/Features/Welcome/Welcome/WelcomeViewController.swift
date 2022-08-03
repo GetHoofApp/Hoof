@@ -63,6 +63,7 @@ class WelcomeViewController: ViewController<WelcomeViewModel> {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 12)
         button.backgroundColor = .black
         button.translatesAutoresizingMaskIntoConstraints = false
+		button.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -167,6 +168,10 @@ class WelcomeViewController: ViewController<WelcomeViewModel> {
     override func setupObservers() {}
     
     @objc func signUpButtonTapped() {
-        viewModel.inputs.signupButtonTapped.onNext(())
+        viewModel.inputs.signUpButtonTapped.onNext(())
     }
+
+	@objc func signInButtonTapped() {
+		viewModel.inputs.signInButtonTapped.onNext(())
+	}
 }

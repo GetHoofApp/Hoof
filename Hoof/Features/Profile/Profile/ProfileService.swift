@@ -8,7 +8,30 @@
 
 import RxSwift
 import Core
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseAuth
 
-public protocol ProfileServicePerforming {}
+public protocol ProfileServicePerforming {
+	func fetchAthleteProfile() -> Single<Athlete?>
+}
 
-class ProfileService: ProfileServicePerforming {}
+class ProfileService: ProfileServicePerforming {
+
+	func fetchAthleteProfile() -> Single<Athlete?> {
+		return Single.create { observer in
+			let uid = Auth.auth().currentUser?.uid ?? ""
+			let db = Firestore.firestore()
+			db.collection("users").document(uid).getDocument { documentSnapshot, error in
+				if let error = error {
+					observer(.error(error))
+				} else {
+					let athlete = Athlete(data: documentSnapshot?.data())
+					observer(.success(athlete))
+				}
+			}
+			return Disposables.create()
+		}
+
+	}
+}

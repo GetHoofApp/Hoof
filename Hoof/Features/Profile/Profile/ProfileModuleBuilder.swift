@@ -10,7 +10,7 @@ import UIKit
 import Core
 import UpdateProfile
 
-private final class HomeDependencyProvider: DependencyProvider<EmptyDependency> {
+private final class ProfileDependencyProvider: DependencyProvider<EmptyDependency> {
         
     var updateProfileModuleBuilder: UpdateProfileModuleBuildable {
         UpdateProfileModuleBuilder()
@@ -24,7 +24,7 @@ public protocol ProfileModuleBuildable: ModuleBuildable {
 public class ProfileModuleBuilder: Builder<EmptyDependency>, ProfileModuleBuildable {
     
     public func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
-        let dependencyProvider = HomeDependencyProvider()
+        let dependencyProvider = ProfileDependencyProvider()
 
         registerService()
         registerUsecase()

@@ -134,6 +134,7 @@ class UpdateProfileViewController: ViewController<UpdateProfileViewModel>, UIScr
         button.setTitleColor(UIColor(red: 56/255, green: 55/255, blue: 60/255, alpha: 1.0), for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+		button.isUserInteractionEnabled = true
         return button
     }()
     
@@ -187,7 +188,7 @@ class UpdateProfileViewController: ViewController<UpdateProfileViewModel>, UIScr
             scrollView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8.0),
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8.0),
             
-            contentView.heightAnchor.constraint(equalToConstant: 600),
+            contentView.heightAnchor.constraint(equalToConstant: 800),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
@@ -288,7 +289,7 @@ class UpdateProfileViewController: ViewController<UpdateProfileViewModel>, UIScr
                 guard let self = self else { return }
                 
                 let placeholder = #imageLiteral(resourceName: "athlete-placeholder")
-                if let userPhotoURL = URL(string: Config.baseURL + "/media/" + viewData.imageURL) {
+				if let userPhotoURL = URL(string: viewData.imageURL ?? "") {
                     let processor = RoundCornerImageProcessor(cornerRadius: 25, targetSize: CGSize(width: 50, height: 50))
                     self.profileImageView.kf.indicatorType = .activity
                     self.profileImageView.kf.setImage(
@@ -301,7 +302,7 @@ class UpdateProfileViewController: ViewController<UpdateProfileViewModel>, UIScr
                             .cacheOriginalImage
                         ])
                 } else {
-                    self.profileImageView.image = #imageLiteral(resourceName: "athlete-placeholder")
+                    self.profileImageView.image = placeholder
                 }
                 
                 self.firstNameTextField.text = viewData.firstName
@@ -311,7 +312,8 @@ class UpdateProfileViewController: ViewController<UpdateProfileViewModel>, UIScr
     }
     
     @objc func signUpButtonTapped() {
-        viewModel.inputs.continueButtonTapped.onNext((firstName: firstNameTextField.text ?? "", lastName: lastNameTextField.text ?? "", gender: selectedGender ?? ""))
+//		viewModel.inputs.continueButtonTapped.onNext((firstName: firstNameTextField.text ?? "", lastName: lastNameTextField.text ?? "", gender: selectedGender ?? "", logo: profileImageView.image))
+		viewModel.inputs.continueButtonTapped.onNext((firstName: firstNameTextField.text ?? "", lastName: lastNameTextField.text ?? "", gender: selectedGender ?? "", logo: profileImageView.image))
     }
     
     @objc func cancelButtonTapped() {
@@ -425,10 +427,10 @@ extension UpdateProfileViewController: UITextFieldDelegate {
 extension UpdateProfileViewController {
     
     struct ViewData {
-        let imageURL: String
+        let imageURL: String?
         let firstName: String
         let lastName: String
-        let gender: String
+        let gender: String?
     }
 }
 

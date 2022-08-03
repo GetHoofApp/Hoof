@@ -15,11 +15,13 @@ protocol WelcomeViewModellable: ViewModellable {
 }
 
 struct WelcomeViewModelInputs {
-    var signupButtonTapped = PublishSubject<Void>()
+    var signUpButtonTapped = PublishSubject<Void>()
+	var signInButtonTapped = PublishSubject<Void>()
 }
 
 struct WelcomeViewModelOutputs {
     var showSignUp = PublishSubject<Void>()
+	var showSignIn = PublishSubject<Void>()
 }
 
 class WelcomeViewModel: WelcomeViewModellable {
@@ -41,8 +43,12 @@ class WelcomeViewModel: WelcomeViewModellable {
 private extension WelcomeViewModel {
 
     func setupObservables() {
-        inputs.signupButtonTapped.subscribe(onNext: { [weak self] in
+        inputs.signUpButtonTapped.subscribe(onNext: { [weak self] in
             self?.outputs.showSignUp.onNext(())
         }).disposed(by: disposeBag)
+
+		inputs.signInButtonTapped.subscribe(onNext: { [weak self] in
+			self?.outputs.showSignIn.onNext(())
+		}).disposed(by: disposeBag)
     }
 }

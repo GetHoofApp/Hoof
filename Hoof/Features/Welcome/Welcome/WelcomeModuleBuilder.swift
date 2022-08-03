@@ -9,12 +9,17 @@
 import UIKit
 import Core
 import SignUp
+import SignIn
 
 private final class WelcomeDependencyProvider: DependencyProvider<EmptyDependency> {
         
     var signUpModuleBuilder: SignUpModuleBuildable {
         SignUpModuleBuilder()
     }
+
+	var signInModuleBuilder: SignInModuleBuildable {
+		SignInModuleBuilder()
+	}
 }
 
 public protocol WelcomeModuleBuildable: ModuleBuildable {
@@ -30,7 +35,7 @@ public class WelcomeModuleBuilder: Builder<EmptyDependency>, WelcomeModuleBuilda
         registerUsecase()
         registerViewModel()
         registerView()
-        registerCoordinator(rootViewController: rootViewController, signUpModuleBuilder: dependencyProvider.signUpModuleBuilder)
+		registerCoordinator(rootViewController: rootViewController, signUpModuleBuilder: dependencyProvider.signUpModuleBuilder, signInModuleBuilder: dependencyProvider.signInModuleBuilder)
         
         guard let coordinator = container.resolve(WelcomeCoordinator.self) else {
             return nil
@@ -74,14 +79,15 @@ private extension WelcomeModuleBuilder {
         }
     }
     
-    func registerCoordinator(rootViewController: NavigationControllable? = nil, signUpModuleBuilder: SignUpModuleBuildable) {
+    func registerCoordinator(rootViewController: NavigationControllable? = nil, signUpModuleBuilder: SignUpModuleBuildable, signInModuleBuilder: SignInModuleBuildable) {
         container.register(WelcomeCoordinator.self) { [weak self] in
             guard let viewController = self?.container.resolve(WelcomeViewController.self) else {
                 return nil
             }
             
-            let coordinator = WelcomeCoordinator(rootViewController: rootViewController, viewController: viewController, signUpModuleBuilder: signUpModuleBuilder)
+			let coordinator = WelcomeCoordinator(rootViewController: rootViewController, viewController: viewController, signUpModuleBuilder: signUpModuleBuilder, signInModuleBuilder: signInModuleBuilder)
             coordinator.showSignUp = viewController.viewModel.outputs.showSignUp
+			coordinator.showSignIn = viewController.viewModel.outputs.showSignIn
             return coordinator
         }
     }
