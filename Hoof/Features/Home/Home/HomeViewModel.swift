@@ -27,6 +27,7 @@ struct HomeViewModelOutputs {
     let showRefreshControl = PublishSubject<Void>()
     let showDiscussion = PublishSubject<(AthleteActivity)>()
     let showFindFriends = PublishSubject<(Void)>()
+	let shouldShowNavigationBar = PublishSubject<(Bool)>()
 }
 
 class HomeViewModel: HomeViewModellable {
@@ -36,17 +37,23 @@ class HomeViewModel: HomeViewModellable {
     let outputs = HomeViewModelOutputs()
     var useCase: HomeInteractable
 	var isLoadingMore = false
+	var isShowingActivities = false {
+		didSet {
+//			self.outputs.shouldShowNavigationBar.onNext(isShowingActivities)
+		}
+	}
     
     private var activities = [AthleteActivity]()
     private var selectedActivity: AthleteActivity!
-    var updateComments = PublishSubject<[AthleteActivityComment]?>()
+    var updateComments = PublishSubject<AthleteActivity?>()
 	{
         didSet {
-            updateComments.subscribe(onNext: { [weak self] comments in
-                guard let self = self, let comments = comments else { return }
+            updateComments.subscribe(onNext: { [weak self] activity in
+				guard let self = self, let comments = activity?.comments, let likes = activity?.likes else { return }
 
                 if let index = self.activities.firstIndex(where: { $0.id == self.selectedActivity.id }) {
                     self.activities[index].comments = comments
+					self.activities[index].likes = likes
                 }
 
                 self.outputs.viewData.onNext(HomeViewController.ViewData(activities: self.activities))
@@ -58,9 +65,10 @@ class HomeViewModel: HomeViewModellable {
 	private var lastVisibleUserId: String!
 	private var lastVisibleActivityId: String!
 
-    init(useCase: HomeInteractable) {
+	init(useCase: HomeInteractable, isShowingActivities: Bool) {
         self.useCase = useCase
-        
+		self.isShowingActivities = isShowingActivities
+
         setupObservables()
     }
 }
@@ -84,7 +92,11 @@ private extension HomeViewModel {
                 break
             }
 
-			self.fetchAthleteActivities()
+			if self.isShowingActivities {
+				self.fetchAthleteActivities()
+			} else {
+				self.fetchAthleteActivitiesTimeline()
+			}
         }).disposed(by: disposeBag)
         
         inputs.likeButtonTapped.subscribe(onNext: { [weak self] (activity, postUserId, postId, likeId, isActivityLiked) in
@@ -114,7 +126,7 @@ private extension HomeViewModel {
 //							like?.id = likeId
 
 							if let activityIndex = self.activities.firstIndex(where: {$0.id == postId}) {
-								self.activities[activityIndex].likes.append(AthleteActivityLike(id: likeId, creator: Athlete(user_id: userId, first_name: "", last_name: "", imageUrl: "", gender: "")))
+								self.activities[activityIndex].likes.append(AthleteActivityLike(id: likeId, creator: Athlete(user_id: userId, first_name: "", last_name: "", imageUrl: "", gender: "", followersCount: 0, followingCount: 0)))
 //								self.activities[activityIndex].likes[likeIndex].id = likeId
 								self.outputs.viewData.onNext(HomeViewController.ViewData(activities: self.activities))
 							}
@@ -149,10 +161,14 @@ private extension HomeViewModel {
     @objc func reloadActivities() {
         print("[DEBUG] HomeViewModel: reload activities")
         outputs.showRefreshControl.onNext(())
-        fetchAthleteActivities()
+		if isShowingActivities {
+			fetchAthleteActivities()
+		} else {
+			fetchAthleteActivitiesTimeline()
+		}
     }
     
-    func fetchAthleteActivities() {
+    func fetchAthleteActivitiesTimeline() {
 		guard let userID = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
 
 		let lastVisibleUserId = ((self.lastVisibleUserId != nil && self.lastVisibleUserId.isEmpty) ? "" : self.lastVisibleUserId) ?? ""
@@ -162,7 +178,7 @@ private extension HomeViewModel {
 				let activities = posts.compactMap { $0 }
 				self.activities.append(contentsOf: activities)
 				self.lastVisibleUserId = self.activities.last?.user_id
-
+				self.outputs.shouldShowNavigationBar.onNext(self.isShowingActivities)
 				if self.lastVisibleActivityId != self.activities.last?.id {
 					self.lastVisibleActivityId = self.activities.last?.id
 					self.outputs.viewData.onNext(HomeViewController.ViewData(activities: self.activities))
@@ -172,6 +188,27 @@ private extension HomeViewModel {
 				break
 			}
 		}.disposed(by: self.disposeBag)
-//		useCase.helloWorld()
     }
+
+	func fetchAthleteActivities() {
+		let lastVisibleActivityId = ((self.lastVisibleActivityId != nil && self.lastVisibleActivityId.isEmpty) ? "" : self.lastVisibleActivityId) ?? ""
+
+		self.useCase.fetchMyActivities(lastVisibleActivityId: lastVisibleActivityId, limit: 3).subscribe { event in
+			switch event {
+			case let .success(posts):
+				let activities = posts.compactMap { $0 }
+				self.activities.append(contentsOf: activities)
+				self.lastVisibleUserId = self.activities.last?.user_id
+				self.outputs.shouldShowNavigationBar.onNext(self.isShowingActivities)
+				if self.lastVisibleActivityId != self.activities.last?.id {
+					self.lastVisibleActivityId = self.activities.last?.id
+					self.outputs.viewData.onNext(HomeViewController.ViewData(activities: self.activities))
+				}
+				self.isLoadingMore = false
+			case .error:
+				break
+			}
+		}.disposed(by: self.disposeBag)
+	}
 }
+

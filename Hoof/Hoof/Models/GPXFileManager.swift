@@ -47,7 +47,7 @@ class GPXFileManager: NSObject {
                      fileSize: (try? url.resourceValues(forKeys: [.fileSizeKey]))?.fileSize ?? 0)
                     }
                     .sorted(by: { $0.1 > $1.1 }) // sort descending modification dates
-                print(sortedURLs)
+				print("[DEBUG]: sortedURLs \(sortedURLs)")
                 //Now we filter GPX Files
                 for (url, modificationDate, fileSize) in sortedURLs {
                     if kFileExt.contains(url.pathExtension) {

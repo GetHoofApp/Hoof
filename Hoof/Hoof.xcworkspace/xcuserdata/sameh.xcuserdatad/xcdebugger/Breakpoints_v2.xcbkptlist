@@ -7,15 +7,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D00F7E17-EE40-493A-AED2-7787FBB6EBC3"
+            uuid = "2B67BC08-DC7C-45A1-9428-6FED05B56ECF"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Discussion/Discussion/DiscussionViewModel.swift"
+            filePath = "Features/Home/Home/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "150"
+            endingLineNumber = "150"
             landmarkName = "setupObservables()"
             landmarkType = "7">
          </BreakpointContent>
@@ -23,8 +23,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "255750CE-EE34-4EBB-81CF-8A2D4685DD64"
-            shouldBeEnabled = "No"
+            uuid = "3DAAF1EA-6C6B-4914-A100-941F67630541"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Features/Discussion/Discussion/DiscussionCoordinator.swift"
@@ -39,340 +39,100 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5B769881-C09F-4E06-A80D-55A05BD57664"
-            shouldBeEnabled = "No"
+            uuid = "E0A8AD39-C22D-4EA5-A583-E45B308D336C"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Home/Home/HomeCoordinator.swift"
+            filePath = "Features/Home/Home/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "start()"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "reloadActivities()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "86F820D3-CDC7-4886-B6A5-34E6BED61753"
-            shouldBeEnabled = "No"
+            uuid = "16C1FFCC-5931-4B0F-9B1A-5B0E15BF2340"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/Home/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "reloadActivities()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "75B71694-517E-440C-AF09-72C8B05183C0"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Features/Home/Home/HomeService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
-            landmarkName = "likePost(postUserID:userId:postID:)"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "fetchMyActivities(lastVisibleActivityId:limit:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AF78545B-0E7D-4436-A321-8447A1929C4A"
+            uuid = "E2E1872E-34CB-42E4-9BF7-5A4CA702215A"
             shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/SignUp/SignUp/SignUpCoordinator.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "start()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "98BDE472-F1A2-4C86-B27B-0AAC00F01937"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/SignUp/CreateProfile/CreateProfileViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4543C789-E641-4407-81DC-B13EF42D8498"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "updateProfile(firstName:lastName:gender:logo:userID:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5E81CF13-4BF9-40CD-9E4D-73BC72641951"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
-            landmarkName = "updateProfile(firstName:lastName:gender:logo:userID:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "684D9147-84F4-4BC1-9B56-7801EF34CCD3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "316"
-            endingLineNumber = "316"
-            landmarkName = "signUpButtonTapped()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F421619C-6951-4F62-90EF-78B42F2FA8F9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
-            landmarkName = "viewWillAppear(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1260F658-FF17-4C13-8603-57283EACF2C4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "updateProfile(firstName:lastName:gender:logo:userID:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1260F658-FF17-4C13-8603-57283EACF2C4 - f5feed3c8927ece6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;FirebaseStorage.StorageMetadata&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 ((RxSwift.SingleEvent&lt;Swift.Bool&gt;) -&gt; ()) -&gt; RxSwift.Disposable in UpdateProfile.UpdateProfileService.updateProfile(firstName: Swift.String, lastName: Swift.String, gender: Swift.String, logo: Swift.Optional&lt;__C.UIImage&gt;, userID: Swift.String) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Bool&gt;"
-                  moduleName = "UpdateProfile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/UpdateProfile/UpdateProfile/UpdateProfileService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "652">
-               </Location>
-               <Location
-                  uuid = "1260F658-FF17-4C13-8603-57283EACF2C4 - f5feed3c8927ece6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;FirebaseStorage.StorageMetadata&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 ((RxSwift.SingleEvent&lt;Swift.Bool&gt;) -&gt; ()) -&gt; RxSwift.Disposable in UpdateProfile.UpdateProfileService.updateProfile(firstName: Swift.String, lastName: Swift.String, gender: Swift.String, logo: Swift.Optional&lt;__C.UIImage&gt;, userID: Swift.String) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Bool&gt;"
-                  moduleName = "UpdateProfile"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/UpdateProfile/UpdateProfile/UpdateProfileService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "996">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BD418CDE-27F9-4D72-8362-951547676C4F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "updateProfile(firstName:lastName:gender:logo:userID:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "59109394-27EE-4242-AD8F-1E874DF0562F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "updateProfile(firstName:lastName:gender:logo:userID:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "C38660C2-17C3-4A07-A932-241D598E5C47"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Discussion/Discussion/DiscussionViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "setupObservables()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "C38660C2-17C3-4A07-A932-241D598E5C47 - 73a9c29a80d3a5aa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Core.AthleteActivity, Swift.String, Swift.String, Swift.Optional&lt;Swift.String&gt;, Swift.Bool) -&gt; () in Home.DiscussionViewModel.setupObservables() -&gt; ()"
-                  moduleName = "Home"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Discussion/Discussion/DiscussionViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "196">
-               </Location>
-               <Location
-                  uuid = "C38660C2-17C3-4A07-A932-241D598E5C47 - 73a9c29a80d3a5aa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Core.AthleteActivity, Swift.String, Swift.String, Swift.Optional&lt;Swift.String&gt;, Swift.Bool) -&gt; () in Home.DiscussionViewModel.setupObservables() -&gt; ()"
-                  moduleName = "Home"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Discussion/Discussion/DiscussionViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "66"
-                  endingLineNumber = "66"
-                  offsetFromSymbolStart = "248">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "11B455F5-EB80-410B-B096-80B418C7436A"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Profile/Profile/ProfileViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "setupObservables()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FA177785-88B9-4D90-9B28-34E1825B4003"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Profile/Profile/ProfileService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "fetchAthleteProfile()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B805FB8B-5F49-4740-99C3-1591D7AF2AB5"
-            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Features/Home/Home/HomeService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "fetchAthelteActivitiesTimeline(userID:lastVisibleUserId:limit:)"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "fetchMyActivities(lastVisibleActivityId:limit:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "DDFAC13B-5101-4132-8A85-F255D5D041A4"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Hoof/App/SceneDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "scene(_:willConnectTo:options:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4B29383E-3F2C-478B-B908-581559B8354D"
-            shouldBeEnabled = "No"
+            uuid = "C068567E-17D1-4C8E-AF25-406143CD5731"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Features/Home/Home/HomeService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "fetchAthleteActivties(userID:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B6B16A4-9B65-4615-B1B4-FA69AECF1DE6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/Home/Home/HomeService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "fetchAthelteActivitiesTimeline(userID:lastVisibleUserId:limit:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "4B29383E-3F2C-478B-B908-581559B8354D - ceb16b486fa05561"
+                  uuid = "9B6B16A4-9B65-4615-B1B4-FA69AECF1DE6 - ceb16b486fa0567e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -382,12 +142,12 @@
                   urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
                   offsetFromSymbolStart = "192">
                </Location>
                <Location
-                  uuid = "4B29383E-3F2C-478B-B908-581559B8354D - ceb16b486fa05561"
+                  uuid = "9B6B16A4-9B65-4615-B1B4-FA69AECF1DE6 - ceb16b486fa0567e"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -397,8 +157,8 @@
                   urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeService.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "84"
-                  endingLineNumber = "84"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
                   offsetFromSymbolStart = "264">
                </Location>
             </Locations>
@@ -407,207 +167,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "70E6BF5E-4EC2-46C0-A43A-3418650B5621"
+            uuid = "B9AD8302-DF1E-4714-9370-4B0EACC7399B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Features/Home/Home/HomeService.swift"
+            filePath = "Features/Home/Home/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
-            landmarkName = "fetchAthelteActivitiesTimeline(userID:lastVisibleUserId:limit:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "70E6BF5E-4EC2-46C0-A43A-3418650B5621 - ceb16b486fa06b92"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #1 ((RxSwift.SingleEvent&lt;Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;) -&gt; ()) -&gt; RxSwift.Disposable in Home.HomeService.fetchAthelteActivitiesTimeline(userID: Swift.String, lastVisibleUserId: Swift.String, limit: Swift.Int) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;"
-                  moduleName = "Home"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "596">
-               </Location>
-               <Location
-                  uuid = "70E6BF5E-4EC2-46C0-A43A-3418650B5621 - ceb16b486fa06b92"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Alamofire.DataResponse&lt;Any&gt;) -&gt; () in closure #1 ((RxSwift.SingleEvent&lt;Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;) -&gt; ()) -&gt; RxSwift.Disposable in Home.HomeService.fetchAthelteActivitiesTimeline(userID: Swift.String, lastVisibleUserId: Swift.String, limit: Swift.Int) -&gt; RxSwift.PrimitiveSequence&lt;RxSwift.SingleTrait, Swift.Array&lt;Swift.Optional&lt;Core.AthleteActivity&gt;&gt;&gt;"
-                  moduleName = "Home"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sameh/Developer/Hoof/Hoof/Features/Home/Home/HomeService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
-                  offsetFromSymbolStart = "672">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BEAA6882-F172-4C50-A9EA-11F18C465DF1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Common/Core/Core/Common/Models/AthleteActivity.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "init(user_id:first_name:last_name:imageUrl:gender:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3791BCD3-4164-4964-81A8-4E6F503968BE"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Common/Core/Core/Common/Models/AthleteActivity.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "init?(data:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8935214A-8495-4D50-BB8E-167E7CD5D917"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Home/Home/HomeService.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
-            landmarkName = "fetchAthelteActivitiesTimeline(userID:lastVisibleUserId:limit:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "7A342AB6-1EEA-4CF7-9A8F-1E21A88BA183"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Home/Home/HomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "162"
-            endingLineNumber = "162"
-            landmarkName = "fetchAthleteActivities()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A677E4B2-02F6-4CAC-ADA0-5A8EE92C1A23"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Home/Home/HomeViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "171"
-            endingLineNumber = "171"
-            landmarkName = "fetchAthleteActivities()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "127C072D-5920-437F-B079-F761A1F47648"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Profile/Profile/ProfileViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
-            landmarkName = "setupObservables()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CBBA6E56-349F-4BBB-A4CA-120C77DAF691"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "init(useCase:viewData:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "826F07EE-54F2-4DEF-A9B9-80A5CDDB9366"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/Profile/Profile/ProfileViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "setupObservables()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FCBD1D47-15D6-4EB9-A661-8B10340B3E50"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "setupObservables()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1BBD7F54-526F-44C1-AAF1-946C4312E143"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Features/UpdateProfile/UpdateProfile/UpdateProfileViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "setupObservers()"
             landmarkType = "7">
          </BreakpointContent>
@@ -615,17 +183,81 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "13ADA655-60F7-4C8B-BC6D-4843AF26582C"
+            uuid = "DA82A1C1-8F7E-4ED8-9EFF-DDFE454BDDFF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Common/Core/Core/Common/Models/AthleteActivity.swift"
+            filePath = "Features/Home/Home/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "activityLikabilityStatus"
-            landmarkType = "24">
+            startingLineNumber = "178"
+            endingLineNumber = "178"
+            landmarkName = "fetchAthleteActivitiesTimeline()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BC492188-9B9F-40F0-A6CD-61FDD05EFE8B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/Home/Home/HomeViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
+            landmarkName = "fetchAthleteActivitiesTimeline()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "26C7B97E-549A-4A62-993F-68C99C0F2CF4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Features/Home/Home/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "122"
+            endingLineNumber = "122"
+            landmarkName = "setupObservers()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A800AC7-CE57-41DD-A927-6EE3B672A655"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WatchHoof Extension/TrackingInterfaceController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194"
+            landmarkName = "activityEnded(notification:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "86C5FBC2-A6FD-4710-B884-34C7258F5A87"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WatchHoof Extension/TrackingInterfaceController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "firstHalfEnded(notification:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

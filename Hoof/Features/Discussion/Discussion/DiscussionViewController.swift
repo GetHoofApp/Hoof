@@ -156,7 +156,7 @@ class DiscussionViewController: ViewController<DiscussionViewModel>, KeyboardObs
         super.willMove(toParent: parent)
         
         if parent == nil {
-            viewModel.inputs.dismiss.onNext(comments)
+			viewModel.inputs.dismiss.onNext(viewModel.activity)
         }
     }
     
@@ -207,6 +207,14 @@ class DiscussionViewController: ViewController<DiscussionViewModel>, KeyboardObs
                     self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
                 })
             }).disposed(by: viewModel.disposeBag)
+
+		viewModel.outputs.refreshView
+			.observeOn(MainScheduler.asyncInstance)
+			.subscribe(onNext: { [weak self] comment in
+				guard let self = self else { return }
+
+				self.tableView.reloadData()
+			}).disposed(by: viewModel.disposeBag)
     }
 }
 
@@ -227,22 +235,22 @@ extension DiscussionViewController: UITableViewDataSource {
         return section == 0 || section == 1 || section == 2 ? 0 : 0.2
     }
     
-    // Make the background color show through
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-                                                                    String(describing: TableViewSectionHeader.self)) as? TableViewSectionHeader else { return nil }
-        
-        return view
-    }
+//    // Make the background color show through
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
+//                                                                    String(describing: TableViewSectionHeader.self)) as? TableViewSectionHeader else { return nil }
+//
+//        return view
+//    }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-//        return section == ((viewModel.activity.comments?.count ?? 0) + 2) - 1 ? 0.2 : 0
-		return 0
+		return section == ((viewModel.activity.comments.count) + 2) - 2 ? 0.2 : 0
+//		return 0
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
-                                                                    String(describing: TableViewSectionFooter.self)) as? TableViewSectionFooter else { return nil }
+                                                                    String(describing: TableViewSectionHeader.self)) as? TableViewSectionHeader else { return nil }
         
         return view
     }

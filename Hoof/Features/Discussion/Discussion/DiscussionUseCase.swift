@@ -11,7 +11,7 @@ import Core
 
 public protocol DiscussionInteractable {
     func commentOnPost(userID: String, postID: String, message: String) -> Single<Bool>
-	func commentOnPost(activityUserID: String, userId: String, activityId: String, comment: String) -> Single<Bool>
+	func commentOnPost(activityUserID: String, userId: String, activityId: String, comment: String) -> Single<Athlete?>
 	func likePost(postUserID: String, userId: String, postID: String) -> Single<String?>
 	func unlikePost(userID: String, postID: String, likeId: String) -> Single<Bool>
 }
@@ -24,7 +24,7 @@ class DiscussionUseCase: DiscussionInteractable {
         self.service = service
     }
 
-	func commentOnPost(activityUserID: String, userId: String, activityId: String, comment: String) -> Single<Bool> {
+	func commentOnPost(activityUserID: String, userId: String, activityId: String, comment: String) -> Single<Athlete?> {
 		service.commentOnPost(activityUserID: activityUserID, userId: userId, activityId: activityId, comment: comment)
 	}
 	

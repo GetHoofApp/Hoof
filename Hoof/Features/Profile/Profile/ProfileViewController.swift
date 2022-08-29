@@ -131,7 +131,7 @@ extension ProfileViewController: UITableViewDataSource {
 					self.viewModel.inputs.editProfileButtonTapped.onNext((profilePhotoURL: self.athlete.imageUrl, firstName: self.athlete.first_name, lastName: self.athlete.last_name, gender: self.athlete.gender))
                 })
                 .disposed(by: viewModel.disposeBag)
-			cell.configure(userImageURL: athlete.imageUrl, userName: athlete.first_name + " " + athlete.last_name, userLocation: "AMSTERDAM, NORTH HOLAND", followers: "150", following: "100")
+			cell.configure(userImageURL: athlete.imageUrl, userName: athlete.first_name + " " + athlete.last_name, userLocation: "AMSTERDAM, NORTH HOLAND", followers: "\(athlete.followersCount ?? 0)", following: "\(athlete.followingCount ?? 0)")
             return cell
         } else {
 //            let cell = UITableViewCell(style: .default, reuseIdentifier: "Cell")
@@ -157,6 +157,9 @@ extension ProfileViewController: UITableViewDataSource {
 extension ProfileViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		if indexPath.section == 1 {
+			viewModel.inputs.activitiesCellTapped.onNext(())
+		}
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }

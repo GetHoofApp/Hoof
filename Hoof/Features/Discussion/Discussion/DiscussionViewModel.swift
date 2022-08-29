@@ -17,12 +17,13 @@ protocol DiscussionViewModellable: ViewModellable {
 struct DiscussionViewModelInputs {
 	var likeButtonTapped = PublishSubject<(AthleteActivity, String, String, String?, Bool)>()
     var sendButtonTapped = PublishSubject<(String, String, String)>()
-    var dismiss = PublishSubject<([AthleteActivityComment]?)>()
+    var dismiss = PublishSubject<(AthleteActivity?)>()
 }
 
 struct DiscussionViewModelOutputs {
     var updateView = PublishSubject<AthleteActivityComment>()
-    var dismiss = PublishSubject<([AthleteActivityComment]?)>()
+    var dismiss = PublishSubject<(AthleteActivity?)>()
+	var refreshView = PublishSubject<()>()
 }
 
 class DiscussionViewModel: DiscussionViewModellable {
@@ -32,7 +33,7 @@ class DiscussionViewModel: DiscussionViewModellable {
     let outputs = DiscussionViewModelOutputs()
     var useCase: DiscussionInteractable
     
-    let activity: AthleteActivity
+    var activity: AthleteActivity
     
     init(useCase: DiscussionInteractable, activity: AthleteActivity) {
         self.useCase = useCase
@@ -52,9 +53,13 @@ private extension DiscussionViewModel {
 
             self.useCase.commentOnPost(activityUserID: activityUserId, userId: userId, activityId:activityId , comment: comment).subscribe({ event in
                 switch event {
-                case .success:
+                case let .success(athlete):
                     print("User commented on the post successfully")
-                    self.outputs.updateView.onNext(AthleteActivityComment(id: "", user_id: userId, text: comment))
+					guard let firstName = athlete?.first_name, let lastName = athlete?.last_name, let imageURL = athlete?.imageUrl, let gender = athlete?.gender else {
+						return
+					}
+
+					self.outputs.updateView.onNext(AthleteActivityComment(id: "", user_id: userId, text: comment, creator: Athlete(user_id: userId, first_name: firstName, last_name: lastName, imageUrl: imageURL, gender: gender, followersCount: 0, followingCount: 0)))
                 case .error:
                     #warning("TODO: Show in app notification for graphql error")
                     break
@@ -69,8 +74,11 @@ private extension DiscussionViewModel {
 				self.useCase.unlikePost(userID: postUserId, postID: postId, likeId: likeId).subscribe({ event in
 					switch event {
 					case .success:
+						self.activity.likes.removeAll {
+							$0.creator?.user_id == userId
+						}
+						self.outputs.refreshView.onNext(())
 						print("User unliked the post successfully")
-
 					case .error:
 					#warning("TODO: Show in app notification for graphql error")
 						break
@@ -81,6 +89,8 @@ private extension DiscussionViewModel {
 					switch event {
 					case let .success(docId):
 						if let likeId = docId {
+							self.activity.likes.append(AthleteActivityLike(id: likeId, creator: Athlete(user_id: userId, first_name: "", last_name: "", imageUrl: "", gender: "", followersCount: 0, followingCount: 0)))
+							self.outputs.refreshView.onNext(())
 						}
 						print("User liked the post successfully")
 					case .error:

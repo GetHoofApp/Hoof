@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Core
 import GoogleMaps
 import GoogleMapsUtils
 import CoreGPX
@@ -14,6 +13,7 @@ import CodableGeoJSON
 import RxCocoa
 import RxSwift
 import Kingfisher
+import Core
 
 class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
     
@@ -284,6 +284,7 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+
         setupUI()
     }
     
@@ -298,13 +299,14 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
 //            userLike = Like(id: "", creator: User(id: "7", firstName: "Sameh", lastName: "Mabrouk", photoURL: "images/ibrahimafellay.jpeg"))
 //        }
         
-//        if let firstName = activity.creator?.firstName, !firstName.isEmpty, let lastName = activity.creator?.lastName {
-//            userNameLabel.text = firstName + " " + lastName
-//        } else {
-//            userNameLabel.text = "Athlete"
-//        }
+		if let firstName = activity.creator?.first_name, !firstName.isEmpty, let lastName = activity.creator?.last_name {
+            userNameLabel.text = firstName + " " + lastName
+        } else {
+            userNameLabel.text = "Athlete"
+        }
         
 //        dateLabel.text = activity.createdAt.toString(dateFormat: .yyyy_MM_dd_HH_mm_ss)
+		dateLabel.text = activity.date?.toDate(dateFormate: .yyyy_MM_dd_HH_mm_ssZ)?.toString(dateFormat: .yyyy_MM_dd_HH_mm_ssZ)
         
 //        if activity.likes!.count > 0 || activity.likes!.count <= 3 {
 //
@@ -387,7 +389,7 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
             formateLikesLabelText(activity: activity, userId: userId)
 
 //            image1.isHidden = true
-//            kudosLabelLeftConstraint.constant = 16
+            kudosLabelLeftConstraint.constant = 16
             
         } else {
 //			activity.updateActivityLikability(shouldLikeActivity: true, userId: userId)
@@ -405,7 +407,7 @@ class ActivityCell: UITableViewCell, Dequeueable, GMSMapViewDelegate {
 			formateLikesLabelText(activity: activity, userId: userId)
             
 //            image1.isHidden = false
-//            kudosLabelLeftConstraint.constant = 63
+            kudosLabelLeftConstraint.constant = 63
         }
     }
 }
@@ -450,8 +452,7 @@ private extension ActivityCell {
             likesStackView.addArrangedSubview(image1)
             likesStackView.addArrangedSubview(image2)
             likesStackView.addArrangedSubview(image3)
-//            kudosLabelLeftConstraint.constant = 113
-
+            kudosLabelLeftConstraint.constant = 113
 
 			if let photoURLString = activity.likes[1].creator?.imageUrl, let photoURL = URL(string: photoURLString) {
                 let processor = RoundCornerImageProcessor(cornerRadius: image2.frame.height / 2, targetSize: CGSize(width: 32, height: 32))
@@ -502,7 +503,7 @@ private extension ActivityCell {
             image3.isHidden = true
             likesStackView.addArrangedSubview(image1)
             likesStackView.addArrangedSubview(image2)
-//            kudosLabelLeftConstraint.constant = 88
+            kudosLabelLeftConstraint.constant = 88
             
 			if let photoURLString = activity.likes[1].creator?.imageUrl, let photoURL = URL(string: photoURLString) {
                 let processor = RoundCornerImageProcessor(cornerRadius: 16, targetSize: CGSize(width: 32, height: 32))
@@ -524,8 +525,7 @@ private extension ActivityCell {
             image3.isHidden = true
             image1.isHidden = false
             likesStackView.addArrangedSubview(image1)
-//            kudosLabelLeftConstraint.constant = 63
-
+            kudosLabelLeftConstraint.constant = 63
 
 			if let photoURLString = activity.likes[0].creator?.imageUrl, let photoURL = URL(string: photoURLString) {
 				let processor = RoundCornerImageProcessor(cornerRadius: 16, targetSize: CGSize(width: 32, height: 32))
@@ -547,7 +547,7 @@ private extension ActivityCell {
             image1.isHidden = true
             image2.isHidden = true
             image3.isHidden = true
-//            kudosLabelLeftConstraint.constant = 16
+            kudosLabelLeftConstraint.constant = 16
         }
                 
 //        if let photoURLString = activity.creator?.photoURL, let userPhotoURL = URL(string: Config.baseURL + "/media/" + photoURLString) {

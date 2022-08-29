@@ -76,7 +76,7 @@ private extension AppRootCoordinator {
     func showMainTabBar() {
         // Show tab bar
         let navController = UINavigationController(navigationBarClass: nil, toolbarClass: nil)
-        guard let homeCoordinator: BaseCoordinator<Void> = self.homeModuleBuilder.buildModule(with: navController)?.coordinator else {
+        guard let homeCoordinator: BaseCoordinator<Void> = self.homeModuleBuilder.buildModule(with: navController, isShowingActivities: false)?.coordinator else {
             preconditionFailure("[AppCoordinator] Cannot get homeModuleBuilder from module builder")
         }
                 

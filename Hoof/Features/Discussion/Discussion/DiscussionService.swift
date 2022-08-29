@@ -11,10 +11,11 @@ import Apollo
 import Core
 import FirebaseCore
 import FirebaseFirestore
+import FirebaseAuth
 
 public protocol DiscussionServicePerforming {
     func commentOnPost(userID: String, postID: String, message: String) -> Single<Bool>
-	func commentOnPost(activityUserID: String, userId: String, activityId: String, comment: String) -> Single<Bool>
+	func commentOnPost(activityUserID: String, userId: String, activityId: String, comment: String) -> Single<Athlete?>
 	func likePost(postUserID: String, userId: String, postID: String) -> Single<String?>
 	func unlikePost(userID: String, postID: String, likeId: String) -> Single<Bool>
 }
@@ -27,28 +28,37 @@ class DiscussionService: DiscussionServicePerforming {
         self.client = client
     }
     
-	func commentOnPost(activityUserID: String, userId: String, activityId: String, comment: String) -> Single<Bool> {
+	func commentOnPost(activityUserID: String, userId: String, activityId: String, comment: String) -> Single<Athlete?> {
 		return Single.create { observer in
 
 			let db = Firestore.firestore()
-			db.collection("activities")
-				.document(activityUserID)
-				.collection("userActivities")
-				.document(activityId)
-				.collection("comments")
-				.document()
-				.setData([
-					"text": comment,
-					"user_id": userId
-				  ]) { error in
-					  if let error = error {
-						  print("Error writing document: \(error)")
-						  observer(.error(error))
-					  } else {
-						  observer(.success(true))
-						  print("Document successfully written!")
-					  }
-				  }
+			let uid = Auth.auth().currentUser?.uid ?? ""
+			db.collection("users").document(uid).getDocument { documentSnapshot, error in
+				if let error = error {
+					observer(.error(error))
+				} else {
+					let newDocumentID = UUID().uuidString
+					db.collection("activities")
+						.document(activityUserID)
+						.collection("userActivities")
+						.document(activityId)
+						.collection("comments")
+						.document(newDocumentID).setData([
+							"user_id": userId,
+							"text": comment,
+							"creator": documentSnapshot?.data() as Any
+						], merge: true) { error in
+							if let error = error {
+								print("Error writing document: \(error)")
+								observer(.error(error))
+							} else {
+								let athlete = Athlete(data: documentSnapshot?.data())
+								observer(.success(athlete))
+								print("Document successfully written!")
+							}
+						}
+				}
+			}
 
 			return Disposables.create()
 		}

@@ -10,12 +10,12 @@ import UIKit
 import Core
 
 public protocol DiscussionModuleBuildable: ModuleBuildable {
-    func buildModule(with rootViewController: NavigationControllable, activity: AthleteActivity) -> Module<[AthleteActivityComment]?>?
+    func buildModule(with rootViewController: NavigationControllable, activity: AthleteActivity) -> Module<AthleteActivity?>?
 }
 
 public class DiscussionModuleBuilder: Builder<EmptyDependency>, DiscussionModuleBuildable {
     
-    public func buildModule(with rootViewController: NavigationControllable, activity: AthleteActivity) -> Module<[AthleteActivityComment]?>? {
+    public func buildModule(with rootViewController: NavigationControllable, activity: AthleteActivity) -> Module<AthleteActivity?>? {
         registerService()
         registerUsecase()
         registerViewModel(activity: activity)

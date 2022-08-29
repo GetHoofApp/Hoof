@@ -11,9 +11,9 @@ import Core
 
 public protocol HomeInteractable {
 	func fetchAthleteActivties(userID: String, lastVisibleUserId: String, limit: Int) -> Single<[AthleteActivity?]>
+	func fetchMyActivities(lastVisibleActivityId: String, limit: Int) -> Single<[AthleteActivity?]>
 	func likePost(postUserID: String, userId: String, postID: String) -> Single<String?>
 	func unlikePost(userID: String, postID: String, likeId: String) -> Single<Bool>
-	func helloWorld()
 }
 
 class HomeUseCase: HomeInteractable {
@@ -25,9 +25,12 @@ class HomeUseCase: HomeInteractable {
     }
     
     func fetchAthleteActivties(userID: String, lastVisibleUserId: String, limit: Int) -> Single<[AthleteActivity?]> {
-//        service.fetchAthleteActivties(userID: userID)
 		service.fetchAthelteActivitiesTimeline(userID: userID, lastVisibleUserId: lastVisibleUserId, limit: limit)
     }
+
+	func fetchMyActivities(lastVisibleActivityId: String, limit: Int) -> Single<[AthleteActivity?]> {
+		service.fetchMyActivities(lastVisibleActivityId: lastVisibleActivityId, limit: limit)
+	}
 
 	func likePost(postUserID: String, userId: String, postID: String) -> Single<String?> {
 		service.likePost(postUserID: postUserID, userId: userId, postID: postID)
@@ -36,8 +39,4 @@ class HomeUseCase: HomeInteractable {
 	func unlikePost(userID: String, postID: String, likeId: String) -> Single<Bool> {
 		service.unlikePost(userID: userID, postID: postID, likeId: likeId)
     }
-
-	func helloWorld() {
-		service.helloWorld()
-	}
 }

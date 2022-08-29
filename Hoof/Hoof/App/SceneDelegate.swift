@@ -22,8 +22,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     private let disposeBag = DisposeBag()
     private var appRootCoordinator: BaseCoordinator<Void>?
     private let userNotificationCenter = UNUserNotificationCenter.current()
-    private let appService = AppService(client: GraphQLClient())
-    
+    private let appService = AppService()
+	private var lastRecievedFileName: String!
+
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let windowScene = scene as? UIWindowScene {
             
@@ -95,7 +96,6 @@ open class UIUtil {
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)], for: .selected)
         UITabBar.appearance().tintColor = UIColor(red: 207/255, green: 231/255, blue: 203/255, alpha: 1.0)
     }
-    
 }
 
 // MARK: WCSessionDelegate
@@ -145,22 +145,30 @@ extension SceneDelegate: WCSessionDelegate {
     func session(_ session: WCSession, didReceive file: WCSessionFile) {
         // swiftlint:disable force_cast
         let fileName = file.metadata!["fileName"] as! String?
-        
+		guard lastRecievedFileName != fileName else { return }
+
+		self.lastRecievedFileName = fileName
+
         DispatchQueue.global().sync {
             GPXFileManager.moveFrom(file.fileURL, fileName: fileName)
             print("ViewController:: Received file from WatchConnectivity Session")
         }
         
-        // posts notification that file is received from apple watch
-        NotificationCenter.default.post(name: .didReceiveFileFromAppleWatch, object: nil, userInfo: ["fileName": fileName ?? ""])
+//        // posts notification that file is received from apple watch
+//        NotificationCenter.default.post(name: .didReceiveFileFromAppleWatch, object: nil, userInfo: ["fileName": fileName ?? ""])
         
         // Upload activity to server
         if let latestActivity = GPXFileManager.fileList.first {
             print("[DEBUG]: Got the latest activity from storage")
-            appService.uploadActivity(title: "Sunday training", description: "Fun game with friends", userID: "7", gpxFile: latestActivity).subscribe({ event in
+
+			let timeOfDay = Date().getTimeOfDay()
+            appService.uploadActivity(title: timeOfDay, description: "Fun game!", gpxFile: latestActivity).subscribe({ event in
                 switch event {
                 case .success:
                     print("[DEBUG]: Latest Activity uploaded to server successfully")
+					
+					// posts notification that file is received from apple watch
+					NotificationCenter.default.post(name: .didReceiveFileFromAppleWatch, object: nil, userInfo: ["fileName": fileName ?? ""])
                 case .error:
                     print("[DEBUG]: Failure while uploading the latest activity to server")
                     break

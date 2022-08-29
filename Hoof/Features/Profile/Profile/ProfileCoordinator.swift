@@ -9,19 +9,23 @@
 import RxSwift
 import Core
 import UpdateProfile
+import Home
 
 class ProfileCoordinator: BaseCoordinator<Void> {
     
     private weak var rootViewController: NavigationControllable?
     private let viewController: UIViewController
     private let updateProfileModuleBuilder: UpdateProfileModuleBuildable
+	private let homeModuleBuilder: HomeModuleBuildable
     
     var showUpdateProfile = PublishSubject<(profilePhotoURL: String?, firstName: String, lastName: String, gender: String?)>()
+	var showActivities = PublishSubject<()>()
 
-    init(rootViewController:  NavigationControllable?, viewController: UIViewController, updateProfileModuleBuilder: UpdateProfileModuleBuildable) {
+    init(rootViewController:  NavigationControllable?, viewController: UIViewController, updateProfileModuleBuilder: UpdateProfileModuleBuildable, homeModuleBuilder: HomeModuleBuildable) {
         self.rootViewController = rootViewController
         self.viewController = viewController
         self.updateProfileModuleBuilder = updateProfileModuleBuilder
+		self.homeModuleBuilder = homeModuleBuilder
     }
     
     override public func start() -> Observable<Void> {
@@ -39,6 +43,17 @@ class ProfileCoordinator: BaseCoordinator<Void> {
                 }).disposed(by: self.disposeBag)
             }
         }.disposed(by: disposeBag)
+
+		showActivities.subscribe { [weak self] _ in
+			guard let self = self else { return }
+
+			guard let rootViewController = self.rootViewController, let updateProfileCoordinator: BaseCoordinator<Void> = self.homeModuleBuilder.buildModule(with: rootViewController, isShowingActivities: true)?.coordinator else {
+				preconditionFailure("[AppCoordinator] Cannot get homeModuleBuilder from module builder")
+			}
+
+			self.coordinate(to: updateProfileCoordinator).subscribe(onNext: {
+			}).disposed(by: self.disposeBag)
+		}.disposed(by: disposeBag)
         
         return .never()
     }

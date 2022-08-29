@@ -13,14 +13,18 @@ public struct Athlete: Codable {
 	public let first_name: String
 	public let last_name: String
 	public let imageUrl: String?
-	public let gender: String
+	public let gender: String?
+	public var followersCount: Int?
+	public var followingCount: Int?
 
-	public init(user_id: String, first_name: String, last_name: String, imageUrl: String?, gender: String) {
+	public init(user_id: String, first_name: String, last_name: String, imageUrl: String?, gender: String?, followersCount: Int, followingCount: Int) {
 		self.user_id = user_id
 		self.first_name = first_name
 		self.last_name = last_name
 		self.imageUrl = imageUrl
 		self.gender = gender
+		self.followersCount = followersCount
+		self.followingCount = followingCount
 	}
 
 	public init?(data: [String: Any]?) {
@@ -34,6 +38,8 @@ public struct Athlete: Codable {
 		self.last_name = lastName
 		self.gender = gender
 		self.imageUrl = imageUrl
+//		self.followingCount = 0
+//		self.followingCount = 0
 	}
 }
 
@@ -50,6 +56,7 @@ public struct AthleteActivity: Codable {
 	public var comments: [AthleteActivityComment]
 	public var likes: [AthleteActivityLike]
 	public var coordinates: [HoofGeoPoint]?
+	public var date: String?
 
 	public var activityLikabilityStatus: ActivityLikabilityStatus {
 		guard let userId = UserDefaults.standard.value(forKey: "UserID") as? String else { return .unkown }
@@ -74,10 +81,10 @@ public struct AthleteActivity: Codable {
 	}
 
 	private enum CodingKeys: String, CodingKey {
-		case id, duration, title, description, pace, distance, user_id, comments, likes, coordinates, creator
+		case id, duration, title, description, pace, distance, user_id, comments, likes, coordinates, creator, date
 	}
 
-	public init(id: String, duration: Double?, title: String, description: String, pace: Int, distance: Float, user_id: String, comments: [AthleteActivityComment], likes: [AthleteActivityLike], coordinates: [HoofGeoPoint]?, creator: Athlete?) {
+	public init(id: String, duration: Double?, title: String, description: String, pace: Int, distance: Float, user_id: String, comments: [AthleteActivityComment], likes: [AthleteActivityLike], coordinates: [HoofGeoPoint]?, creator: Athlete?, date: String?) {
 		self.id = id
 		self.duration = duration
 		self.title = title
@@ -89,6 +96,7 @@ public struct AthleteActivity: Codable {
 		self.likes = likes
 		self.coordinates = coordinates
 		self.creator = creator
+		self.date = date
 	}
 }
 
@@ -108,11 +116,14 @@ public struct AthleteActivityComment: Codable {
 	public let id: String
 	public let user_id: String
 	public let text: String
+	public let creator: Athlete?
 
-	public init(id: String, user_id: String, text: String) {
+
+	public init(id: String, user_id: String, text: String, creator: Athlete?) {
 		self.id = id
 		self.user_id = user_id
 		self.text = text
+		self.creator = creator
 	}
 }
 

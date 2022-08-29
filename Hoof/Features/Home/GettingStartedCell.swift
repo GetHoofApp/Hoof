@@ -20,7 +20,7 @@ class GettingStartedCell: UITableViewCell, Dequeueable {
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.text = "Connect your GPS watch"
+        label.text = "Connect your Apple watch"
         label.textColor = UIColor(red: 56/255, green: 55/255, blue: 60/255, alpha: 1.0)
         label.font = UIFont.systemFont(ofSize: 14)
         label.translatesAutoresizingMaskIntoConstraints = false

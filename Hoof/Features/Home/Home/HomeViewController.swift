@@ -43,10 +43,11 @@ class HomeViewController: ViewController<HomeViewModel> {
     private var activities = [AthleteActivity]()
     let commentButtonTapped = PublishSubject<Void>()
     var selectedActivity: AthleteActivity!
-    let gettingStartedItems = [GettingStartedItem(image: #imageLiteral(resourceName: "smart-watch"), title: "Connect your GPS watch"), GettingStartedItem(image: #imageLiteral(resourceName: "football-shoe"), title: "Record your game using the watch app app"), GettingStartedItem(image: #imageLiteral(resourceName: "people"), title: "Follow friends and see their matches")]
+    let gettingStartedItems = [GettingStartedItem(image: #imageLiteral(resourceName: "smart-watch"), title: "Connect your GPS watch"), GettingStartedItem(image: #imageLiteral(resourceName: "football-shoe"), title: "Record your game using the Apple watch app"), GettingStartedItem(image: #imageLiteral(resourceName: "people"), title: "Follow friends and see their matches")]
     
     private var shouldShowGettingStartedView = false
-    
+    private var isShowingActivities = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,7 +75,7 @@ class HomeViewController: ViewController<HomeViewModel> {
     override func setupUI() {
         setupSubviews()
         setupConstraints()
-        setupNavogationBar()
+//        setupNavogationBar(shouldShowLeftBarButtonItem: true)
         
         view.backgroundColor = UIColor(red: 240/255, green: 240/255, blue: 243/255, alpha: 1.0)
         tableView.refreshControl = refreshControl
@@ -93,7 +94,7 @@ class HomeViewController: ViewController<HomeViewModel> {
         view.addSubview(tableView)
     }
     
-    private func setupNavogationBar() {
+	private func setupNavogationBar(shouldShowLeftBarButtonItem: Bool) {
         title = "Home"
         
         if #available(iOS 15.0, *) {
@@ -103,13 +104,15 @@ class HomeViewController: ViewController<HomeViewModel> {
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationController?.navigationBar.barTintColor = .white
         navigationController?.navigationBar.tintColor = .black
-        
-        let findFriendsButton = UIButton(type: .custom)
-        findFriendsButton.setImage(UIImage(named: "people"), for: .normal)
-        findFriendsButton.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
-        findFriendsButton.addTarget(self, action: #selector(findFriendsButtonTapped), for: .touchUpInside)
-        let findFriendsBarButtonItem = UIBarButtonItem(customView: findFriendsButton)
-        navigationItem.leftBarButtonItem = findFriendsBarButtonItem
+
+		if shouldShowLeftBarButtonItem {
+			let findFriendsButton = UIButton(type: .custom)
+			findFriendsButton.setImage(UIImage(named: "people"), for: .normal)
+			findFriendsButton.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
+			findFriendsButton.addTarget(self, action: #selector(findFriendsButtonTapped), for: .touchUpInside)
+			let findFriendsBarButtonItem = UIBarButtonItem(customView: findFriendsButton)
+			navigationItem.leftBarButtonItem = findFriendsBarButtonItem
+		}
     }
     
     override func setupObservers() {
@@ -147,6 +150,13 @@ class HomeViewController: ViewController<HomeViewModel> {
             
             self.viewModel.inputs.commentButtonTapped.onNext(self.selectedActivity)
         }).disposed(by: viewModel.disposeBag)
+
+		viewModel.outputs.shouldShowNavigationBar.subscribe(onNext: { [weak self] isShowingActivities in
+			guard let self = self else { return }
+
+			self.isShowingActivities = isShowingActivities
+			self.setupNavogationBar(shouldShowLeftBarButtonItem: !isShowingActivities)
+		}).disposed(by: viewModel.disposeBag)
     }
     
     @objc func findFriendsButtonTapped() {
@@ -208,7 +218,6 @@ extension HomeViewController: UITableViewDataSource {
             if indexPath.section == 0 {
                 let cell = tableView.getCell(forType: GettingStartedHeaderCell.self)
                 return cell
-
             } else {
                 let cell = tableView.getCell(forType: GettingStartedCell.self)
                 cell.configure(gettingStartedItem: gettingStartedItems[indexPath.section - 1])
@@ -221,9 +230,12 @@ extension HomeViewController: UITableViewDataSource {
         selectedActivity = activity
 		cell.likeButtonTapped.take(1)
             .subscribe(onNext: { [weak self] in
-				guard let userId = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
-				let like = cell.activity.likes.first { $0.creator?.user_id == userId }
-				self?.viewModel.inputs.likeButtonTapped.onNext((activity, cell.activity.user_id, cell.activity.id, like?.id, cell.activity.isActivityLiked(userId: userId)))
+				guard let self = self, let userId = UserDefaults.standard.value(forKey: "UserID") as? String else { return }
+
+				if !self.isShowingActivities {
+					let like = cell.activity.likes.first { $0.creator?.user_id == userId }
+					self.viewModel.inputs.likeButtonTapped.onNext((activity, cell.activity.user_id, cell.activity.id, like?.id, cell.activity.isActivityLiked(userId: userId)))
+				}
             })
             .disposed(by: cell.disposeBag)
 
@@ -233,7 +245,7 @@ extension HomeViewController: UITableViewDataSource {
             })
             .disposed(by: cell.disposeBag)
 
-        cell.configure(withActivity: activity)
+		cell.configure(withActivity: activity)
         return cell
     }
 }

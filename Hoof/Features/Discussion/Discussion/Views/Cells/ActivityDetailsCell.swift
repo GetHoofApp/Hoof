@@ -104,6 +104,8 @@ class ActivityDetailsCell: UITableViewCell, Dequeueable {
     private lazy var athletesStackView: UIStackView = {
         let stackView = UIStackView(frame: .zero)
         stackView.axis = .horizontal
+		stackView.distribution = .fill
+		stackView.alignment = .center
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -112,7 +114,7 @@ class ActivityDetailsCell: UITableViewCell, Dequeueable {
     private lazy var athlete1ImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.image = #imageLiteral(resourceName: "fan1")
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -194,6 +196,7 @@ class ActivityDetailsCell: UITableViewCell, Dequeueable {
             likeButton.setImage(#imageLiteral(resourceName: "thumb-up"), for: .normal)
         }
         self.activity = activity
+		setupLikesView()
     }
     
     // MARK: - UIButton Action
@@ -237,12 +240,12 @@ private extension ActivityDetailsCell {
         contentView.addSubview(likeButton)
         contentView.addSubview(likesCountLabel)
         
-        athletesStackView.addArrangedSubview(athlete1ImageView)
-        athletesStackView.addArrangedSubview(athlete2ImageView)
-        athletesStackView.addArrangedSubview(athlete3ImageView)
-        athletesStackView.addArrangedSubview(athlete4ImageView)
-        athletesStackView.addArrangedSubview(athlete5ImageView)
-        athletesStackView.addArrangedSubview(athlete6ImageView)
+//        athletesStackView.addArrangedSubview(athlete1ImageView)
+//        athletesStackView.addArrangedSubview(athlete2ImageView)
+//        athletesStackView.addArrangedSubview(athlete3ImageView)
+//        athletesStackView.addArrangedSubview(athlete4ImageView)
+//        athletesStackView.addArrangedSubview(athlete5ImageView)
+//        athletesStackView.addArrangedSubview(athlete6ImageView)
         contentView.addSubview(athletesStackView)
     }
     
@@ -270,6 +273,20 @@ private extension ActivityDetailsCell {
             athletesStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
         ])
     }
+
+	func setupLikesView() {
+		self.athletesStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+		self.activity.likes.forEach { like in
+			self.athletesStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+
+//			athlete1ImageView.setContentHuggingPriority(.fittingSizeLevel, for: .horizontal)
+//			athlete1ImageView.setContentCompressionResistancePriority(.fittingSizeLevel, for: .horizontal)
+			self.athletesStackView.addArrangedSubview(athlete1ImageView)
+		}
+		let spacerView = UIView()
+		spacerView.setContentHuggingPriority(.defaultLow, for: .horizontal)
+		self.athletesStackView.addArrangedSubview(spacerView)
+	}
 }
 
 

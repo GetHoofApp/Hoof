@@ -192,7 +192,7 @@ class TrackingInterfaceController: WKInterfaceController {
         // End of match
         // Save the gpx file and send it to iPhone app to upload the activity to server
         let filename = defaultFilename(prefix: "second-half")
-        let gpxString = self.map.exportToGPXString()
+        let gpxString = map.exportToGPXString()
         GPXFileManager.save(filename, gpxContents: gpxString)
         
         gpxTrackingStatus = .paused
@@ -246,7 +246,9 @@ class TrackingInterfaceController: WKInterfaceController {
             print("[Debug]: gpx file doesn't exist")
             return
         }
-        
+
+		print("[DEBUG]: gpxFileName \(gpxFileInfo.fileName).gpx")
+
         DispatchQueue.global().async {
             print("[Debug]: activationState \(self.session?.activationState)")
             self.session?.transferFile(gpxFileInfo.fileURL, metadata: ["fileName": "\(gpxFileInfo.fileName).gpx"])
@@ -402,9 +404,9 @@ extension TrackingInterfaceController {
     ///
     func defaultFilename(prefix: String) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = prefix + "dd-MMM-yyyy-HHmm"
+        dateFormatter.dateFormat = "dd-MMM-yyyy-HHmm"
         print("fileName:" + dateFormatter.string(from: Date()))
-        return dateFormatter.string(from: Date())
+        return prefix + dateFormatter.string(from: Date())
     }
     
     func autorizeHealthKit() {

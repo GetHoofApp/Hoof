@@ -9,12 +9,17 @@
 import UIKit
 import Core
 import UpdateProfile
+import Home
 
 private final class ProfileDependencyProvider: DependencyProvider<EmptyDependency> {
         
     var updateProfileModuleBuilder: UpdateProfileModuleBuildable {
         UpdateProfileModuleBuilder()
     }
+
+	var homeModuleBuilder: HomeModuleBuildable {
+		HomeModuleBuilder()
+	}
 }
 
 public protocol ProfileModuleBuildable: ModuleBuildable {
@@ -30,7 +35,7 @@ public class ProfileModuleBuilder: Builder<EmptyDependency>, ProfileModuleBuilda
         registerUsecase()
         registerViewModel()
         registerView()
-        registerCoordinator(rootViewController: rootViewController, updateProfileModuleBuilder: dependencyProvider.updateProfileModuleBuilder)
+		registerCoordinator(rootViewController: rootViewController, updateProfileModuleBuilder: dependencyProvider.updateProfileModuleBuilder, homeModuleBuilder: dependencyProvider.homeModuleBuilder)
         
         guard let coordinator = container.resolve(ProfileCoordinator.self) else {
             return nil
@@ -74,14 +79,15 @@ private extension ProfileModuleBuilder {
         }
     }
     
-    func registerCoordinator(rootViewController: NavigationControllable? = nil, updateProfileModuleBuilder: UpdateProfileModuleBuildable) {
+	func registerCoordinator(rootViewController: NavigationControllable? = nil, updateProfileModuleBuilder: UpdateProfileModuleBuildable, homeModuleBuilder: HomeModuleBuildable) {
         container.register(ProfileCoordinator.self) { [weak self] in
             guard let viewController = self?.container.resolve(ProfileViewController.self) else {
                 return nil
             }
             
-            let coordinator = ProfileCoordinator(rootViewController: rootViewController, viewController: viewController, updateProfileModuleBuilder: updateProfileModuleBuilder)
+            let coordinator = ProfileCoordinator(rootViewController: rootViewController, viewController: viewController, updateProfileModuleBuilder: updateProfileModuleBuilder, homeModuleBuilder: homeModuleBuilder)
             coordinator.showUpdateProfile = viewController.viewModel.outputs.showUpdateProfile
+			coordinator.showActivities = viewController.viewModel.outputs.showActivities
             return coordinator
         }
     }

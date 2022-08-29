@@ -18,9 +18,9 @@ import FirebaseAuth
 public protocol HomeServiceFetching {
     func fetchAthleteActivties(userID: Int) -> Single<[Activity?]>
 	func fetchAthelteActivitiesTimeline(userID: String, lastVisibleUserId: String, limit: Int) -> Single<[AthleteActivity?]>
+	func fetchMyActivities(lastVisibleActivityId: String, limit: Int) -> Single<[AthleteActivity?]>
     func likePost(postUserID: String, userId: String, postID: String) -> Single<String?>
 	func unlikePost(userID: String, postID: String, likeId: String) -> Single<Bool>
-	func helloWorld()
 }
 
 public protocol HomeServicePerforming {
@@ -37,20 +37,12 @@ class HomeService: HomeServiceFetching {
 		self.session = session
     }
 
-	func helloWorld() {
-		lazy var functions = Functions.functions()
-		functions.httpsCallable("hello_world").call { result, error in
-			if let error = error as NSError? {
-				if error.domain == FunctionsErrorDomain {
-					let code = FunctionsErrorCode(rawValue: error.code)
-					let message = error.localizedDescription
-					let details = error.userInfo[FunctionsErrorDetailsKey]
-				}
-			}
-		}
-	}
-
 	func fetchAthelteActivitiesTimeline(userID: String, lastVisibleUserId: String, limit: Int) -> Single<[AthleteActivity?]> {
+
+
+		// Fetch last uploaded activity for this Athlete and merge it with the rest of timeline
+
+
 
 //		return Single.create { observer in
 //
@@ -80,6 +72,35 @@ class HomeService: HomeServiceFetching {
 		return Single.create { [unowned self] observer in
 
 			self.session.request(Router.fetchAthelteActivitiesTimeline(userID: userID, lastVisibleUserId: lastVisibleUserId, limit: limit)).responseJSON { response in
+				switch response.result {
+				case .success:
+					if let data = response.data {
+						do {
+							let json = try JSONDecoder().decode([AthleteActivity].self, from: data)
+							let activities = json
+							observer(.success(activities))
+						}
+						catch {
+							print("Error processing data \(error)")
+							observer(.success([]))
+						}
+					}
+				case  let .failure(error):
+					print("Error\(String(describing: error))")
+					observer(.error(error))
+				}
+			}
+
+			return Disposables.create()
+		}
+	}
+
+	func fetchMyActivities(lastVisibleActivityId: String, limit: Int) -> Single<[AthleteActivity?]> {
+		return Single.create { [unowned self] observer in
+
+			let uid = Auth.auth().currentUser?.uid ?? ""
+
+			self.session.request(Router.fetchAthelteActivities(userID: uid, lastVisibleActivityId:  lastVisibleActivityId, limit: limit)).responseJSON { response in
 				switch response.result {
 				case .success:
 					if let data = response.data {
@@ -206,7 +227,7 @@ class HomeService: HomeServiceFetching {
 						.collection("likes")
 						.document(newDocumentID).setData([
 							"user_id": userId,
-							"creator": documentSnapshot?.data()
+							"creator": documentSnapshot?.data() as Any
 						], merge: true) { error in
 							if let error = error {
 								print("Error writing document: \(error)")

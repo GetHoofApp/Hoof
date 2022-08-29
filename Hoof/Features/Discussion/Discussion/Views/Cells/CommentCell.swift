@@ -9,15 +9,14 @@ import UIKit
 import Core
 import GoogleMaps
 import GoogleMapsUtils
+import Kingfisher
 
 class CommentCell: UITableViewCell, Dequeueable {
     
     private var mapView: GMSMapView!
     
     private lazy var userImageView: UIImageView = {
-        let imageView = UIImageView(frame: .zero)
-        imageView.image = #imageLiteral(resourceName: "player5")
-        imageView.contentMode = .scaleAspectFill
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -67,6 +66,23 @@ class CommentCell: UITableViewCell, Dequeueable {
     
     func configure(with comment: AthleteActivityComment) {
         commentLabel.text = comment.text
+		userNameLabel.text = (comment.creator?.first_name ?? "") + " " + (comment.creator?.last_name ?? "")
+		let placeholder = #imageLiteral(resourceName: "athlete-placeholder")
+		if let photoURLString = comment.creator?.imageUrl, let photoURL = URL(string: photoURLString) {
+			let processor = RoundCornerImageProcessor(cornerRadius: 16, targetSize: CGSize(width: 32, height: 32))
+			userImageView.kf.indicatorType = .activity
+			userImageView.kf.setImage(
+				with: photoURL,
+				placeholder: placeholder,
+				options: [
+					.processor(processor),
+					.scaleFactor(UIScreen.main.scale),
+					.transition(.fade(1)),
+					.cacheOriginalImage
+				])
+		} else {
+			userImageView.image = placeholder
+		}
     }
 }
 

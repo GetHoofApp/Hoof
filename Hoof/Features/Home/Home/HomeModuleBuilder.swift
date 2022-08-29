@@ -25,19 +25,24 @@ private final class HomeDependencyProvider: DependencyProvider<EmptyDependency> 
 }
 
 public protocol HomeModuleBuildable: ModuleBuildable {
-    func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>?
+	func buildModule<T>(with rootViewController: NavigationControllable, isShowingActivities: Bool) -> Module<T>?
+	func buildModule<T>(with rootViewController: NavigationControllable, shouldDoSomethings: Bool) -> Module<T>?
 }
 
 public class HomeModuleBuilder: Builder<EmptyDependency>, HomeModuleBuildable {
 
-    public func buildModule<T>(with rootViewController: NavigationControllable) -> Module<T>? {
+	public func buildModule<T>(with rootViewController: NavigationControllable, shouldDoSomethings: Bool) -> Module<T>? {
+		return nil
+	}
+
+	public func buildModule<T>(with rootViewController: NavigationControllable, isShowingActivities: Bool) -> Module<T>? {
         let dependencyProvider = HomeDependencyProvider()
 
 		registerService(session: dependencyProvider.session)
         registerUsecase()
-        registerViewModel()
+        registerViewModel(isShowingActivities:isShowingActivities)
         registerView()
-        registerCoordinator(rootViewController: rootViewController, discussionModuleBuilder: dependencyProvider.discussionModuleBuilder, findFriendsModuleBuilder: dependencyProvider.findFriendsModuleBuilder)
+        registerCoordinator(rootViewController: rootViewController, discussionModuleBuilder: dependencyProvider.discussionModuleBuilder, findFriendsModuleBuilder: dependencyProvider.findFriendsModuleBuilder, isShowingActivities: isShowingActivities)
         
         guard let coordinator = container.resolve(HomeCoordinator.self) else {
             return nil
@@ -68,11 +73,11 @@ private extension HomeModuleBuilder {
         }
     }
     
-    func registerViewModel() {
+	func registerViewModel(isShowingActivities: Bool) {
         container.register(HomeViewModel.self) { [weak self] in
             guard let useCase = self?.container.resolve(HomeInteractable.self) else { return nil }
             
-            return HomeViewModel(useCase: useCase)
+            return HomeViewModel(useCase: useCase, isShowingActivities: isShowingActivities)
         }
     }
     
@@ -86,13 +91,13 @@ private extension HomeModuleBuilder {
         }
     }
     
-    func registerCoordinator(rootViewController: NavigationControllable? = nil, discussionModuleBuilder: DiscussionModuleBuildable, findFriendsModuleBuilder: FindFriendsModuleBuildable) {
+	func registerCoordinator(rootViewController: NavigationControllable? = nil, discussionModuleBuilder: DiscussionModuleBuildable, findFriendsModuleBuilder: FindFriendsModuleBuildable, isShowingActivities: Bool) {
         container.register(HomeCoordinator.self) { [weak self] in
             guard let viewController = self?.container.resolve(HomeViewController.self) else {
                 return nil
             }
             
-            let coordinator = HomeCoordinator(rootViewController: rootViewController, viewController: viewController, discussionModuleBuilder: discussionModuleBuilder, findFriendsModuleBuilder: findFriendsModuleBuilder)
+            let coordinator = HomeCoordinator(rootViewController: rootViewController, viewController: viewController, discussionModuleBuilder: discussionModuleBuilder, findFriendsModuleBuilder: findFriendsModuleBuilder, isShowingActivities: isShowingActivities)
             coordinator.showDiscussion = viewController.viewModel.outputs.showDiscussion
             coordinator.showFindFriends = viewController.viewModel.outputs.showFindFriends
             viewController.viewModel.updateComments = coordinator.updateComments

@@ -162,6 +162,18 @@ target 'SignIn' do
 	end
 end
 
+target 'Activities' do
+	project 'Features/Activities/Activities'
+	shared_pods
+	graphql
+	firebase
+
+	target 'ActivitiesTests' do
+		inherit! :search_paths
+		shared_pods
+	end
+end
+
 # Apps
 target 'Hoof' do
   # Pods for Hoof

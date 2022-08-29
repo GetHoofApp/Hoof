@@ -16,37 +16,64 @@ class HomeCoordinator: BaseCoordinator<Void> {
     private let viewController: UIViewController
     private let discussionModuleBuilder: DiscussionModuleBuildable
     private let findFriendsModuleBuilder: FindFriendsModuleBuildable
+	private let isShowingActivities: Bool
     
     var showDiscussion = PublishSubject<(AthleteActivity)>()
-    var updateComments = PublishSubject<[AthleteActivityComment]?>()
+    var updateComments = PublishSubject<AthleteActivity?>()
     var showFindFriends = PublishSubject<Void>()
     
-    init(rootViewController: NavigationControllable?, viewController: UIViewController, discussionModuleBuilder: DiscussionModuleBuildable, findFriendsModuleBuilder: FindFriendsModuleBuildable) {
+	init(rootViewController: NavigationControllable?, viewController: UIViewController, discussionModuleBuilder: DiscussionModuleBuildable, findFriendsModuleBuilder: FindFriendsModuleBuildable, isShowingActivities: Bool) {
         self.rootViewController = rootViewController
         self.viewController = viewController
         self.discussionModuleBuilder = discussionModuleBuilder
         self.findFriendsModuleBuilder = findFriendsModuleBuilder
+		self.isShowingActivities = isShowingActivities
     }
     
     override public func start() -> Observable<Void> {
-        rootViewController?.setViewControllers([viewController], animated: true)
-        
-        showDiscussion.subscribe { [weak self] event in
-            guard let self = self else { return }
-            
-            if let activity = event.element {
-                guard let rootViewController = self.rootViewController, let discussionCoordinator: BaseCoordinator<[AthleteActivityComment]?> = self.discussionModuleBuilder.buildModule(with: rootViewController, activity: activity)?.coordinator else {
-                    preconditionFailure("Cannot get signupModuleCoordinator from module builder")
-                }
-                
-                self.coordinate(to: discussionCoordinator).subscribe(onNext: { [weak self] comments in
-                    print("comments: \(comments)")
-                    guard let self = self else { return }
-                    
-                    self.updateComments.onNext((comments))
-                }).disposed(by: self.disposeBag)
-            }
-        }.disposed(by: disposeBag)
+		if isShowingActivities {
+			rootViewController?.pushViewController(viewController, animated: true)
+		} else {
+			rootViewController?.setViewControllers([viewController], animated: true)
+		}
+
+		showDiscussion.subscribe { activity in
+
+			guard let rootViewController = self.rootViewController, let discussionCoordinator: BaseCoordinator<AthleteActivity?> = self.discussionModuleBuilder.buildModule(with: rootViewController, activity: activity)?.coordinator else {
+				preconditionFailure("Cannot get signupModuleCoordinator from module builder")
+			}
+
+			self.coordinate(to: discussionCoordinator).subscribe(onNext: { [weak self] comments in
+				print("comments: \(comments)")
+				guard let self = self else { return }
+
+				self.updateComments.onNext((comments))
+			}).disposed(by: self.disposeBag)
+
+		} onError: { error in
+
+		} onCompleted: {
+
+		} onDisposed: {
+
+		}.disposed(by: disposeBag)
+
+//        showDiscussion.subscribe { [weak self] event in
+//            guard let self = self else { return }
+//
+//            if let activity = event.element {
+//                guard let rootViewController = self.rootViewController, let discussionCoordinator: BaseCoordinator<AthleteActivity?> = self.discussionModuleBuilder.buildModule(with: rootViewController, activity: activity)?.coordinator else {
+//                    preconditionFailure("Cannot get signupModuleCoordinator from module builder")
+//                }
+//
+//                self.coordinate(to: discussionCoordinator).subscribe(onNext: { [weak self] comments in
+//                    print("comments: \(comments)")
+//                    guard let self = self else { return }
+//
+//                    self.updateComments.onNext((comments))
+//                }).disposed(by: self.disposeBag)
+//            }
+//        }.disposed(by: disposeBag)
         
         showFindFriends.subscribe { [weak self] event in
             guard let self = self else { return }

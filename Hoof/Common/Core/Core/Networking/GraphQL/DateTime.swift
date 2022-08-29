@@ -23,7 +23,7 @@ extension DateTime: JSONDecodable {
             throw JSONDecodingError.couldNotConvert(value: value, to: String.self)
         }
         
-        guard let date = string.toDate(dateFormate: .yyyy_MM_dd_HH_mm_ss) else {
+        guard let date = string.toDate(dateFormate: .yyyy_MM_dd_HH_mm_ssZ) else {
             throw JSONDecodingError.couldNotConvert(value: value, to: Date.self)
         }
         

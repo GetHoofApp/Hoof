@@ -17,11 +17,13 @@ protocol ProfileViewModellable: ViewModellable {
 struct ProfileViewModelInputs {
 	var viewState = PublishSubject<ViewState>()
     var editProfileButtonTapped = PublishSubject<(profilePhotoURL: String?, firstName: String, lastName: String, gender: String?)>()
+	var activitiesCellTapped = PublishSubject<()>()
 }
 
 struct ProfileViewModelOutputs {
 	let viewData = PublishSubject<ProfileViewController.ViewData>()
     var showUpdateProfile = PublishSubject<(profilePhotoURL: String?, firstName: String, lastName: String, gender: String?)>()
+	var showActivities = PublishSubject<()>()
 }
 
 class ProfileViewModel: ProfileViewModellable {
@@ -46,6 +48,10 @@ private extension ProfileViewModel {
         inputs.editProfileButtonTapped.subscribe(onNext: { [weak self] (profilePhotoURL, firstName, lastName, gender) in
             self?.outputs.showUpdateProfile.onNext((profilePhotoURL: profilePhotoURL, firstName: firstName, lastName: lastName, gender: gender))
         }).disposed(by: disposeBag)
+
+		inputs.activitiesCellTapped.subscribe(onNext: { [weak self] in
+			self?.outputs.showActivities.onNext(())
+		}).disposed(by: disposeBag)
 
 		inputs.viewState.subscribe(onNext: { [weak self] state in
 			guard let self = self else { return }
